@@ -10,7 +10,7 @@ const modules=[
 ["B1","B1 Almanca","Çalışma ve tekrar","Aa","https://www.aydadil.com/b1ayda/"],
 ["exam","Sınava Hazırlan","ÖSD, TELC ve Goethe çalışmaları","✍","https://www.aydadil.com/sinavhazirlik/"],
 ["library","Dijital Kütüphane","PDF ve okuma kaynakları","▤","https://www.aydadil.com/bibliothek/"],
-["books","Ders Kitapları","Almanca kaynak kitapları","▣","https://www.aydadil.com/derskitaplari/"]
+["books","Ders Kitapları","Almanca kaynak kitapları","▣","https://www.aydadil.com/derskitaplari/"],
 ["contact","Kursa Mesaj At","Yardım ve iletişim","✉","https://wa.me/905372435123?text=Merhaba%2C%20AYDA%20%C3%B6%C4%9Frenci%20portal%C4%B1ndan%20yaz%C4%B1yorum."]];
 const levels=["A1","A2","B1","B2","C1"];const el=id=>document.getElementById(id);let selected=null;
 levels.forEach(l=>{const b=document.createElement("button");b.className="level";b.type="button";b.dataset.level=l;b.setAttribute("aria-pressed","false");b.append(document.createTextNode(l));const small=document.createElement("small");small.textContent=({A1:"Başlangıç",A2:"Temel",B1:"Orta",B2:"İleri",C1:"Yetkin"})[l];b.append(small);b.addEventListener("click",()=>{selected=l;document.querySelectorAll("[data-level]").forEach(n=>n.setAttribute("aria-pressed",String(n.dataset.level===l)));el("start").disabled=false});el("levels").append(b)});
