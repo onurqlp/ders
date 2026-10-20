@@ -1,0 +1,61 @@
+name: G0.3 Test Site QA (NO LIVE)
+on:
+  push:
+    branches:
+      - consolidation/test-stage-01-20261020
+    paths:
+      - 'test/**'
+      - '.github/workflows/g03-test-site-qa.yml'
+      - 'tools/consolidation/sources.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ayda-g03-preview-qa
+  cancel-in-progress: true
+
+jobs:
+  preview-regression:
+    if: github.ref == 'refs/heads/consolidation/test-stage-01-20261020'
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse any production branch
+        run: |
+          test "$GITHUB_REPOSITORY" = "onurqlp/ders"
+          test "$GITHUB_REF" = "refs/heads/consolidation/test-stage-01-20261020"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reverify all 22 imported sources before UI test
+        run: python3 tools/consolidation/verify_sources.py
+      - name: Install Chromium test dependency
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Start local preview server
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/ayda-g03-http.log 2>&1 &
+          for i in 1 2 3 4 5 6 7 8; do
+            if curl -fsS http://127.0.0.1:8765/test/index.html >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+      - name: Run G0.3 browser tests
+        run: node test/browser-smoke.mjs
+      - name: Archive desktop/mobile screenshots and test report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ayda-g03-preview-screenshots
+          path: |
+            test/qa/browser-results.json
+            test/qa/screenshots/*.png
+          if-no-files-found: ignore
+      - name: Confirm zero production deployments
+        run: |
+          echo 'QA completed. GitHub Pages main and WordPress production were not updated.'
