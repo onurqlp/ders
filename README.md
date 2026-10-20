@@ -16,8 +16,8 @@ Kurumsal öğrenci başlangıç noktası: `ders.aydadil.com`
 - Mevcut eğitim uygulamaları şimdilik bağımsız adreslerine açılır; içerikleri henüz fiziksel olarak taşınmamıştır.
 
 ## Dağıtım
-GitHub deposunun `main` dalı Vercel'e bağlanır. Her push otomatik prod dağıtımına dönüşür.
-Cloudflare'da `ders` CNAME kaydı Vercel'in proje alan adı yönergesine göre daha sonra yapılır; DNS yapılandırması tamamlanmadan `ders.aydadil.com` hazır sayılmaz.
+GitHub Pages için `.github/workflows/pages.yml` yayını hazırlanmıştır. **Settings → Pages → Build and deployment → Source: GitHub Actions** seçilmelidir. Sonrasında `main` dalına her push yeni yayını başlatır. Yayın adresi: `https://onurqlp.github.io/ders/` (Pages etkinleşince).
+Cloudflare DNS daha sonra `ders.aydadil.com` adresine bağlanacaktır. DNS ve Pages özel alan adı ayarları tamamlanmadan bu adres hazır sayılmaz.
 
 ## Geçiş sırası
 1. Merkezi şifre doğrulama servisini ve oturum yönetimini incele.
