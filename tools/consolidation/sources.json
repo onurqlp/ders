@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "target_repository": "onurqlp/ders",
+  "test_branch": "consolidation/test-stage-01-20261020",
+  "policy": {
+    "published_branch": "main",
+    "deploy_to_production": false,
+    "copy_all_tracked_source_files": true,
+    "source_repositories_read_only": true,
+    "remove_original_repositories": false,
+    "include_credentials": false
+  },
+  "sources": [
+    {
+      "repository": "onurqlp/A1ayda",
+      "folder": "sites/A1ayda",
+      "ref": "main",
+      "category": "course"
+    },
+    {
+      "repository": "onurqlp/a2ayda",
+      "folder": "sites/a2ayda",
+      "ref": "main",
+      "category": "course"
+    },
+    {
+      "repository": "onurqlp/b1ayda",
+      "folder": "sites/b1ayda",
+      "ref": "main",
+      "category": "course"
+    },
+    {
+      "repository": "onurqlp/sinavhazirlik",
+      "folder": "sites/sinavhazirlik",
+      "ref": "main",
+      "category": "exam-hub"
+    },
+    {
+      "repository": "onurqlp/bibliothek",
+      "folder": "sites/bibliothek",
+      "ref": "main",
+      "category": "library"
+    },
+    {
+      "repository": "onurqlp/derskitaplari",
+      "folder": "sites/derskitaplari",
+      "ref": "main",
+      "category": "materials"
+    },
+    {
+      "repository": "onurqlp/A1hazirlik",
+      "folder": "sites/A1hazirlik",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/telca2kelimelerr",
+      "folder": "sites/telca2kelimelerr",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/telchazirlik",
+      "folder": "sites/telchazirlik",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/osda1rehber",
+      "folder": "sites/osda1rehber",
+      "ref": "main",
+      "category": "exam-guide"
+    },
+    {
+      "repository": "onurqlp/osd_a1_ayda",
+      "folder": "sites/osd_a1_ayda",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/osda1denemeler",
+      "folder": "sites/osda1denemeler",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/osda1sprehcen",
+      "folder": "sites/osda1sprehcen",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/a2kelime",
+      "folder": "sites/a2kelime",
+      "ref": "main",
+      "category": "vocabulary"
+    },
+    {
+      "repository": "onurqlp/A2telc",
+      "folder": "sites/A2telc",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/a2telcmektup",
+      "folder": "sites/a2telcmektup",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/b1pruf",
+      "folder": "sites/b1pruf",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/c1prufer",
+      "folder": "sites/c1prufer",
+      "ref": "main",
+      "category": "exam"
+    },
+    {
+      "repository": "onurqlp/goethe-mi-osd-mi",
+      "folder": "sites/goethe-mi-osd-mi",
+      "ref": "main",
+      "category": "exam-guide"
+    },
+    {
+      "repository": "onurqlp/GENEL_SEVIYE_BELIRLEME",
+      "folder": "sites/GENEL_SEVIYE_BELIRLEME",
+      "ref": "main",
+      "category": "placement"
+    },
+    {
+      "repository": "onurqlp/SEVIYEBELIRLEME",
+      "folder": "sites/SEVIYEBELIRLEME",
+      "ref": "main",
+      "category": "placement"
+    },
+    {
+      "repository": "onurqlp/TEKRARLAR",
+      "folder": "sites/TEKRARLAR",
+      "ref": "main",
+      "category": "revision"
+    }
+  ]
+}
