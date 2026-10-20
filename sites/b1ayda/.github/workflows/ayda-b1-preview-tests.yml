@@ -1,0 +1,49 @@
+name: AYDA B1 Preview Quality Gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'preview/**'
+      - 'index.html'
+      - 'express/**'
+      - 'b1-express-shortcut.js'
+      - 'scripts/smoke-b1-express.cjs'
+      - 'scripts/check-b1-integrity.mjs'
+      - 'scripts/smoke-b1.cjs'
+      - '.github/workflows/ayda-b1-preview-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-b1-preview:
+    name: Content and mobile UX
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify all original course material is untouched
+        run: node scripts/check-b1-integrity.mjs
+      - name: Install headless browser driver
+        run: npm install --no-save --no-package-lock puppeteer-core@24
+      - name: Test 24 units and compact mobile flow
+        run: node scripts/smoke-b1.cjs
+      - name: Validate B1 Express assets and original question bank
+        run: |
+          node --check express/course-data.js
+          node --check express/express.js
+          node --check b1-express-shortcut.js
+          node scripts/build-b1-express-data.mjs
+          git diff --exit-code -- express/course-data.js
+      - name: Test B1 Express workbook on phone and desktop
+        run: node scripts/smoke-b1-express.cjs
+      - name: Preserve mobile preview screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ayda-b1-mobile-smoke
+          path: screenshots/ayda-b1-mobile.png
+          if-no-files-found: ignore
+          retention-days: 3

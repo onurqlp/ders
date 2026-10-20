@@ -1,0 +1,42 @@
+name: G6 Textbook Preview Chrome QA
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/g6-preview-check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - run: python -m pip install selenium
+      - name: Validate G6 preview desktop and mobile
+        run: |
+          mkdir -p /tmp/g6
+          python - <<'PY'
+          import json,time
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          opt=Options()
+          for x in ['--headless=new','--no-sandbox','--disable-dev-shm-usage']:opt.add_argument(x)
+          d=webdriver.Chrome(options=opt)
+          try:
+            for name,w,h in [('desktop',1440,900),('mobile',390,844)]:
+              d.set_window_size(w,h)
+              d.get('https://onurqlp.github.io/derskitaplari/g6-onizleme/?qa='+str(time.time()))
+              time.sleep(8)
+              x=d.execute_script("""const logo=document.querySelector('.g6-logo img');return {title:document.title,header:!!document.querySelector('.g6-site-header'),logo:!!logo&&logo.complete&&logo.naturalWidth>0,logoWidth:logo?.getBoundingClientRect().width,materials:document.querySelectorAll('.material-card').length,search:!!document.querySelector('#searchInput'),filter:document.querySelectorAll('.type-chip').length,overflow:document.documentElement.scrollWidth-innerWidth}""")
+              print(json.dumps({'screen':name,'checks':x},ensure_ascii=False),flush=True)
+              d.save_screenshot('/tmp/g6/'+name+'.png')
+              assert x['header'] and x['logo'] and x['logoWidth']>70 and x['materials']==36 and x['search'] and x['filter']>=5 and x['overflow']<=4
+            print('G6_PREVIEW_OK',flush=True)
+          finally:d.quit()
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g6-preview-screenshots
+          path: /tmp/g6/*.png
+          retention-days: 7

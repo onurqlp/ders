@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6546b5">
+<meta name="mobile-web-app-capable" content="yes">
+<title>telc C1–C2 Prüfer Schulung</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{
+  --bg:#f7f7fb;--card:#fff;--text:#171923;--muted:#687083;--line:#e4e6ed;
+  --accent:#6546b5;--accent-soft:#eee9fb;--good:#1f7a50;--warn:#9a6700;--bad:#b42318;
+  --radius:18px;--safe-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.48;-webkit-text-size-adjust:100%}
+button,input,select,textarea{font:inherit;font-size:16px}
+button{touch-action:manipulation}
+.app{max-width:960px;margin:0 auto;padding:0 12px 104px}
+.hero{padding:18px 2px 10px}
+.hero-top{display:flex;align-items:center;gap:10px}
+.logo{width:42px;height:42px;border-radius:13px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:900}
+.hero h1{font-size:1.34rem;line-height:1.15;margin:0;letter-spacing:-.02em}
+.hero p{margin:5px 0 0;color:var(--muted);font-size:.9rem}
+.alert{background:#fff8e6;border:1px solid #f4d38a;border-radius:14px;padding:12px 13px;margin:10px 0;font-size:.91rem}
+.alert b{color:#7a4d00}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px;margin:10px 0}
+.card h2{font-size:1.05rem;margin:0 0 10px}
+.card h3{font-size:.96rem;margin:14px 0 7px}
+.muted{color:var(--muted);font-size:.86rem}
+.mini-tr{color:var(--muted);font-size:.82rem;margin-top:4px}
+.de{font-weight:700}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tag{font-size:.72rem;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--accent-soft);color:#51369c}
+.level-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.level-switch button,.seg button{min-height:44px;border:1px solid var(--line);background:#fff;border-radius:12px;font-weight:800}
+.level-switch button.active,.seg button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.grid2{display:grid;grid-template-columns:1fr;gap:10px}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.quick .tile{border:1px solid var(--line);border-radius:14px;padding:11px;background:#fcfcfe;min-width:0}
+.quick b{display:block;font-size:.88rem}
+.quick span{font-size:.78rem;color:var(--muted)}
+.crit-list{display:grid;gap:8px}
+.crit{border:1px solid var(--line);border-radius:14px;padding:11px}
+.crit-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.crit-title{font-weight:850}
+.crit .tr{font-size:.82rem;color:var(--muted);margin-top:3px}
+select,input,textarea{width:100%;border:1px solid #d7dae3;border-radius:12px;padding:11px 12px;background:#fff;color:var(--text)}
+textarea{min-height:105px;resize:vertical}
+label{display:block;font-size:.82rem;font-weight:800;margin:10px 0 5px}
+.phrase{border:1px solid var(--line);border-radius:14px;padding:11px 12px;margin:8px 0;background:#fff}
+.phrase-actions{display:flex;justify-content:flex-end;margin-top:8px}
+.small-btn,.primary,.ghost{min-height:42px;border-radius:12px;padding:9px 12px;border:1px solid var(--line);background:#fff;font-weight:800}
+.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ghost{background:#fff}
+.rating{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.rating button{min-height:48px;border:1px solid var(--line);background:#fff;border-radius:13px;font-weight:900;font-size:1rem}
+.rating button.active{background:var(--accent);color:white;border-color:var(--accent)}
+.output{background:#141824;color:#fff;border-radius:15px;padding:13px;min-height:96px;white-space:pre-wrap;font-size:.9rem}
+.tip{border-left:4px solid var(--accent);padding:8px 10px;background:#faf9fe;border-radius:0 12px 12px 0;font-size:.88rem}
+.warn-list{display:grid;gap:8px}
+.warn-item{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:10px}
+.ico{font-size:1.05rem;line-height:1.3}
+.flash{border:1px solid var(--line);border-radius:14px;padding:11px;margin:8px 0}
+.flash button{margin-top:8px;min-height:40px;border:1px solid var(--line);background:#fff;border-radius:11px;padding:8px 10px;font-weight:800}
+.answer{display:none;margin-top:8px;color:#30384a}
+.answer.show{display:block}
+.search{position:sticky;top:0;z-index:8;background:rgba(247,247,251,.96);backdrop-filter:blur(10px);padding:8px 0 6px}
+.bottom-nav{
+ position:fixed;left:50%;transform:translateX(-50%);bottom:0;z-index:20;
+ width:min(960px,100%);background:rgba(255,255,255,.97);backdrop-filter:blur(12px);
+ border-top:1px solid var(--line);padding:7px 8px calc(7px + var(--safe-bottom));
+ display:grid;grid-template-columns:repeat(5,1fr);gap:4px
+}
+.bottom-nav button{border:0;background:transparent;border-radius:12px;min-height:52px;padding:5px 2px;color:#555e70;font-size:.7rem;font-weight:800}
+.bottom-nav button span{display:block;font-size:1.12rem;margin-bottom:2px}
+.bottom-nav button.active{background:var(--accent-soft);color:#4d3491}
+.page{display:none}
+.page.active{display:block}
+.check{display:flex;gap:9px;align-items:flex-start;margin:9px 0}
+.check input{width:auto;margin-top:3px;transform:scale(1.15)}
+details{border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin:8px 0;background:#fff}
+summary{font-weight:850;cursor:pointer}
+.hr{height:1px;background:var(--line);margin:13px 0}
+@media(min-width:760px){
+ .app{padding:0 18px 110px}
+ .grid2{grid-template-columns:1fr 1fr}
+ .quick{grid-template-columns:repeat(4,1fr)}
+ .hero h1{font-size:1.65rem}
+ .card{padding:18px}
+}
+
+.exercise-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.exercise-score{font-size:.78rem;font-weight:850;background:#f2f0f8;border:1px solid var(--line);padding:5px 8px;border-radius:999px}
+.exercise-box{border:1px solid var(--line);border-radius:15px;padding:12px;background:#fcfcfe;margin-top:10px}
+.exercise-q{font-weight:800;margin-bottom:10px}
+.options{display:grid;gap:8px}
+.options button{width:100%;min-height:46px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;font-weight:750}
+.options button.correct{border-color:#79b99a;background:#edf8f2;color:#155b38}
+.options button.wrong{border-color:#e4a7a3;background:#fff0ef;color:#9b241d}
+.feedback{margin-top:10px;padding:9px 10px;border-radius:12px;background:#f5f6f9;font-size:.86rem;display:none}
+.feedback.show{display:block}
+.practice-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.practice-tabs button{min-height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:.82rem;font-weight:850}
+.practice-tabs button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.progressbar{height:8px;background:#eceef3;border-radius:99px;overflow:hidden;margin-top:8px}
+.progressbar > div{height:100%;width:0;background:var(--accent);transition:width .2s ease}
+.timer{font-size:2rem;font-weight:900;text-align:center;letter-spacing:-.04em;margin:8px 0}
+.timer.low{color:var(--bad)}
+.model-answer{display:none;margin-top:10px;border-left:4px solid var(--accent);background:#faf9fe;padding:10px 12px;border-radius:0 12px 12px 0}
+.model-answer.show{display:block}
+.word-chip{display:inline-block;margin:3px 3px 3px 0;padding:5px 8px;border-radius:999px;background:#f2f0f8;font-size:.78rem;font-weight:800}
+.micro-note{font-size:.78rem;color:var(--muted)}
+
+
+.readiness{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:12px;margin:10px 0;background:#fcfcfe}
+.readiness-num{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);font-size:1.25rem;font-weight:900;color:#4e3495}
+.readiness-bar{height:9px;background:#eceef3;border-radius:99px;overflow:hidden;margin-top:7px}
+.readiness-bar>div{height:100%;background:var(--accent);width:0;transition:width .2s ease}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.mode-grid button{min-height:48px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:.79rem;font-weight:850;padding:8px}
+.mode-grid button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.case-obs{margin:8px 0;padding:10px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.case-row{display:grid;grid-template-columns:1.2fr repeat(4,.55fr);gap:5px;align-items:center;margin:6px 0}
+.case-row .lab{font-size:.78rem;font-weight:800;min-width:0}
+.case-row button{min-height:40px;border:1px solid var(--line);background:#fff;border-radius:9px;font-weight:850;padding:4px}
+.case-row button.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+.case-row button.good{background:#edf8f2;color:#155b38;border-color:#79b99a}
+.case-row button.bad{background:#fff0ef;color:#9b241d;border-color:#e4a7a3}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.statbox{border:1px solid var(--line);border-radius:12px;padding:9px;background:#fff}
+.statbox b{display:block;font-size:.82rem}.statbox span{font-size:.76rem;color:var(--muted)}
+.glossary-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.glossary-item{border:1px solid var(--line);border-radius:11px;padding:8px;background:#fff}
+.glossary-item b{font-size:.79rem}.glossary-item div{font-size:.73rem;color:var(--muted)}
+.mock-final{text-align:center;padding:16px}.mock-final .big{font-size:2.2rem;font-weight:900}
+@media(min-width:760px){.mode-grid{grid-template-columns:repeat(4,1fr)}.statgrid{grid-template-columns:repeat(4,1fr)}.glossary-grid{grid-template-columns:repeat(3,1fr)}}
+
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="hero">
+    <div class="hero-top">
+      <div class="logo">C</div>
+      <div>
+        <h1>telc C1–C2 Prüfer Schulung</h1>
+        <p>Kişisel mobil çalışma · yoğun Schulung provası + M10 + Redemittel</p>
+      </div>
+    </div>
+    <div class="alert"><b>En önemli kural:</b> Adayı hisle veya diğer adayla değil, <b>GER + telc kriterlerine göre</b> değerlendir.</div>
+  </header>
+
+  <div class="search">
+    <input id="globalSearch" type="search" placeholder="Kelime / Redemittel ara… örn. Flüssigkeit">
+  </div>
+
+  <section class="page active" data-page="home">
+    <div class="card">
+      <div class="section-title"><h2>Bugün kesin bil</h2><span class="tag">Hızlı tekrar</span></div>
+      <div class="level-switch" id="homeLevel">
+        <button class="active" data-level="C1">C1</button>
+        <button data-level="C2">C2</button>
+      </div>
+      <div id="levelCore" style="margin-top:11px"></div>
+    </div>
+
+    <div class="card">
+      <h2>5 değerlendirme kriteri</h2>
+      <div class="crit-list">
+        <div class="crit"><div class="crit-top"><span class="crit-title">1. Aufgabengerechtheit</span><span class="tag">Görev</span></div><div class="tr">Görevi yerine getiriyor mu, aktif mi, yapı ve muhatap uygun mu?</div></div>
+        <div class="crit"><div class="crit-top"><span class="crit-title">2. Flüssigkeit</span><span class="tag">Akıcılık</span></div><div class="tr">Tempo dengeli mi, duraksamalar iletişimi bozuyor mu?</div></div>
+        <div class="crit"><div class="crit-top"><span class="crit-title">3. Repertoire</span><span class="tag">Dil repertuvarı</span></div><div class="tr">Kelime ve yapı çeşitliliği hedef seviyeye uygun mu?</div></div>
+        <div class="crit"><div class="crit-top"><span class="crit-title">4. Grammatische Richtigkeit</span><span class="tag">Gramer</span></div><div class="tr">Syntax / Morphologie kontrolü nasıl?</div></div>
+        <div class="crit"><div class="crit-top"><span class="crit-title">5. Aussprache und Intonation</span><span class="tag">Telaffuz</span></div><div class="tr">Açık, doğal ve anlaşılır mı? Tonlama uygun mu?</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Sınav formatı – hızlı bakış</h2>
+      <div class="grid2">
+        <div class="tip"><b>C1:</b> 20 dk hazırlık · 1A Präsentation · 1B Zusammenfassung + Anschlussfragen · 2 Diskussion. Paarprüfung yaklaşık 16 dk.</div>
+        <div class="tip"><b>C2:</b> 20 dk hazırlık · 1 Vortrag 6–8 dk · 2 Vertiefendes Gespräch 7–9 dk · Einzelprüfung yaklaşık 15 dk.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" data-page="phrases">
+    <div class="card">
+      <div class="section-title"><h2>Redemittel bankası</h2><span class="tag">Schulung için</span></div>
+      <p class="muted">Almanca cümle ana metin; Türkçe sadece kısa anlam desteği.</p>
+      <div class="grid2">
+        <div><label>Niveau</label><select id="levelSel"><option>C1</option><option>C2</option></select></div>
+        <div><label>Kriter</label><select id="critSel">
+          <option>Aufgabengerechtheit</option><option>Flüssigkeit</option><option>Repertoire</option><option>Grammatische Richtigkeit</option><option>Aussprache und Intonation</option>
+        </select></div>
+      </div>
+      <div id="phrases"></div>
+    </div>
+
+    <div class="card">
+      <h2>Her videoda kullanabileceğin 8 kurtarıcı cümle</h2>
+      <div class="phrase"><div class="de">„Das entspricht weitgehend dem Zielniveau.“</div><div class="mini-tr">Hedef seviyeyi büyük ölçüde karşılıyor.</div></div>
+      <div class="phrase"><div class="de">„Die Leistung ist in diesem Kriterium überzeugend.“</div><div class="mini-tr">Bu kriterde performans güçlü.</div></div>
+      <div class="phrase"><div class="de">„Allerdings zeigt sich gelegentlich eine Einschränkung bei …“</div><div class="mini-tr">Ancak zaman zaman … alanında sınırlılık var.</div></div>
+      <div class="phrase"><div class="de">„Für eine A-Bewertung fehlt mir noch …“</div><div class="mini-tr">A için bence hâlâ … eksik.</div></div>
+      <div class="phrase"><div class="de">„Das fällt meines Erachtens eher unter Repertoire als unter Grammatik.“</div><div class="mini-tr">Bence bu gramerden çok Repertoire kriterine giriyor.</div></div>
+      <div class="phrase"><div class="de">„Die Kommunikation bleibt trotz einzelner Fehler insgesamt stabil.“</div><div class="mini-tr">Tekil hatalara rağmen iletişim genel olarak stabil.</div></div>
+      <div class="phrase"><div class="de">„Deshalb würde ich hier B vergeben.“</div><div class="mini-tr">Bu nedenle burada B verirdim.</div></div>
+      <div class="phrase"><div class="de">„Insgesamt sehe ich die Leistung zwischen B und C, mit Tendenz zu B.“</div><div class="mini-tr">Genel olarak B–C arası, B’ye yakın.</div></div>
+    </div>
+    <div class="card">
+      <h2>Prüferler arası tartışma için Redemittel</h2>
+      <div class="phrase"><div class="de">„Ich sehe das etwas anders. Für mich spricht das eher für B, weil …“</div><div class="mini-tr">Biraz farklı görüyorum; bence … nedeniyle B’ye daha yakın.</div></div>
+      <div class="phrase"><div class="de">„Bei der Flüssigkeit bin ich bei B, beim Repertoire eher bei C.“</div><div class="mini-tr">Kriterleri ayrı konuşmak için.</div></div>
+      <div class="phrase"><div class="de">„Ich würde diese Beobachtung eher dem Repertoire als der Grammatik zuordnen.“</div><div class="mini-tr">Bunu gramerden çok repertuvara koyardım.</div></div>
+      <div class="phrase"><div class="de">„Ich würde denselben Fehler nicht doppelt werten.“</div><div class="mini-tr">Aynı hatayı iki kez değerlendirmezdim.</div></div>
+      <div class="phrase"><div class="de">„Für A fehlt mir die durchgängige Stabilität; B erscheint mir angemessener.“</div><div class="mini-tr">A için süreklilik eksik; B daha uygun.</div></div>
+      <div class="phrase"><div class="de">„Insgesamt ist das für mich noch zielniveaugerecht.“</div><div class="mini-tr">Genel olarak hâlâ hedef seviyeye uygun.</div></div>
+      <div class="phrase"><div class="de">„Welche konkrete Beobachtung spricht für C?“</div><div class="mini-tr">C’yi destekleyen somut gözlem ne?</div></div>
+      <div class="phrase"><div class="de">„Ich würde zwischen der inhaltlichen und der sprachlichen Angemessenheit klar unterscheiden.“</div><div class="mini-tr">İçerik ve dilsel uygunluğu net ayırırdım.</div></div>
+    </div>
+
+  </section>
+
+  <section class="page" data-page="evaluate">
+    <div class="card">
+      <div class="section-title"><h2>Video değerlendirme pratiği</h2><span class="tag">30 saniye yöntemi</span></div>
+      <p class="muted">1) Gözlem → 2) Kriter → 3) Hedef seviye → 4) A/B/C/D + tek cümle.</p>
+
+      <div class="grid2">
+        <div><label>Niveau</label><select id="simLevel"><option>C1</option><option>C2</option></select></div>
+        <div><label>Prüfungsteil</label><select id="partSel"></select></div>
+      </div>
+
+      <label>Kriter</label>
+      <select id="simCrit">
+        <option>Aufgabengerechtheit</option><option>Flüssigkeit</option><option>Repertoire</option><option>Grammatische Richtigkeit</option><option>Aussprache und Intonation</option>
+      </select>
+
+      <label>Ne gözlemledin?</label>
+      <textarea id="obs" placeholder="Örn: wenige Suchpausen, gute Verknüpfungen, Position klar begründet…"></textarea>
+
+      <label>A–D</label>
+      <div class="rating" id="rating">
+        <button type="button" data-r="A">A</button><button type="button" data-r="B">B</button><button type="button" data-r="C">C</button><button type="button" data-r="D">D</button>
+      </div>
+
+      <label>Kısa Almanca gerekçen</label>
+      <textarea id="reason" placeholder="Örn: Die Kommunikation wirkt weitgehend natürlich; es gibt nur wenige Stockungen."></textarea>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <button type="button" class="primary" id="buildBtn">Kısa yorum oluştur</button>
+        <button type="button" class="ghost" id="clearBtn">Temizle</button>
+      </div>
+      <h3>Çıktı</h3>
+      <div class="output" id="out" aria-live="polite">Henüz değerlendirme yok.</div>
+    </div>
+
+    <div class="card">
+      <h2>Hazır karar kalıpları</h2>
+      <details><summary>A vermek için</summary><p class="de">„Die Leistung entspricht in diesem Kriterium (fast) durchgängig dem Zielniveau.“</p><p class="mini-tr">Bu kriterde hedef seviyeyi neredeyse sürekli karşılıyor.</p></details>
+      <details><summary>B vermek için</summary><p class="de">„Die Leistung entspricht weitgehend dem Zielniveau, mit wenigen erkennbaren Einschränkungen.“</p><p class="mini-tr">Genel olarak hedefe uygun, az sayıda sınırlılık var.</p></details>
+      <details><summary>C vermek için</summary><p class="de">„Die Anforderungen werden nur teilweise erfüllt; mehrere Merkmale des Zielniveaus fehlen.“</p><p class="mini-tr">Gereklilikler kısmen karşılanıyor; hedef seviyenin bazı özellikleri eksik.</p></details>
+      <details><summary>D vermek için</summary><p class="de">„Die Leistung entspricht den Anforderungen in diesem Kriterium kaum.“</p><p class="mini-tr">Bu kriterde gereklilikleri neredeyse karşılamıyor.</p></details>
+    </div>
+  </section>
+
+  <section class="page" data-page="warnings">
+    <div class="card">
+      <div class="section-title"><h2>Bilmen gereken uyarılar</h2><span class="tag">Sık hata</span></div>
+      <div class="warn-list">
+        <div class="warn-item"><div class="ico">⚠️</div><div><b>C1/C2 = hatasız / Muttersprachler değil.</b><div class="mini-tr">Özellikle telaffuzda ana dil seviyesi bekleme.</div></div></div>
+        <div class="warn-item"><div class="ico">⚠️</div><div><b>Natürliches Zögern ≠ automatisch schlechte Flüssigkeit.</b><div class="mini-tr">Doğal düşünme duraklamasını hemen puan kırma nedeni yapma.</div></div></div>
+        <div class="warn-item"><div class="ico">⚠️</div><div><b>Uzun konuşmak = iyi Aufgabengerechtheit değildir.</b><div class="mini-tr">Görev gerçekten yerine gelmiş mi ona bak.</div></div></div>
+        <div class="warn-item"><div class="ico">⚠️</div><div><b>Aynı hatayı iki kriterde iki kez cezalandırma.</b><div class="mini-tr">Önce hatanın hangi kritere ait olduğunu belirle.</div></div></div>
+        <div class="warn-item"><div class="ico">⚠️</div><div><b>Adayları birbirleriyle kıyaslama.</b><div class="mini-tr">Her adayı hedef seviye ve deskriptorlarla kıyasla.</div></div></div>
+        <div class="warn-item"><div class="ico">⚠️</div><div><b>Flüssigkeit = hızlı konuşmak değildir.</b><div class="mini-tr">Önemli olan doğal, dengeli ve sürdürülebilir akış.</div></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Prüfer rolü – kısa kontrol</h2>
+      <div class="check"><input type="checkbox"><div><b>freundlich, neutral, professionell</b><div class="mini-tr">güler yüzlü, tarafsız, profesyonel</div></div></div>
+      <div class="check"><input type="checkbox"><div><b>so wenig wie möglich sprechen</b><div class="mini-tr">mümkün olduğunca az konuş</div></div></div>
+      <div class="check"><input type="checkbox"><div><b>offene Fragen stellen</b><div class="mini-tr">açık uçlu soru sor</div></div></div>
+      <div class="check"><input type="checkbox"><div><b>gleiche Chancen / Redeanteile</b><div class="mini-tr">eşit konuşma fırsatı ver</div></div></div>
+      <div class="check"><input type="checkbox"><div><b>kriterienorientiert bewerten</b><div class="mini-tr">kriterlere göre değerlendir</div></div></div>
+    </div>
+
+    <div class="card">
+      <h2>Lizenzierungskriterien</h2>
+      <div class="check"><input type="checkbox"><div>Erfüllung aller Teilnahmevoraussetzungen<div class="mini-tr">Tüm katılım ön koşullarını karşılamak</div></div></div>
+      <div class="check"><input type="checkbox"><div>Gültiger amtlicher Lichtbildausweis<div class="mini-tr">Geçerli resmi fotoğraflı kimlik</div></div></div>
+      <div class="check"><input type="checkbox"><div>Vollständige Teilnahme<div class="mini-tr">Eğitime eksiksiz katılım</div></div></div>
+      <div class="check"><input type="checkbox"><div>Aktive und sachgerechte Beteiligung<div class="mini-tr">Aktif ve konuya uygun katılım</div></div></div>
+      <div class="check"><input type="checkbox"><div>Kriteriengerechte Bewertung<div class="mini-tr">Kriterlere uygun değerlendirme</div></div></div>
+      <div class="check"><input type="checkbox"><div>Rollenkompetenz als Prüfer:in<div class="mini-tr">Prüfer rolünü doğru gösterebilmek</div></div></div>
+    </div>
+  </section>
+
+  <section class="page" data-page="practice">
+    <div class="card">
+      <div class="exercise-head">
+        <div>
+          <h2 style="margin:0">Yoğun Alıştırma</h2>
+          <div class="muted">Schulung provası: kriter, A–D, rol, format, Redemittel ve tam vaka.</div>
+        </div>
+        <div class="exercise-score" id="exerciseScore">0 / 0</div>
+      </div>
+
+      <div class="readiness">
+        <div class="readiness-num" id="readinessNum">—</div>
+        <div>
+          <b>Hazırlık göstergesi</b>
+          <div class="mini-tr" id="readinessText">En az 30 cevap sonrası daha anlamlı olur.</div>
+          <div class="readiness-bar"><div id="readinessBar"></div></div>
+        </div>
+      </div>
+
+      <div class="mode-grid" id="practiceTabs">
+        <button type="button" class="active" data-mode="criterion">1 · Kriteri bul</button>
+        <button type="button" data-mode="level">2 · B2/C1/C2</button>
+        <button type="button" data-mode="rating">3 · A–D seç</button>
+        <button type="button" data-mode="format">4 · Format & Rol</button>
+        <button type="button" data-mode="pitfalls">5 · Fallstricke</button>
+        <button type="button" data-mode="phrase">6 · Redemittel</button>
+        <button type="button" data-mode="cases">7 · Mini-video / M10</button>
+        <button type="button" data-mode="sprint">8 · 30 sn yorum</button>
+        <button type="button" data-mode="mock">9 · Schulung denemesi</button>
+        <button type="button" data-mode="cards">10 · Soru kartları</button>
+      </div>
+
+      <div class="progressbar"><div id="exerciseProgress"></div></div>
+      <div id="exerciseArea"></div>
+    </div>
+
+    <div class="card">
+      <h2>Çalışma sırası</h2>
+      <div class="quick">
+        <div class="tile"><b>1. Önce kriter</b><span>Kriteri düşünmeden 2–3 saniyede seçebilir hale gel.</span></div>
+        <div class="tile"><b>2. Sonra A–D</b><span>Rubrik dilini otomatikleştir: durchgängig / weitgehend / teilweise / kaum.</span></div>
+        <div class="tile"><b>3. Mini-video</b><span>Beş kriteri ayrı puanla; aynı hatayı iki kez cezalandırma.</span></div>
+        <div class="tile"><b>4. Sesli yorum</b><span>15–30 saniye: Kriter → Beobachtung → Bewertung.</span></div>
+      </div>
+      <div class="alert" style="margin-top:10px"><b>Hazır olma hedefi:</b> Schulung denemesinde ≥ %80 ve 30 saniyelik yorumlarda model cevaba bakmadan akıcı iki cümle.</div>
+    </div>
+
+    <div class="card">
+      <h2>Mini Schulung sözlüğü</h2>
+      <p class="muted">Bilmediğin kelime yüzünden yorumun durmasın. Türkçeler özellikle kısa tutuldu.</p>
+      <div class="glossary-grid" id="glossaryGrid"></div>
+    </div>
+  </section>
+</div>
+
+<nav class="bottom-nav" aria-label="Ana menü">
+  <button class="active" type="button" data-go="home"><span>🏠</span>Özet</button>
+  <button type="button" data-go="phrases"><span>💬</span>Redemittel</button>
+  <button type="button" data-go="practice"><span>🧩</span>Alıştırma</button>
+  <button type="button" data-go="evaluate"><span>🎯</span>Değerlendir</button>
+  <button type="button" data-go="warnings"><span>⚠️</span>Uyarılar</button>
+</nav>
+
+<script>
+const app=document.getElementById('app');
+const levelData={
+ C1:{
+  title:'C1 = flüssig · spontan · flexibel · detailliert · strukturiert',
+  tr:'Akıcı, spontan, esnek, detaylı ve iyi yapılandırılmış iletişim.',
+  bullets:[
+   ['Mündliche Produktion','Komplexe Sachverhalte klar und detailliert darstellen.','Karmaşık konuları açık ve detaylı anlatır.'],
+   ['Mündliche Interaktion','Beinahe mühelos spontan und fließend reagieren.','Neredeyse zorlanmadan spontan ve akıcı etkileşim.'],
+   ['Grammatik','Hohes Maß an Korrektheit; Fehler selten, v. a. in komplexen Strukturen.','Yüksek gramer kontrolü; hatalar az ve daha çok karmaşık yapılarda.'],
+   ['Repertoire','Großer Wortschatz; Umschreibungen bei Lücken möglich.','Geniş kelime hazinesi; gerektiğinde dolaylı anlatım kullanabilir.']
+  ]
+ },
+ C2:{
+  title:'C2 = sehr flüssig · präzise · flexibel · nahezu mühelos · nuanciert',
+  tr:'Çok akıcı, hassas, esnek, neredeyse zahmetsiz ve nüanslı iletişim.',
+  bullets:[
+   ['Mündliche Produktion','Klar, flüssig und logisch strukturiert; wichtige Punkte gezielt hervorheben.','Açık, akıcı ve mantıklı; önemli noktaları bilinçli vurgular.'],
+   ['Mündliche Interaktion','Idiomatiche Wendungen, Konnotationen und feine Bedeutungsnuancen sicher nutzen.','Deyimsel ifadeler ve ince anlam farklarını güvenli kullanır.'],
+   ['Grammatik','Auch bei komplexen Sprachmitteln kaum Fehler.','Karmaşık yapılarda bile çok az hata.'],
+   ['Aussprache','Klar und natürlich; Intonation kann Bedeutungsnuancen vermitteln.','Açık ve doğal; tonlamayla ince anlam farkları verir.']
+  ]
+ }
+};
+
+const bank={
+"C1":{
+"Aufgabengerechtheit":[
+["Die Aufgabe wird insgesamt adressatenbezogen und gut strukturiert erfüllt.","Görev genel olarak muhataba uygun ve iyi yapılandırılmış biçimde yerine getiriliyor."],
+["Die Position wird nachvollziehbar vertreten und mit passenden Beispielen oder Begründungen gestützt.","Görüş anlaşılır biçimde savunuluyor ve uygun örnek/gerekçelerle destekleniyor."],
+["In der Diskussion reagiert die Person spontan und angemessen auf Gegenargumente.","Tartışmada karşı argümanlara spontan ve uygun tepki veriyor."],
+["Die Aufgabe ist nur teilweise erfüllt; einzelne geforderte Aspekte bleiben unterentwickelt.","Görev kısmen yerine getirilmiş; bazı beklenen noktalar yeterince geliştirilmemiş."]
+],
+"Flüssigkeit":[
+["Die Person spricht weitgehend flüssig und in gleichmäßigem Tempo.","Aday büyük ölçüde akıcı ve dengeli tempoda konuşuyor."],
+["Es gibt nur wenige Suchpausen; der Redefluss bleibt insgesamt stabil.","Az sayıda kelime arama duraksaması var; konuşma akışı genel olarak stabil."],
+["Gelegentliche Stockungen beeinträchtigen die Kommunikation kaum.","Ara sıra takılmalar iletişimi neredeyse etkilemiyor."],
+["Das häufige Suchen nach Wörtern unterbricht den Redefluss deutlich.","Sık kelime arama konuşma akışını belirgin biçimde kesiyor."],
+["Die Kommunikation wirkt größtenteils natürlich, auch wenn einzelne Pausen erkennbar sind.","Tekil duraksamalara rağmen iletişim büyük ölçüde doğal görünüyor."]
+],
+"Repertoire":[
+["Das sprachliche Repertoire ist breit und der Aufgabe angemessen.","Dil repertuvarı geniş ve göreve uygun."],
+["Die Person kann sich differenziert ausdrücken und nutzt passende Verknüpfungsmittel.","Aday kendini ayrıntılı ifade edebiliyor ve uygun bağlayıcılar kullanıyor."],
+["Gelegentliche Umschreibungen sind erkennbar, ohne die Kommunikation wesentlich einzuschränken.","Ara sıra dolaylı anlatım görülüyor ama iletişimi ciddi biçimde sınırlamıyor."],
+["Das Repertoire wirkt stellenweise eingeschränkt; Vereinfachungen treten mehrfach auf.","Repertuvar yer yer sınırlı; birden fazla sadeleştirme görülüyor."],
+["Die Wortwahl ist überwiegend präzise und situationsangemessen.","Kelime seçimi büyük ölçüde hassas ve duruma uygun."]
+],
+"Grammatische Richtigkeit":[
+["Die grammatische Kontrolle ist insgesamt hoch; Fehler treten vor allem in komplexeren Strukturen auf.","Gramer kontrolü genel olarak yüksek; hatalar daha çok karmaşık yapılarda."],
+["Einzelne Fehler fallen auf, beeinträchtigen die Verständlichkeit aber nicht.","Bazı hatalar fark ediliyor ama anlaşılabilirliği etkilemiyor."],
+["Die Person behält auch bei längeren Äußerungen weitgehend grammatische Kontrolle.","Aday uzun ifadelerde de büyük ölçüde gramer kontrolünü koruyor."],
+["Es treten mehrere Fehler auch außerhalb komplexer Strukturen auf.","Karmaşık yapıların dışında da birden fazla hata görülüyor."],
+["Die Fehler sind selten und fallen kommunikativ kaum ins Gewicht.","Hatalar nadir ve iletişim açısından çok az önem taşıyor."]
+],
+"Aussprache und Intonation":[
+["Die Aussprache ist klar und natürlich; die Intonation unterstützt die Verständlichkeit.","Telaffuz açık ve doğal; tonlama anlaşılabilirliği destekliyor."],
+["Ein Akzent ist hörbar, beeinträchtigt die Verständlichkeit jedoch nicht.","Aksan duyuluyor ancak anlaşılabilirliği bozmuyor."],
+["Gelegentlich ist erhöhte Aufmerksamkeit nötig, insgesamt bleibt die Person gut verständlich.","Ara sıra daha fazla dikkat gerekiyor ama genel olarak rahatça anlaşılabiliyor."],
+["Aussprachefehler erschweren das Verstehen stellenweise.","Telaffuz hataları yer yer anlamayı zorlaştırıyor."],
+["Wort- und Satzmelodie wirken überwiegend angemessen.","Kelime ve cümle melodisi büyük ölçüde uygun."]
+]
+},
+"C2":{
+"Aufgabengerechtheit":[
+["Die Aufgabe wird nahezu durchgängig präzise, klar und logisch strukturiert erfüllt.","Görev neredeyse tamamen hassas, açık ve mantıklı şekilde yerine getiriliyor."],
+["Der Vortrag ist adressatenbezogen aufgebaut und hebt zentrale Punkte gezielt hervor.","Sunum muhataba göre yapılandırılmış ve temel noktaları bilinçli biçimde öne çıkarıyor."],
+["Auch schwierige Nachfragen werden souverän und inhaltlich differenziert aufgegriffen.","Zor ek sorular bile güvenli ve içerik açısından ayrıntılı ele alınıyor."],
+["Mehrere geforderte Merkmale der Aufgabe werden nicht ausreichend umgesetzt.","Görevin beklenen bazı özellikleri yeterince yerine getirilmiyor."],
+["Die Beiträge sind klar strukturiert und präzise auf die Gesprächssituation abgestimmt.","Katkılar açık yapılandırılmış ve konuşma durumuna hassas biçimde uyarlanmış."]
+],
+"Flüssigkeit":[
+["Die Kommunikation wirkt natürlich, kohärent und nahezu mühelos.","İletişim doğal, tutarlı ve neredeyse zahmetsiz görünüyor."],
+["Die Person spricht sehr flüssig und spontan; Pausen stören die Kommunikation nicht.","Aday çok akıcı ve spontan konuşuyor; duraksamalar iletişimi bozmuyor."],
+["Es gibt sehr wenige Stockungen, der Redefluss bleibt durchgehend stabil.","Çok az takılma var; konuşma akışı sürekli stabil."],
+["Wiederholte Suchpausen mindern den Eindruck müheloser Kommunikation.","Tekrarlanan kelime arama duraksamaları zahmetsiz iletişim izlenimini azaltıyor."],
+["Verknüpfungsmittel werden so eingesetzt, dass die Kommunikation kohärent bleibt.","Bağlayıcılar iletişimin tutarlı kalmasını sağlayacak şekilde kullanılıyor."]
+],
+"Repertoire":[
+["Das Repertoire ist sehr breit, präzise und stilistisch flexibel.","Repertuvar çok geniş, hassas ve üslup açısından esnek."],
+["Idiomatische und nuancierende Mittel werden passend und sicher eingesetzt.","Deyimsel ve nüans veren araçlar uygun ve güvenli kullanılıyor."],
+["Die Person kann Bedeutungsnuancen differenziert ausdrücken, ohne sich sprachlich einzuschränken.","Aday ince anlam farklarını dilsel olarak kendini sınırlamadan ifade edebiliyor."],
+["Mehrfache Vereinfachungen und Umschreibungen zeigen eine gewisse Einschränkung des Repertoires.","Birden fazla sadeleştirme ve dolaylı anlatım repertuvarda belli bir sınırlılık gösteriyor."],
+["Konnotationen und Abtönungen werden weitgehend sicher eingesetzt.","Yan anlamlar ve nüanslandırıcı ifadeler büyük ölçüde güvenle kullanılıyor."]
+],
+"Grammatische Richtigkeit":[
+["Die grammatische Kontrolle bleibt auch bei komplexen Strukturen sehr hoch.","Karmaşık yapılarda bile gramer kontrolü çok yüksek kalıyor."],
+["Es treten nur vereinzelte, kaum auffällige Fehler auf.","Sadece tekil ve zor fark edilen hatalar görülüyor."],
+["Die Person hält ein hohes Maß an Korrektheit durchgehend aufrecht.","Aday yüksek doğruluk düzeyini sürekli koruyor."],
+["Mehrere Fehler in komplexen und teilweise auch einfacheren Strukturen sprechen gegen eine A-Bewertung.","Karmaşık ve kısmen daha basit yapılardaki birden fazla hata A değerlendirmesine karşı bir işaret."],
+["Auch bei hoher inhaltlicher Belastung bleibt die grammatische Kontrolle stabil.","İçerik yükü yüksekken bile gramer kontrolü stabil kalıyor."]
+],
+"Aussprache und Intonation":[
+["Aussprache und Intonation wirken klar, natürlich und differenziert.","Telaffuz ve tonlama açık, doğal ve nüanslı."],
+["Die Intonation wird gezielt eingesetzt, um Bedeutungsnuancen zu markieren.","Tonlama ince anlam farklarını belirtmek için bilinçli kullanılıyor."],
+["Ein leichter Akzent ist vorhanden, die Verständlichkeit bleibt jedoch vollständig erhalten.","Hafif bir aksan var fakat anlaşılabilirlik tamamen korunuyor."],
+["Die Aussprache erfordert stellenweise erhöhte Aufmerksamkeit und wirkt nicht durchgehend natürlich.","Telaffuz yer yer daha fazla dikkat gerektiriyor ve her zaman doğal duyulmuyor."],
+["Wort- und Satzmelodie unterstützen die präzise Bedeutungsvermittlung.","Kelime ve cümle melodisi anlamın hassas aktarımını destekliyor."]
+]
+}};
+
+const flashes=[
+["Was ist die Grundlage der Bewertung?","Die GER-Deskriptoren und die telc-Bewertungskriterien. Nicht der persönliche Eindruck.","Değerlendirme GER deskriptorları ve telc kriterlerine dayanır; kişisel izlenime değil."],
+["Welche fünf Kriterien gibt es?","Aufgabengerechtheit, Flüssigkeit, Repertoire, grammatische Richtigkeit, Aussprache und Intonation.","Görev, akıcılık, repertuvar, gramer, telaffuz/tonlama."],
+["Wie wird Aufgabengerechtheit bewertet?","Getrennt nach Prüfungsteil; entscheidend sind Aufgabenerfüllung, aktive Beteiligung, Struktur und Adressatenbezug.","Her bölüm için ayrı; görev, aktif katılım, yapı ve muhatap uygunluğu."],
+["Wie werden die sprachlichen Kriterien bewertet?","Für die mündliche Leistung insgesamt, nicht getrennt für jeden einzelnen Teil.","Dilsel kriterler sözlü performansın tamamı üzerinden değerlendirilir."],
+["Was ist bei Flüssigkeit wichtig?","Gleichmäßiges Tempo, wenig störendes Zögern, Kohärenz und natürlicher Redefluss.","Dengeli tempo, az bozucu duraksama, tutarlılık, doğal akış."],
+["Ist schnelles Sprechen automatisch flüssig?","Nein. Flüssigkeit bedeutet nicht Geschwindigkeit, sondern stabilen, natürlichen Redefluss.","Hayır; akıcılık hız değil, doğal ve stabil akıştır."],
+["Ist jedes Zögern negativ?","Nein. Natürliches Zögern ist normal; problematisch wird es, wenn Redefluss oder Verstehen gestört werden.","Hayır; doğal duraksama normaldir. Akışı/anlamayı bozarsa sorun olur."],
+["Was ist Repertoire?","Breite, Angemessenheit, Präzision und Flexibilität von Wortschatz und sprachlichen Strukturen.","Kelime ve yapıların genişliği, uygunluğu, hassasiyeti ve esnekliği."],
+["Was ist der Kernunterschied C1/C2?","C2 ist präziser, nuancierter, flexibler und nahezu mühelos; C1 ist bereits flüssig, spontan und sehr leistungsfähig.","C2 daha hassas, nüanslı, esnek ve zahmetsizdir."],
+["Muss C2 muttersprachlich klingen?","Nein. Ein Akzent ist möglich; entscheidend sind Klarheit, Natürlichkeit und kommunikative Kontrolle.","Hayır; aksan olabilir. Açıklık, doğallık ve kontrol önemlidir."],
+["Was macht der Interlokutor?","Er leitet die Prüfung, gibt Übergänge und Impulse und achtet auf den Ablauf.","Sınavı yönetir, geçiş/impuls verir, akışı takip eder."],
+["Was macht der Assessor?","Er beobachtet und bewertet; je nach Format kann er sich begrenzt mit Fragen beteiligen.","Gözlemler ve değerlendirir; formata göre sınırlı soru sorabilir."],
+["Wann tauschen sich die Prüfenden über die Bewertung aus?","Nach der Prüfung. Zunächst halten beide ihre Bewertungen unabhängig voneinander fest.","Sınavdan sonra; önce herkes bağımsız değerlendirir."],
+["Müssen beide Prüfenden exakt gleich bewerten?","Nein. Sie reflektieren und können sich annähern, müssen aber nicht identisch bewerten.","Hayır; yakınlaşabilirler ama aynı puan zorunlu değil."],
+["Was ist M10?","Der Bewertungsbogen für die individuellen Bewertungen der Prüfenden.","Prüferlerin bireysel değerlendirme formu."],
+["Was ist S30?","Der Antwortbogen, auf den die Bewertungen nach der Prüfung übertragen werden.","Sınavdan sonra değerlendirmelerin aktarıldığı form."],
+["Was tun, wenn ein TN ins Stocken kommt?","Kurz und niveauangemessen mit einem offenen Impuls helfen, ohne die Leistung zu übernehmen.","Kısa, seviyeye uygun açık bir impuls ver; adayın işini yapma."],
+["Was tun, wenn eine Person dominiert?","Die ruhigere Person gezielt einbeziehen, zum Beispiel: „Und Sie, was denken Sie?“","Sessiz adayı bilinçli biçimde konuşmaya dahil et."],
+["Wie formuliert man gute Prüferfragen?","Möglichst offen, natürlich und an das Gesagte anknüpfend.","Açık uçlu, doğal ve söylenene bağlı sorular."],
+["Was ist ein typischer Bewertungsfehler?","Teilnehmende miteinander zu vergleichen statt sie am Zielniveau und an den Kriterien zu messen.","Adayları birbirleriyle kıyaslamak; doğru olan hedef seviye ve kriterlere göre ölçmektir."]
+];
+
+function renderCore(level){
+ const d=levelData[level],box=document.getElementById('levelCore');
+ box.innerHTML=`<div class="de">${d.title}</div><div class="mini-tr">${d.tr}</div><div class="quick" style="margin-top:10px">${d.bullets.map(x=>`<div class="tile"><b>${x[0]}</b><span>${x[1]}</span><div class="mini-tr">${x[2]}</div></div>`).join('')}</div>`;
+}
+renderCore('C1');
+
+document.querySelectorAll('#homeLevel button').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('#homeLevel button').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active'); renderCore(btn.dataset.level);
+}));
+
+function renderPhrases(){
+ const l=document.getElementById('levelSel').value,c=document.getElementById('critSel').value,box=document.getElementById('phrases');
+ box.innerHTML=bank[l][c].map(([de,tr])=>`<div class="phrase searchable"><div class="de">${de}</div><div class="mini-tr">${tr}</div></div>`).join('');
+}
+document.getElementById('levelSel').addEventListener('change',renderPhrases);
+document.getElementById('critSel').addEventListener('change',renderPhrases);
+renderPhrases();
+
+function setParts(){
+ const l=document.getElementById('simLevel').value,s=document.getElementById('partSel');
+ const parts=l==='C1'?['Teil 1A – Präsentation','Teil 1B – Zusammenfassung/Anschlussfragen','Teil 2 – Diskussion','Gesamt – sprachliche Angemessenheit']
+ :['Teil 1 – Vortrag','Teil 2 – Vertiefendes Gespräch','Gesamt – sprachliche Angemessenheit'];
+ s.innerHTML=parts.map(x=>`<option>${x}</option>`).join('');
+}
+document.getElementById('simLevel').addEventListener('change',setParts);setParts();
+
+let currentRating='';
+document.querySelectorAll('#rating button').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('#rating button').forEach(x=>x.classList.remove('active'));
+ b.classList.add('active');currentRating=b.dataset.r;
+}));
+
+document.getElementById('buildBtn').addEventListener('click',()=>{
+ const level=document.getElementById('simLevel').value;
+ const part=document.getElementById('partSel').value;
+ const crit=document.getElementById('simCrit').value;
+ const obs=document.getElementById('obs').value.trim();
+ const reason=document.getElementById('reason').value.trim();
+ const r=currentRating||'?';
+ const scale={A:'(fast) durchgängig',B:'weitgehend',C:'nur teilweise',D:'kaum'}[r]||'entsprechend';
+ let txt=`${level} – ${part}\nKriterium: ${crit}\nBewertung: ${r}\n`;
+ if(obs) txt+=`Beobachtung: ${obs}\n`;
+ if(reason) txt+=`Begründung: ${reason}\n`;
+ txt+=`Kurzurteil: Insgesamt würde ich hier ${r} vergeben. Die Leistung entspricht in diesem Kriterium ${scale} dem Zielniveau.`;
+ document.getElementById('out').textContent=txt;
+});
+document.getElementById('clearBtn').addEventListener('click',()=>{
+ document.getElementById('obs').value='';document.getElementById('reason').value='';document.getElementById('out').textContent='Henüz değerlendirme yok.';currentRating='';
+ document.querySelectorAll('#rating button').forEach(x=>x.classList.remove('active'));
+});
+
+
+
+
+
+const V4DATA={"criterion": [{"q": "„Die Person spricht in gleichmäßigem Tempo; es gibt nur wenige Suchpausen.“", "a": "Flüssigkeit", "o": ["Aufgabengerechtheit", "Flüssigkeit", "Repertoire", "Grammatische Richtigkeit"], "why": "Tempo, Stockungen und Suchpausen gehören zur Flüssigkeit."}, {"q": "„Der Vortrag ist klar aufgebaut, die Aufgabe wird vollständig erfüllt und zentrale Punkte werden hervorgehoben.“", "a": "Aufgabengerechtheit", "o": ["Aussprache und Intonation", "Repertoire", "Aufgabengerechtheit", "Flüssigkeit"], "why": "Aufgabenerfüllung, Struktur und Adressatenbezug gehören zur Aufgabengerechtheit."}, {"q": "„Die Person verwendet einen breiten Wortschatz und kann sich präzise und differenziert ausdrücken.“", "a": "Repertoire", "o": ["Repertoire", "Flüssigkeit", "Grammatische Richtigkeit", "Aufgabengerechtheit"], "why": "Wortschatzbreite, Präzision und sprachliche Vielfalt = Repertoire."}, {"q": "„Fehler treten fast nur bei komplexeren Satzkonstruktionen auf.“", "a": "Grammatische Richtigkeit", "o": ["Flüssigkeit", "Grammatische Richtigkeit", "Aussprache und Intonation", "Repertoire"], "why": "Fehler in Morphologie, Genus und Syntax gehören zur grammatischen Richtigkeit."}, {"q": "„Die Wort- und Satzmelodie ist natürlich; ein leichter Akzent stört die Verständlichkeit nicht.“", "a": "Aussprache und Intonation", "o": ["Aussprache und Intonation", "Flüssigkeit", "Repertoire", "Aufgabengerechtheit"], "why": "Lautung, Satzmelodie, Betonung und Intonation gehören zu diesem Kriterium."}, {"q": "„In der Diskussion reagiert die Person spontan auf Gegenargumente und vertritt ihre Position überzeugend.“", "a": "Aufgabengerechtheit", "o": ["Aufgabengerechtheit", "Flüssigkeit", "Repertoire", "Grammatische Richtigkeit"], "why": "Hier wird primär die kommunikative Aufgabe der Diskussion bewältigt."}, {"q": "„Mehrfach werden vereinfachte Formulierungen und Umschreibungen benutzt, obwohl präzisere Mittel nötig wären.“", "a": "Repertoire", "o": ["Aussprache und Intonation", "Repertoire", "Flüssigkeit", "Grammatische Richtigkeit"], "why": "Häufige Vereinfachungen/Umschreibungen zeigen eine Einschränkung des Repertoires."}, {"q": "„Die Pausen sind so lang, dass das Verstehen stellenweise erschwert wird.“", "a": "Flüssigkeit", "o": ["Flüssigkeit", "Aufgabengerechtheit", "Repertoire", "Aussprache und Intonation"], "why": "Pausen, die Redefluss oder Verstehen stören, betreffen Flüssigkeit."}, {"q": "„Auch in längeren Äußerungen bleibt die Syntax weitgehend korrekt.“", "a": "Grammatische Richtigkeit", "o": ["Repertoire", "Grammatische Richtigkeit", "Flüssigkeit", "Aufgabengerechtheit"], "why": "Syntaxkontrolle wird unter grammatischer Richtigkeit beurteilt."}, {"q": "„Die Intonation wird gezielt eingesetzt, um feine Bedeutungsunterschiede auszudrücken.“", "a": "Aussprache und Intonation", "o": ["Repertoire", "Aussprache und Intonation", "Flüssigkeit", "Aufgabengerechtheit"], "why": "Gezielte Intonation zur Bedeutungsnuancierung gehört zu Aussprache/Intonation."}, {"q": "„Die Zusammenfassung informiert auch eine außenstehende Person klar über die Hauptaussagen.“", "a": "Aufgabengerechtheit", "o": ["Aufgabengerechtheit", "Repertoire", "Flüssigkeit", "Grammatische Richtigkeit"], "why": "Bei C1 Teil 1B gehört die wirksame Zusammenfassung zur Aufgabengerechtheit."}, {"q": "„Die Person findet bei einer Wortschatzlücke problemlos eine passende Umschreibung.“", "a": "Repertoire", "o": ["Repertoire", "Flüssigkeit", "Aussprache und Intonation", "Aufgabengerechtheit"], "why": "Strategischer Umgang mit Wortschatzlücken gehört zum Repertoire."}, {"q": "„Mehrere Genus- und Kasusfehler fallen auch in einfachen Strukturen auf.“", "a": "Grammatische Richtigkeit", "o": ["Grammatische Richtigkeit", "Repertoire", "Flüssigkeit", "Aussprache und Intonation"], "why": "Genus, Morphologie und Syntax sind grammatische Richtigkeit."}, {"q": "„Die Person beteiligt sich kaum aktiv am vertiefenden Gespräch.“", "a": "Aufgabengerechtheit", "o": ["Flüssigkeit", "Aufgabengerechtheit", "Repertoire", "Aussprache und Intonation"], "why": "Aktive Beteiligung ist Teil der Aufgabengerechtheit."}, {"q": "„Die Kommunikation wirkt natürlich und mühelos; Pausen stören nicht.“", "a": "Flüssigkeit", "o": ["Flüssigkeit", "Repertoire", "Grammatische Richtigkeit", "Aufgabengerechtheit"], "why": "Natürlichkeit, Mühelosigkeit und störungsfreie Pausen sind Fluency-Merkmale."}, {"q": "„Die Person nutzt idiomatische Wendungen und ist sich ihrer Konnotationen bewusst.“", "a": "Repertoire", "o": ["Aussprache und Intonation", "Repertoire", "Flüssigkeit", "Aufgabengerechtheit"], "why": "Idiomatik und Konnotationen sind besonders im C2-Repertoire wichtig."}, {"q": "„Die Kommunikation ist adressatenbezogen und die Beiträge sind gut strukturiert.“", "a": "Aufgabengerechtheit", "o": ["Aufgabengerechtheit", "Flüssigkeit", "Repertoire", "Grammatische Richtigkeit"], "why": "Adressatenbezug und Struktur sind Kernelemente der Aufgabengerechtheit."}, {"q": "„Die Person muss häufig neu ansetzen, weil sie nach Wörtern sucht.“", "a": "Flüssigkeit", "o": ["Repertoire", "Flüssigkeit", "Grammatische Richtigkeit", "Aussprache und Intonation"], "why": "Häufiges Neuansetzen wegen Wortsuchen beeinträchtigt den Redefluss."}, {"q": "„Trotz inhaltlicher Belastung bleibt die grammatische Kontrolle stabil.“", "a": "Grammatische Richtigkeit", "o": ["Grammatische Richtigkeit", "Aufgabengerechtheit", "Repertoire", "Flüssigkeit"], "why": "Stabile Formkontrolle auch unter Belastung ist ein Grammatikmerkmal."}, {"q": "„Die Aussprache ist verständlich, erfordert aber fast durchgängig erhöhte Aufmerksamkeit.“", "a": "Aussprache und Intonation", "o": ["Aussprache und Intonation", "Flüssigkeit", "Repertoire", "Grammatische Richtigkeit"], "why": "Erhöhte Aufmerksamkeit beim Verstehen betrifft Aussprache/Intonation."}, {"q": "„Die Person stellt passende Anschlussfragen, um missverständliche Punkte zu klären.“", "a": "Aufgabengerechtheit", "o": ["Aufgabengerechtheit", "Repertoire", "Flüssigkeit", "Grammatische Richtigkeit"], "why": "Passende Anschlussfragen gehören in C1 Teil 1B zur Aufgabenbewältigung."}, {"q": "„Die Ausdrucksweise ist abwechslungsreich und der Situation angemessen.“", "a": "Repertoire", "o": ["Repertoire", "Flüssigkeit", "Aufgabengerechtheit", "Aussprache und Intonation"], "why": "Variation und situative Angemessenheit gehören zum Repertoire."}, {"q": "„Die Satzmelodie ist wiederholt unnatürlich und erschwert stellenweise das Folgen.“", "a": "Aussprache und Intonation", "o": ["Flüssigkeit", "Aussprache und Intonation", "Grammatische Richtigkeit", "Repertoire"], "why": "Satzmelodie und Verständlichkeit werden bei Aussprache/Intonation bewertet."}, {"q": "„Die Person greift komplexe Gegenargumente auf, beantwortet sie aber nur teilweise.“", "a": "Aufgabengerechtheit", "o": ["Repertoire", "Aufgabengerechtheit", "Flüssigkeit", "Grammatische Richtigkeit"], "why": "Das Eingehen auf Gegenargumente ist Teil der Diskussionsaufgabe."}], "level": [{"q": "Kann zu einem breiten Themenspektrum klar und detailliert sprechen und Vor- und Nachteile verschiedener Möglichkeiten angeben.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Klar/detailliert + Standpunkt/Vor- und Nachteile ist typisch B2."}, {"q": "Kann komplexe Sachverhalte klar und detailliert darstellen, Unterthemen integrieren und mit einem angemessenen Schluss abrunden.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Das ist ein zentraler C1-Deskriptor für mündliche Produktion."}, {"q": "Kann sich spontan, sehr flüssig und genau ausdrücken und feinere Bedeutungsnuancen deutlich machen.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Sehr flüssig + genau + feine Bedeutungsnuancen = C2."}, {"q": "Kann sich so spontan und fließend verständigen, dass ein normales Gespräch ohne größere Anstrengung möglich ist.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Normales Gespräch ohne größere Anstrengung ist ein B2-Kern."}, {"q": "Kann sich beinahe mühelos spontan und fließend ausdrücken; offensichtliches Suchen nach Worten ist selten.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "„beinahe mühelos“ + seltenes Wortsuchen kennzeichnet C1."}, {"q": "Beherrscht idiomatische und umgangssprachliche Wendungen und kann Konnotationen sowie feine Bedeutungsnuancen sicher ausdrücken.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Idiomatik, Konnotationen und Nuancen sind C2."}, {"q": "Kann komplexen Gruppendiskussionen leicht folgen und auch dazu beitragen.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Komplexe Diskussionen aktiv mittragen ist ein C1-Merkmal."}, {"q": "Kann einen komplexen Vortrag flexibel an die Bedürfnisse des Publikums anpassen und auch mit schwierigen Fragen umgehen.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Flexibles Anpassen an Publikum + schwierige Fragen = C2."}, {"q": "Kann die Bedeutung eigener Erfahrungen hervorheben und Standpunkte durch relevante Argumente klar begründen und verteidigen.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Begründete Standpunkte und breite selbstständige Kommunikation entsprechen B2."}, {"q": "Kann die Sprache wirksam und flexibel für soziale Zwecke gebrauchen.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Wirksamer und flexibler Sprachgebrauch ist typisch C1."}, {"q": "Kann bei Ausdrucksschwierigkeiten so reibungslos neu ansetzen und umformulieren, dass Gesprächspartner kaum etwas bemerken.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Nahezu unbemerkte Reparaturstrategien = C2."}, {"q": "Kann Sachverhalte klar und systematisch beschreiben und wichtige Punkte sowie stützende Details hervorheben.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Systematisch, klar, stützende Details = B2-Produktion."}, {"q": "Kann eine komplexe Präsentation Dritter leicht verfolgen und effektiv zusammenfassen.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Komplexen Präsentationen folgen und wirksam zusammenfassen ist für C1 relevant."}, {"q": "Kann seine Dialogrolle außerordentlich gut ausführen, Redebeiträge strukturieren und vollkommen flüssig interagieren.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Außerordentlich gute Dialogsteuerung und vollkommene Flüssigkeit = C2."}, {"q": "Kann sich zu abstrakten und konkreten Themen klar äußern, muss aber nicht feinste Bedeutungsnuancen ausdrücken.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Das liegt eher im B2-Bereich als bei C1/C2-Nuancierung."}, {"q": "Kann ohne fremde Hilfe ein Interview flüssig ausführen und gut mit Einwürfen umgehen.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Uneingeschränkte Interviewteilnahme und Umgang mit Einwürfen = C1."}, {"q": "Kann ein komplexes Thema klar vortragen und die eigenen Standpunkte ausführlich durch Beispiele oder Begründungen stützen.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Das ist C1 'Vor Publikum sprechen'."}, {"q": "Kann ein unbekanntes komplexes Thema für ein Publikum flexibel strukturieren und verständlich vermitteln.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Flexible Publikumsanpassung bei komplexen unbekannten Themen = C2."}], "rating": [{"q": "C1 – Aufgabengerechtheit: Die Anforderungen der jeweiligen Aufgabe werden (fast) durchgängig erfüllt.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C1 Rubrik: fast durchgängig erfüllt = A."}, {"q": "C1 – Aufgabengerechtheit: Die Aufgabe wird weitgehend angemessen erfüllt.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C1 Rubrik: weitgehend erfüllt = B."}, {"q": "C1 – Aufgabengerechtheit: Mehrere geforderte Merkmale fehlen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "Mehrere Merkmale nicht erfüllt = C."}, {"q": "C1 – Aufgabengerechtheit: Die Person beteiligt sich kaum aktiv an der Lösung der Aufgabe.", "a": "D", "o": ["A", "B", "C", "D"], "why": "Kaum aktive Beteiligung = D."}, {"q": "C1 – Flüssigkeit: Kommunikation wirkt fast immer natürlich; durchgängig flüssig und kohärent.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C1 A: (fast immer) natürlich, durchgängig flüssig/kohärent."}, {"q": "C1 – Flüssigkeit: Weitgehend natürlich, wenige Stockungen.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C1 B: weitgehend natürlich, wenige Stockungen."}, {"q": "C1 – Flüssigkeit: Teilweise gestört; häufiges Suchen nach Wörtern und Strukturen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C1 C: teilweise gestört und öfteres Wortsuchen."}, {"q": "C1 – Flüssigkeit: Pausen behindern das Verstehen; nur einfache Themen relativ flüssig.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C1 D: Pausen behindern das Verstehen."}, {"q": "C1 – Repertoire: Fast durchgängig zielniveaugerechtes breites Spektrum.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C1 A: fast durchgängig Zielniveau."}, {"q": "C1 – Repertoire: An einigen Stellen eingeschränkt; gelegentliche Umschreibungen/Vereinfachungen.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C1 B: einige Einschränkungen, gelegentliche Umschreibungen."}, {"q": "C1 – Repertoire: Oft sprachlich eingeschränkt; häufige Umschreibungen/Vereinfachungen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C1 C: häufige Einschränkungen."}, {"q": "C1 – Repertoire: Kein breites Spektrum, fast nur einfache Strukturen.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C1 D: kein breites Spektrum."}, {"q": "C1 – Grammatik: Fast durchgängig hohes Maß an grammatischer Korrektheit.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C1 A."}, {"q": "C1 – Grammatik: Fehler fast nur in komplexen Strukturen.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C1 B."}, {"q": "C1 – Grammatik: Etliche Fehler, nicht nur bei komplexen Strukturen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C1 C."}, {"q": "C1 – Grammatik: Zahlreiche Fehler erschweren manchmal das Folgen.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C1 D."}, {"q": "C1 – Aussprache: Trotz Akzent durchgängig klar und natürlich.", "a": "A", "o": ["A", "B", "C", "D"], "why": "Akzent schließt A nicht aus."}, {"q": "C1 – Aussprache: Größtenteils klar/natürlich; gelegentlich erhöhte Aufmerksamkeit nötig.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C1 B."}, {"q": "C1 – Aussprache: Fehler erfordern durchgängig erhöhte Aufmerksamkeit.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C1 C."}, {"q": "C1 – Aussprache: Zahlreiche Fehler erschweren manchmal das Folgen.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C1 D."}, {"q": "C2 – Aufgabengerechtheit: Fast durchgängig alle Anforderungen erfüllt.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C2 A."}, {"q": "C2 – Aufgabengerechtheit: Weitgehend alle Anforderungen erfüllt.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C2 B."}, {"q": "C2 – Vortrag dauert unter 4 Minuten.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C2-Rubrik nennt Vortrag unter 4 Minuten ausdrücklich bei C."}, {"q": "C2 – Vortrag dauert unter 3 Minuten oder kaum aktive Beteiligung.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C2-Rubrik nennt unter 3 Minuten / kaum aktive Beteiligung bei D."}, {"q": "C2 – Flüssigkeit: Natürlich, durchgängig flüssig und kohärent.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C2 A."}, {"q": "C2 – Flüssigkeit: Weitgehend natürlich, sehr wenige Stockungen.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C2 B."}, {"q": "C2 – Flüssigkeit: Teilweise gestört; öfteres Wortsuchen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C2 C."}, {"q": "C2 – Flüssigkeit: Pausen behindern Verstehen; nur einfache Fragen relativ flüssig.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C2 D."}, {"q": "C2 – Repertoire: Sehr breit, präzise, idiomatisch; fast durchgängig Zielniveau.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C2 A."}, {"q": "C2 – Repertoire: Nur an sehr wenigen Stellen sprachlich eingeschränkt.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C2 B."}, {"q": "C2 – Repertoire: Mehrfach unpräzise; mehrere Umschreibungen oder Vereinfachungen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C2 C."}, {"q": "C2 – Repertoire: Kein breites Spektrum an sprachlichen Mitteln.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C2 D."}, {"q": "C2 – Grammatik: Durchgängig hohes Maß an Korrektheit.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C2 A."}, {"q": "C2 – Grammatik: Weitgehend durchgängig hohes Maß an Korrektheit.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C2 B."}, {"q": "C2 – Grammatik: Etliche Fehler, eher in komplexen Strukturen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C2 C."}, {"q": "C2 – Grammatik: Häufigere Fehler auch in einfacheren Strukturen.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C2 D."}, {"q": "C2 – Aussprache: Trotz geringem Akzent durchgängig klar und natürlich.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C2 A; geringer Akzent ist möglich."}, {"q": "C2 – Aussprache: Größtenteils klar/natürlich, gelegentlich erhöhte Aufmerksamkeit.", "a": "B", "o": ["A", "B", "C", "D"], "why": "C2 B."}, {"q": "C2 – Aussprache: Fast durchgängig erhöhte Aufmerksamkeit erforderlich.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C2 C."}, {"q": "C2 – Aussprache: Zahlreiche Fehler erschweren manchmal das Folgen.", "a": "D", "o": ["A", "B", "C", "D"], "why": "C2 D."}], "format": [{"q": "C1 Paarprüfung: Yaklaşık toplam sınav süresi?", "a": "16 dakika", "o": ["10 dakika", "16 dakika", "20 dakika", "24 dakika"], "why": "C1 Paarprüfung yaklaşık 16 dakikadır."}, {"q": "C1 Dreierprüfung: Yaklaşık toplam sınav süresi?", "a": "24 dakika", "o": ["16 dakika", "20 dakika", "24 dakika", "30 dakika"], "why": "C1 üç adaylı sınav yaklaşık 24 dakikadır."}, {"q": "C1 hazırlık süresi?", "a": "20 dakika", "o": ["10 dakika", "15 dakika", "20 dakika", "30 dakika"], "why": "Teil 1 için 20 dakika hazırlanılır."}, {"q": "C1 Teil 1A Präsentation yaklaşık ne kadar sürer?", "a": "3–4 dakika", "o": ["2 dakika", "3–4 dakika", "6 dakika", "7–9 dakika"], "why": "Durchführung belgesinde 3–4 dakika."}, {"q": "C1 Teil 1B yaklaşık ne kadar sürer?", "a": "2–3 dakika", "o": ["1 dakika", "2–3 dakika", "4–5 dakika", "6 dakika"], "why": "Zusammenfassung/Anschlussfragen 2–3 dakika."}, {"q": "C1 Teil 2 Diskussion yaklaşık ne kadar sürer?", "a": "6 dakika", "o": ["3 dakika", "4 dakika", "6 dakika", "8 dakika"], "why": "Diskussion yaklaşık 6 dakika."}, {"q": "C1’de Diskussion görev kağıdı ne zaman verilir?", "a": "Prüfungsraum’da, önceden değil", "o": ["20 dk hazırlık başında", "Bir gün önce", "Prüfungsraum’da, önceden değil", "Sunum sırasında"], "why": "Teil 2 materyali hazırlık için önceden verilmez."}, {"q": "C1 hazırlıkta sözlük kullanılabilir mi?", "a": "Hayır", "o": ["Evet", "Sadece tek dilli", "Sadece dijital", "Hayır"], "why": "Wörterbuch kullanımı yasaktır."}, {"q": "C1’de Interlokutor’un temel rolü nedir?", "a": "Sınavı yönetmek ve geçişleri sağlamak", "o": ["Sadece puan toplamak", "Sınavı yönetmek ve geçişleri sağlamak", "Sonucu açıklamak", "Adayın hatalarını düzeltmek"], "why": "Interlokutor moderasyonu ve akışı yönetir."}, {"q": "Assessor’un temel rolü?", "a": "Gözlemlemek ve değerlendirmek", "o": ["Aday yerine konuşmak", "Gözlemlemek ve değerlendirmek", "Sonucu açıklamak", "Sadece süre tutmak"], "why": "Assessor gözlem ve değerlendirme odaklıdır."}, {"q": "M10 üzerindeki değerlendirme nasıl yapılır?", "a": "İki Prüfer önce bağımsız değerlendirir", "o": ["Tek Prüfer doldurur", "Birlikte aynı anda karar verirler", "İki Prüfer önce bağımsız değerlendirir", "Aday doldurur"], "why": "Prüferler önce bağımsız değerlendirme yapar."}, {"q": "Prüferler değerlendirmelerini ne zaman karşılaştırır?", "a": "Aday(lar) çıktıktan sonra", "o": ["Sınav sırasında", "Aday(lar) çıktıktan sonra", "Hazırlık süresinde", "Sonuç açıklandıktan sonra"], "why": "Değerlendirme görüşmesi adaylar çıktıktan sonra yapılır."}, {"q": "İki Prüfer mutlaka aynı sonuca varmak zorunda mı?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Kendi değerlendirmelerini reflekte ederler; aynı olmak zorunda değildir."}, {"q": "Bireysel değerlendirmeler sonunda nereye aktarılır?", "a": "S30", "o": ["M5", "S30", "M20", "Z10"], "why": "Bireysel sonuçlar S30’a aktarılır."}, {"q": "C2 sözlü sınavı genelde hangi formatta?", "a": "Einzelprüfung", "o": ["Paarprüfung", "Dreierprüfung", "Einzelprüfung", "Grup tartışması"], "why": "C2 sözlü Einzelprüfung’dür."}, {"q": "C2 hazırlık süresi?", "a": "20 dakika", "o": ["10 dakika", "15 dakika", "20 dakika", "30 dakika"], "why": "C2 Vortrag için 20 dakika hazırlık."}, {"q": "C2 Teil 1 Vortrag süresi?", "a": "6–8 dakika", "o": ["3–4 dakika", "5 dakika", "6–8 dakika", "10 dakika"], "why": "Vortrag 6–8 dakika."}, {"q": "C2 Teil 2 Vertiefendes Gespräch süresi?", "a": "7–9 dakika", "o": ["2–3 dakika", "6 dakika", "7–9 dakika", "12 dakika"], "why": "Vertiefendes Gespräch 7–9 dakika."}, {"q": "C2 toplam sözlü sınav ne kadar sürmeli?", "a": "Yaklaşık 15 dakika, 15’i aşmamalı", "o": ["10 dakika", "Yaklaşık 15 dakika, 15’i aşmamalı", "20 dakika", "24 dakika"], "why": "Durchführung belgesine göre toplam yaklaşık 15 dakika."}, {"q": "C2’de Prüfende Anschlussfragen sorabilir mi?", "a": "Evet, hazır veya kendi sorularını kullanabilir", "o": ["Hayır", "Sadece hazır sorular", "Evet, hazır veya kendi sorularını kullanabilir", "Sadece aday isterse"], "why": "C2 vertiefendes Gespräch’de sorular doğal biçimde gelişebilir."}, {"q": "İyi Prüfer soruları nasıl olmalı?", "a": "Mümkün olduğunca açık uçlu ve söylenene bağlı", "o": ["Evet/Hayır ağırlıklı", "Çok uzun ve karmaşık", "Mümkün olduğunca açık uçlu ve söylenene bağlı", "Hedef seviyenin üstünde"], "why": "Offene W-Fragen konuşmayı sürdürmeye yardımcı olur."}, {"q": "C1’de bir aday konuşmayı domine ederse ne yapılmalı?", "a": "Daha sessiz adayı doğrudan dahil etmek", "o": ["Hiç müdahale etmemek", "Dominant adayı susturmak", "Daha sessiz adayı doğrudan dahil etmek", "Sınavı bitirmek"], "why": "Redeanteile mümkün olduğunca adil dağıtılmalıdır."}, {"q": "C2’de aday hiçbir sınav konusunu değil başka bir konuyu sunarsa sonuç?", "a": "Mündliche Prüfung insgesamt 0 puan", "o": ["Sadece Teil 1 sıfır", "B verilir", "Mündliche Prüfung insgesamt 0 puan", "Tekrar sunum yaptırılır"], "why": "C2 kriter belgesinde açıkça belirtilir."}, {"q": "C1’de Diskussion gerekli dil seviyesine ulaşmıyorsa Prüfer ne yapabilir?", "a": "Ergänzende Fragen ile müdahale edebilir", "o": ["Hiçbir şey yapamaz", "Sınavı iptal eder", "Ergänzende Fragen ile müdahale edebilir", "Adayı düzeltir"], "why": "Gerekirse ek sorularla dil performansı ortaya çıkarılır."}], "pitfalls": [{"q": "Adayın sonucunu sözlü sınav biter bitmez söylemek doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Prüfer sonuç hakkında bilgi vermemelidir."}, {"q": "Bir aday diğerinden daha iyi diye ona yüksek puan vermek doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Adaylar birbirleriyle değil, kriter ve hedef seviye ile karşılaştırılır."}, {"q": "Doğal kısa düşünme duraklamasını otomatik olarak Flüssigkeit hatası saymak doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Natürliches Zögern normal olabilir; iletişimi bozup bozmadığına bakılır."}, {"q": "C1/C2’de neredeyse ana dil düzeyinde aksansız telaffuz beklemek doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Akzent olabilir; açıklık, doğallık ve anlaşılabilirlik önemlidir."}, {"q": "Aynı dil hatasını hem Grammatik hem Repertoire’da otomatik iki kez cezalandırmak doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Aynı hata iki kez cezalandırılmamalı; kriterler ayrıştırılmalı."}, {"q": "Aufgabengerechtheit’i sadece konuşmanın uzunluğuna göre değerlendirmek doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Görevin kalitesi, aktif katılım, yapı ve uygunluk önemlidir."}, {"q": "Prüfer çok konuşup kendi Almancasını göstermeli mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Prüfer mümkün olduğunca az konuşmalı."}, {"q": "İkinci Prüfer sürekli ek soru sorarak adayı iki taraftan sıkıştırmalı mı?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "İkinci Prüfer katkıyı ölçülü yapmalıdır."}, {"q": "Aday bir kelimenin anlamını sorarsa uzun açıklama yapmak uygun mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Mümkünse partnerden yardım; değilse Almanca çok kısa açıklama."}, {"q": "Bir aday çok konuşuyorsa daha sessiz adayı „Und Sie, was denken Sie?“ ile dahil etmek uygun mu?", "a": "Evet", "o": ["Evet", "Hayır"], "why": "Eşit konuşma fırsatı sağlamak Prüfer rolünün parçasıdır."}, {"q": "Prüferin sıkılmış, yorgun veya ilgisiz görünmesi sorun mudur?", "a": "Evet", "o": ["Evet", "Hayır"], "why": "Profesyonel ve tarafsız bir sınav atmosferi korunmalıdır."}, {"q": "Prüfer bir adayı kişisel olarak sevdiğini/sevmediğini belli edebilir mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Tarafsızlık esastır."}, {"q": "Prüfer görev açıklamasında hedef seviyenin çok üstünde dil kullanmalı mı?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Dil seviyesi göreve/adaylara uygun olmalıdır."}, {"q": "Not almak ve M10 işaretlemek unutulabilir mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Gözlem ve değerlendirme kaydı Prüfer görevlerindendir."}, {"q": "Zaman takibi Prüferin sorumluluğu mu?", "a": "Evet", "o": ["Evet", "Hayır"], "why": "Her bölümün süreleri korunmalıdır."}, {"q": "C2’de „hızlı konuşuyor“ tek başına A-Flüssigkeit için yeterli mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Flüssigkeit = doğal, kohärent, stabil akış; hız değildir."}, {"q": "C1’de iki küçük gramer hatası varsa otomatik B/C’ye düşürmek gerekir mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Hataların türü, sıklığı ve genel kontrol önemlidir."}, {"q": "C2’de hafif aksan varsa A Aussprache mümkün mü?", "a": "Evet", "o": ["Evet", "Hayır"], "why": "Rubrik, geringem Akzent’e rağmen A’yı açıkça mümkün kılar."}, {"q": "Prüfer öznel „bence iyi Almancası var“ izlenimiyle puan verebilir mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Bewertung GER/telc kriterleriyle gerekçelendirilmelidir."}, {"q": "İki Prüfer farklı puan verirse bu otomatik hata mı?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Değerlendirmelerini tartışırlar ama tamamen aynı olmak zorunda değildir."}], "phrase": [{"q": "„Die Leistung entspricht ______ dem Zielniveau.“", "a": "weitgehend", "o": ["weitgehend", "schnell", "muttersprachlich", "subjektiv"], "why": "B-benzeri kısa karar kalıbı."}, {"q": "„Allerdings zeigt sich gelegentlich eine ______ bei …“", "a": "Einschränkung", "o": ["Einschränkung", "Prüfung", "Geschwindigkeit", "Person"], "why": "Sınırlılık ifade etmek için."}, {"q": "„Für eine A-Bewertung ______ mir noch …“", "a": "fehlt", "o": ["fehlt", "spricht", "vergleicht", "liest"], "why": "A için eksik noktayı belirtmek için."}, {"q": "„Deshalb würde ich hier B ______.“", "a": "vergeben", "o": ["vergeben", "lesen", "fragen", "erlauben"], "why": "Prüfer dili: eine Bewertung vergeben."}, {"q": "„Die Kommunikation bleibt trotz einzelner Fehler insgesamt ______.“", "a": "stabil", "o": ["stabil", "schnell", "lang", "subjektiv"], "why": "Tekil hatalara rağmen genel kontrol."}, {"q": "„Das fällt meines Erachtens eher unter Repertoire ______ unter Grammatik.“", "a": "als", "o": ["als", "wie", "obwohl", "damit"], "why": "Kriterleri ayırırken: eher … als …"}, {"q": "„Insgesamt sehe ich die Leistung zwischen B und C, mit ______ zu B.“", "a": "Tendenz", "o": ["Tendenz", "Tempo", "Fehler", "Pause"], "why": "Kararsızlıkta profesyonel kısa formül."}, {"q": "„Die beobachtete Leistung entspricht in diesem Kriterium nur ______ dem Zielniveau.“", "a": "teilweise", "o": ["teilweise", "schnell", "persönlich", "muttersprachlich"], "why": "C-benzeri kısmi karşılamayı belirtir."}, {"q": "„Die wenigen Stockungen ______ die Kommunikation kaum.“", "a": "beeinträchtigen", "o": ["beeinträchtigen", "vergleichen", "erlauben", "unterbrechen immer"], "why": "Stockungen iletişimi ne ölçüde etkiliyor sorusuna yarar."}, {"q": "„Die Person kann ihre Position klar ______.“", "a": "begründen", "o": ["begründen", "schweigen", "messen", "sitzen"], "why": "Görüşü gerekçelendirmek."}, {"q": "„Die Beiträge sind gut ______ und adressatenbezogen.“", "a": "strukturiert", "o": ["strukturiert", "gelöscht", "langsam", "privat"], "why": "Aufgabengerechtheit dili."}, {"q": "„Es treten nur ______ Fehler in komplexeren Strukturen auf.“", "a": "vereinzelte", "o": ["vereinzelte", "unzählige", "beliebige", "fremde"], "why": "Tekil hata anlatımı."}, {"q": "„Die Aussprache ist trotz eines Akzents durchgängig ______.“", "a": "verständlich", "o": ["verständlich", "falsch", "schnell", "lang"], "why": "Aksan ≠ anlaşılmazlık."}, {"q": "„Die Person schränkt sich an einigen Stellen sprachlich ______.“", "a": "ein", "o": ["ein", "aus", "hoch", "weiter"], "why": "Repertoire B/C dili."}, {"q": "„Die Kommunikation wirkt weitgehend ______.“", "a": "natürlich", "o": ["natürlich", "schriftlich", "lang", "streng"], "why": "Flüssigkeit için temel kelime."}, {"q": "„Ich würde diese Beobachtung eher dem Kriterium Repertoire ______.“", "a": "zuordnen", "o": ["zuordnen", "vergessen", "verbieten", "abbrechen"], "why": "Schulung tartışmasında kriter atama."}, {"q": "„Für mich spricht das eher ______ B als für C.“", "a": "für", "o": ["für", "mit", "aus", "unter"], "why": "Puan tartışmasında kısa kalıp."}, {"q": "„Ich sehe das etwas anders, weil …“ cümlesinin işlevi nedir?", "a": "Kibarca farklı değerlendirme belirtmek", "o": ["Sonucu adaya söylemek", "Kibarca farklı değerlendirme belirtmek", "Sınavı bitirmek", "Görevi açıklamak"], "why": "Prüferler arası değerlendirme tartışması için kullanışlı."}, {"q": "„Ich würde denselben Fehler nicht noch einmal unter Grammatik werten.“ ne anlatır?", "a": "Aynı hatayı iki kez cezalandırmamak", "o": ["Adayı kıyaslamak", "Aynı hatayı iki kez cezalandırmamak", "Süreyi uzatmak", "Sonucu açıklamak"], "why": "Doppelbestrafung’dan kaçınma."}, {"q": "„Insgesamt ist das für mich noch zielniveaugerecht.“ anlamı?", "a": "Genel olarak hâlâ hedef seviyeye uygun", "o": ["Hedef seviyenin çok altında", "Genel olarak hâlâ hedef seviyeye uygun", "Ana dil düzeyi", "Değerlendirilemez"], "why": "Sınırda performanslarda yararlı kısa ifade."}], "sprint": [{"scenario": "C1 – Flüssigkeit: Aday genel olarak akıcı, 2–3 kısa kelime arama duraklaması var; iletişim hiç kopmuyor.", "model": "„Bei der Flüssigkeit würde ich B vergeben. Die Person spricht weitgehend flüssig und in gleichmäßigem Tempo; die wenigen Suchpausen beeinträchtigen die Kommunikation kaum.“"}, {"scenario": "C1 – Repertoire: Kelime hazinesi geniş ama bazı yerlerde aynı kelimeleri tekrar ediyor ve iki kez Umschreibung yapıyor.", "model": "„Beim Repertoire sehe ich eher B. Das Spektrum ist insgesamt breit und angemessen, allerdings schränkt sich die Person an einigen Stellen sprachlich ein und nutzt gelegentlich Umschreibungen.“"}, {"scenario": "C1 – Grammatik: Hatalar neredeyse yalnızca uzun Nebensatz yapılarında; anlaşılabilirlik tam.", "model": "„Bei der grammatischen Richtigkeit würde ich B vergeben. Die Kompetenz entspricht größtenteils dem Zielniveau; Fehler treten fast nur in komplexeren Strukturen auf.“"}, {"scenario": "C1 – Aussprache: Belirgin aksan var ama her şey rahat anlaşılır; cümle melodisi doğal.", "model": "„Bei Aussprache und Intonation sehe ich A bis B. Trotz des Akzents bleibt die Aussprache klar und natürlich; die Verständlichkeit ist nicht beeinträchtigt.“"}, {"scenario": "C1 – Teil 2: Görüşünü net savunuyor, karşı argümanlara çoğunlukla yanıt veriyor ancak bir noktayı atlıyor.", "model": "„Bei der Aufgabengerechtheit würde ich B vergeben. Die Person vertritt ihre Position überzeugend und reagiert überwiegend angemessen auf Gegenargumente, lässt aber einen Aspekt offen.“"}, {"scenario": "C1 – Teil 1B: Partnerin sunumunu doğru özetliyor ama Anschlussfrage çok yüzeysel kalıyor.", "model": "„Bei der Aufgabengerechtheit in Teil 1B sehe ich eher B. Die Zusammenfassung ist angemessen, die Anschlussfrage könnte jedoch stärker zur Klärung oder Vertiefung beitragen.“"}, {"scenario": "C1 – Flüssigkeit: Sık sık uzun kelime arıyor, iki kez cümleyi yarıda bırakıp yeniden başlıyor.", "model": "„Bei der Flüssigkeit würde ich C vergeben. Die Kommunikation ist teilweise gestört; die Person stockt öfter und sucht deutlich nach Wörtern und Strukturen.“"}, {"scenario": "C1 – Repertoire: Çoğunlukla basit yapılar, sık tekrar, karmaşık fikirleri sadeleştiriyor.", "model": "„Beim Repertoire sehe ich C bis D. Die Person schränkt sich häufig sprachlich ein und nutzt überwiegend einfache Strukturen.“"}, {"scenario": "C2 – Flüssigkeit: Konuşma çok doğal, spontan ve tutarlı; belirgin kelime arama yok.", "model": "„Bei der Flüssigkeit sehe ich A. Die Kommunikation wirkt natürlich und mühelos; die Person spricht durchgängig flüssig und kohärent.“"}, {"scenario": "C2 – Repertoire: Çok geniş kelime hazinesi, idiomatik ifadeler ve nüanslar var; neredeyse hiç sadeleştirme yok.", "model": "„Beim Repertoire würde ich A vergeben. Die Person verfügt über ein sehr breites und präzises Spektrum und kann Bedeutungsnuancen sicher ausdrücken.“"}, {"scenario": "C2 – Aussprache: Hafif aksan var ama tamamen anlaşılır, tonlama doğal ve anlam nüanslarını destekliyor.", "model": "„Bei Aussprache und Intonation sehe ich A. Trotz eines leichten Akzents sind Aussprache und Intonation durchgängig klar und natürlich.“"}, {"scenario": "C2 – Grammatik: Birkaç hata sadece çok karmaşık yapılarda, genel kontrol çok yüksek.", "model": "„Bei der grammatischen Richtigkeit sehe ich eher B. Die Kontrolle ist sehr hoch; es treten nur vereinzelte Fehler in komplexen Strukturen auf.“"}, {"scenario": "C2 – Vortrag: Yapı açık ve mantıklı; önemli noktalar belirgin; zor sorulara da kontrollü cevap veriyor.", "model": "„Bei der Aufgabengerechtheit sehe ich A. Der Vortrag ist klar und logisch aufgebaut, zentrale Punkte werden hervorgehoben und auch schwierige Fragen werden souverän behandelt.“"}, {"scenario": "C2 – Repertoire: Birkaç kez doğru kelimeyi bulamayıp uzun Umschreibung yapıyor, bazı ifadeler belirsiz.", "model": "„Beim Repertoire würde ich C vergeben. Die Person drückt sich mehrfach nicht präzise aus und nutzt wiederholt Umschreibungen.“"}, {"scenario": "C2 – Flüssigkeit: Genel olarak iyi ama belirgin birkaç uzun pause ve Wortsuchen var.", "model": "„Bei der Flüssigkeit sehe ich B bis C. Die Kommunikation wirkt überwiegend natürlich, wird aber durch mehrere deutliche Suchpausen teilweise gestört.“"}, {"scenario": "C2 – Aussprache: Telaffuz hataları sık ve neredeyse sürekli daha fazla dikkat gerekiyor.", "model": "„Bei Aussprache und Intonation würde ich C vergeben. Die Fehler erfordern fast durchgängig erhöhte Aufmerksamkeit.“"}, {"scenario": "C1 – Video sonrası genel yorum: Görev B, Flüssigkeit B, Repertoire B, Grammatik A, Aussprache A.", "model": "„Insgesamt liegt die Leistung für mich klar auf C1-Niveau. Bei Aufgabengerechtheit, Flüssigkeit und Repertoire sehe ich B; grammatische Richtigkeit sowie Aussprache und Intonation würde ich mit A bewerten.“"}, {"scenario": "C2 – Video sonrası genel yorum: Görev A, Flüssigkeit A, Repertoire B, Grammatik B, Aussprache A.", "model": "„Insgesamt ist die Leistung sehr stark. Aufgabengerechtheit, Flüssigkeit und Aussprache sehe ich bei A; beim Repertoire und bei der grammatischen Richtigkeit eher bei B.“"}, {"scenario": "Başka Prüfer C1 Grammatik için C diyor; sen hataların sadece complex structures’da olduğunu düşünüyorsun.", "model": "„Ich sehe das etwas anders. Für mich spricht das eher für B, weil die Fehler fast ausschließlich in komplexen Strukturen auftreten und die grammatische Kontrolle insgesamt hoch bleibt.“"}, {"scenario": "Başka Prüfer aynı hatayı Repertoire ve Grammatikte düşürmek istiyor.", "model": "„Ich würde denselben Fehler nicht doppelt werten. Meines Erachtens gehört diese Beobachtung primär zum Repertoire; die grammatische Kontrolle würde ich davon getrennt beurteilen.“"}], "cases": [{"level": "C1", "title": "Mini-Video 1 – Dengeli güçlü C1", "part": "Teil 2 Diskussion", "obs": ["Görev: Görüşünü açık savunuyor, karşı argümanları çoğunlukla ele alıyor.", "Flüssigkeit: Akıcı, birkaç kısa Suchpause.", "Repertoire: Geniş, birkaç Umschreibung.", "Grammatik: Hatalar neredeyse sadece kompleks yapılarda.", "Aussprache: Hafif aksan, tamamen anlaşılır."], "ratings": {"Aufgabe": "B", "Flüssigkeit": "B", "Repertoire": "B", "Grammatik": "B", "Aussprache": "A"}, "comment": "„Insgesamt sehe ich eine klare C1-Leistung. Die Kommunikation ist weitgehend flüssig und sprachlich breit; kleinere Einschränkungen zeigen sich vor allem bei Repertoire und komplexer Grammatik.“"}, {"level": "C1", "title": "Mini-Video 2 – Çok güçlü C1", "part": "Teil 1A Präsentation", "obs": ["Görev: Tam, net yapı, uygun sonuç ve örnekler.", "Flüssigkeit: Neredeyse sürekli doğal ve akıcı.", "Repertoire: Geniş ve çeşitli, çok az arama.", "Grammatik: Yüksek doğruluk.", "Aussprache: Açık ve doğal."], "ratings": {"Aufgabe": "A", "Flüssigkeit": "A", "Repertoire": "A", "Grammatik": "A", "Aussprache": "A"}, "comment": "„Die Leistung entspricht in allen Kriterien nahezu durchgängig dem C1-Zielniveau.“"}, {"level": "C1", "title": "Mini-Video 3 – Sınırda C1", "part": "Teil 2 Diskussion", "obs": ["Görev: Pozisyon var ama karşı argümanların bazılarını atlıyor.", "Flüssigkeit: Sık Wortsuchen, iletişim kısmen kesiliyor.", "Repertoire: Sık sadeleştirme ve tekrar.", "Grammatik: Karmaşık olmayan yapılarda da hatalar.", "Aussprache: Genel olarak anlaşılır ama sürekli dikkat gerekiyor."], "ratings": {"Aufgabe": "C", "Flüssigkeit": "C", "Repertoire": "C", "Grammatik": "C", "Aussprache": "C"}, "comment": "„Mehrere Merkmale des C1-Zielniveaus werden nur teilweise erreicht; deshalb sehe ich die Leistung in mehreren Kriterien bei C.“"}, {"level": "C1", "title": "Mini-Video 4 – Dil güçlü, görev zayıf", "part": "Teil 1B Zusammenfassung", "obs": ["Görev: Özet çok eksik ve Anschlussfrage yok.", "Flüssigkeit: Akıcı.", "Repertoire: Geniş.", "Grammatik: Çok az hata.", "Aussprache: Açık."], "ratings": {"Aufgabe": "C", "Flüssigkeit": "A", "Repertoire": "A", "Grammatik": "A", "Aussprache": "A"}, "comment": "„Sprachlich ist die Leistung stark, aber die Aufgabengerechtheit in Teil 1B ist deutlich schwächer. Diese Kriterien müssen getrennt bewertet werden.“"}, {"level": "C2", "title": "Mini-Video 5 – Güçlü C2", "part": "Teil 1 Vortrag", "obs": ["Görev: Tam, mantıklı, önemli noktalar vurgulu.", "Flüssigkeit: Doğal, zahmetsiz, kohärent.", "Repertoire: Çok geniş, idiomatik, nüanslı.", "Grammatik: Neredeyse hatasız.", "Aussprache: Doğal; tonlama nüans taşıyor."], "ratings": {"Aufgabe": "A", "Flüssigkeit": "A", "Repertoire": "A", "Grammatik": "A", "Aussprache": "A"}, "comment": "„Die Leistung entspricht nahezu durchgängig dem C2-Zielniveau: präzise, sehr flüssig, sprachlich breit und natürlich.“"}, {"level": "C2", "title": "Mini-Video 6 – C2’de iyi ama A değil", "part": "Teil 2 Vertiefendes Gespräch", "obs": ["Görev: Sorulara iyi cevap, bir zor soruda yüzeysel kalıyor.", "Flüssigkeit: Büyük ölçüde doğal, birkaç belirgin Stockung.", "Repertoire: Çok geniş ama birkaç yerde Umschreibung.", "Grammatik: Yüksek kontrol, birkaç complex error.", "Aussprache: Açık ve doğal."], "ratings": {"Aufgabe": "B", "Flüssigkeit": "B", "Repertoire": "B", "Grammatik": "B", "Aussprache": "A"}, "comment": "„Die Leistung ist klar auf hohem Niveau, entspricht dem C2-Zielniveau aber nicht in jeder Hinsicht. Deshalb überwiegt B.“"}, {"level": "C2", "title": "Mini-Video 7 – Repertoire problemi", "part": "Teil 2 Vertiefendes Gespräch", "obs": ["Görev: Aktif ve konuyu sürdürüyor.", "Flüssigkeit: Genel olarak akıcı.", "Repertoire: Çok sayıda sadeleştirme, precision eksik.", "Grammatik: Yüksek kontrol.", "Aussprache: Açık."], "ratings": {"Aufgabe": "A", "Flüssigkeit": "B", "Repertoire": "C", "Grammatik": "B", "Aussprache": "A"}, "comment": "„Die Schwäche liegt vor allem beim Repertoire. Die sprachliche Präzision und Breite entsprechen dort nicht durchgängig dem C2-Zielniveau.“"}, {"level": "C2", "title": "Mini-Video 8 – Görev süresi kritik", "part": "Teil 1 Vortrag", "obs": ["Görev: Vortrag 3:35 dakika sürüyor; bazı ana noktalar eksik.", "Flüssigkeit: Akıcı.", "Repertoire: Geniş.", "Grammatik: Yüksek kontrol.", "Aussprache: Açık."], "ratings": {"Aufgabe": "C", "Flüssigkeit": "B", "Repertoire": "B", "Grammatik": "B", "Aussprache": "A"}, "comment": "„Für die Aufgabengerechtheit ist C angemessen; der C2-Rubrik ordnet einen Vortrag unter vier Minuten dem C-Bereich zu.“"}, {"level": "C2", "title": "Mini-Video 9 – Hafif aksan tuzağı", "part": "Gesamt", "obs": ["Görev: Çok iyi.", "Flüssigkeit: Çok akıcı.", "Repertoire: Çok geniş.", "Grammatik: Çok yüksek kontrol.", "Aussprache: Hafif aksan var ama açık/doğal; nüanslı tonlama."], "ratings": {"Aufgabe": "A", "Flüssigkeit": "A", "Repertoire": "A", "Grammatik": "A", "Aussprache": "A"}, "comment": "„Ein leichter Akzent schließt eine A-Bewertung nicht aus, solange Aussprache und Intonation klar und natürlich bleiben.“"}, {"level": "C1", "title": "Mini-Video 10 – Doppelbestrafung tuzağı", "part": "Gesamt", "obs": ["Görev: İyi.", "Flüssigkeit: İyi.", "Repertoire: Aynı kelimeyi sık tekrarlıyor ve alternatif ifade bulmakta zorlanıyor.", "Grammatik: Yapılar doğru; belirgin form hatası yok.", "Aussprache: Açık."], "ratings": {"Aufgabe": "B", "Flüssigkeit": "B", "Repertoire": "C", "Grammatik": "A", "Aussprache": "A"}, "comment": "„Die Einschränkung betrifft primär das Repertoire. Sie sollte nicht zusätzlich als Grammatikfehler bestraft werden.“"}], "mock": [{"q": "„Die Person spricht in gleichmäßigem Tempo; es gibt nur wenige Suchpausen.“", "a": "Flüssigkeit", "o": ["Aufgabengerechtheit", "Flüssigkeit", "Repertoire", "Grammatische Richtigkeit"], "why": "Tempo, Stockungen und Suchpausen gehören zur Flüssigkeit."}, {"q": "„Der Vortrag ist klar aufgebaut, die Aufgabe wird vollständig erfüllt und zentrale Punkte werden hervorgehoben.“", "a": "Aufgabengerechtheit", "o": ["Aussprache und Intonation", "Repertoire", "Aufgabengerechtheit", "Flüssigkeit"], "why": "Aufgabenerfüllung, Struktur und Adressatenbezug gehören zur Aufgabengerechtheit."}, {"q": "„Die Person verwendet einen breiten Wortschatz und kann sich präzise und differenziert ausdrücken.“", "a": "Repertoire", "o": ["Repertoire", "Flüssigkeit", "Grammatische Richtigkeit", "Aufgabengerechtheit"], "why": "Wortschatzbreite, Präzision und sprachliche Vielfalt = Repertoire."}, {"q": "„Fehler treten fast nur bei komplexeren Satzkonstruktionen auf.“", "a": "Grammatische Richtigkeit", "o": ["Flüssigkeit", "Grammatische Richtigkeit", "Aussprache und Intonation", "Repertoire"], "why": "Fehler in Morphologie, Genus und Syntax gehören zur grammatischen Richtigkeit."}, {"q": "„Die Wort- und Satzmelodie ist natürlich; ein leichter Akzent stört die Verständlichkeit nicht.“", "a": "Aussprache und Intonation", "o": ["Aussprache und Intonation", "Flüssigkeit", "Repertoire", "Aufgabengerechtheit"], "why": "Lautung, Satzmelodie, Betonung und Intonation gehören zu diesem Kriterium."}, {"q": "„In der Diskussion reagiert die Person spontan auf Gegenargumente und vertritt ihre Position überzeugend.“", "a": "Aufgabengerechtheit", "o": ["Aufgabengerechtheit", "Flüssigkeit", "Repertoire", "Grammatische Richtigkeit"], "why": "Hier wird primär die kommunikative Aufgabe der Diskussion bewältigt."}, {"q": "„Mehrfach werden vereinfachte Formulierungen und Umschreibungen benutzt, obwohl präzisere Mittel nötig wären.“", "a": "Repertoire", "o": ["Aussprache und Intonation", "Repertoire", "Flüssigkeit", "Grammatische Richtigkeit"], "why": "Häufige Vereinfachungen/Umschreibungen zeigen eine Einschränkung des Repertoires."}, {"q": "„Die Pausen sind so lang, dass das Verstehen stellenweise erschwert wird.“", "a": "Flüssigkeit", "o": ["Flüssigkeit", "Aufgabengerechtheit", "Repertoire", "Aussprache und Intonation"], "why": "Pausen, die Redefluss oder Verstehen stören, betreffen Flüssigkeit."}, {"q": "„Auch in längeren Äußerungen bleibt die Syntax weitgehend korrekt.“", "a": "Grammatische Richtigkeit", "o": ["Repertoire", "Grammatische Richtigkeit", "Flüssigkeit", "Aufgabengerechtheit"], "why": "Syntaxkontrolle wird unter grammatischer Richtigkeit beurteilt."}, {"q": "„Die Intonation wird gezielt eingesetzt, um feine Bedeutungsunterschiede auszudrücken.“", "a": "Aussprache und Intonation", "o": ["Repertoire", "Aussprache und Intonation", "Flüssigkeit", "Aufgabengerechtheit"], "why": "Gezielte Intonation zur Bedeutungsnuancierung gehört zu Aussprache/Intonation."}, {"q": "„Die Zusammenfassung informiert auch eine außenstehende Person klar über die Hauptaussagen.“", "a": "Aufgabengerechtheit", "o": ["Aufgabengerechtheit", "Repertoire", "Flüssigkeit", "Grammatische Richtigkeit"], "why": "Bei C1 Teil 1B gehört die wirksame Zusammenfassung zur Aufgabengerechtheit."}, {"q": "„Die Person findet bei einer Wortschatzlücke problemlos eine passende Umschreibung.“", "a": "Repertoire", "o": ["Repertoire", "Flüssigkeit", "Aussprache und Intonation", "Aufgabengerechtheit"], "why": "Strategischer Umgang mit Wortschatzlücken gehört zum Repertoire."}, {"q": "Kann zu einem breiten Themenspektrum klar und detailliert sprechen und Vor- und Nachteile verschiedener Möglichkeiten angeben.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Klar/detailliert + Standpunkt/Vor- und Nachteile ist typisch B2."}, {"q": "Kann komplexe Sachverhalte klar und detailliert darstellen, Unterthemen integrieren und mit einem angemessenen Schluss abrunden.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Das ist ein zentraler C1-Deskriptor für mündliche Produktion."}, {"q": "Kann sich spontan, sehr flüssig und genau ausdrücken und feinere Bedeutungsnuancen deutlich machen.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Sehr flüssig + genau + feine Bedeutungsnuancen = C2."}, {"q": "Kann sich so spontan und fließend verständigen, dass ein normales Gespräch ohne größere Anstrengung möglich ist.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Normales Gespräch ohne größere Anstrengung ist ein B2-Kern."}, {"q": "Kann sich beinahe mühelos spontan und fließend ausdrücken; offensichtliches Suchen nach Worten ist selten.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "„beinahe mühelos“ + seltenes Wortsuchen kennzeichnet C1."}, {"q": "Beherrscht idiomatische und umgangssprachliche Wendungen und kann Konnotationen sowie feine Bedeutungsnuancen sicher ausdrücken.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Idiomatik, Konnotationen und Nuancen sind C2."}, {"q": "Kann komplexen Gruppendiskussionen leicht folgen und auch dazu beitragen.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Komplexe Diskussionen aktiv mittragen ist ein C1-Merkmal."}, {"q": "Kann einen komplexen Vortrag flexibel an die Bedürfnisse des Publikums anpassen und auch mit schwierigen Fragen umgehen.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Flexibles Anpassen an Publikum + schwierige Fragen = C2."}, {"q": "Kann die Bedeutung eigener Erfahrungen hervorheben und Standpunkte durch relevante Argumente klar begründen und verteidigen.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Begründete Standpunkte und breite selbstständige Kommunikation entsprechen B2."}, {"q": "Kann die Sprache wirksam und flexibel für soziale Zwecke gebrauchen.", "a": "C1", "o": ["B2", "C1", "C2"], "why": "Wirksamer und flexibler Sprachgebrauch ist typisch C1."}, {"q": "Kann bei Ausdrucksschwierigkeiten so reibungslos neu ansetzen und umformulieren, dass Gesprächspartner kaum etwas bemerken.", "a": "C2", "o": ["B2", "C1", "C2"], "why": "Nahezu unbemerkte Reparaturstrategien = C2."}, {"q": "Kann Sachverhalte klar und systematisch beschreiben und wichtige Punkte sowie stützende Details hervorheben.", "a": "B2", "o": ["B2", "C1", "C2"], "why": "Systematisch, klar, stützende Details = B2-Produktion."}, {"q": "C1 – Aufgabengerechtheit: Die Anforderungen der jeweiligen Aufgabe werden (fast) durchgängig erfüllt.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C1 Rubrik: fast durchgängig erfüllt = A."}, {"q": "C1 – Aufgabengerechtheit: Mehrere geforderte Merkmale fehlen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "Mehrere Merkmale nicht erfüllt = C."}, {"q": "C1 – Flüssigkeit: Kommunikation wirkt fast immer natürlich; durchgängig flüssig und kohärent.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C1 A: (fast immer) natürlich, durchgängig flüssig/kohärent."}, {"q": "C1 – Flüssigkeit: Teilweise gestört; häufiges Suchen nach Wörtern und Strukturen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C1 C: teilweise gestört und öfteres Wortsuchen."}, {"q": "C1 – Repertoire: Fast durchgängig zielniveaugerechtes breites Spektrum.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C1 A: fast durchgängig Zielniveau."}, {"q": "C1 – Repertoire: Oft sprachlich eingeschränkt; häufige Umschreibungen/Vereinfachungen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C1 C: häufige Einschränkungen."}, {"q": "C1 – Grammatik: Fast durchgängig hohes Maß an grammatischer Korrektheit.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C1 A."}, {"q": "C1 – Grammatik: Etliche Fehler, nicht nur bei komplexen Strukturen.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C1 C."}, {"q": "C1 – Aussprache: Trotz Akzent durchgängig klar und natürlich.", "a": "A", "o": ["A", "B", "C", "D"], "why": "Akzent schließt A nicht aus."}, {"q": "C1 – Aussprache: Fehler erfordern durchgängig erhöhte Aufmerksamkeit.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C1 C."}, {"q": "C2 – Aufgabengerechtheit: Fast durchgängig alle Anforderungen erfüllt.", "a": "A", "o": ["A", "B", "C", "D"], "why": "C2 A."}, {"q": "C2 – Vortrag dauert unter 4 Minuten.", "a": "C", "o": ["A", "B", "C", "D"], "why": "C2-Rubrik nennt Vortrag unter 4 Minuten ausdrücklich bei C."}, {"q": "C1 Paarprüfung: Yaklaşık toplam sınav süresi?", "a": "16 dakika", "o": ["10 dakika", "16 dakika", "20 dakika", "24 dakika"], "why": "C1 Paarprüfung yaklaşık 16 dakikadır."}, {"q": "C1 Dreierprüfung: Yaklaşık toplam sınav süresi?", "a": "24 dakika", "o": ["16 dakika", "20 dakika", "24 dakika", "30 dakika"], "why": "C1 üç adaylı sınav yaklaşık 24 dakikadır."}, {"q": "C1 hazırlık süresi?", "a": "20 dakika", "o": ["10 dakika", "15 dakika", "20 dakika", "30 dakika"], "why": "Teil 1 için 20 dakika hazırlanılır."}, {"q": "C1 Teil 1A Präsentation yaklaşık ne kadar sürer?", "a": "3–4 dakika", "o": ["2 dakika", "3–4 dakika", "6 dakika", "7–9 dakika"], "why": "Durchführung belgesinde 3–4 dakika."}, {"q": "C1 Teil 1B yaklaşık ne kadar sürer?", "a": "2–3 dakika", "o": ["1 dakika", "2–3 dakika", "4–5 dakika", "6 dakika"], "why": "Zusammenfassung/Anschlussfragen 2–3 dakika."}, {"q": "C1 Teil 2 Diskussion yaklaşık ne kadar sürer?", "a": "6 dakika", "o": ["3 dakika", "4 dakika", "6 dakika", "8 dakika"], "why": "Diskussion yaklaşık 6 dakika."}, {"q": "C1’de Diskussion görev kağıdı ne zaman verilir?", "a": "Prüfungsraum’da, önceden değil", "o": ["20 dk hazırlık başında", "Bir gün önce", "Prüfungsraum’da, önceden değil", "Sunum sırasında"], "why": "Teil 2 materyali hazırlık için önceden verilmez."}, {"q": "C1 hazırlıkta sözlük kullanılabilir mi?", "a": "Hayır", "o": ["Evet", "Sadece tek dilli", "Sadece dijital", "Hayır"], "why": "Wörterbuch kullanımı yasaktır."}, {"q": "C1’de Interlokutor’un temel rolü nedir?", "a": "Sınavı yönetmek ve geçişleri sağlamak", "o": ["Sadece puan toplamak", "Sınavı yönetmek ve geçişleri sağlamak", "Sonucu açıklamak", "Adayın hatalarını düzeltmek"], "why": "Interlokutor moderasyonu ve akışı yönetir."}, {"q": "Assessor’un temel rolü?", "a": "Gözlemlemek ve değerlendirmek", "o": ["Aday yerine konuşmak", "Gözlemlemek ve değerlendirmek", "Sonucu açıklamak", "Sadece süre tutmak"], "why": "Assessor gözlem ve değerlendirme odaklıdır."}, {"q": "M10 üzerindeki değerlendirme nasıl yapılır?", "a": "İki Prüfer önce bağımsız değerlendirir", "o": ["Tek Prüfer doldurur", "Birlikte aynı anda karar verirler", "İki Prüfer önce bağımsız değerlendirir", "Aday doldurur"], "why": "Prüferler önce bağımsız değerlendirme yapar."}, {"q": "Prüferler değerlendirmelerini ne zaman karşılaştırır?", "a": "Aday(lar) çıktıktan sonra", "o": ["Sınav sırasında", "Aday(lar) çıktıktan sonra", "Hazırlık süresinde", "Sonuç açıklandıktan sonra"], "why": "Değerlendirme görüşmesi adaylar çıktıktan sonra yapılır."}, {"q": "İki Prüfer mutlaka aynı sonuca varmak zorunda mı?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Kendi değerlendirmelerini reflekte ederler; aynı olmak zorunda değildir."}, {"q": "Bireysel değerlendirmeler sonunda nereye aktarılır?", "a": "S30", "o": ["M5", "S30", "M20", "Z10"], "why": "Bireysel sonuçlar S30’a aktarılır."}, {"q": "C2 sözlü sınavı genelde hangi formatta?", "a": "Einzelprüfung", "o": ["Paarprüfung", "Dreierprüfung", "Einzelprüfung", "Grup tartışması"], "why": "C2 sözlü Einzelprüfung’dür."}, {"q": "C2 hazırlık süresi?", "a": "20 dakika", "o": ["10 dakika", "15 dakika", "20 dakika", "30 dakika"], "why": "C2 Vortrag için 20 dakika hazırlık."}, {"q": "C2 Teil 1 Vortrag süresi?", "a": "6–8 dakika", "o": ["3–4 dakika", "5 dakika", "6–8 dakika", "10 dakika"], "why": "Vortrag 6–8 dakika."}, {"q": "C2 Teil 2 Vertiefendes Gespräch süresi?", "a": "7–9 dakika", "o": ["2–3 dakika", "6 dakika", "7–9 dakika", "12 dakika"], "why": "Vertiefendes Gespräch 7–9 dakika."}, {"q": "C2 toplam sözlü sınav ne kadar sürmeli?", "a": "Yaklaşık 15 dakika, 15’i aşmamalı", "o": ["10 dakika", "Yaklaşık 15 dakika, 15’i aşmamalı", "20 dakika", "24 dakika"], "why": "Durchführung belgesine göre toplam yaklaşık 15 dakika."}, {"q": "C2’de Prüfende Anschlussfragen sorabilir mi?", "a": "Evet, hazır veya kendi sorularını kullanabilir", "o": ["Hayır", "Sadece hazır sorular", "Evet, hazır veya kendi sorularını kullanabilir", "Sadece aday isterse"], "why": "C2 vertiefendes Gespräch’de sorular doğal biçimde gelişebilir."}, {"q": "İyi Prüfer soruları nasıl olmalı?", "a": "Mümkün olduğunca açık uçlu ve söylenene bağlı", "o": ["Evet/Hayır ağırlıklı", "Çok uzun ve karmaşık", "Mümkün olduğunca açık uçlu ve söylenene bağlı", "Hedef seviyenin üstünde"], "why": "Offene W-Fragen konuşmayı sürdürmeye yardımcı olur."}, {"q": "C1’de bir aday konuşmayı domine ederse ne yapılmalı?", "a": "Daha sessiz adayı doğrudan dahil etmek", "o": ["Hiç müdahale etmemek", "Dominant adayı susturmak", "Daha sessiz adayı doğrudan dahil etmek", "Sınavı bitirmek"], "why": "Redeanteile mümkün olduğunca adil dağıtılmalıdır."}, {"q": "C2’de aday hiçbir sınav konusunu değil başka bir konuyu sunarsa sonuç?", "a": "Mündliche Prüfung insgesamt 0 puan", "o": ["Sadece Teil 1 sıfır", "B verilir", "Mündliche Prüfung insgesamt 0 puan", "Tekrar sunum yaptırılır"], "why": "C2 kriter belgesinde açıkça belirtilir."}, {"q": "C1’de Diskussion gerekli dil seviyesine ulaşmıyorsa Prüfer ne yapabilir?", "a": "Ergänzende Fragen ile müdahale edebilir", "o": ["Hiçbir şey yapamaz", "Sınavı iptal eder", "Ergänzende Fragen ile müdahale edebilir", "Adayı düzeltir"], "why": "Gerekirse ek sorularla dil performansı ortaya çıkarılır."}, {"q": "Adayın sonucunu sözlü sınav biter bitmez söylemek doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Prüfer sonuç hakkında bilgi vermemelidir."}, {"q": "Bir aday diğerinden daha iyi diye ona yüksek puan vermek doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Adaylar birbirleriyle değil, kriter ve hedef seviye ile karşılaştırılır."}, {"q": "Doğal kısa düşünme duraklamasını otomatik olarak Flüssigkeit hatası saymak doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Natürliches Zögern normal olabilir; iletişimi bozup bozmadığına bakılır."}, {"q": "C1/C2’de neredeyse ana dil düzeyinde aksansız telaffuz beklemek doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Akzent olabilir; açıklık, doğallık ve anlaşılabilirlik önemlidir."}, {"q": "Aynı dil hatasını hem Grammatik hem Repertoire’da otomatik iki kez cezalandırmak doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Aynı hata iki kez cezalandırılmamalı; kriterler ayrıştırılmalı."}, {"q": "Aufgabengerechtheit’i sadece konuşmanın uzunluğuna göre değerlendirmek doğru mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Görevin kalitesi, aktif katılım, yapı ve uygunluk önemlidir."}, {"q": "Prüfer çok konuşup kendi Almancasını göstermeli mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Prüfer mümkün olduğunca az konuşmalı."}, {"q": "İkinci Prüfer sürekli ek soru sorarak adayı iki taraftan sıkıştırmalı mı?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "İkinci Prüfer katkıyı ölçülü yapmalıdır."}, {"q": "Aday bir kelimenin anlamını sorarsa uzun açıklama yapmak uygun mu?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Mümkünse partnerden yardım; değilse Almanca çok kısa açıklama."}, {"q": "Bir aday çok konuşuyorsa daha sessiz adayı „Und Sie, was denken Sie?“ ile dahil etmek uygun mu?", "a": "Evet", "o": ["Evet", "Hayır"], "why": "Eşit konuşma fırsatı sağlamak Prüfer rolünün parçasıdır."}, {"q": "Prüferin sıkılmış, yorgun veya ilgisiz görünmesi sorun mudur?", "a": "Evet", "o": ["Evet", "Hayır"], "why": "Profesyonel ve tarafsız bir sınav atmosferi korunmalıdır."}, {"q": "Prüfer bir adayı kişisel olarak sevdiğini/sevmediğini belli edebilir mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Tarafsızlık esastır."}, {"q": "Prüfer görev açıklamasında hedef seviyenin çok üstünde dil kullanmalı mı?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Dil seviyesi göreve/adaylara uygun olmalıdır."}, {"q": "Not almak ve M10 işaretlemek unutulabilir mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Gözlem ve değerlendirme kaydı Prüfer görevlerindendir."}, {"q": "Zaman takibi Prüferin sorumluluğu mu?", "a": "Evet", "o": ["Evet", "Hayır"], "why": "Her bölümün süreleri korunmalıdır."}, {"q": "C2’de „hızlı konuşuyor“ tek başına A-Flüssigkeit için yeterli mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Flüssigkeit = doğal, kohärent, stabil akış; hız değildir."}, {"q": "C1’de iki küçük gramer hatası varsa otomatik B/C’ye düşürmek gerekir mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Hataların türü, sıklığı ve genel kontrol önemlidir."}, {"q": "C2’de hafif aksan varsa A Aussprache mümkün mü?", "a": "Evet", "o": ["Evet", "Hayır"], "why": "Rubrik, geringem Akzent’e rağmen A’yı açıkça mümkün kılar."}, {"q": "Prüfer öznel „bence iyi Almancası var“ izlenimiyle puan verebilir mi?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Bewertung GER/telc kriterleriyle gerekçelendirilmelidir."}, {"q": "İki Prüfer farklı puan verirse bu otomatik hata mı?", "a": "Hayır", "o": ["Evet", "Hayır"], "why": "Değerlendirmelerini tartışırlar ama tamamen aynı olmak zorunda değildir."}, {"q": "„Die Leistung entspricht ______ dem Zielniveau.“", "a": "weitgehend", "o": ["weitgehend", "schnell", "muttersprachlich", "subjektiv"], "why": "B-benzeri kısa karar kalıbı."}, {"q": "„Allerdings zeigt sich gelegentlich eine ______ bei …“", "a": "Einschränkung", "o": ["Einschränkung", "Prüfung", "Geschwindigkeit", "Person"], "why": "Sınırlılık ifade etmek için."}, {"q": "„Für eine A-Bewertung ______ mir noch …“", "a": "fehlt", "o": ["fehlt", "spricht", "vergleicht", "liest"], "why": "A için eksik noktayı belirtmek için."}, {"q": "„Deshalb würde ich hier B ______.“", "a": "vergeben", "o": ["vergeben", "lesen", "fragen", "erlauben"], "why": "Prüfer dili: eine Bewertung vergeben."}, {"q": "„Die Kommunikation bleibt trotz einzelner Fehler insgesamt ______.“", "a": "stabil", "o": ["stabil", "schnell", "lang", "subjektiv"], "why": "Tekil hatalara rağmen genel kontrol."}, {"q": "„Das fällt meines Erachtens eher unter Repertoire ______ unter Grammatik.“", "a": "als", "o": ["als", "wie", "obwohl", "damit"], "why": "Kriterleri ayırırken: eher … als …"}, {"q": "„Insgesamt sehe ich die Leistung zwischen B und C, mit ______ zu B.“", "a": "Tendenz", "o": ["Tendenz", "Tempo", "Fehler", "Pause"], "why": "Kararsızlıkta profesyonel kısa formül."}, {"q": "„Die beobachtete Leistung entspricht in diesem Kriterium nur ______ dem Zielniveau.“", "a": "teilweise", "o": ["teilweise", "schnell", "persönlich", "muttersprachlich"], "why": "C-benzeri kısmi karşılamayı belirtir."}, {"q": "„Die wenigen Stockungen ______ die Kommunikation kaum.“", "a": "beeinträchtigen", "o": ["beeinträchtigen", "vergleichen", "erlauben", "unterbrechen immer"], "why": "Stockungen iletişimi ne ölçüde etkiliyor sorusuna yarar."}, {"q": "„Die Person kann ihre Position klar ______.“", "a": "begründen", "o": ["begründen", "schweigen", "messen", "sitzen"], "why": "Görüşü gerekçelendirmek."}, {"q": "„Die Beiträge sind gut ______ und adressatenbezogen.“", "a": "strukturiert", "o": ["strukturiert", "gelöscht", "langsam", "privat"], "why": "Aufgabengerechtheit dili."}, {"q": "„Es treten nur ______ Fehler in komplexeren Strukturen auf.“", "a": "vereinzelte", "o": ["vereinzelte", "unzählige", "beliebige", "fremde"], "why": "Tekil hata anlatımı."}]};
+const glossary=[["durchgängig", "sürekli / baştan sona"], ["weitgehend", "büyük ölçüde"], ["vorwiegend", "çoğunlukla"], ["Stockung", "takılma / akış kesilmesi"], ["Zögern", "duraksama / tereddüt"], ["Suchpause", "kelime arama duraklaması"], ["Umschreibung", "dolaylı anlatım / başka kelimelerle açıklama"], ["Einschränkung", "sınırlılık"], ["Vereinfachung", "sadeleştirme"], ["adressatenbezogen", "muhataba/dinleyiciye uygun"], ["hervorheben", "vurgulamak"], ["beeinträchtigen", "olumsuz etkilemek"], ["angemessen", "uygun"], ["Anschlussfrage", "takip/ek soru"], ["Einwurf", "araya giren yorum / müdahale"], ["Abtönungsmittel", "nüanslandırıcı dil aracı"], ["Konnotation", "yan anlam / çağrışım"], ["kohärent", "tutarlı / bağlantılı"], ["mühelos", "zorlanmadan"], ["nachvollziehbar", "anlaşılır / takip edilebilir"], ["Bedeutungsnuance", "ince anlam farkı"], ["Redeanteil", "konuşma payı"], ["Aufgabenerfüllung", "görevin yerine getirilmesi"], ["Anforderung", "gereklilik"], ["Merkmal", "özellik / kriter işareti"], ["zuordnen", "bir kritere atamak"], ["vergeben", "puan/değerlendirme vermek"], ["souverän", "güvenli / hakim biçimde"], ["präzise", "hassas / net"], ["differenziert", "ayrıntılı ve nüanslı"]];
+let practiceMode='criterion', practiceIndex=0, sprintTimer=null, sprintRemaining=30;
+let caseSelections={}, mockSession=null;
+
+function getStats(){
+  try{return JSON.parse(localStorage.getItem('telc_stats_v4')||'{}')}catch(e){return {}}
+}
+function setStats(s){localStorage.setItem('telc_stats_v4',JSON.stringify(s));updateDashboard();}
+function record(mode,correct,total=1){
+  const s=getStats(); if(!s[mode])s[mode]={correct:0,total:0};
+  s[mode].correct+=correct;s[mode].total+=total;setStats(s);
+}
+function overallStats(){
+ const s=getStats();let c=0,t=0;
+ Object.values(s).forEach(x=>{c+=x.correct||0;t+=x.total||0});
+ return {c,t,p:t?Math.round(c/t*100):0};
+}
+function updateDashboard(){
+ const x=overallStats();
+ const sc=document.getElementById('exerciseScore');if(sc)sc.textContent=`${x.c} / ${x.t}`;
+ const n=document.getElementById('readinessNum'),b=document.getElementById('readinessBar'),tx=document.getElementById('readinessText');
+ if(n)n.textContent=x.t<10?'—':x.p+'%'; if(b)b.style.width=(x.t<10?0:x.p)+'%';
+ if(tx){
+   if(x.t<10)tx.textContent='Başlamak için birkaç alıştırma çöz.';
+   else if(x.t<30)tx.textContent='İyi başlangıç; en az 30 cevapla göstergeni sağlamlaştır.';
+   else if(x.p>=90)tx.textContent='Çok iyi. Zayıf modülleri ve 30 sn yorumları tekrar et.';
+   else if(x.p>=80)tx.textContent='Schulung için iyi seviyedesin; hatalı başlıkları hedefle.';
+   else if(x.p>=70)tx.textContent='Temel var; A–D ve kriter ayrımını biraz daha çalış.';
+   else tx.textContent='Önce kriter + A–D + format/rol modüllerini güçlendir.';
+ }
+}
+function shuffled(a){return [...a].sort(()=>Math.random()-.5)}
+function renderMC(list,mode){
+ const area=document.getElementById('exerciseArea'), item=list[practiceIndex%list.length];
+ document.getElementById('exerciseProgress').style.width=((practiceIndex%list.length)/list.length*100)+'%';
+ area.dataset.answered='0';
+ area.innerHTML=`<div class="exercise-box">
+ <div class="micro-note">${practiceIndex%list.length+1} / ${list.length}</div>
+ <div class="exercise-q">${item.q}</div>
+ <div class="options">${shuffled(item.o).map(o=>`<button type="button" data-a="${String(o).replace(/"/g,'&quot;')}">${o}</button>`).join('')}</div>
+ <div class="feedback" id="fb"></div>
+ <div style="display:flex;justify-content:flex-end;margin-top:10px"><button type="button" class="primary" id="nxt" style="display:none">Sonraki</button></div>
+ </div>`;
+ const fb=area.querySelector('#fb');
+ area.querySelectorAll('.options button').forEach(btn=>btn.addEventListener('click',()=>{
+   if(area.dataset.answered==='1')return;area.dataset.answered='1';
+   const ok=btn.dataset.a===String(item.a);record(mode,ok?1:0,1);
+   if(ok){btn.classList.add('correct');fb.innerHTML=`✅ <b>Doğru: ${item.a}</b><br>${item.why}`;}
+   else{btn.classList.add('wrong');area.querySelectorAll('.options button').forEach(b=>{if(b.dataset.a===String(item.a))b.classList.add('correct')});fb.innerHTML=`❌ <b>Doğru: ${item.a}</b><br>${item.why}`;}
+   fb.classList.add('show'); const nx=area.querySelector('#nxt');nx.style.display='inline-block';
+   nx.addEventListener('click',()=>{practiceIndex++;renderPractice();});
+ }));
+}
+function renderSprint(){
+ const a=document.getElementById('exerciseArea'),item=V4DATA.sprint[practiceIndex%V4DATA.sprint.length];
+ document.getElementById('exerciseProgress').style.width=((practiceIndex%V4DATA.sprint.length)/V4DATA.sprint.length*100)+'%';
+ sprintRemaining=30;
+ a.innerHTML=`<div class="exercise-box">
+ <div class="micro-note">${practiceIndex%V4DATA.sprint.length+1} / ${V4DATA.sprint.length} · Önce yüksek sesle Almanca yorumla.</div>
+ <div class="exercise-q" style="margin-top:8px">${item.scenario}</div>
+ <div class="timer" id="sprintTimer">30</div>
+ <div style="display:flex;gap:7px;flex-wrap:wrap"><button type="button" class="primary" id="startSp">30 sn başlat</button><button type="button" class="ghost" id="showSp">Modeli göster</button><button type="button" class="ghost" id="nextSp">Yeni senaryo</button></div>
+ <div class="model-answer" id="modelSp"><div class="de">${item.model}</div><div class="mini-tr">Kalıp: <b>Kriter → A/B/C/D → somut gözlem.</b></div>
+ <div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:9px"><button type="button" class="small-btn" id="spGood">✓ Kendim üretebildim</button><button type="button" class="small-btn" id="spBad">↻ Zorlandım</button></div></div>
+ </div>`;
+ const t=a.querySelector('#sprintTimer');
+ a.querySelector('#startSp').addEventListener('click',()=>{if(sprintTimer)clearInterval(sprintTimer);sprintRemaining=30;t.textContent='30';t.classList.remove('low');sprintTimer=setInterval(()=>{sprintRemaining--;t.textContent=sprintRemaining;if(sprintRemaining<=10)t.classList.add('low');if(sprintRemaining<=0){clearInterval(sprintTimer);sprintTimer=null;t.textContent='Bitti';}},1000)});
+ a.querySelector('#showSp').addEventListener('click',()=>a.querySelector('#modelSp').classList.toggle('show'));
+ a.querySelector('#nextSp').addEventListener('click',()=>{if(sprintTimer)clearInterval(sprintTimer);practiceIndex++;renderSprint()});
+ a.querySelector('#spGood').addEventListener('click',()=>{record('sprint',1,1);practiceIndex++;renderSprint()});
+ a.querySelector('#spBad').addEventListener('click',()=>{record('sprint',0,1);practiceIndex++;renderSprint()});
+}
+function renderCases(){
+ const a=document.getElementById('exerciseArea'),item=V4DATA.cases[practiceIndex%V4DATA.cases.length],keys=['Aufgabe','Flüssigkeit','Repertoire','Grammatik','Aussprache'];
+ document.getElementById('exerciseProgress').style.width=((practiceIndex%V4DATA.cases.length)/V4DATA.cases.length*100)+'%';
+ caseSelections={};
+ a.innerHTML=`<div class="exercise-box">
+ <div class="micro-note">${practiceIndex%V4DATA.cases.length+1} / ${V4DATA.cases.length} · <b>Synthetic Übung</b> (resmî video puanı değil)</div>
+ <h3 style="margin:6px 0">${item.title}</h3><div class="tag">${item.level} · ${item.part}</div>
+ <div class="case-obs">${item.obs.map(x=>`<div>• ${x}</div>`).join('')}</div>
+ <div class="micro-note">Her kriter için A–D seç:</div>
+ ${keys.map(k=>`<div class="case-row" data-k="${k}"><div class="lab">${k}</div>${['A','B','C','D'].map(r=>`<button type="button" data-r="${r}">${r}</button>`).join('')}</div>`).join('')}
+ <div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:10px"><button type="button" class="primary" id="checkCase">Kontrol et</button><button type="button" class="ghost" id="nextCase">Yeni vaka</button></div>
+ <div class="feedback" id="caseFb"></div><div class="model-answer" id="caseModel"><div class="de">${item.comment}</div></div>
+ </div>`;
+ a.querySelectorAll('.case-row').forEach(row=>row.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{row.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));btn.classList.add('sel');caseSelections[row.dataset.k]=btn.dataset.r;})));
+ a.querySelector('#checkCase').addEventListener('click',()=>{
+   if(keys.some(k=>!caseSelections[k])){const f=a.querySelector('#caseFb');f.textContent='Önce 5 kriterin hepsini seç.';f.classList.add('show');return;}
+   let c=0;keys.forEach(k=>{const row=a.querySelector(`.case-row[data-k="${k}"]`);row.querySelectorAll('button').forEach(b=>{if(b.dataset.r===item.ratings[k])b.classList.add('good');if(b.classList.contains('sel')&&b.dataset.r!==item.ratings[k])b.classList.add('bad')});if(caseSelections[k]===item.ratings[k])c++;});
+   record('cases',c,5);const f=a.querySelector('#caseFb');f.innerHTML=`<b>${c} / 5 doğru.</b> Model: ${keys.map(k=>k+' '+item.ratings[k]).join(' · ')}`;f.classList.add('show');a.querySelector('#caseModel').classList.add('show');
+ });
+ a.querySelector('#nextCase').addEventListener('click',()=>{practiceIndex++;renderCases()});
+}
+function makeMock(){
+ const pool=shuffled(V4DATA.mock).slice(0,20);mockSession={items:pool,index:0,correct:0,answered:false};
+ renderMock();
+}
+function renderMock(){
+ const a=document.getElementById('exerciseArea');
+ if(!mockSession){a.innerHTML=`<div class="exercise-box"><div class="exercise-q">20 soruluk Schulung denemesi</div><p class="muted">Kriter + seviye + A–D + format/rol + Fallstricke + Redemittel karışık. Hedef: <b>%80+</b>.</p><button type="button" class="primary" id="startMock">Denemeyi başlat</button></div>`;document.getElementById('exerciseProgress').style.width='0%';a.querySelector('#startMock').addEventListener('click',makeMock);return;}
+ if(mockSession.index>=mockSession.items.length){
+   const p=Math.round(mockSession.correct/mockSession.items.length*100);record('mock',mockSession.correct,mockSession.items.length);
+   document.getElementById('exerciseProgress').style.width='100%';
+   a.innerHTML=`<div class="mock-final"><div class="big">${p}%</div><b>${mockSession.correct} / ${mockSession.items.length}</b><p>${p>=90?'Çok iyi. Schulung için güçlü hazırlık.':p>=80?'İyi. Zayıf başlıkları bir tur daha dön.':p>=70?'Yakınsın; A–D ve format/rolü tekrar et.':'Yoğun tekrar gerekli; önce kriter + A–D moduna dön.'}</p><button type="button" class="primary" id="againMock">Yeni 20 soru</button></div>`;
+   mockSession=null;a.querySelector('#againMock').addEventListener('click',makeMock);return;
+ }
+ const item=mockSession.items[mockSession.index];document.getElementById('exerciseProgress').style.width=(mockSession.index/mockSession.items.length*100)+'%';
+ a.innerHTML=`<div class="exercise-box"><div class="micro-note">Deneme ${mockSession.index+1} / ${mockSession.items.length} · Skor: ${mockSession.correct}</div><div class="exercise-q">${item.q}</div><div class="options">${shuffled(item.o).map(o=>`<button type="button" data-a="${String(o).replace(/"/g,'&quot;')}">${o}</button>`).join('')}</div><div class="feedback" id="mf"></div><button type="button" class="primary" id="mn" style="display:none;margin-top:10px">Sonraki</button></div>`;
+ const f=a.querySelector('#mf');a.querySelectorAll('.options button').forEach(btn=>btn.addEventListener('click',()=>{if(mockSession.answered)return;mockSession.answered=true;const ok=btn.dataset.a===String(item.a);if(ok){mockSession.correct++;btn.classList.add('correct')}else{btn.classList.add('wrong');a.querySelectorAll('.options button').forEach(b=>{if(b.dataset.a===String(item.a))b.classList.add('correct')})}f.innerHTML=(ok?'✅':'❌')+` <b>${item.a}</b><br>${item.why}`;f.classList.add('show');a.querySelector('#mn').style.display='inline-block'}));
+ a.querySelector('#mn').addEventListener('click',()=>{mockSession.index++;mockSession.answered=false;renderMock()});
+}
+function renderCards(){
+ const a=document.getElementById('exerciseArea');document.getElementById('exerciseProgress').style.width='100%';
+ a.innerHTML=`<div class="muted" style="margin:8px 0">Önce Almanca yüksek sesle cevapla, sonra aç.</div>`+flashes.map((f,i)=>`<div class="flash searchable"><b>${i+1}. ${f[0]}</b><br><button type="button">Cevabı göster</button><div class="answer"><div class="de">${f[1]}</div><div class="mini-tr">${f[2]}</div></div></div>`).join('');
+ a.querySelectorAll('.flash').forEach(x=>x.querySelector('button').addEventListener('click',()=>x.querySelector('.answer').classList.toggle('show')));
+}
+function renderPractice(){
+ if(sprintTimer){clearInterval(sprintTimer);sprintTimer=null}updateDashboard();
+ if(practiceMode==='criterion')renderMC(V4DATA.criterion,'criterion');
+ else if(practiceMode==='level')renderMC(V4DATA.level,'level');
+ else if(practiceMode==='rating')renderMC(V4DATA.rating,'rating');
+ else if(practiceMode==='format')renderMC(V4DATA.format,'format');
+ else if(practiceMode==='pitfalls')renderMC(V4DATA.pitfalls,'pitfalls');
+ else if(practiceMode==='phrase')renderMC(V4DATA.phrase,'phrase');
+ else if(practiceMode==='cases')renderCases();
+ else if(practiceMode==='sprint')renderSprint();
+ else if(practiceMode==='mock')renderMock();
+ else renderCards();
+}
+document.querySelectorAll('#practiceTabs button').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('#practiceTabs button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');practiceMode=btn.dataset.mode;practiceIndex=0;mockSession=null;renderPractice();
+}));
+const gg=document.getElementById('glossaryGrid');if(gg)gg.innerHTML=glossary.map(x=>`<div class="glossary-item searchable"><b>${x[0]}</b><div>${x[1]}</div></div>`).join('');
+updateDashboard();renderPractice();
+
+document.querySelectorAll('.bottom-nav button').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.bottom-nav button').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');
+ document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.dataset.page===btn.dataset.go));
+ window.scrollTo({top:0,behavior:'smooth'});
+}));
+
+document.getElementById('globalSearch').addEventListener('input',e=>{
+ const q=e.target.value.trim().toLocaleLowerCase('tr');
+ document.querySelectorAll('.searchable').forEach(el=>{
+  el.style.display=!q||el.textContent.toLocaleLowerCase('tr').includes(q)?'block':'none';
+ });
+});
+
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+ navigator.serviceWorker.register('./sw.js').catch(()=>{});
+}
+</script>
+</body>
+</html>

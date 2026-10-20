@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AYDA B1 – Eski ilerlemeyi aktar</title>
+<style>body{font:15px/1.55 system-ui,Arial,sans-serif;background:#f6f8fb;color:#102541;margin:0;min-height:100dvh;display:grid;place-items:center}.card{width:min(440px,calc(100% - 36px));border-radius:20px;padding:26px;background:#fff;box-shadow:0 16px 45px #1025411c;border:1px solid #dce5ec}h1{font-size:22px;line-height:1.25;margin:0 0 12px}p{color:#52677e;margin:0 0 18px}button{background:#102541;color:#fff;border:0;border-radius:11px;padding:14px 19px;cursor:pointer;min-height:48px;width:100%;font:750 14px system-ui}#status{font-size:13px;font-weight:750;margin-top:14px}</style></head>
+<body><main class="card"><h1>AYDA B1 · Önceki ilerlemeni aktar</h1><p>Eski B1 adresinde yaptığın dersleri, alıştırma sonuçlarını ve yazma taslaklarını yeni AYDA sitesine aktar. Giriş parolası ve oturum bilgileri aktarılmaz.</p><button type="button" id="send">İlerlememi aktar</button><p id="status" role="status" aria-live="polite"></p></main>
+<script>
+(function(){
+'use strict';
+const keys={'main':'ayda-b1-progress','express':'ayda_b1_express_progress_v1','drafts':'ayda_b1_express_drafts_v1'};
+const msg=document.getElementById('status');
+document.getElementById('send').addEventListener('click',function(){
+  if(!window.opener){msg.textContent='Bu pencereyi yeni AYDA B1 adresindeki “Eski ilerlememi aktar” bağlantısından aç.';return}
+  const packet={protocol:'AYDA_B1_PROGRESS_TRANSFER_V1'};let count=0;
+  for(const [field,key] of Object.entries(keys)){
+    try{const raw=localStorage.getItem(key);if(!raw||raw.length>300000)continue;
+      const parsed=JSON.parse(raw);if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))continue;
+      packet[field]=raw;count++;
+    }catch(e){}
+  }
+  if(!count){msg.textContent='Bu tarayıcıda eski B1 ilerleme kaydı bulunamadı.';return}
+  window.opener.postMessage(packet,'https://www.aydadil.com');
+  msg.textContent='Bilgiler gönderildi. Yeni AYDA sekmesine dön ve ilerlemeni kontrol et.';
+});
+})();
+</script></body></html>

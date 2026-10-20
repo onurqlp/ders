@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) body>#aydaProtectedContent{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#0b1b31,#214d75);position:relative;z-index:99999;font-family:system-ui,-apple-system,sans-serif}
+#aydaLoginBox .ayda-exam-login-card{background:#fff;color:#102541;padding:28px;width:min(440px,100%);border-radius:19px;box-shadow:0 20px 54px #0003}
+#aydaLoginBox h1{font-size:23px;line-height:1.3;margin:0 0 9px;color:#102541}
+#aydaLoginBox p{font-size:14px;line-height:1.55;color:#5e7287}
+#aydaLoginBox label{display:block;font-weight:800;font-size:13px;margin:20px 0 6px;color:#102541}
+#aydaLoginBox input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1px solid #a6b8c9;border-radius:10px;background:#fff;color:#102541;font:16px system-ui}
+#aydaLoginBox button{width:100%;min-height:49px;background:#102541;color:#fff;border:0;border-radius:10px;font:800 15px system-ui;margin-top:12px;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+#aydaLoginBox .ayda-exam-message{min-height:22px;margin-top:10px;font-size:13px;color:#9f3838}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AYDA · TELC A2 Lesen Teil 1 Çalışma</title>
+  <style>
+    :root{
+      --ayda:#234078;
+      --ayda-2:#315892;
+      --soft:#f4f7fb;
+      --line:#dbe4f0;
+      --text:#172033;
+      --muted:#667085;
+      --ok:#16803c;
+      --bad:#c0392b;
+      --warn:#b76b00;
+      --card:#ffffff;
+      --shadow:0 14px 38px rgba(35,64,120,.13);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:linear-gradient(180deg,#eef4fb 0%,#ffffff 42%,#f6f8fc 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
+    header{
+      background:radial-gradient(circle at top left,#416ba7 0%,var(--ayda) 42%,#15284d 100%);
+      color:white;
+      padding:34px 18px 28px;
+      position:relative;
+      overflow:hidden;
+    }
+    header:after{
+      content:"";
+      position:absolute;
+      width:280px;height:280px;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+      right:-80px;top:-90px;
+    }
+    .wrap{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+    .brand{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-weight:800;letter-spacing:.4px}
+    .logo{
+      width:42px;height:42px;border-radius:14px;background:white;color:var(--ayda);
+      display:grid;place-items:center;font-weight:900;box-shadow:0 8px 20px rgba(0,0,0,.18)
+    }
+    h1{font-size:clamp(28px,5vw,48px);line-height:1.08;margin:0 0 12px;font-weight:900}
+    .lead{max-width:800px;color:#dfeaff;font-size:16px;margin:0}
+    .heroActions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    button,.pillBtn{
+      border:0;border-radius:999px;padding:12px 17px;font-weight:800;cursor:pointer;
+      transition:.18s ease;box-shadow:0 8px 18px rgba(35,64,120,.15)
+    }
+    button:hover,.pillBtn:hover{transform:translateY(-1px)}
+    .primary{background:var(--ayda);color:white}
+    .secondary{background:white;color:var(--ayda)}
+    .ghost{background:#eef3fa;color:var(--ayda);box-shadow:none;border:1px solid var(--line)}
+    main{padding:24px 14px 60px}
+    .topPanel{
+      margin:-22px auto 22px;
+      max-width:1120px;
+      background:rgba(255,255,255,.94);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:14px;
+      position:relative;z-index:2;
+    }
+    .progressBox{background:var(--soft);border-radius:18px;padding:14px;border:1px solid var(--line)}
+    .progressHead{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:9px;font-weight:900;color:var(--ayda)}
+    .bar{height:12px;background:#e3eaf4;border-radius:999px;overflow:hidden}
+    .bar span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--ayda),#65a1ff);transition:.25s ease;border-radius:999px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .stat{background:white;border:1px solid var(--line);border-radius:16px;padding:10px;text-align:center}
+    .stat b{display:block;font-size:22px;color:var(--ayda)}
+    .stat small{color:var(--muted);font-weight:700}
+    .tabs{max-width:1120px;margin:0 auto 18px;display:flex;gap:8px;overflow:auto;padding-bottom:6px}
+    .tab{white-space:nowrap;background:white;border:1px solid var(--line);color:var(--ayda);box-shadow:none;padding:10px 14px}
+    .tab.active{background:var(--ayda);color:white;border-color:var(--ayda)}
+    .exercise{max-width:1120px;margin:0 auto 24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:none}
+    .exercise.active{display:block}
+    .exerciseHead{padding:20px;background:linear-gradient(135deg,#ffffff 0%,#eff5ff 100%);border-bottom:1px solid var(--line)}
+    .exerciseTitle{margin:0;color:var(--ayda);font-size:25px;line-height:1.2}
+    .exerciseSub{margin:8px 0 0;color:var(--muted);font-weight:700}
+    .grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:0}
+    .info{padding:20px;border-right:1px solid var(--line);background:#fbfdff}
+    .questions{padding:20px}
+    .sectionTitle{font-size:15px;color:var(--ayda);font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin:0 0 10px}
+    .category{background:white;border:1px solid var(--line);border-radius:16px;padding:12px;margin:0 0 10px}
+    .category h3{margin:0 0 6px;color:var(--ayda);font-size:17px}
+    .category ul{margin:0;padding-left:18px}
+    .category li{margin:3px 0}
+    .question{border:1px solid var(--line);border-radius:18px;padding:14px;margin:0 0 14px;background:white}
+    .qText{font-weight:900;margin-bottom:10px}
+    .options{display:grid;gap:8px}
+    .option{
+      display:flex;align-items:flex-start;gap:9px;padding:10px 11px;border:1px solid var(--line);
+      border-radius:14px;background:#fbfcff;cursor:pointer;transition:.16s ease;
+    }
+    .option:hover{border-color:#a9bde0;background:#f2f6fc}
+    .option input{margin-top:4px;accent-color:var(--ayda)}
+    .option.correct{border-color:rgba(22,128,60,.45);background:#eefaf2}
+    .option.wrong{border-color:rgba(192,57,43,.5);background:#fff1ef}
+    .feedback{display:none;margin-top:10px;padding:10px;border-radius:14px;font-size:14px;border:1px solid var(--line)}
+    .feedback.show{display:block}
+    .feedback.ok{background:#effaf3;border-color:#bfe7ca;color:#0d6130}
+    .feedback.bad{background:#fff4f2;border-color:#f0c3bc;color:#8d241a}
+    .evidence{display:block;margin-top:5px;color:#39475e}
+    .controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .answerKey{display:none;margin-top:14px;background:#f8fbff;border:1px dashed #b7c8e3;border-radius:18px;padding:14px}
+    .answerKey.show{display:block}
+    .answerKey h3{margin:0 0 10px;color:var(--ayda)}
+    .keyItem{margin:0 0 8px;padding-bottom:8px;border-bottom:1px solid #e5edf7}
+    .keyItem:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+    .miniNote{font-size:13px;color:var(--muted);margin-top:8px}
+    footer{max-width:1120px;margin:20px auto 0;padding:18px;color:var(--muted);text-align:center;font-size:13px}
+    .floatingScore{
+      position:sticky;bottom:10px;z-index:5;max-width:1120px;margin:0 auto;padding:0 14px;pointer-events:none;
+    }
+    .floatingScore div{
+      pointer-events:auto;background:rgba(35,64,120,.96);color:white;border-radius:18px;padding:12px 14px;
+      display:flex;justify-content:space-between;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.22);font-weight:900
+    }
+    @media(max-width:860px){
+      .topPanel{grid-template-columns:1fr;margin-top:-16px}
+      .grid{grid-template-columns:1fr}
+      .info{border-right:0;border-bottom:1px solid var(--line)}
+      .stats{grid-template-columns:repeat(3,1fr)}
+      .exerciseTitle{font-size:21px}
+      .question,.category{border-radius:15px}
+      header{padding-top:26px}
+    }
+    @media(max-width:520px){
+      .heroActions button{width:100%}
+      .stats{gap:6px}
+      .stat b{font-size:19px}
+      .info,.questions{padding:14px}
+      .tabs{padding-left:3px;padding-right:3px}
+      .tab{font-size:13px;padding:9px 12px}
+    }
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="color:#b18c4f;font-weight:900;font-size:12px;letter-spacing:.11em;margin:0 0 8px">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Çalışmaya devam etmek için AYDA merkezi giriş kodunu kullanın.</p><label for="aydaPasswordInput">Sınıf giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" class="ayda-exam-message" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav hazırlık ana sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">A</div><div>AYDA · TELC A2 Hazırlık</div></div>
+    <h1>Lesen Teil 1<br>Yön Bulma & İlan Eşleştirme</h1>
+    <p class="lead">TELC A2 sınavındaki Lesen Teil 1 mantığına uygun çalışma sayfası. Soruyu oku, doğru başlığı/bölümü seç, cevabını kontrol et ve kanıt satırını gör.</p>
+    <div class="heroActions">
+      <button class="secondary" onclick="checkCurrent()">Bu Seti Kontrol Et</button>
+      <button class="secondary" onclick="showCurrentKey()">Cevap Anahtarını Göster</button>
+      <button class="secondary" onclick="resetCurrent()">Bu Seti Sıfırla</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="topPanel">
+    <div class="progressBox">
+      <div class="progressHead"><span>Genel İlerleme</span><span id="progressText">0 / 35</span></div>
+      <div class="bar"><span id="progressBar"></span></div>
+      <p class="miniNote">Toplam 7 set, 35 soru. Her sette TELC mantığında “hangi bölümde bulurum?” eşleştirmesi yapılır.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="doneCount">0</b><small>İşaretli</small></div>
+      <div class="stat"><b id="correctCount">0</b><small>Doğru</small></div>
+      <div class="stat"><b id="wrongCount">0</b><small>Yanlış</small></div>
+    </div>
+  </section>
+
+  <nav class="tabs" id="tabs"></nav>
+  <div id="app"></div>
+
+  <div class="floatingScore"><div><span id="floatTitle">Set 1</span><span id="floatScore">0/5 doğru</span></div></div>
+</main>
+
+<footer>
+  AYDA Dil Akademisi · TELC A2 Lesen Teil 1 çalışma modülü · Sınav hazırlık sayfasına tek HTML dosyası olarak eklenebilir.
+</footer>
+
+<script>
+const exercises = [
+  {
+    title:"Die große Bremer-Information",
+    subtitle:"WAS IST LOS IN BREMEN?",
+    info:[
+      ["Ausstellungen",["Parks in Nordeutschland – Fotografien und Gedichte","Mexiko – das Land der Farben und Gegensätze in Bildern","Günter Grass – Bilder zu Märchen von H. C. Andersen","100 Jahre Zentralkrankenhaus – Eine kleine Geschichte der Medizin","Frauen am Steuer – Fotografien von 1882 bis 1982"]],
+      ["Führungen",["Mercedes – Besichtigung der Autofabrik","Der Dom und die Innenstadt – Ein Vergleich","Das Spanische Viertel – Rundgang zur Handelsgeschichte","Der Hafen – Besichtigung zu Fuß und per Schiff","Die Welt des Bieres – Führung durch eine Bremer Brauerei"]],
+      ["Sport und Gesundheit",["Internationales Basketballturnier – Endspiel","ADAC-Radtour mit Kaffeepause","Landmarkt Bremen – Naturkost + Vortrag Prof. Dr. Markl","Lauftreff im Bürgerpark – joggen bei jedem Wetter","Fußballtraining mit Walter"]],
+      ["Kulturelles und Unterhaltung",["Das gute Buch – Vortrag zur Lesemotivation","Beisref auf dem Verkehrspolizeipark Platz","Senioren-Treff/Tanznachmittag mit DJ Klaus-Peter","Kinderfest im Schwimmbad Horn – Spiele, Musik, Tanz"]],
+      ["Verschiedenes",["Autohafer aufgespart: Sportübungen bei langen Fahrten","Flohmarkt für Fahranfänger","Bücherbasar beim Roten Kreuz – Klassiker für 1 Euro","Schöpfung: Helfen meinen Eltern helfen","Sprache und Land erleben – Kursangebot für Italien + Spanien"]]
+    ],
+    questions:[
+      {q:"Sie möchten einen Ausflug mit dem Fahrrad machen.", options:["Führungen","Sport und Gesundheit","Verschiedenes"], answer:"Sport und Gesundheit", why:"Im Text steht „ADAC-Radtour mit Kaffeepause“. Radtour = Fahrradausflug."},
+      {q:"Sie möchten einen Sprachkurs in Spanien machen.", options:["Kulturelles und Unterhaltung","Verschiedenes","andere Seite"], answer:"Verschiedenes", why:"Unter Verschiedenes steht „Sprache und Land erleben – Kursangebot für Italien + Spanien“."},
+      {q:"Sie möchten mehr über Bierproduktion erfahren.", options:["Kulturelles und Unterhaltung","Führungen","andere Seite"], answer:"Führungen", why:"Unter Führungen steht „Die Welt des Bieres – Führung durch eine Bremer Brauerei“."},
+      {q:"Sie interessieren sich für Autos.", options:["Ausstellungen","Führungen","andere Seite"], answer:"Führungen", why:"Unter Führungen steht „Mercedes – Besichtigung der Autofabrik“."},
+      {q:"Sie suchen gute Bücher für wenig Geld.", options:["Kulturelles und Unterhaltung","Verschiedenes","andere Seite"], answer:"Verschiedenes", why:"Unter Verschiedenes steht „Bücherbasar beim Roten Kreuz – Klassiker für 1 Euro“."}
+    ]
+  },
+  {
+    title:"A–Z: INFOS & ANZEIGEN",
+    subtitle:"Kostenlose Zeitung für alle Haushalte",
+    info:[
+      ["Fundgrube",["Dienstleistungen","Esoterik","Fahrschule","Kredite","Reparaturen","Rundflüge","Verein für Hobbyabenteuer","Unterhaltung","Verloren – Gefunden"]],
+      ["Freizeit",["Ausgehen","Auto- und Bahnreisen","Bildungsreisen","Fernreisen","Flug","Kontakte","Museen","Pauschalreisen","Fitnesskurse","Yoga","Veranstaltungen"]],
+      ["Alles fürs Kind",["Ernährung","Bücher","Spielgruppen für Kleinkinder vormittags","Kinderspielzeug","Nachhilfe, Lesepädagogik","Kleidung","Nachhilfe","Schultransport"]],
+      ["Verkäufe und Kaufgesuche",["Auto","Bekleidung","Briefmarken und Münzen","Musik-CDs und LPs","Computer-Technik","Haushalt","Küchen","Möbel"]],
+      ["Stellenmarkt",["Ausbilden","Babysitting nach Büroschluss","Handwerk","Haushaltshilfen","Jobs für Schüler","Putzen","Verkaufen","Zeitungen austragen"]]
+    ],
+    questions:[
+      {q:"Ihre zweijährige Tochter darf vormittags nicht alleine sein.", options:["Freizeit","Verkäufe und Kaufgesuche","andere Seiten"], answer:"andere Seiten", why:"Passend wäre „Alles fürs Kind – Spielgruppen für Kleinkinder vormittags“. Diese Option steht nicht zur Auswahl, also „andere Seiten“."},
+      {q:"Sie wollen den Führerschein machen.", options:["Fundgrube","Verkäufe und Kaufgesuche","andere Seiten"], answer:"Fundgrube", why:"Unter Fundgrube steht „Fahrschule“. Dort macht man den Führerschein."},
+      {q:"Sie machen gern zusammen mit anderen Sport.", options:["Freizeit","Stellenmarkt","andere Seiten"], answer:"Freizeit", why:"Unter Freizeit stehen „Fitnesskurse“ und „Yoga“. Das passt zu Sport mit anderen."},
+      {q:"Sie suchen ein Geschenk für einen 6-jährigen Jungen. Er hört gern Kinderlieder.", options:["Alles fürs Kind","Verkäufe und Kaufgesuche","andere Seiten"], answer:"Verkäufe und Kaufgesuche", why:"Gesucht wird etwas zum Hören. Unter Verkäufe und Kaufgesuche stehen „Musik-CDs und LPs“."},
+      {q:"Sie brauchen einen neuen Küchentisch.", options:["Alles fürs Kind","Fundgrube","andere Seiten"], answer:"andere Seiten", why:"Ein Küchentisch passt zu „Verkäufe und Kaufgesuche – Küchen/Möbel“. Diese Option steht nicht zur Auswahl."}
+    ]
+  },
+  {
+    title:"FLUGHAFEN HAMBURG",
+    subtitle:"Ebenenplan am Flughafen",
+    info:[
+      ["Ebene 3",["Dachterrasse","Flugsicherung","Fluggesellschaften I–Z","Filmvorführung und Fotoausstellung „75 Jahre Fliegen“","Restaurant „Skyline“"]],
+      ["Ebene 2",["Fluggesellschaften A–H","Geschenkartikel „Die Idee“","Spielwaren Trautwein","Foto Gerlach","Ausstellung Geschichte des Flughafens","Saftbar Schneider","Restaurant „Bavaria“","Bistro „Europa“","Döner King"]],
+      ["Ebene 1",["Abflug","Check-in-Schalter","Reisebüro","Wartebereich","Bank/Geldwechsel","Buchhandlung Steil: Zeitungen/Zeitschriften","Süßwaren Hassel","Elektro Hanser","Lederwaren Wiebe","Obst und Gemüsemarkt Günay","Café Schuster","China-Restaurant „Peking“","Badische Weinstube","Bistro „Berlin“"]],
+      ["Ebene 0",["Ankunft","Busterminal","Hotelreservierung","Information","Fundbüro","Gepäckausgabe","Bäckerei Schütze","Parfümerie Werner","Schuhservice","A & L Supermarkt","Apotheke","Getränkemarkt Braun","Eiscafé Rialto","Restaurant „Schwarzwaldstuben“","Post","Sparkasse","Geldautomat","Bundesgrenzschutz","Polizei","Öffentliche Toiletten"]]
+    ],
+    questions:[
+      {q:"Sie möchten sich vor der Reise etwas zum Lesen kaufen.", options:["Ebene 0","Ebene 2","andere Ebene"], answer:"andere Ebene", why:"Lesen kaufen = Buchhandlung/Zeitungen. Das steht auf Ebene 1, aber Ebene 1 yok; bu yüzden „andere Ebene“."},
+      {q:"Sie möchten ein Medikament gegen Reisekrankheit kaufen.", options:["Ebene 0","Ebene 2","andere Ebene"], answer:"Ebene 0", why:"Medikament kauft man in der Apotheke. „Apotheke“ steht auf Ebene 0."},
+      {q:"Sie möchten für Ihre 3-jährige Tochter noch etwas zum Spielen kaufen.", options:["Ebene 0","Ebene 2","andere Ebene"], answer:"Ebene 2", why:"Zum Spielen = Spielwaren. „Spielwaren Trautwein“ steht auf Ebene 2."},
+      {q:"Sie sind gerade angekommen und brauchen noch eine Unterkunft.", options:["Ebene 0","Ebene 2","andere Ebene"], answer:"Ebene 0", why:"Ankunft ve Hotelreservierung aynı yerde: Ebene 0."},
+      {q:"Sie möchten für den Rückflug bei der Fluggesellschaft „Sun-Air“ Ihr Ticket ändern.", options:["Ebene 1","Ebene 2","Ebene 3","andere Ebene"], answer:"Ebene 3", why:"Sun-Air alfabetik olarak S harfiyle I–Z grubuna girer. „Fluggesellschaften I–Z“ Ebene 3’te."}
+    ]
+  },
+  {
+    title:"GELBE SEITEN Regensburg",
+    subtitle:"Hier finden Sie alle wichtigen Kontakte",
+    info:[
+      ["Teil 1: A–D",["Apotheken","Aufzüge","Autoteile","Baumärkte","Banken","Berufsberatung","City-Infocenter","Computerschulung","Dachreparaturen"]],
+      ["Teil 2: E–H",["Eigentum","Fundbüros","Fußballschuhe","Gartenarbeiten","Haushaltswaren","Haustierbedarf: Futter und Zubehör"]],
+      ["Teil 3: I–L",["Internationale Lebensmittel","Krankenbedarf (Rollstühle, Geräte)","Kindergärten","Jugendherbergen","Lebensmittelgroßmärkte","Lohnbüros","Ratenkredite"]],
+      ["Teil 4: M–P",["Mietshäuser","Mietwagen","Motorboot","Naturkost","Notärzte","PKW-Service","PKW-Werkstätten"]],
+      ["Teil 5: R–Z",["Reisebüros","Restaurants","Sportvereine","Unfallversicherungen","Waschmaschinen","Zahnärzte"]]
+    ],
+    questions:[
+      {q:"Ihr Auto ist kaputt. Sie möchten es reparieren lassen.", options:["Teil 1: A–D","Teil 3: I–L","anderer Teil"], answer:"anderer Teil", why:"Auto reparieren = PKW-Service / PKW-Werkstätten. Das steht in Teil 4, ama seçeneklerde yok."},
+      {q:"Sie möchten ein Konto eröffnen und eine Kreditkarte haben.", options:["Teil 3: I–L","Teil 5: R–Z","anderer Teil"], answer:"anderer Teil", why:"Konto ve Kreditkarte için „Banken“ gerekir. Banken Teil 1’dedir, seçeneklerde yok."},
+      {q:"Sie möchten gern mit anderen Leuten Sport machen.", options:["Teil 2: E–H","Teil 5: R–Z","anderer Teil"], answer:"Teil 5: R–Z", why:"Mit anderen Sport machen = Sportvereine. Sportvereine Teil 5’te."},
+      {q:"Sie haben Ihre Tasche verloren. Sie wollen sie wiederbekommen.", options:["Teil 2: E–H","Teil 5: R–Z","anderer Teil"], answer:"Teil 2: E–H", why:"Verlorene Tasche için Fundbüro aranır. „Fundbüros“ Teil 2’dedir."},
+      {q:"Sie brauchen Medikamente gegen Husten.", options:["Teil 2: E–H","Teil 3: I–L","anderer Teil"], answer:"anderer Teil", why:"Medikamente bekommt man in der Apotheke. „Apotheken“ Teil 1’dedir, seçeneklerde yok."}
+    ]
+  },
+  {
+    title:"Haushalt und Garten",
+    subtitle:"Kaufhaus-Abteilungen",
+    info:[
+      ["Haushalt und Garten",["Waschmaschinen","Trockner","Küchenmaschinen","Kaffeemaschinen","Staubsauger","Bügeleisen","Blumen und Pflanzen","Gartengeräte","Gartenmöbel","Grills","Gartendekoration","Alles für Tiere","Alles für die Küche","Möbel und Beleuchtung","Heizen und Kühlen","Teppiche"]],
+      ["Bücher",["Bestseller","Krimis","Romane","Kinderbücher","Fremdsprachige Bücher","Fachbücher","Schulbücher","Wörterbücher","Kochbücher","Hörbücher","Reiseführer","Lesegeräte für elektronische Bücher"]],
+      ["Sehen und Hören",["Klassiker","Komödie","Drama","Action","Kinderfilme","CD-Neuheiten","Rock","Pop","Klassik","Schlager","Kindermusik","Weihnachtsmusik","Musikinstrumente für Erwachsene und Kinder"]],
+      ["Elektronik und Büro",["Kamera und Kamerazubehör","Handys und Festnetztelefone","Fernseher","Navigation","Telefone und Faxgeräte","Computer","Notebooks","Drucker","Schreibwaren","Computerspiele"]],
+      ["Bekleidung",["Damenkleidung","Herrenkleidung","Kinderkleidung","Babykleidung","Damenschuhe","Herrenschuhe","Kinderschuhe","Handtaschen","Koffer","Reisetaschen","Schmuck","Uhren","Hochzeitskleider und Festtagsmode","Bademoden"]]
+    ],
+    questions:[
+      {q:"Sie suchen einen Film für Ihren sechsjährigen Sohn.", options:["Elektronik und Büro","Bücher","anderer Punkt"], answer:"anderer Punkt", why:"Film für Kind = Kinderfilme. Das steht bei „Sehen und Hören“, ama seçeneklerde yok."},
+      {q:"Sie suchen neue Stühle für Ihren Balkon.", options:["Elektronik und Büro","Haushalt und Garten","anderer Punkt"], answer:"Haushalt und Garten", why:"Balkon sandalyeleri Gartenmöbel sayılır. „Gartenmöbel“ Haushalt und Garten bölümünde."},
+      {q:"Sie suchen Rezepte zum Kochen.", options:["Haushalt und Garten","Bücher","anderer Punkt"], answer:"Bücher", why:"Rezepte zum Kochen = Kochbücher. Kochbücher Bücher bölümünde."},
+      {q:"Sie brauchen neue Kugelschreiber.", options:["Elektronik und Büro","Sehen und Hören","anderer Punkt"], answer:"Elektronik und Büro", why:"Kugelschreiber Schreibwaren grubuna girer. „Schreibwaren“ Elektronik und Büro bölümünde."},
+      {q:"Sie suchen eine große Tasche für Ihre Urlaubsreise.", options:["Haushalt und Garten","Bücher","anderer Punkt"], answer:"anderer Punkt", why:"Große Reisetasche/Koffer Bekleidung bölümünde. Bekleidung seçeneklerde olmadığı için „anderer Punkt“."}
+    ]
+  },
+  {
+    title:"Programmheft für München",
+    subtitle:"Samstag, 6. August",
+    info:[
+      ["Kulturzentrum Laim",["10:00 Spielesachen selber machen: Kurs für Eltern mit Kindergärtnerin Jolanta Munter","15:00 Anna Breiter gibt Müttern und Hausfrauen Tipps für ihre Arbeit zu Hause","20:00 Käse- und Wein-Abend: Probieren Sie französische Käse- und Weinsorten"]],
+      ["Musikschule",["10:00 Kinder machen Musik: Kinder lernen verschiedene Musikinstrumente kennen","16:00 Jugendkonzert: Schulchor der Realschule „Weißenfels“","18:00 Tanznachmittag: Tänzerinnen und Tänzer zeigen berühmte Tänze. Schauen Sie zu!","20:00 Konzert des Symphonie-Orchesters „Münchens Gesicht“"]],
+      ["Stadtbücherei Nymphenburg",["10:00 Die perfekte Bewerbung: Johanna Büchs erklärt, wie man eine gute Bewerbung schreibt","12:00 Rezepte aus der deutschen Küche, Kochtipps von Ursula Weidtmann","16:00 Geschichten aus dem Leben: Polizist Karsten Frühböhr erzählt über seine Arbeit"]],
+      ["Volkshochschule Sendling",["9:00 Erkältung: Medikamente aus der Natur und Tipps von „Großmutter“","11:00 Flohmarkt: Hier können Sie Kinderspielachen kaufen und verkaufen","15:00 Von Salsa bis Walzer: Gemeinsam tanzen, Anfänger bis Fortgeschrittene"]]
+    ],
+    questions:[
+      {q:"Sie haben oft Erkältungen. Sie suchen Tipps.", options:["Kulturzentrum Laim","Musikschule","Volkshochschule Sendling"], answer:"Volkshochschule Sendling", why:"Dort steht „Erkältung: Medikamente aus der Natur und Tipps von Großmutter“."},
+      {q:"Sie möchten mit anderen zusammen tanzen.", options:["Musikschule","Stadtbücherei Nymphenburg","Volkshochschule Sendling"], answer:"Volkshochschule Sendling", why:"„Von Salsa bis Walzer: Gemeinsam tanzen“ steht bei Volkshochschule Sendling."},
+      {q:"Sie wollen bald einen Job suchen. Sie brauchen Tipps, wie Sie auf eine Jobanzeige antworten.", options:["Kulturzentrum Laim","Musikschule","Stadtbücherei Nymphenburg"], answer:"Stadtbücherei Nymphenburg", why:"Jobanzeige beantworten = Bewerbung schreiben. „Die perfekte Bewerbung“ steht in der Stadtbücherei Nymphenburg."},
+      {q:"Ihr Sohn ist 6 Jahre alt. Sie möchten am Vormittag etwas mit ihm unternehmen.", options:["Kulturzentrum Laim","Musikschule","Volkshochschule Sendling"], answer:"Musikschule", why:"Am Vormittag 10:00: „Kinder machen Musik“ in der Musikschule. Das passt zu einem 6-jährigen Kind."},
+      {q:"Sie interessieren sich für deutsches Essen.", options:["Kulturzentrum Laim","Stadtbücherei Nymphenburg","Volkshochschule Sendling"], answer:"Stadtbücherei Nymphenburg", why:"Dort steht „Rezepte aus der deutschen Küche“."}
+    ]
+  },
+  {
+    title:"BÜRGERSERVICE STADT BERLIN",
+    subtitle:"Stockwerke und Ämter",
+    info:[
+      ["4. OG",["Meldestelle (An-, Um- und Abmeldungen von Personen)","Ausweisstelle (Pässe und Personalausweise für Erwachsene)"]],
+      ["3. OG",["Familienkasse (Kindergeld, Informationen)","Dokumente für Kinder (Kinderausweise und Kinderpässe)","Wohnangelegenheiten (Wohngeld, Wohnungsvermittlung)"]],
+      ["2. OG",["Wahlamt (Wahlunterlagen, Briefwahl)","Bibliothek (Ausleihe von Büchern und CDs, Benutzerausweise)","Amtsärztlicher Dienst (Untersuchungen und Atteste)"]],
+      ["1. OG",["Fahrzeugstelle (An-, Um- und Abmeldung von Autos und Motorrädern)","Standesamt (Heirat, Geburtenregister, Familienbuch)","Anwohnerparkausweise"]],
+      ["EG",["Information/Wegweiser","Beschwerdestelle","Fundsachen","Fotoautomat","Kopierer","Münztelefon","WC"]]
+    ],
+    questions:[
+      {q:"Sie haben Ihr Handy verloren.", options:["EG","1. OG","anderes Stockwerk"], answer:"EG", why:"Verlorene Sachen için „Fundsachen“ bölümüne gidilir. Fundsachen EG’dedir."},
+      {q:"Sie möchten heiraten und wollen wissen, welche Papiere Sie dafür brauchen.", options:["2. OG","3. OG","anderes Stockwerk"], answer:"anderes Stockwerk", why:"Heiraten için Standesamt gerekir. Standesamt 1. OG’dedir, seçeneklerde yok."},
+      {q:"Sie müssen für Ihre neue Stelle zum Amtsarzt.", options:["EG","2. OG","anderes Stockwerk"], answer:"2. OG", why:"„Amtsärztlicher Dienst“ 2. OG’de yer alıyor."},
+      {q:"Sie möchten Informationen zum Kindergeld.", options:["1. OG","3. OG","anderes Stockwerk"], answer:"3. OG", why:"Kindergeld bilgisi Familienkasse’dedir. Familienkasse 3. OG’de."},
+      {q:"Sie brauchen einen neuen Ausweis für Ihre kleine Tochter.", options:["1. OG","2. OG","anderes Stockwerk"], answer:"anderes Stockwerk", why:"Küçük çocuk için „Dokumente für Kinder / Kinderausweise“ gerekir. Bu 3. OG’de, seçeneklerde yok."}
+    ]
+  }
+];
+
+let current = 0;
+
+function renderTabs(){
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = exercises.map((ex,i)=>`<button class="tab ${i===current?'active':''}" onclick="goSet(${i})">${i+1}. ${ex.title.split(' ')[0]}</button>`).join('');
+}
+
+function render(){
+  const app = document.getElementById('app');
+  app.innerHTML = exercises.map((ex,i)=>`
+    <section class="exercise ${i===current?'active':''}" data-set="${i}">
+      <div class="exerciseHead">
+        <h2 class="exerciseTitle">${ex.title}</h2>
+        <p class="exerciseSub">${ex.subtitle}</p>
+      </div>
+      <div class="grid">
+        <div class="info">
+          <p class="sectionTitle">Metin / İlan Bölümleri</p>
+          ${ex.info.map(cat=>`
+            <div class="category">
+              <h3>${cat[0]}</h3>
+              <ul>${cat[1].map(item=>`<li>${item}</li>`).join('')}</ul>
+            </div>`).join('')}
+        </div>
+        <div class="questions">
+          <p class="sectionTitle">Sorular</p>
+          ${ex.questions.map((q,qi)=>`
+            <div class="question" data-q="${qi}">
+              <div class="qText">${qi+1}. ${q.q}</div>
+              <div class="options">
+                ${q.options.map(opt=>`
+                  <label class="option">
+                    <input type="radio" name="set${i}q${qi}" value="${escapeAttr(opt)}" onchange="updateProgress()">
+                    <span>${opt}</span>
+                  </label>`).join('')}
+              </div>
+              <div class="feedback" id="fb-${i}-${qi}"></div>
+            </div>`).join('')}
+          <div class="controls">
+            <button class="primary" onclick="checkSet(${i})">Kontrol Et</button>
+            <button class="ghost" onclick="toggleKey(${i})">Cevap Anahtarı</button>
+            <button class="ghost" onclick="resetSet(${i})">Sıfırla</button>
+          </div>
+          <div class="answerKey" id="key-${i}">
+            <h3>Cevap Anahtarı ve Kanıt</h3>
+            ${ex.questions.map((q,qi)=>`
+              <div class="keyItem"><b>${qi+1}. ${q.answer}</b><br><span>${q.why}</span></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </section>`).join('');
+  renderTabs();
+  updateProgress();
+}
+
+function escapeAttr(str){return String(str).replace(/"/g,'&quot;')}
+function selectedValue(set,q){
+  const el = document.querySelector(`input[name="set${set}q${q}"]:checked`);
+  return el ? el.value : null;
+}
+function goSet(i){current=i;render();window.scrollTo({top:0,behavior:'smooth'});}
+function checkCurrent(){checkSet(current)}
+function showCurrentKey(){document.getElementById(`key-${current}`).classList.add('show')}
+function resetCurrent(){resetSet(current)}
+
+function checkSet(i){
+  const ex = exercises[i];
+  ex.questions.forEach((q,qi)=>{
+    const val = selectedValue(i,qi);
+    const fb = document.getElementById(`fb-${i}-${qi}`);
+    const question = document.querySelector(`.exercise[data-set="${i}"] .question[data-q="${qi}"]`);
+    question.querySelectorAll('.option').forEach(label=>{
+      const input = label.querySelector('input');
+      label.classList.remove('correct','wrong');
+      if(input.value === q.answer) label.classList.add('correct');
+      if(input.checked && input.value !== q.answer) label.classList.add('wrong');
+    });
+    fb.classList.add('show');
+    if(!val){
+      fb.className='feedback show bad';
+      fb.innerHTML=`Henüz cevap seçilmedi. <span class="evidence"><b>Doğru cevap:</b> ${q.answer}<br>${q.why}</span>`;
+    } else if(val===q.answer){
+      fb.className='feedback show ok';
+      fb.innerHTML=`Doğru. <span class="evidence"><b>Kanıt:</b> ${q.why}</span>`;
+    } else {
+      fb.className='feedback show bad';
+      fb.innerHTML=`Yanlış. Senin cevabın: <b>${val}</b>. <span class="evidence"><b>Doğru cevap:</b> ${q.answer}<br><b>Kanıt:</b> ${q.why}</span>`;
+    }
+  });
+  updateProgress();
+}
+
+function toggleKey(i){document.getElementById(`key-${i}`).classList.toggle('show')}
+
+function resetSet(i){
+  document.querySelectorAll(`input[name^="set${i}q"]`).forEach(inp=>inp.checked=false);
+  document.querySelectorAll(`.exercise[data-set="${i}"] .option`).forEach(l=>l.classList.remove('correct','wrong'));
+  document.querySelectorAll(`.exercise[data-set="${i}"] .feedback`).forEach(f=>{f.className='feedback';f.innerHTML=''});
+  document.getElementById(`key-${i}`).classList.remove('show');
+  updateProgress();
+}
+
+function updateProgress(){
+  let done=0,correct=0,wrong=0;
+  exercises.forEach((ex,i)=>ex.questions.forEach((q,qi)=>{
+    const val=selectedValue(i,qi);
+    if(val){done++; if(val===q.answer) correct++; else wrong++;}
+  }));
+  const total = exercises.reduce((s,e)=>s+e.questions.length,0);
+  document.getElementById('doneCount').textContent=done;
+  document.getElementById('correctCount').textContent=correct;
+  document.getElementById('wrongCount').textContent=wrong;
+  document.getElementById('progressText').textContent=`${done} / ${total}`;
+  document.getElementById('progressBar').style.width=`${Math.round(done/total*100)}%`;
+  const active = exercises[current];
+  let setCorrect=0,setDone=0;
+  active.questions.forEach((q,qi)=>{const val=selectedValue(current,qi); if(val){setDone++; if(val===q.answer)setCorrect++;}});
+  document.getElementById('floatTitle').textContent=`Set ${current+1}: ${active.title}`;
+  document.getElementById('floatScore').textContent=`${setCorrect}/${active.questions.length} doğru`;
+}
+
+render();
+</script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Giriş hizmetine ulaşılamıyor.'"></script>
+<script id="ayda-exam-authorization-sync">(function(){
+ const content=document.getElementById('aydaProtectedContent');
+ if(!content)return;
+ function sync(){const allowed=content.style.display==='block';document.documentElement.classList.toggle('ayda-exam-authorized',allowed);}
+ new MutationObserver(sync).observe(content,{attributes:true,attributeFilter:['style']});sync();
+})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

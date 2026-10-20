@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1b31">
+<meta name="description" content="AYDA Dil Akademisi B1 Komple Alıştırmalar: 24 ünite, 576 özgün soru, Türkçe gramer açıklamaları, okuma ve yazma, cevap kontrolü ve tekrar.">
+<meta property="og:title" content="AYDA B1 Komple Alıştırmalar">
+<meta property="og:description" content="B1 seviyesinde 24 ünite, 576 özgün çalışma ve açıklamalı cevaplar.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./express.css">
+<title>AYDA B1 Komple Alıştırmalar | Öğrenci Çalışma Kitabı</title>
+<script defer src="./course-data.js"></script>
+<script defer src="./express.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">İçeriğe geç</a>
+<header class="masthead">
+ <div class="mast-inner">
+  <a href="../" class="brand" aria-label="AYDA B1 ana sayfası">
+   <span class="brand-initial">A</span>
+   <span><strong>AYDA <em>DİL AKADEMİSİ</em></strong><small>B1 · Komple Alıştırmalar</small></span>
+  </a>
+  <div class="mast-right"><span id="globalCounter" aria-label="Tamamlanan sorular">0 / 576</span><a class="back-link" href="../">B1 Ana Sayfa <span aria-hidden="true">↗</span></a></div>
+ </div>
+</header>
+<main id="content" class="container">
+ <section class="hero" aria-labelledby="book-title">
+  <div class="eyebrow">AYDA · B1 DİJİTAL ÇALIŞMA KİTABI</div>
+  <div class="hero-inner">
+   <div><h1 id="book-title">B1 Komple Alıştırmalar</h1><p>Konuyu anlamıyla öğren, bağlamda uygula, gerekçeni kur. Almanca B1 için bütün üniteler tek çalışma alanında.</p></div>
+   <div class="hero-progress"><strong id="heroPercent">0%</strong><span>Genel ilerleme</span><div class="progress-track"><span id="heroBar"></span></div></div>
+  </div>
+ </section>
+ <nav class="tabs" aria-label="Kitap bölümleri">
+  <button type="button" class="tab is-active" data-tab="units" aria-current="page">Üniteler</button>
+  <button type="button" class="tab" data-tab="review">Tekrar listem <span id="reviewCount">0</span></button>
+  <button type="button" class="tab" data-tab="help">Nasıl çalışılır?</button>
+ </nav>
+ <div id="app" aria-live="polite"><div class="message-card">B1 üniteleri yükleniyor…</div></div>
+ <footer class="foot"><span>AYDA Dil Akademisi · B1 Öğrenci Çalışma Kitabı</span><span>24 ünite · 576 alıştırma</span></footer>
+</main>
+<dialog id="videoModal" aria-label="Ders videosu" class="video-modal">
+ <div class="video-top"><strong id="videoTitle">Ders videosu</strong><button type="button" id="closeVideo" aria-label="Videoyu kapat">✕</button></div>
+ <div id="videoContainer"></div>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<noscript>Bu alıştırma kitabını kullanmak için JavaScript'i etkinleştirin.</noscript>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AYDA ÖSD A1 Tam Deneme Merkezi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /* AYDA CROSS PAGE NAVIGATION - mevcut styles.css, exam-data.js ve app.js yapısını bozmaz */
+      :root {
+        --ayda-deneme-navy: #0b1f3a;
+        --ayda-deneme-red: #d71920;
+        --ayda-deneme-brand: #0f766e;
+        --ayda-deneme-line: #d8e0ec;
+        --ayda-deneme-soft: #e6f5f3;
+        --ayda-deneme-white: #ffffff;
+        --ayda-deneme-muted: #667085;
+        --ayda-deneme-shadow: 0 14px 34px rgba(11, 31, 58, .10);
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .ayda-deneme-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255,255,255,.96);
+        border-bottom: 1px solid var(--ayda-deneme-line);
+        backdrop-filter: blur(12px);
+      }
+
+      .ayda-deneme-nav-inner {
+        width: min(1120px, calc(100% - 28px));
+        min-height: 66px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .ayda-deneme-home {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: var(--ayda-deneme-navy);
+        color: var(--ayda-deneme-white);
+        text-decoration: none;
+        font-weight: 900;
+        white-space: nowrap;
+        box-shadow: 0 10px 22px rgba(11,31,58,.16);
+      }
+
+      .ayda-deneme-home:hover {
+        background: var(--ayda-deneme-red);
+      }
+
+      .ayda-deneme-links {
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 10px 0;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .ayda-deneme-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .ayda-deneme-links a {
+        min-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--ayda-deneme-line);
+        background: var(--ayda-deneme-white);
+        color: var(--ayda-deneme-navy);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .ayda-deneme-links a:hover {
+        color: var(--ayda-deneme-brand);
+        border-color: rgba(15, 118, 110, .35);
+        background: var(--ayda-deneme-soft);
+      }
+
+      .ayda-deneme-links a.is-active {
+        background: var(--ayda-deneme-brand);
+        border-color: var(--ayda-deneme-brand);
+        color: var(--ayda-deneme-white);
+      }
+
+      .ayda-deneme-switch {
+        width: min(1120px, calc(100% - 32px));
+        margin: 34px auto;
+        padding: 22px;
+        border-radius: 18px;
+        border: 1px solid var(--ayda-deneme-line);
+        background: var(--ayda-deneme-white);
+        box-shadow: var(--ayda-deneme-shadow);
+      }
+
+      .ayda-deneme-switch h2 {
+        margin: 0 0 8px;
+        color: var(--ayda-deneme-navy);
+        font-size: clamp(1.45rem, 4vw, 2rem);
+        line-height: 1.15;
+      }
+
+      .ayda-deneme-switch p {
+        margin: 0 0 16px;
+        color: var(--ayda-deneme-muted);
+      }
+
+      .ayda-deneme-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      .ayda-deneme-card {
+        min-height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 13px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--ayda-deneme-line);
+        background: var(--ayda-deneme-white);
+        color: var(--ayda-deneme-navy);
+        text-decoration: none;
+        font-weight: 900;
+      }
+
+      .ayda-deneme-card:hover {
+        color: var(--ayda-deneme-brand);
+        border-color: rgba(15, 118, 110, .35);
+        background: var(--ayda-deneme-soft);
+      }
+
+      .ayda-deneme-card.is-active {
+        color: var(--ayda-deneme-white);
+        border-color: var(--ayda-deneme-brand);
+        background: var(--ayda-deneme-brand);
+      }
+
+      .ayda-deneme-wa {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 14px;
+        padding: 18px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--ayda-deneme-navy), var(--ayda-deneme-brand));
+        color: var(--ayda-deneme-white);
+      }
+
+      .ayda-deneme-wa strong {
+        display: block;
+        font-size: 1.05rem;
+      }
+
+      .ayda-deneme-wa span {
+        display: block;
+        margin-top: 4px;
+        color: rgba(255,255,255,.82);
+        font-weight: 600;
+      }
+
+      .ayda-deneme-wa-btn {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 16px;
+        border-radius: 14px;
+        background: #25d366;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .ayda-deneme-mobile-bottom {
+        display: none;
+      }
+
+      @media (max-width: 900px) {
+        .ayda-deneme-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 720px) {
+        body {
+          padding-bottom: 78px;
+        }
+
+        .ayda-deneme-nav-inner {
+          min-height: auto;
+          align-items: stretch;
+          flex-direction: column;
+          gap: 8px;
+          padding: 10px 0;
+        }
+
+        .ayda-deneme-home {
+          width: 100%;
+        }
+
+        .ayda-deneme-links {
+          width: 100%;
+          padding: 4px 0 6px;
+        }
+
+        .ayda-deneme-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .ayda-deneme-wa {
+          grid-template-columns: 1fr;
+        }
+
+        .ayda-deneme-wa-btn {
+          width: 100%;
+        }
+
+        .ayda-deneme-mobile-bottom {
+          position: fixed;
+          left: 10px;
+          right: 10px;
+          bottom: 10px;
+          z-index: 120;
+          height: 62px;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 4px;
+          padding: 7px;
+          border-radius: 18px;
+          background: rgba(11,31,58,.96);
+          box-shadow: 0 16px 34px rgba(0,0,0,.22);
+          backdrop-filter: blur(12px);
+        }
+
+        .ayda-deneme-mobile-bottom a {
+          display: grid;
+          place-items: center;
+          gap: 1px;
+          color: rgba(255,255,255,.86);
+          text-decoration: none;
+          font-size: 11px;
+          font-weight: 900;
+          border-radius: 13px;
+          line-height: 1.1;
+        }
+
+        .ayda-deneme-mobile-bottom a:hover,
+        .ayda-deneme-mobile-bottom a:focus,
+        .ayda-deneme-mobile-bottom a.is-active {
+          color: #fff;
+          background: rgba(255,255,255,.14);
+        }
+
+        .ayda-deneme-mobile-bottom span {
+          display: block;
+          font-size: 16px;
+        }
+      }
+    </style>
+
+    <style>
+      #aydaLoginBox{position:fixed;inset:0;z-index:999999;display:grid;place-items:center;padding:20px;background:#f4f7fb;font-family:Inter,Arial,sans-serif}
+      #aydaLoginBox .ayda-login-card{width:min(420px,100%);box-sizing:border-box;padding:26px;border:1px solid #d8e0ec;border-radius:20px;background:#fff;box-shadow:0 18px 45px rgba(11,31,58,.16)}
+      #aydaLoginBox .ayda-login-mark{width:56px;height:56px;display:grid;place-items:center;margin-bottom:16px;border-radius:15px;background:#0b1f3a;color:#fff;font-weight:800}
+      #aydaLoginBox h2{margin:0 0 8px;color:#0b1f3a;font-size:24px}
+      #aydaLoginBox .ayda-login-note{margin:0 0 18px;color:#667085;line-height:1.5}
+      #aydaLoginBox .ayda-login-row{display:flex;gap:10px}
+      #aydaPasswordInput{flex:1;min-width:0;box-sizing:border-box;padding:14px 15px;border:1px solid #cfd8e6;border-radius:13px;background:#fff;color:#111827;font:inherit;font-size:16px;outline:none}
+      #aydaPasswordInput:focus{border-color:#0f766e;box-shadow:0 0 0 4px rgba(15,118,110,.10)}
+      #aydaLoginBox .ayda-login-btn{border:0;border-radius:13px;padding:0 18px;background:#0f766e;color:#fff;font:inherit;font-weight:800;cursor:pointer}
+      #aydaLoginMessage{min-height:18px;margin-top:12px;color:#d71920;font-size:13px;font-weight:700}
+      #aydaProtectedContent{display:none}
+      @media(max-width:560px){#aydaLoginBox .ayda-login-row{flex-direction:column}#aydaLoginBox .ayda-login-btn{padding:14px 18px}}
+    </style>
+
+  </head>
+  <body>
+
+    <section id="aydaLoginBox" aria-label="AYDA giriş ekranı">
+      <div class="ayda-login-card">
+        <div class="ayda-login-mark">AY</div>
+        <h2>AYDA ÖSD A1 Deneme Merkezi</h2>
+        <p class="ayda-login-note">Devam etmek için size verilen giriş kodunu yazınız.</p>
+        <div class="ayda-login-row">
+          <input id="aydaPasswordInput" type="password" placeholder="Giriş kodu" autocomplete="off" aria-describedby="aydaLoginMessage" onkeydown="if(event.key==='Enter'){aydaCheckPassword();}">
+          <button class="ayda-login-btn" type="button" onclick="aydaCheckPassword()">Giriş</button>
+        </div>
+        <div id="aydaLoginMessage" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <div id="aydaProtectedContent">
+
+    <nav class="ayda-deneme-nav" aria-label="ÖSD A1 hazırlık sayfaları">
+      <div class="ayda-deneme-nav-inner">
+        <a class="ayda-deneme-home" href="https://onurqlp.github.io/osd_a1_ayda/" aria-label="Ana sayfaya dön">
+          ← Ana Sayfa
+        </a>
+
+        <div class="ayda-deneme-links">
+          <a href="https://onurqlp.github.io/osd_a1_ayda/bilgi.html">Bilgi</a>
+          <a href="https://onurqlp.github.io/osd_a1_ayda/kelime.html">Kelime</a>
+          <a href="https://onurqlp.github.io/osd_a1_ayda/lesen.html">Lesen</a>
+          <a href="https://onurqlp.github.io/osd_a1_ayda/horen.html">Hören</a>
+          <a href="https://onurqlp.github.io/osd_a1_ayda/schreiben.html">Schreiben</a>
+          <a href="https://onurqlp.github.io/osda1sprehcen/">Sprechen</a>
+          <a class="is-active" href="https://onurqlp.github.io/osda1denemeler/" aria-current="page">Deneme</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="topbar">
+      <button class="icon-btn hidden" id="backBtn" type="button" aria-label="Geri dön">‹</button>
+      <div>
+        <p class="eyebrow">AYDA UI</p>
+        <h1>ÖSD A1 Tam Deneme Merkezi</h1>
+      </div>
+      <button class="ghost-btn hidden" id="homeBtn" type="button">Ana Sayfa</button>
+    </header>
+
+    <main id="app" class="app"></main>
+
+    <section class="ayda-deneme-switch" aria-label="Diğer hazırlık bölümleri">
+      <h2>Diğer Bölümlere Geç</h2>
+      <p>ÖSD A1 hazırlığında diğer çalışma alanlarına hızlıca geçebilirsiniz.</p>
+
+      <div class="ayda-deneme-grid">
+        <a class="ayda-deneme-card" href="https://onurqlp.github.io/osd_a1_ayda/bilgi.html">Sınav Bilgileri <span>→</span></a>
+        <a class="ayda-deneme-card" href="https://onurqlp.github.io/osd_a1_ayda/kelime.html">Kelime Alıştırmaları <span>→</span></a>
+        <a class="ayda-deneme-card" href="https://onurqlp.github.io/osd_a1_ayda/lesen.html">Lesen <span>→</span></a>
+        <a class="ayda-deneme-card" href="https://onurqlp.github.io/osd_a1_ayda/horen.html">Hören <span>→</span></a>
+        <a class="ayda-deneme-card" href="https://onurqlp.github.io/osd_a1_ayda/schreiben.html">Schreiben <span>→</span></a>
+        <a class="ayda-deneme-card" href="https://onurqlp.github.io/osda1sprehcen/">Sprechen <span>→</span></a>
+        <a class="ayda-deneme-card is-active" href="https://onurqlp.github.io/osda1denemeler/">Deneme Sınavları <span>→</span></a>
+      </div>
+
+      <div class="ayda-deneme-wa">
+        <div>
+          <strong>ÖSD A1/A2 hazırlık için AYDA Dil ile iletişime geçin.</strong>
+          <span>Kurs, deneme sınavı ve sınav hazırlık süreci hakkında bilgi alabilirsiniz.</span>
+        </div>
+        <a class="ayda-deneme-wa-btn" href="https://wa.me/905409122503">WhatsApp’tan Yaz</a>
+      </div>
+    </section>
+
+    <nav class="ayda-deneme-mobile-bottom" aria-label="Mobil hızlı menü">
+      <a href="https://onurqlp.github.io/osd_a1_ayda/"><span>🏠</span>Ana Sayfa</a>
+      <a href="https://onurqlp.github.io/osd_a1_ayda/lesen.html"><span>📖</span>Lesen</a>
+      <a href="https://onurqlp.github.io/osd_a1_ayda/horen.html"><span>🎧</span>Hören</a>
+      <a href="https://onurqlp.github.io/osda1sprehcen/"><span>🗣</span>Sprechen</a>
+      <a class="is-active" href="https://onurqlp.github.io/osda1denemeler/"><span>📝</span>Deneme</a>
+    </nav>
+
+    <template id="choiceTemplate">
+      <label class="choice">
+        <input type="radio" />
+        <span></span>
+      </label>
+    </template>
+
+    <script src="exam-data.js"></script>
+    <script src="app.js"></script>
+    </div>
+
+
+    <script src="https://onurqlp.github.io/ayda-pass/access-control.js"
+      onerror="document.getElementById('aydaLoginMessage').textContent='Şifre sistemi yüklenemedi.'"></script>
+
+  </body>
+</html>

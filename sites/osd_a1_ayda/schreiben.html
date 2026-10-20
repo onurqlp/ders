@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) #aydaProtectedContent{display:none!important}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(135deg,#0b1b31,#214d75);font:15px system-ui,-apple-system,sans-serif;z-index:99999;position:relative}
+#aydaLoginBox .ayda-exam-login-card{width:min(440px,100%);background:white;color:#102541;border-radius:18px;padding:28px;box-shadow:0 18px 44px #0003}
+#aydaLoginBox h1{font:900 24px/1.25 system-ui;color:#102541;margin:0 0 10px}
+#aydaLoginBox p{font:14px/1.5 system-ui;color:#52657c}
+#aydaLoginBox label{display:block;margin:17px 0 8px;font-weight:800;color:#102541}
+#aydaLoginBox input{display:block;width:100%;box-sizing:border-box;padding:12px;min-height:49px;border:1px solid #a9b9c9;border-radius:10px;font:16px system-ui;background:white;color:#102541}
+#aydaLoginBox button{display:block;width:100%;min-height:48px;border:0;border-radius:10px;margin:12px 0;background:#102541;color:white;font:bold 15px system-ui;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AYDA Dil | Schreiben ÖSD A1</title>
+  <style>
+    :root{--ink:#17212b;--muted:#647180;--line:#dfe6ee;--bg:#f7fafc;--card:#fff;--brand:#0f8b8d;--brand2:#f2b84b;--ok:#1f8a5b;--soft:#e8f6f6}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}a{color:inherit;text-decoration:none}
+    .ayda-page-nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .ayda-page-nav-inner{max-width:1120px;margin:auto;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .ayda-home-link,.ayda-nav-link{min-height:40px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:14px;font-weight:800;background:#fff;color:var(--ink);white-space:nowrap}
+    .ayda-home-link{color:#08696b;border-color:#b9dcdd;background:#f4fbfb}.ayda-nav-scroll{display:flex;gap:7px;overflow-x:auto;padding:2px;scrollbar-width:none}.ayda-nav-scroll::-webkit-scrollbar{display:none}.ayda-nav-link.active{background:var(--brand);border-color:var(--brand);color:#fff}
+    header{background:linear-gradient(135deg,#0f8b8d,#146b7a);color:#fff;padding:28px 16px 22px}.wrap{max-width:1120px;margin:auto}
+    .top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.brand{font-weight:800;font-size:24px;letter-spacing:.2px}.tag{max-width:720px;color:#e8ffff;margin:16px 0 0}
+    .contact{display:flex;gap:8px;flex-wrap:wrap;font-size:13px}.pill{border:1px solid rgba(255,255,255,.42);border-radius:999px;padding:7px 10px;background:rgba(255,255,255,.12)}
+    main{padding:18px 16px 96px}.intro,.score,.task,.ayda-section-links,.ayda-whatsapp-cta{background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 22px rgba(27,45,60,.06)}
+    .intro{padding:18px;margin-bottom:14px}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.score{padding:16px;margin-bottom:14px}
+    h1,h2,h3{margin:0 0 10px}h1{font-size:30px}h2{font-size:21px}h3{font-size:18px}.muted{color:var(--muted)}.small{font-size:13px}
+    .score-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.criterion{background:#fbfdff;border:1px solid var(--line);border-radius:8px;padding:10px}.criterion b{display:block;color:var(--brand)}
+    .tasks{display:grid;gap:14px}.teil-heading{padding:18px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 22px rgba(27,45,60,.06)}.teil-heading p{margin:0;color:var(--muted)}.task{overflow:hidden}.task-head{padding:16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.badge{background:var(--soft);color:#09696b;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700;white-space:nowrap}
+    .task-body{padding:16px;display:grid;grid-template-columns:.9fr 1.1fr;gap:16px}.box{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fbfdff}.box ul{padding-left:20px;margin:8px 0}.prompt{font-size:18px;font-weight:700;color:#10343c}
+    textarea{width:100%;min-height:210px;border:1px solid #bdc9d5;border-radius:8px;padding:12px;font:16px/1.45 inherit;resize:vertical;background:#fff}textarea:focus{outline:3px solid rgba(15,139,141,.18);border-color:var(--brand)}
+    .tools{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:8px 0;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:9px 12px;font-weight:700;color:var(--ink);cursor:pointer}.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+    .answer{display:none;margin-top:10px;background:#f3fbf7;border:1px solid #cce9da;border-radius:8px;padding:12px;white-space:pre-wrap}.checks label{display:flex;gap:8px;margin:8px 0;align-items:flex-start}.checks input{margin-top:4px;transform:scale(1.1)}
+    .ayda-section-links{margin-top:18px;padding:18px}.ayda-card-links{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.ayda-card-link{min-height:58px;border:1px solid var(--line);border-radius:8px;background:#fbfdff;padding:12px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:10px}.ayda-card-link.active{background:var(--soft);border-color:#a8d7d8;color:#08696b}.ayda-card-link span{color:var(--brand);font-size:18px}
+    .ayda-whatsapp-cta{margin-top:14px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.ayda-wa-button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;background:#1f8a5b;color:#fff;border-radius:8px;padding:10px 14px;font-weight:900;white-space:nowrap}
+    footer{padding:20px 16px;border-top:1px solid var(--line);background:#fff;color:var(--muted)}.footer-links{display:flex;gap:10px;flex-wrap:wrap}
+    .ayda-mobile-bottom{display:none}
+    @media (max-width:820px){.ayda-page-nav-inner{align-items:flex-start;flex-direction:column}.ayda-nav-scroll{width:100%;padding-bottom:4px}.grid,.task-body{grid-template-columns:1fr}.score-grid{grid-template-columns:1fr 1fr}.ayda-card-links{grid-template-columns:1fr 1fr}h1{font-size:25px}.task-head{display:block}.badge{display:inline-block;margin-top:8px}textarea{min-height:240px;font-size:17px}}
+    @media (max-width:640px){main{padding-bottom:108px}.ayda-mobile-bottom{position:fixed;left:0;right:0;bottom:0;z-index:25;display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -8px 22px rgba(27,45,60,.08)}.ayda-mobile-bottom a{min-height:46px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;text-align:center}.ayda-mobile-bottom a.active{background:var(--brand);color:#fff;border-color:var(--brand)}}
+    @media (max-width:520px){.score-grid,.ayda-card-links{grid-template-columns:1fr}.contact,.footer-links{display:grid}.pill{width:100%}.btn{width:100%}.tools,.ayda-whatsapp-cta{align-items:stretch;flex-direction:column}.ayda-wa-button{width:100%}}
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="font-weight:900;letter-spacing:.1em;color:#a98442">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Devam etmek için merkezi AYDA sınıf kodunu girin.</p><label for="aydaPasswordInput">Giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav Hazırlık Ana Sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+  <nav class="ayda-page-nav" aria-label="Sayfa navigasyonu">
+    <div class="ayda-page-nav-inner">
+      <a class="ayda-home-link" href="https://onurqlp.github.io/osd_a1_ayda/">← Ana Sayfa</a>
+      <div class="ayda-nav-scroll" aria-label="Hazırlık sayfaları">
+        <a class="ayda-nav-link" href="bilgi.html">Bilgi</a>
+        <a class="ayda-nav-link" href="kelime.html">Kelime</a>
+        <a class="ayda-nav-link" href="lesen.html">Lesen</a>
+        <a class="ayda-nav-link" href="horen.html">Hören</a>
+        <a class="ayda-nav-link active" href="schreiben.html" aria-current="page">Schreiben</a>
+        <a class="ayda-nav-link" href="https://onurqlp.github.io/osda1sprehcen/">Sprechen</a>
+        <a class="ayda-nav-link" href="https://onurqlp.github.io/osda1denemeler/">Deneme</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">AYDA Dil</div>
+        <nav class="contact" aria-label="AYDA iletişim">
+          <a class="pill" href="http://www.aydadil.com/">www.aydadil.com</a>
+          <a class="pill" href="https://instagram.com/ayda.dil">instagram.com/ayda.dil</a>
+          <a class="pill" href="https://www.youtube.com/@aydadil">YouTube</a>
+          <span class="pill">WhatsApp: 05409122503</span>
+        </nav>
+      </div>
+      <h1>Schreiben ÖSD A1</h1>
+      <p class="tag">ÖSD A1 yazma bölümüne uygun özgün görevler: form doldurma, kısa mesaj, davet, e-posta ve cevap yazma. Görev metinleri Almancadır; kontrol ve ipuçları Türkçedir.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <div class="intro">
+        <h2>Nasıl Çalışılır?</h2>
+        <p>Her kartta Almanca bir yazma görevi var. Önce yönergeyi oku, istenen noktaları işaretle, kendi cevabını yaz ve sonra örnek cevabı aç. Amaç ezberlemek değil, kısa ve doğru A1 cümleleri kurmak.</p>
+      </div>
+      <div class="score">
+        <h2>Puanlama Kriterleri</h2>
+        <div class="score-grid">
+          <div class="criterion"><b>Konu</b><span class="small">İstenen tüm bilgiler var mı?</span></div>
+          <div class="criterion"><b>Kelime</b><span class="small">A1 kelimeleri doğru mu?</span></div>
+          <div class="criterion"><b>Dil bilgisi</b><span class="small">Fiil, artikel, sıra doğru mu?</span></div>
+          <div class="criterion"><b>Selam</b><span class="small">Hitap ve kapanış uygun mu?</span></div>
+          <div class="criterion"><b>Düzen</b><span class="small">Metin okunaklı ve kısa mı?</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tasks" id="tasks"></section>
+
+    <section class="ayda-section-links" aria-labelledby="other-title">
+      <h2 id="other-title">Diğer Bölümlere Geç</h2>
+      <div class="ayda-card-links">
+        <a class="ayda-card-link" href="bilgi.html">Sınav Bilgileri <span>→</span></a>
+        <a class="ayda-card-link" href="kelime.html">Kelime Alıştırmaları <span>→</span></a>
+        <a class="ayda-card-link" href="lesen.html">Lesen <span>→</span></a>
+        <a class="ayda-card-link" href="horen.html">Hören <span>→</span></a>
+        <a class="ayda-card-link active" href="schreiben.html">Schreiben <span>→</span></a>
+        <a class="ayda-card-link" href="https://onurqlp.github.io/osda1sprehcen/">Sprechen <span>→</span></a>
+        <a class="ayda-card-link" href="https://onurqlp.github.io/osda1denemeler/">Deneme Sınavları <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="ayda-whatsapp-cta" aria-label="WhatsApp iletişim">
+      <div>
+        <h2>AYDA Dil ile iletişime geçin</h2>
+        <p class="muted">ÖSD A1/A2 hazırlık için AYDA Dil ile iletişime geçin.</p>
+      </div>
+      <a class="ayda-wa-button" href="https://wa.me/905409122503">WhatsApp’tan Yaz</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-links">
+      <a href="http://www.aydadil.com/">www.aydadil.com</a>
+      <a href="https://instagram.com/ayda.dil">instagram.com/ayda.dil</a>
+      <a href="https://www.youtube.com/@aydadil">youtube.com/@aydadil</a>
+      <span>WhatsApp: 05409122503</span>
+    </div>
+  </footer>
+
+  <nav class="ayda-mobile-bottom" aria-label="Mobil hızlı menü">
+    <a href="https://onurqlp.github.io/osd_a1_ayda/">Ana Sayfa</a>
+    <a href="lesen.html">Lesen</a>
+    <a href="horen.html">Hören</a>
+    <a href="https://onurqlp.github.io/osda1sprehcen/">Sprechen</a>
+    <a href="https://onurqlp.github.io/osda1denemeler/">Deneme</a>
+  </nav>
+
+  <script>
+    const tasks = [
+      {
+        teil:"Teil 1", type:"Formular", title:"Kursanmeldung",
+        prompt:"Sie möchten einen Deutschkurs besuchen. Füllen Sie das Formular aus.",
+        watch:["Schreiben Sie kurz und leserlich.","Achten Sie auf Datum, Adresse und Telefonnummer.","Benutzen Sie einfache A1-Wörter."],
+        patterns:["Vorname: ...","Familienname: ...","Ich komme aus ...","Meine Telefonnummer ist ..."],
+        starter:"Vorname:\nFamilienname:\nGeburtsdatum:\nAdresse:\nTelefon:\nE-Mail:\nKurszeit:",
+        sample:"Vorname: Elif\nFamilienname: Kaya\nGeburtsdatum: 12.04.1998\nAdresse: Bahnhofstraße 14, 10115 Berlin\nTelefon: 0157 2345678\nE-Mail: elif.kaya@mail.de\nKurszeit: Montag und Mittwoch, 18.00 Uhr"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Bibliotheksausweis",
+        prompt:"Sie möchten einen Bibliotheksausweis bekommen. Füllen Sie das Formular aus.",
+        watch:["Schreiben Sie Ihre persönlichen Daten.","Die E-Mail-Adresse muss klar sein.","Wählen Sie eine passende Sprache."],
+        patterns:["Adresse: ...","Sprache: Deutsch / Englisch","Unterschrift: ..."],
+        starter:"Name:\nVorname:\nGeburtsdatum:\nAdresse:\nTelefon:\nE-Mail:\nSprache:\nUnterschrift:",
+        sample:"Name: Yilmaz\nVorname: Deniz\nGeburtsdatum: 03.09.2001\nAdresse: Marktstraße 8, 40210 Düsseldorf\nTelefon: 0162 4455667\nE-Mail: deniz.yilmaz@mail.de\nSprache: Deutsch\nUnterschrift: Deniz Yilmaz"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Hotelanmeldung",
+        prompt:"Sie sind in einem Hotel. Füllen Sie das Anmeldeformular aus.",
+        watch:["Schreiben Sie Anreise und Abreise.","Zimmerart nicht vergessen.","Die Daten sollen realistisch sein."],
+        patterns:["Anreise: ...","Abreise: ...","Einzelzimmer / Doppelzimmer","Passnummer: ..."],
+        starter:"Familienname:\nVorname:\nAdresse:\nNationalität:\nPassnummer:\nAnreise:\nAbreise:\nZimmer:",
+        sample:"Familienname: Arslan\nVorname: Cem\nAdresse: Hauptstraße 21, 50667 Köln\nNationalität: Türkei\nPassnummer: U12345678\nAnreise: 10.05.2026\nAbreise: 12.05.2026\nZimmer: Einzelzimmer"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Sportkurs",
+        prompt:"Sie möchten in einem Sportverein einen Kurs machen. Füllen Sie das Formular aus.",
+        watch:["Kursname ve saat bilgisini yazın.","Telefon ve e-posta okunaklı olsun.","Kısa cevaplar yeterlidir."],
+        patterns:["Kurs: Yoga / Schwimmen","Zeit: am Abend","Ich bin Anfänger/in."],
+        starter:"Name:\nVorname:\nAlter:\nTelefon:\nE-Mail:\nKurs:\nKurszeit:\nErfahrung:",
+        sample:"Name: Özcan\nVorname: Aylin\nAlter: 24\nTelefon: 0176 33445566\nE-Mail: aylin.ozcan@mail.de\nKurs: Schwimmen\nKurszeit: Dienstag, 18.00 Uhr\nErfahrung: Anfängerin"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Sprachschule",
+        prompt:"Sie melden sich bei einer Sprachschule an. Füllen Sie das Formular aus.",
+        watch:["Dil seviyesi ve kurs saati önemli.","A1 için basit ifadeler kullanın.","Boş alan bırakmayın."],
+        patterns:["Niveau: A1","Kurs: Deutsch","Ich möchte am Vormittag lernen."],
+        starter:"Vorname:\nFamilienname:\nGeburtsort:\nAdresse:\nTelefon:\nE-Mail:\nSprache:\nNiveau:\nKurszeit:",
+        sample:"Vorname: Selin\nFamilienname: Kurt\nGeburtsort: Izmir\nAdresse: Lindenweg 5, 30159 Hannover\nTelefon: 0159 7788990\nE-Mail: selin.kurt@mail.de\nSprache: Deutsch\nNiveau: A1\nKurszeit: Vormittag"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Arztpraxis",
+        prompt:"Sie sind neu in einer Arztpraxis. Füllen Sie das Patientenformular aus.",
+        watch:["Şikayeti kısa yazın.","Tarih ve doğum tarihi doğru formatta olsun.","Sigorta alanını doldurun."],
+        patterns:["Beschwerde: Kopfschmerzen","Krankenkasse: ...","Termin: ..."],
+        starter:"Name:\nVorname:\nGeburtsdatum:\nAdresse:\nTelefon:\nKrankenkasse:\nBeschwerde:\nTermin:",
+        sample:"Name: Demir\nVorname: Ali\nGeburtsdatum: 22.11.1995\nAdresse: Gartenstraße 12, 90402 Nürnberg\nTelefon: 0151 22334455\nKrankenkasse: AOK\nBeschwerde: Kopfschmerzen\nTermin: 14.06.2026, 10.30 Uhr"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Paket abholen",
+        prompt:"Sie möchten ein Paket bei der Post abholen. Füllen Sie das Formular aus.",
+        watch:["Paketnummer ve kimlik bilgisi yazın.","Adres kısa ve açık olsun.","İmza alanını unutmayın."],
+        patterns:["Paketnummer: ...","Ausweisnummer: ...","Unterschrift: ..."],
+        starter:"Name:\nVorname:\nAdresse:\nTelefon:\nPaketnummer:\nAusweisnummer:\nDatum:\nUnterschrift:",
+        sample:"Name: Sahin\nVorname: Ece\nAdresse: Rosenstraße 3, 80331 München\nTelefon: 0170 9988776\nPaketnummer: DE45678912\nAusweisnummer: T98765432\nDatum: 18.06.2026\nUnterschrift: Ece Sahin"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Wohnungsbesichtigung",
+        prompt:"Sie interessieren sich für eine Wohnung. Füllen Sie das Kontaktformular aus.",
+        watch:["İstenen oda sayısını yazın.","Besichtigung için gün/saat belirtin.","İletişim bilgileri tam olsun."],
+        patterns:["Ich suche eine Wohnung.","Zimmer: 2","Besichtigung: am Freitag"],
+        starter:"Name:\nVorname:\nTelefon:\nE-Mail:\nWohnung:\nZimmer:\nMiete:\nBesichtigung:",
+        sample:"Name: Kaya\nVorname: Murat\nTelefon: 0163 1122334\nE-Mail: murat.kaya@mail.de\nWohnung: Stadtmitte\nZimmer: 2\nMiete: bis 700 Euro\nBesichtigung: Freitag, 16.00 Uhr"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Kinderbetreuung",
+        prompt:"Sie suchen einen Platz in einem Kindergarten. Füllen Sie das Formular aus.",
+        watch:["Çocuk ve veli bilgilerini ayırın.","Saat ve başlangıç tarihi yazın.","Kısa, doğru bilgi verin."],
+        patterns:["Kind: ...","Mutter/Vater: ...","Betreuung von ... bis ..."],
+        starter:"Name des Kindes:\nGeburtsdatum des Kindes:\nName der Mutter/des Vaters:\nAdresse:\nTelefon:\nE-Mail:\nStartdatum:\nBetreuungszeit:",
+        sample:"Name des Kindes: Lina Yildiz\nGeburtsdatum des Kindes: 05.02.2022\nName der Mutter/des Vaters: Seda Yildiz\nAdresse: Parkweg 9, 60311 Frankfurt\nTelefon: 0152 6677889\nE-Mail: seda.yildiz@mail.de\nStartdatum: 01.09.2026\nBetreuungszeit: 8.00 bis 14.00 Uhr"
+      },
+      {
+        teil:"Teil 1", type:"Formular", title:"Flohmarkt Anmeldung",
+        prompt:"Sie möchten auf einem Flohmarkt verkaufen. Füllen Sie das Anmeldeformular aus.",
+        watch:["Ürün türünü belirtin.","Masa sayısı ve tarih yazın.","Telefon bilgisi gerekli."],
+        patterns:["Ich verkaufe Kleidung.","Tisch: 1","Datum: ..."],
+        starter:"Name:\nVorname:\nTelefon:\nE-Mail:\nDatum:\nTischzahl:\nIch verkaufe:\nBemerkung:",
+        sample:"Name: Aksoy\nVorname: Emre\nTelefon: 0177 1234560\nE-Mail: emre.aksoy@mail.de\nDatum: 20.07.2026\nTischzahl: 1\nIch verkaufe: Kleidung und Bücher\nBemerkung: Ich brauche einen Platz draußen."
+      },
+      {
+        teil:"Teil 2", type:"E-Mail", title:"Termin absagen",
+        prompt:"Sie haben morgen einen Termin beim Arzt. Sie können nicht kommen. Schreiben Sie eine E-Mail.",
+        watch:["Sagen Sie höflich ab.","Nennen Sie einen Grund.","Bitten Sie um einen neuen Termin."],
+        patterns:["Sehr geehrte Frau ...","Leider kann ich nicht kommen.","Können wir einen neuen Termin machen?","Mit freundlichen Grüßen"],
+        sample:"Sehr geehrte Frau Dr. Müller,\n\nleider kann ich morgen nicht zum Termin kommen. Ich muss arbeiten. Können wir bitte einen neuen Termin machen?\n\nMit freundlichen Grüßen\nAli Demir"
+      },
+      {
+        teil:"Teil 2", type:"Kurznachricht", title:"Treffen mit einem Freund",
+        prompt:"Ihr Freund Lukas möchte Sie am Samstag treffen. Sie können am Samstag nicht. Machen Sie einen anderen Vorschlag.",
+        watch:["Antworte direkt auf die Einladung.","Schreibe einen neuen Tag und eine Uhrzeit.","Bleibe freundlich."],
+        patterns:["Hallo Lukas,","am Samstag kann ich leider nicht.","Hast du am Sonntag Zeit?","Viele Grüße"],
+        sample:"Hallo Lukas,\n\nam Samstag kann ich leider nicht. Ich besuche meine Eltern. Hast du am Sonntag um 15 Uhr Zeit? Wir können Kaffee trinken.\n\nViele Grüße\nMerve"
+      },
+      {
+        teil:"Teil 2", type:"Einladung", title:"Geburtstag",
+        prompt:"Sie haben Geburtstag und möchten Ihre Freundin Anna einladen. Schreiben Sie eine Einladung.",
+        watch:["Schreibe Anlass, Ort und Zeit.","Bitte um Antwort.","Nutze einfache Sätze."],
+        patterns:["Liebe Anna,","ich habe Geburtstag.","Die Party ist am ... um ...","Kommst du?","Liebe Grüße"],
+        sample:"Liebe Anna,\n\nich habe am Freitag Geburtstag. Die Party ist bei mir zu Hause. Sie beginnt um 19 Uhr. Kommst du auch? Bitte schreib mir kurz.\n\nLiebe Grüße\nSara"
+      },
+      {
+        teil:"Teil 2", type:"Antwort schreiben", title:"Wohnung suchen",
+        prompt:"Sie lesen eine Anzeige: 'Zimmer frei, 350 Euro, Nähe Bahnhof'. Schreiben Sie an Frau Becker. Sie interessieren sich für das Zimmer.",
+        watch:["Sage, warum du schreibst.","Frage nach Besichtigung und Größe.","Schreibe höfliche Anrede und Schluss."],
+        patterns:["Sehr geehrte Frau Becker,","ich interessiere mich für das Zimmer.","Wie groß ist das Zimmer?","Wann kann ich das Zimmer sehen?"],
+        sample:"Sehr geehrte Frau Becker,\n\nich interessiere mich für das Zimmer. Wie groß ist das Zimmer? Ist die Küche auch frei? Wann kann ich das Zimmer sehen?\n\nMit freundlichen Grüßen\nYusuf Arslan"
+      },
+      {
+        teil:"Teil 2", type:"Notiz", title:"Nachricht an die Nachbarin",
+        prompt:"Sie fahren zwei Tage weg. Ihre Nachbarin soll Ihre Blumen gießen. Schreiben Sie eine Notiz.",
+        watch:["Sage, wann du weg bist.","Bitte klar um Hilfe.","Bedanke dich."],
+        patterns:["Liebe Frau Schneider,","ich bin von ... bis ... nicht zu Hause.","Können Sie bitte ...?","Vielen Dank!"],
+        sample:"Liebe Frau Schneider,\n\nich bin von Montag bis Mittwoch nicht zu Hause. Können Sie bitte meine Blumen gießen? Der Schlüssel liegt bei Herrn Braun.\n\nVielen Dank!\nNina"
+      },
+      {
+        teil:"Teil 2", type:"E-Mail", title:"Hausaufgaben fragen",
+        prompt:"Sie waren gestern nicht im Deutschkurs. Schreiben Sie an Ihre Lehrerin. Fragen Sie nach den Hausaufgaben.",
+        watch:["Entschuldigen Sie sich kurz.","Sagen Sie, warum Sie nicht da waren.","Fragen Sie nach den Hausaufgaben."],
+        patterns:["Sehr geehrte Frau ...","gestern war ich nicht im Kurs.","Welche Hausaufgaben haben wir?","Vielen Dank"],
+        sample:"Sehr geehrte Frau Weber,\n\ngestern war ich nicht im Deutschkurs. Ich war krank. Welche Hausaufgaben haben wir? Können Sie mir bitte schreiben?\n\nVielen Dank\nZeynep Acar"
+      },
+      {
+        teil:"Teil 2", type:"Kurznachricht", title:"Zu spät kommen",
+        prompt:"Sie kommen heute zu spät zum Kurs. Schreiben Sie eine Nachricht an Ihren Lehrer.",
+        watch:["Sage, dass du zu spät kommst.","Nenne den Grund.","Schreibe, wann du kommst."],
+        patterns:["Guten Morgen,","ich komme heute später.","Der Bus hat Verspätung.","Ich bin um ... da."],
+        sample:"Guten Morgen Herr Klein,\n\nich komme heute leider später. Der Bus hat Verspätung. Ich bin um 9.30 Uhr im Kurs.\n\nViele Grüße\nFatma"
+      },
+      {
+        teil:"Teil 2", type:"Bitte", title:"Hilfe beim Umzug",
+        prompt:"Sie ziehen am Samstag um. Schreiben Sie an Ihren Freund Paul und bitten Sie um Hilfe.",
+        watch:["Sage, was passiert.","Bitte um Hilfe.","Nenne Tag und Uhrzeit."],
+        patterns:["Hallo Paul,","ich ziehe am Samstag um.","Kannst du mir helfen?","Wir beginnen um ..."],
+        sample:"Hallo Paul,\n\nich ziehe am Samstag um. Kannst du mir bitte helfen? Wir beginnen um 10 Uhr. Danach essen wir zusammen Pizza.\n\nViele Grüße\nKerem"
+      },
+      {
+        teil:"Teil 2", type:"Beschwerde kurz", title:"Falsche Lieferung",
+        prompt:"Sie haben online Schuhe gekauft. Die Größe ist falsch. Schreiben Sie eine kurze E-Mail an den Verkäufer.",
+        watch:["Schreiben Sie, was falsch ist.","Bitten Sie um Austausch.","Bleiben Sie höflich."],
+        patterns:["Sehr geehrte Damen und Herren,","die Größe ist falsch.","Ich möchte die Schuhe tauschen.","Mit freundlichen Grüßen"],
+        sample:"Sehr geehrte Damen und Herren,\n\nich habe Schuhe bestellt. Leider ist die Größe falsch. Ich habe Größe 39 bestellt, aber Größe 37 bekommen. Ich möchte die Schuhe bitte tauschen.\n\nMit freundlichen Grüßen\nLeyla Can"
+      },
+      {
+        teil:"Teil 2", type:"Einladung beantworten", title:"Kino am Freitag",
+        prompt:"Ihre Freundin lädt Sie am Freitag ins Kino ein. Sie möchten mitkommen. Schreiben Sie eine Antwort.",
+        watch:["Bedanke dich für die Einladung.","Sage, dass du kommst.","Frage nach Uhrzeit oder Treffpunkt."],
+        patterns:["Liebe ...","vielen Dank für die Einladung.","Ich komme gern mit.","Wann treffen wir uns?"],
+        sample:"Liebe Julia,\n\nvielen Dank für die Einladung. Ich komme gern mit ins Kino. Wann treffen wir uns und wo? Bitte schreib mir kurz.\n\nLiebe Grüße\nDerya"
+      }
+    ];
+    const checklist = ["Tüm istenen noktaları yazdım.","Selamlama ve kapanış kullandım.","Fiili ikinci pozisyona dikkat ettim.","Kısa, anlaşılır A1 cümleleri kurdum.","Yazımı tekrar okuyup düzelttim."];
+    const root = document.getElementById("tasks");
+    let currentTeil = "";
+    tasks.forEach((t,i)=>{
+      if(t.teil !== currentTeil){
+        currentTeil = t.teil;
+        const heading = document.createElement("div");
+        heading.className = "teil-heading";
+        heading.innerHTML = `<h2>${currentTeil}: ${currentTeil === "Teil 1" ? "Formular ausfüllen" : "Kurze Nachricht / E-Mail schreiben"}</h2><p>${currentTeil === "Teil 1" ? "10 test alıştırması: kişisel bilgiler, kayıt ve kısa form alanları." : "10 test alıştırması: e-posta, davet, cevap, rica ve kısa mesaj."}</p>`;
+        root.appendChild(heading);
+      }
+      const id = "txt"+i;
+      const el = document.createElement("article");
+      el.className = "task";
+      el.innerHTML = `
+        <div class="task-head"><div><h3>${currentTeil} - ${currentTeil === "Teil 1" ? i+1 : i-9}. ${t.title}</h3><div class="prompt">${t.prompt}</div></div><span class="badge">${t.type}</span></div>
+        <div class="task-body">
+          <div>
+            <div class="box"><b>Dikkat et</b><ul>${t.watch.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+            <div class="box" style="margin-top:10px"><b>Faydalı kalıplar</b><ul>${t.patterns.map(x=>`<li><code>${x}</code></li>`).join("")}</ul></div>
+            <div class="box checks" style="margin-top:10px"><b>Kontrol listesi</b>${checklist.map(x=>`<label><input type="checkbox"> ${x}</label>`).join("")}</div>
+          </div>
+          <div>
+            <textarea id="${id}" placeholder="Cevabınızı Almanca yazın...">${t.starter||""}</textarea>
+            <div class="tools"><span class="small muted" data-count="${id}">0 kelime · 0 karakter</span><button class="btn" data-copy="${id}">Kopyala</button></div>
+            <button class="btn primary" data-answer="${i}">Örnek cevabı göster/gizle</button>
+            <div class="answer" id="ans${i}">${t.sample}</div>
+          </div>
+        </div>`;
+      root.appendChild(el);
+    });
+    function updateCount(id){
+      const v = document.getElementById(id).value.trim();
+      const words = v ? v.split(/\s+/).length : 0;
+      document.querySelector(`[data-count="${id}"]`).textContent = `${words} kelime · ${v.length} karakter`;
+    }
+    document.addEventListener("input",e=>{ if(e.target.tagName==="TEXTAREA") updateCount(e.target.id); });
+    document.addEventListener("click",async e=>{
+      const ans = e.target.dataset.answer, cp = e.target.dataset.copy;
+      if(ans!==undefined){ const a=document.getElementById("ans"+ans); a.style.display = a.style.display==="block" ? "none" : "block"; }
+      if(cp){ await navigator.clipboard.writeText(document.getElementById(cp).value); e.target.textContent="Kopyalandı"; setTimeout(()=>e.target.textContent="Kopyala",1200); }
+    });
+    tasks.forEach((_,i)=>updateCount("txt"+i));
+  </script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Şifre hizmeti yüklenemedi.'"></script><script id="ayda-exam-authorization-sync">(function(){const p=document.getElementById('aydaProtectedContent');if(!p)return;function sync(){document.documentElement.classList.toggle('ayda-exam-authorized',p.style.display==='block')}new MutationObserver(sync).observe(p,{attributes:true,attributeFilter:['style']});sync()})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

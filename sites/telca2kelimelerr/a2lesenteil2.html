@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) body>#aydaProtectedContent{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#0b1b31,#214d75);position:relative;z-index:99999;font-family:system-ui,-apple-system,sans-serif}
+#aydaLoginBox .ayda-exam-login-card{background:#fff;color:#102541;padding:28px;width:min(440px,100%);border-radius:19px;box-shadow:0 20px 54px #0003}
+#aydaLoginBox h1{font-size:23px;line-height:1.3;margin:0 0 9px;color:#102541}
+#aydaLoginBox p{font-size:14px;line-height:1.55;color:#5e7287}
+#aydaLoginBox label{display:block;font-weight:800;font-size:13px;margin:20px 0 6px;color:#102541}
+#aydaLoginBox input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1px solid #a6b8c9;border-radius:10px;background:#fff;color:#102541;font:16px system-ui}
+#aydaLoginBox button{width:100%;min-height:49px;background:#102541;color:#fff;border:0;border-radius:10px;font:800 15px system-ui;margin-top:12px;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+#aydaLoginBox .ayda-exam-message{min-height:22px;margin-top:10px;font-size:13px;color:#9f3838}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#234078" />
+  <title>AYDA · A2 Lesen Teil 2</title>
+  <style>
+    :root {
+      --primary:#234078; --dark:#172b52; --soft:#e9eef8; --bg:#f5f7fb; --card:#fff;
+      --text:#172033; --muted:#6b7280; --border:#e5e7eb; --success:#15803d;
+      --danger:#b91c1c; --warning:#b45309; --shadow:0 18px 45px rgba(35,64,120,.13);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,rgba(35,64,120,.18),transparent 32%),linear-gradient(180deg,#fff 0%,var(--bg) 42%);color:var(--text);min-height:100vh}
+    a{text-decoration:none;color:inherit}
+    .topbar,.page{width:min(1180px,calc(100% - 28px));margin:0 auto}
+    .topbar{padding:14px 0 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .top-brand{display:flex;align-items:center;gap:10px;font-weight:950;color:var(--primary)}
+    .mini-logo{width:38px;height:38px;border-radius:13px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:950}
+    .links{display:flex;gap:8px;flex-wrap:wrap}
+    .link{background:#fff;border:1px solid var(--border);color:var(--primary);border-radius:999px;padding:10px 13px;font-weight:850;font-size:13px;box-shadow:0 8px 22px rgba(17,24,39,.05)}
+    .page{padding:18px 0 42px}
+    .hero{background:linear-gradient(135deg,var(--primary),#315caa);border-radius:30px;color:#fff;padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-90px;background:rgba(255,255,255,.12)}
+    .brand{display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);padding:8px 13px;border-radius:999px;font-size:13px;margin-bottom:18px;position:relative;z-index:2}
+    .dot{width:9px;height:9px;background:#a7f3d0;border-radius:50%;box-shadow:0 0 0 6px rgba(167,243,208,.17)}
+    .hero h1{margin:0;font-size:clamp(28px,5vw,48px);line-height:1.05;letter-spacing:-.04em;max-width:960px;position:relative;z-index:2}
+    .hero p{max-width:960px;margin:16px 0 0;color:rgba(255,255,255,.9);font-size:17px;line-height:1.6;position:relative;z-index:2}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+    .stat,.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 14px 35px rgba(17,24,39,.07)}
+    .stat{padding:18px} .stat span{display:block;color:var(--muted);font-size:13px;margin-bottom:8px} .stat strong{font-size:28px;color:var(--primary)}
+    .layout{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start} .card{padding:22px}
+    .head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}
+    .head h2,.side-title{margin:0 0 8px;font-size:22px;letter-spacing:-.03em} .muted{color:var(--muted);line-height:1.5;font-size:14px}
+    .badge{display:inline-flex;align-items:center;gap:7px;background:var(--soft);color:var(--primary);border-radius:999px;padding:7px 10px;font-weight:850;font-size:12px}
+    .text-box{background:linear-gradient(180deg,#f8fbff,#fff);border:1px solid var(--border);border-radius:20px;padding:20px;line-height:1.8;font-size:16px;white-space:pre-line}
+    mark{background:#fff2a8;color:#111827;border-radius:6px;padding:1px 4px;box-shadow:0 0 0 2px rgba(245,158,11,.18)}
+    .questions{display:grid;gap:12px;margin-top:16px}
+    .q{border:1px solid var(--border);border-radius:18px;padding:14px;background:#fff}
+    .q-top{font-weight:900;margin-bottom:10px;line-height:1.45}
+    .q-actions{display:flex;gap:8px;flex-wrap:wrap}
+    button{border:0;background:var(--primary);color:#fff;padding:11px 14px;border-radius:14px;font-weight:900;cursor:pointer;font-size:14px}
+    button:hover{background:var(--dark)} .secondary{background:#eef2ff;color:var(--primary)}
+    .q button.selected{background:var(--primary);color:#fff} .q.correct{border-color:#22c55e;background:#f0fdf4} .q.wrong{border-color:#ef4444;background:#fef2f2}
+    .explain{display:none;margin-top:10px;color:#475569;font-weight:750;line-height:1.5} .explain.show{display:block}
+    .feedback{margin-top:14px;min-height:48px;border-radius:16px;padding:13px 15px;font-weight:800;display:none;line-height:1.5}
+    .feedback.show{display:block} .good{background:#dcfce7;color:var(--success)} .bad{background:#fee2e2;color:var(--danger)} .info{background:#fef3c7;color:var(--warning)}
+    .actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+    .bar{height:12px;background:#eef2f7;border-radius:999px;overflow:hidden} .bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#60a5fa);border-radius:999px;transition:.25s}
+    .progress-top{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:7px}
+    .list{display:grid;gap:8px;max-height:620px;overflow:auto;padding-right:4px}
+    .list-item{text-align:left;background:#f8fafc;color:var(--text);border:1px solid var(--border);border-radius:14px;padding:12px;display:grid;gap:3px}
+    .list-item.active,.list-item:hover{background:var(--soft);color:var(--primary)} .list-item small{color:var(--muted);font-weight:700}
+    .notice{margin-top:16px;color:var(--muted);font-size:14px;line-height:1.55}
+    .footer{margin-top:20px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;color:var(--muted);font-size:14px} .footer strong{color:var(--primary)}
+    @media(max-width:920px){.stats,.layout,.footer{grid-template-columns:1fr}.hero{padding:24px}.head{display:grid}}
+    @media(max-width:620px){.page,.topbar{width:min(100% - 18px,1180px)}.hero{border-radius:22px}.stats{grid-template-columns:repeat(2,1fr);gap:10px}.stat{padding:14px}.stat strong{font-size:24px}.card{padding:16px}.actions{grid-template-columns:1fr}.links{width:100%}.link{flex:1;text-align:center}}
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="color:#b18c4f;font-weight:900;font-size:12px;letter-spacing:.11em;margin:0 0 8px">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Çalışmaya devam etmek için AYDA merkezi giriş kodunu kullanın.</p><label for="aydaPasswordInput">Sınıf giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" class="ayda-exam-message" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav hazırlık ana sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+<header class="topbar">
+  <a class="top-brand" href="https://www.aydadil.com" target="_blank"><span class="mini-logo">AY</span><span>AYDA Dil Akademisi</span></a>
+  <nav class="links">
+    <a class="link" href="index.html">Ana Sayfa</a>
+    <a class="link" href="https://www.aydadil.com" target="_blank">Web Sitesi</a>
+    <a class="link" href="https://wa.me/905409122503" target="_blank">WhatsApp</a>
+    <a class="link" href="https://www.instagram.com/ayda.dil/" target="_blank">Instagram</a>
+  </nav>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <div class="brand"><span class="dot"></span> AYDA · TELC A2 Lesen Teil 2</div>
+    <h1>Doğru / yanlış metin okuma alıştırması.</h1>
+    <p>Metni okuyun, cümlelerin doğru mu yanlış mı olduğuna karar verin. Cevapları gösterdiğinizde metindeki kanıt bölümleri renkli olarak işaretlenir.</p>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><span>Toplam Metin</span><strong id="totalTexts">0</strong></div>
+    <div class="stat"><span>Doğru</span><strong id="correctCount">0</strong></div>
+    <div class="stat"><span>Yanlış</span><strong id="wrongCount">0</strong></div>
+    <div class="stat"><span>Başarı</span><strong id="successRateTop">0%</strong></div>
+  </section>
+
+  <section class="layout">
+    <div class="card">
+      <div class="head">
+        <div>
+          <h2 id="title">Lesen Teil 2</h2>
+          <div class="muted" id="level">Metni okuyun ve cevaplayın.</div>
+        </div>
+        <div class="badge" id="counter">1 / 15</div>
+      </div>
+
+      <div class="text-box" id="textBox"></div>
+      <div class="questions" id="questions"></div>
+
+      <div class="actions">
+        <button onclick="checkAnswers()">Kontrol Et</button>
+        <button class="secondary" onclick="showAnswers()">Cevapları Göster</button>
+        <button class="secondary" onclick="nextText()">Sonraki Metin</button>
+      </div>
+      <div id="feedback" class="feedback"></div>
+    </div>
+
+    <aside class="card">
+      <h2 class="side-title">Çalışma Durumu</h2>
+      <div class="progress-top"><span>Başarı oranı</span><strong id="successRate">0%</strong></div>
+      <div class="bar"><div id="barFill" class="bar-fill"></div></div>
+      <div class="actions" style="grid-template-columns:1fr;margin-top:16px">
+        <button onclick="resetCurrent()">Bu Metni Temizle</button>
+        <button class="secondary" onclick="restartAll()">Tüm Çalışmayı Sıfırla</button>
+      </div>
+      <p class="notice">
+        İpucu: Cevabı tahmin ederken bütün metni çevirmeye çalışma. Cümledeki anahtar kelimeyi bul, metinde aynı bilgi var mı yok mu kontrol et.
+      </p>
+      <h2 class="side-title" style="margin-top:20px">Metinler</h2>
+      <div class="list" id="textList"></div>
+    </aside>
+  </section>
+
+  <section class="card footer">
+    <div><strong>AYDA Dil Akademisi</strong><br>Online Almanca eğitimleri, TELC sınav hazırlığı ve süreç danışmanlığı.</div>
+    <div class="links"><a class="link" href="https://www.aydadil.com" target="_blank">Web</a><a class="link" href="https://wa.me/905409122503" target="_blank">WhatsApp</a><a class="link" href="https://www.instagram.com/ayda.dil/" target="_blank">Instagram</a></div>
+  </section>
+</main>
+
+<script>
+const texts = [{"title": "Johanna Ehlers raucht nicht mehr", "level": "aus den gelieferten Themen", "text": "Die aus zahlreichen „Polizeiruf 110“-Fernseh-Krimis bekannte „Kommissarin“ Johanna Ehlers hat mit dem Rauchen Schluss gemacht. Vorausgegangen war eine halbjährige Halserkrankung. Deswegen konnte Johanna Ehlers kaum noch sprechen. Die Ärzte rieten ihr, mit dem Rauchen aufzuhören. Sie sahen sonst keine weitere Zukunft für ihren Beruf als Schauspielerin.\n\nViele Fernsehzuschauer kennen Johanna Ehlers auch vom Film, besonders als Hauptdarstellerin von „Nachtmusik“ oder „Die schönen Jahre sind vorbei“. Am bekanntesten wurde sie jedoch als „Marlene Pausen“ in dem Krimohit „Tod am Nachmittag“.\n\nJetzt verbringt die noch ledige Johanna Ehlers viel Zeit mit ihrem Hobby: dem Kochen. „Seit ich nicht mehr rauche, habe ich 5 Kilo zugenommen“, sagt die Schauspielerin. Sie mag sehr gern Süßspeisen, besonders Schokolade. Aber sie glaubt, dass diese Droge nicht so gefährlich ist wie Zigaretten.", "qs": [["Johanna Ehlers musste mit dem Rauchen aufhören.", true, ["Die Ärzte rieten ihr, mit dem Rauchen aufzuhören"]], ["Johanna Ehlers arbeitet als Kommissarin bei der Polizei.", false, ["bekannte „Kommissarin“", "Beruf als Schauspielerin"]], ["Sie konnte überhaupt nichts mehr sagen.", false, ["kaum noch sprechen"]], ["Sie hat auch in Kinofilmen gespielt.", true, ["kennen Johanna Ehlers auch vom Film"]], ["Sie ist nicht verheiratet.", true, ["die noch ledige Johanna Ehlers"]], ["Sie mag Schokolade.", true, ["besonders Schokolade"]]]}, {"title": "Rockmusik? – „Pausenbrot“ zeigt’s allen!", "level": "aus den gelieferten Themen", "text": "Seit einer Woche ist die dritte CD der Rockgruppe „Pausenbrot“ in den Läden. Bisher wurden 300.000 Stück verkauft – ein Traumverkauf für eine junge deutsche Rockgruppe.\n\nAndreas Fink, Journalist, erklärt den großen Erfolg der Gruppe so: Manche Rockmusiker trinken viel Alkohol und machen nach den Festen die Möbel in ihrem Hotelzimmer kaputt. Aber es gibt auch das Gegenteil: Viele Musiker heute sind sehr fleißig, verdienen wenig, geben ihr Geld beim Friseur aus und achten auf ihre Frisuren. Die Mitglieder von „Pausenbrot“ sind ganz normale Jungen. Sie sind genauso wie die besten Schüler in der Schule. Das ist sehr sympathisch, das gefällt den Jugendlichen. Das Wichtigste aber ist: Sie machen gute Rockmusik.\n\nAndy Stein, einer der Jugendlichen von „Pausenbrot“, erzählt: Wir sind in verschiedenen Klassen zur selben Schule gegangen und haben im Alter von 12 angefangen, in der Garage meines Vaters zu üben. Vier Jahre später bekamen wir einen Vertrag bei einer Firma. Wenn wir eine neue CD machen, arbeiten wir heute täglich 10 bis 14 Stunden. Das ist schon nicht einfach, aber trotzdem der schönste Beruf der Welt.", "qs": [["Die Musiker von „Pausenbrot“ achten auf die neueste Mode.", true, ["achten auf ihre Frisuren"]], ["Viele finden gut, dass die Musiker von „Pausenbrot“ wie normale Jugendliche sind.", true, ["ganz normale Jungen", "Das ist sehr sympathisch"]], ["Die Musiker von „Pausenbrot“ haben dieselbe Klasse besucht.", false, ["in verschiedenen Klassen"]], ["Andy Stein hat mit zwölf Jungen aus seiner Schule in einer Garage Musik gespielt.", false, ["im Alter von 12 angefangen"]], ["Andy Stein liebt seinen Beruf, aber er findet ihn auch schwierig.", true, ["nicht einfach", "der schönste Beruf der Welt"]]]}, {"title": "Jungstar Luise Müller", "level": "aus den gelieferten Themen", "text": "Ein Interview ist für die 20-jährige Schauspielerin Luise Müller noch sehr neu. Deshalb ist sie auch sehr aufgeregt. „Ich habe Angst, dass ich zu viel oder nicht das Richtige erzähle“, erklärt die gebürtige Berlinerin, die gerade eine Hauptrolle in einem Fernsehfilm gespielt hat.\n\nLuise kann wirklich viel erzählen. Schon als Jugendliche spielte sie in Fernseh- und Kinofilmen mit, oft an der Seite bekannter Stars. Mit 17 hatte sie dann großes Glück: Sie konnte in der österreichischen Jugendserie „Nachbarn“ mitspielen. Sechs Monate lebte und arbeitete sie in Wien. Das war eine tolle Erfahrung.\n\nSeit dieser Zeit hat Luise das Reisefieber gepackt. „Ich bin gern möglichst lange und individuell auf Reisen“, sagt die Berlinerin, die seit ihrer Rückkehr wieder in ihrer Heimatstadt lebt.", "qs": [["Luise ist zum ersten Mal im Fernsehen zu sehen.", false, ["Schon als Jugendliche spielte sie in Fernseh- und Kinofilmen mit"]], ["Luise hat mit 20 Jahren angefangen, Filme zu machen.", false, ["Schon als Jugendliche"]], ["Luise wurde in Berlin geboren.", true, ["gebürtige Berlinerin"]], ["Luise möchte einmal in Österreich einen Film machen.", false, ["konnte in der österreichischen Jugendserie „Nachbarn“ mitspielen"]], ["Luise reist sehr gern.", true, ["Reisefieber", "gern möglichst lange und individuell auf Reisen"]]]}, {"title": "Formel-1-Stars", "level": "aus den gelieferten Themen", "text": "Die Brüder Sven und Matthias Reinecke sind die schnellsten Autofahrer Deutschlands – aber nicht auf normalen Straßen: Sie sind weltbekannte Rennfahrer in der Formel 1. Für ein Bild saßen beide freundlich zusammen. Ein schönes Bild von zwei Brüdern mit viel Erfolg.\n\nAber trotzdem sagt Sven: „Wir waren nie viel zusammen und hatten jeder andere Hobbys. Matthias war für mich, privat oder beruflich, nie ein Vorbild. Ich wollte nicht alles so machen wie er. Ich wollte und musste meinen eigenen Weg gehen.“ Svens Aussagen über die Kindheit mit Matthias hören sich nicht sehr freundlich an. „Er ist sechseinhalb Jahre älter als ich. Ich habe wenige Erinnerungen an ihn als Kind.“\n\nAuch heute sind die Brüder keine Partner im Beruf, im Gegenteil: Sie sind Konkurrenten. Matthias sagte: „In unserer wenigen Freizeit haben wir unsere eigenen Familien. Mit meinem Bruder telefoniere ich nur manchmal im Jahr und wir sehen uns ganz wenig bei Familienfesten.“ Sven glaubt aber: „Am Sonntag wollen wir beide gewinnen. Aber ich glaube natürlich: Ich gewinne.“", "qs": [["Sven und Matthias waren als Kinder gute Freunde.", false, ["Wir waren nie viel zusammen"]], ["Sven möchte beruflich auf seine Art vorwärtskommen.", true, ["meinen eigenen Weg gehen"]], ["Sven kann sich nicht gut an die Kindheit mit Matthias erinnern.", true, ["wenige Erinnerungen"]], ["Sven und Matthias sehen sich privat sehr oft.", false, ["ganz wenig bei Familienfesten"]], ["Sven glaubt, dass Matthias am Sonntag gewinnen wird.", false, ["ich gewinne"]]]}, {"title": "Paola Battista: die schönste Mutter der Welt", "level": "aus den gelieferten Themen", "text": "Ihr neues Glück ist Paola Battista deutlich anzusehen: In Paris zeigte sich die Schauspielerin strahlend schön. Sie erwartet Ende des Jahres ihr zweites Kind – vielleicht ein Schwesterchen für ihr Baby Piero. Schon während ihrer ersten Schwangerschaft war sie oft mit ihrem Mann, Filmproduzent John Miles, überglücklich.\n\nDie Neuigkeit hatten Freunde Ende Juni veröffentlicht. Paola bringt es fertig, Familie und Karriere glücklich zu verbinden – ihr Sohn und ihr Mann sind ihr sehr wichtig. Auch ihre jüngste Reise nach Paris war eine Geschäftsreise: In Frankreich drehte sie einen neuen Werbespot für eine Kosmetikfirma.\n\nIm Landhaus Coldham Hall in England und in ihrer Villa auf Mallorca gibt es genug Platz für viele Kinder. Paola Battista hat oft gesagt, dass sie sich nicht nur eine, nicht nur zwei, sondern viele Kinder wünscht.", "qs": [["Paola Battista bekommt nächstes Jahr ein Mädchen.", false, ["erwartet Ende des Jahres ihr zweites Kind", "vielleicht ein Schwesterchen"]], ["Paola Battista hat einer italienischen Zeitung gesagt, dass sie ein Kind bekommt.", false, ["Freunde Ende Juni veröffentlicht"]], ["Paola Battista arbeitet während der Schwangerschaft.", true, ["drehte sie einen neuen Werbespot"]], ["Paola Battista lebt fast immer auf Mallorca.", false, ["Landhaus Coldham Hall in England", "Villa auf Mallorca"]], ["Paola Battista möchte auf keinen Fall mehr als zwei Kinder haben.", false, ["viele Kinder wünscht"]]]}, {"title": "Junge trifft seinen Lieblingssänger", "level": "aus den gelieferten Themen", "text": "Der vierzehnjährige Gesamtschüler Paul hat zwei Wünsche. Zum einen möchte er gern einmal mit seiner ganzen Familie Urlaub machen. Außerdem will er unbedingt einmal den Sänger Brian Mock treffen, dessen Lieder ihm so gut gefallen.\n\nEin Traum wurde Wirklichkeit. Die Mutter von Paul hat bei einem Gewinnspiel im Radio zwei Karten für das Konzert von Brian Mock und seiner Gruppe gewonnen. Mit diesen Karten konnte Paul im April beim Konzert dabei sein. Nach dem Konzert traf er seinen Lieblingssänger persönlich und durfte ziemlich lange mit ihm sprechen.\n\nBrian Mock hat sich so gut mit Paul verstanden, dass er Paul und seine ganze Familie für eine Woche in die USA eingeladen hat. Paul ist noch nie mit dem Flugzeug geflogen, da sich seine Eltern keinen teuren Urlaub leisten konnten. Nun wird sein zweiter Wunsch auch wahr.", "qs": [["Paul mag die Lieder von Brian Mock.", true, ["dessen Lieder ihm so gut gefallen"]], ["Paul hat zwei Konzertkarten gewonnen.", false, ["Die Mutter von Paul hat", "zwei Karten"]], ["Das Konzert war im Herbst.", false, ["im April"]], ["Paul hat sich mit Brian Mock unterhalten.", true, ["ziemlich lange mit ihm sprechen"]], ["Paul wird allein in die USA fliegen.", false, ["Paul und seine ganze Familie"]]]}, {"title": "Beruf: Feuerwehrmann/-frau", "level": "aus den gelieferten Themen", "text": "Feuerwehrleute müssen helfen, wenn es ein Feuer gibt. Aber sie haben auch viele andere Aufgaben. Karl Frühling arbeitet seit 17 Jahren bei der Feuerwehr in Hannover. Er erzählt: Bei schweren Gewittern fallen oft Bäume und Teile von Bäumen auf die Straße. Die müssen sofort weg, damit die Autos wieder fahren können. Das machen auch wir.\n\nBei Autounfällen kommt die Feuerwehr meistens vor der Polizei und dem Krankenwagen an den Unfallort. Die Feuerwehrleute helfen Menschen, die in den kaputten Autos eingeklemmt sind und deshalb nicht allein aussteigen können. Mit speziellem Werkzeug holen sie die Menschen aus den Autos.\n\nJeder Feuerwehrmann muss auch ein bisschen wie ein Arzt sein. In der Ausbildung lernt man, wie man Menschen mit verschiedenen Verletzungen hilft. Im Notfall müssen Feuerwehrleute ruhig bleiben und einen klaren Kopf behalten. Karl sagt: Am Anfang war ich sehr nervös. Mit der Zeit habe ich gelernt, ruhig zu bleiben.", "qs": [["Nach einem Gewitter muss die Feuerwehr die Straße für den Verkehr aufräumen.", true, ["damit die Autos wieder fahren können"]], ["Die Feuerwehr ist oft zuerst am Unfallort.", true, ["meistens vor der Polizei und dem Krankenwagen"]], ["In der Ausbildung verletzen sich viele Feuerwehrleute.", false, ["lernt man, wie man Menschen mit verschiedenen Verletzungen hilft"]], ["Ein Feuerwehrmann darf im Notfall nicht nervös sein.", true, ["ruhig bleiben", "klaren Kopf behalten"]], ["Karl Frühling hat noch wenig Erfahrung in seinem Beruf.", false, ["seit 17 Jahren"]]]}, {"title": "Krekel auf großer Reise", "level": "aus den gelieferten Themen", "text": "Der berühmte Schriftsteller Rudi Krekel wohnt eigentlich in Stuttgart, aber er ist gern unterwegs. Seit vier Wochen reist er quer durch Deutschland und besucht Schulen. Krekel hat schon fünfzehn Bücher geschrieben und sagt selbst: Unterwegs habe ich die meisten Ideen.\n\nEine Schulklasse in Hamburg hat sich nicht besonders über den Besuch gefreut. Eine Schülerin meint: Er war zwar nett, aber seine Bücher sind nicht so toll. Ihre Freundin sagt: Ich kann mit den Büchern gar nichts anfangen.\n\nNächste Woche will Krekel nach Berlin fahren. Ob bald ein neues Buch von ihm erscheint, weiß er noch nicht genau. Er glaubt, in Berlin gibt es viele gute Ideen für ein neues Buch. Aber er wird es dort nicht schreiben, denn er schreibt nur zu Hause in Stuttgart. Für die Zukunft möchte er gern ein paar Monate in einem anderen Land leben, am liebsten bei einer Familie.", "qs": [["Rudi Krekel fährt zu Schulen in ganz Deutschland.", true, ["quer durch Deutschland und besucht Schulen"]], ["Rudi Krekel hat 15 Bücher geschrieben.", true, ["fünfzehn Bücher"]], ["Die Schülerinnen in Hamburg mögen seine Bücher.", false, ["nicht so toll", "gar nichts anfangen"]], ["Rudi Krekel will in Berlin das nächste Buch schreiben.", false, ["wird es dort nicht schreiben"]], ["Rudi Krekel möchte im Ausland am liebsten im Hotel wohnen.", false, ["bei einer Familie"]]]}, {"title": "Neue Nachbarin im Haus", "level": "zusätzlicher Übungstext", "text": "Seit zwei Wochen wohnt Frau Schneider im Haus von Familie Demir. Sie ist 62 Jahre alt und kommt aus Bremen. Früher hat sie als Krankenschwester gearbeitet, aber jetzt ist sie Rentnerin. Sie ist nach Köln gezogen, weil ihre Tochter dort lebt.\n\nFrau Schneider kennt noch nicht viele Menschen in der Stadt. Deshalb geht sie jeden Dienstag in einen kleinen Sprachkurs im Stadtteilzentrum. Dort lernt sie nicht nur Englisch, sondern trifft auch neue Leute. Besonders gern spricht sie mit ihrer Nachbarin Ayşe.\n\nAm Wochenende backt Frau Schneider oft Kuchen. Letzten Sonntag hat sie alle Nachbarn zu Kaffee und Kuchen eingeladen. Viele Nachbarn sind gekommen, und Frau Schneider war sehr glücklich.", "qs": [["Frau Schneider wohnt seit zwei Monaten im Haus.", false, ["Seit zwei Wochen"]], ["Frau Schneider ist nicht mehr berufstätig.", true, ["jetzt ist sie Rentnerin"]], ["Sie ist nach Köln gezogen, weil ihre Tochter dort lebt.", true, ["weil ihre Tochter dort lebt"]], ["Im Sprachkurs lernt sie Spanisch.", false, ["lernt sie nicht nur Englisch"]], ["Frau Schneider hat die Nachbarn eingeladen.", true, ["alle Nachbarn zu Kaffee und Kuchen eingeladen"]]]}, {"title": "Ein günstiger Urlaub", "level": "zusätzlicher Übungstext", "text": "Murat und sein Freund Tim möchten im Sommer Urlaub machen. Sie haben aber nicht viel Geld. Deshalb suchen sie im Internet nach günstigen Angeboten. Ein Hotel am Meer ist zu teuer. Eine kleine Ferienwohnung auf dem Land kostet viel weniger.\n\nTim möchte gern ans Meer fahren, aber Murat findet die Ferienwohnung besser. Dort können sie selbst kochen und Fahrräder mieten. Außerdem gibt es in der Nähe einen See. Am Ende entscheiden sie sich für die Ferienwohnung.\n\nSie fahren im Juli für fünf Tage weg. Murat nimmt seinen Fotoapparat mit, und Tim möchte jeden Tag schwimmen gehen.", "qs": [["Murat und Tim haben viel Geld für den Urlaub.", false, ["nicht viel Geld"]], ["Das Hotel am Meer ist billig.", false, ["zu teuer"]], ["Die Ferienwohnung ist günstiger.", true, ["kostet viel weniger"]], ["In der Nähe der Ferienwohnung gibt es einen See.", true, ["in der Nähe einen See"]], ["Sie fahren im August für zwei Wochen weg.", false, ["im Juli für fünf Tage"]]]}, {"title": "Der verlorene Rucksack", "level": "zusätzlicher Übungstext", "text": "Lena ist gestern mit der Bahn nach Hamburg gefahren. Im Zug hat sie gelesen und Musik gehört. Als sie am Bahnhof angekommen ist, hat sie ihren Rucksack im Zug vergessen. In dem Rucksack waren ihr Laptop, ein Buch und eine Wasserflasche.\n\nLena ist sofort zum Informationsschalter gegangen. Ein Mitarbeiter hat ihre Daten aufgenommen und gesagt, dass sie am nächsten Tag anrufen soll. Am Abend war Lena sehr nervös, weil sie den Laptop für die Arbeit braucht.\n\nAm nächsten Morgen bekam sie einen Anruf. Der Rucksack wurde gefunden. Lena konnte ihn am Nachmittag im Fundbüro abholen. Nur die Wasserflasche fehlte.", "qs": [["Lena ist mit dem Bus nach Hamburg gefahren.", false, ["mit der Bahn"]], ["Sie hat ihren Rucksack im Zug vergessen.", true, ["Rucksack im Zug vergessen"]], ["Im Rucksack war auch ein Laptop.", true, ["ihr Laptop"]], ["Lena bekam am Abend einen Anruf.", false, ["Am nächsten Morgen bekam sie einen Anruf"]], ["Im Rucksack war am Ende alles komplett.", false, ["Nur die Wasserflasche fehlte"]]]}, {"title": "Ein neues Café", "level": "zusätzlicher Übungstext", "text": "In der Bahnhofstraße gibt es seit einem Monat ein neues Café. Es heißt „Kleine Pause“. Das Café ist besonders bei Schülern und Studenten beliebt, weil die Preise niedrig sind. Ein Kaffee kostet nur zwei Euro und ein Stück Kuchen drei Euro.\n\nDie Besitzerin heißt Maria. Sie hat früher in einem großen Restaurant gearbeitet. Jetzt wollte sie etwas Eigenes machen. Jeden Morgen backt sie frische Brötchen und Kuchen. Am Nachmittag gibt es auch Suppen.\n\nDas Café ist von Montag bis Samstag geöffnet. Sonntags bleibt es geschlossen, weil Maria Zeit mit ihrer Familie verbringen möchte.", "qs": [["Das Café gibt es seit einem Jahr.", false, ["seit einem Monat"]], ["Schüler und Studenten gehen gern in das Café.", true, ["bei Schülern und Studenten beliebt"]], ["Ein Kaffee kostet drei Euro.", false, ["Kaffee kostet nur zwei Euro"]], ["Maria hat früher in einem Restaurant gearbeitet.", true, ["früher in einem großen Restaurant gearbeitet"]], ["Das Café ist auch sonntags geöffnet.", false, ["Sonntags bleibt es geschlossen"]]]}, {"title": "Sport im Park", "level": "zusätzlicher Übungstext", "text": "Jeden Mittwochabend treffen sich Menschen im Stadtpark zum gemeinsamen Sport. Die Gruppe heißt „Fit im Park“. Jeder kann mitmachen, auch Anfänger. Man braucht nur bequeme Kleidung und eine Flasche Wasser.\n\nDer Trainer Jonas zeigt einfache Übungen. Zuerst laufen alle langsam zehn Minuten. Danach machen sie Übungen für Arme, Beine und Rücken. Das Training dauert insgesamt eine Stunde.\n\nBei Regen findet das Training nicht draußen statt. Dann trifft sich die Gruppe in der Sporthalle der Schule. Viele Teilnehmer mögen das Training, weil es kostenlos ist und Spaß macht.", "qs": [["Die Gruppe trifft sich jeden Mittwochabend.", true, ["Jeden Mittwochabend"]], ["Nur Profis dürfen mitmachen.", false, ["auch Anfänger"]], ["Das Training dauert zehn Minuten.", false, ["insgesamt eine Stunde"]], ["Bei Regen trainiert die Gruppe in der Sporthalle.", true, ["Bei Regen", "in der Sporthalle"]], ["Die Teilnehmer müssen viel Geld bezahlen.", false, ["kostenlos"]]]}, {"title": "Ein Praktikum im Kindergarten", "level": "zusätzlicher Übungstext", "text": "Sara macht seit drei Wochen ein Praktikum im Kindergarten. Sie möchte später Erzieherin werden. Jeden Morgen kommt sie um acht Uhr und hilft beim Frühstück. Danach spielt sie mit den Kindern oder liest ihnen Geschichten vor.\n\nAm Anfang war Sara sehr unsicher, weil sie noch keine Erfahrung mit kleinen Kindern hatte. Aber die Kolleginnen helfen ihr viel. Besonders gern arbeitet Sara mit der Gruppe der Vierjährigen. Sie findet die Kinder lustig und neugierig.\n\nDas Praktikum dauert insgesamt zwei Monate. Danach muss Sara einen kurzen Bericht schreiben. Sie möchte in den Ferien weiter im Kindergarten helfen, wenn das möglich ist.", "qs": [["Sara macht ein Praktikum in einer Schule.", false, ["im Kindergarten"]], ["Sara möchte später Erzieherin werden.", true, ["möchte später Erzieherin werden"]], ["Sie kommt jeden Morgen um zehn Uhr.", false, ["um acht Uhr"]], ["Am Anfang war Sara sehr sicher.", false, ["sehr unsicher"]], ["Das Praktikum dauert insgesamt zwei Monate.", true, ["insgesamt zwei Monate"]]]}, {"title": "Der neue Hund", "level": "zusätzlicher Übungstext", "text": "Familie Becker hat seit Samstag einen Hund. Der Hund heißt Milo und ist sechs Monate alt. Er ist noch sehr verspielt und schläft viel. Die Kinder sind glücklich, aber die Eltern sagen, dass ein Hund viel Arbeit macht.\n\nMorgens geht Herr Becker mit Milo spazieren. Nachmittags spielen die Kinder mit ihm im Garten. Abends bekommt Milo Futter und schläft in seinem Körbchen im Flur. Ins Schlafzimmer darf er nicht.\n\nNächste Woche besucht Familie Becker eine Hundeschule. Dort soll Milo lernen, auf einfache Kommandos zu hören. Besonders wichtig ist, dass er nicht auf die Straße läuft.", "qs": [["Milo ist schon sechs Jahre alt.", false, ["sechs Monate alt"]], ["Die Kinder freuen sich über den Hund.", true, ["Die Kinder sind glücklich"]], ["Milo schläft im Schlafzimmer.", false, ["im Körbchen im Flur", "Ins Schlafzimmer darf er nicht"]], ["Familie Becker geht nächste Woche in eine Hundeschule.", true, ["Nächste Woche besucht", "eine Hundeschule"]], ["Milo soll lernen, Auto zu fahren.", false, ["auf einfache Kommandos zu hören"]]]}];
+let current=0,totalCorrect=0,totalWrong=0,answers={};
+const $=id=>document.getElementById(id);
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function highlightText(text, evidences){
+  let out=esc(text);
+  evidences.flat().forEach(ev=>{
+    if(!ev) return;
+    const safe=esc(ev);
+    out=out.replace(safe, `<mark>${safe}</mark>`);
+  });
+  return out;
+}
+function render(){
+  const item=texts[current];
+  answers={};
+  $('title').textContent=item.title;
+  $('level').textContent=item.level;
+  $('counter').textContent=`${current+1} / ${texts.length}`;
+  $('textBox').innerHTML=esc(item.text);
+  $('questions').innerHTML='';
+  item.qs.forEach((q,i)=>{
+    const div=document.createElement('div');
+    div.className='q';
+    div.id=`q-${i}`;
+    div.innerHTML=`<div class="q-top">${i+1}. ${esc(q[0])}</div>
+      <div class="q-actions">
+        <button class="secondary" onclick="selectAnswer(${i}, true, this)">Richtig</button>
+        <button class="secondary" onclick="selectAnswer(${i}, false, this)">Falsch</button>
+      </div>
+      <div class="explain" id="explain-${i}"></div>`;
+    $('questions').appendChild(div);
+  });
+  renderList();
+  clearFeedback();
+}
+function selectAnswer(i,val,btn){
+  answers[i]=val;
+  const box=$(`q-${i}`);
+  box.querySelectorAll('button').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+function checkAnswers(){
+  const item=texts[current];
+  let c=0,w=0;
+  item.qs.forEach((q,i)=>{
+    const box=$(`q-${i}`);
+    box.classList.remove('correct','wrong');
+    if(answers[i]===q[1]){c++;box.classList.add('correct')}
+    else{w++;box.classList.add('wrong')}
+  });
+  totalCorrect+=c; totalWrong+=w; updateStats();
+  const percent=Math.round(c/item.qs.length*100);
+  if(percent===100) msg('good',`Sehr gut! Tüm cevaplar doğru: ${c}/${item.qs.length}`);
+  else if(percent>=70) msg('info',`İyi gidiyor. Doğru: ${c}/${item.qs.length}. Cevapları göstererek kanıtları inceleyin.`);
+  else msg('bad',`Tekrar çalışmanız iyi olur. Doğru: ${c}/${item.qs.length}. Kanıtları görmek için cevapları gösterin.`);
+}
+function showAnswers(){
+  const item=texts[current];
+  const evs=item.qs.map(q=>q[2]);
+  $('textBox').innerHTML=highlightText(item.text, evs);
+  item.qs.forEach((q,i)=>{
+    const box=$(`q-${i}`);
+    box.classList.remove('correct','wrong');
+    box.classList.add('correct');
+    const ex=$(`explain-${i}`);
+    ex.classList.add('show');
+    ex.innerHTML=`Doğru cevap: <b>${q[1]?'Richtig':'Falsch'}</b><br>Kanıt: <mark>${esc(q[2].join(' / '))}</mark>`;
+  });
+  msg('info','Cevaplar ve metindeki kanıt yerleri renkli gösterildi.');
+}
+function nextText(){current=(current+1)%texts.length;render()}
+function resetCurrent(){render()}
+function restartAll(){current=0;totalCorrect=0;totalWrong=0;updateStats();render()}
+function renderList(){
+  $('textList').innerHTML='';
+  texts.forEach((t,i)=>{
+    const b=document.createElement('button');
+    b.className='list-item '+(i===current?'active':'');
+    b.innerHTML=`<strong>${i+1}. ${esc(t.title)}</strong><small>${t.qs.length} soru · ${esc(t.level)}</small>`;
+    b.onclick=()=>{current=i;render()};
+    $('textList').appendChild(b);
+  });
+}
+function updateStats(){
+  $('totalTexts').textContent=texts.length;
+  $('correctCount').textContent=totalCorrect;
+  $('wrongCount').textContent=totalWrong;
+  const total=totalCorrect+totalWrong;
+  const rate=total?Math.round(totalCorrect/total*100):0;
+  $('successRate').textContent=rate+'%';
+  $('successRateTop').textContent=rate+'%';
+  $('barFill').style.width=rate+'%';
+}
+function clearFeedback(){$('feedback').className='feedback';$('feedback').textContent=''}
+function msg(type,text){$('feedback').className='feedback show '+type;$('feedback').textContent=text}
+updateStats();render();
+</script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Giriş hizmetine ulaşılamıyor.'"></script>
+<script id="ayda-exam-authorization-sync">(function(){
+ const content=document.getElementById('aydaProtectedContent');
+ if(!content)return;
+ function sync(){const allowed=content.style.display==='block';document.documentElement.classList.toggle('ayda-exam-authorized',allowed);}
+ new MutationObserver(sync).observe(content,{attributes:true,attributeFilter:['style']});sync();
+})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

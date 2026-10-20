@@ -1,0 +1,206 @@
+/* AYDA B1 | Hibrit, kompakt ünite tasarımı
+ * Eski alıştırma, içerik ve medya düğümlerini silmez. Sadece seçilen paneli gösterir.
+ */
+#aydaCompactDock[hidden],#aydaCompactSetPicker[hidden]{display:none!important}
+#aydaCompactDock{
+  --flow-navy:#102541;--flow-deep:#0b1b31;--flow-gold:#e8c37b;--flow-line:#d7e0e9;
+  position:fixed;bottom:16px;left:50%;transform:translateX(-50%);
+  z-index:73;width:min(680px,calc(100vw - 28px));
+  padding:12px 14px 10px;border-radius:20px;background:#fff;
+  border:1px solid #d7e0e9;box-shadow:0 16px 56px #0b1b3155;
+  color:#142b44;font-family:inherit
+}
+#aydaCompactDock *{box-sizing:border-box}
+#aydaCompactDock button{font-family:inherit;cursor:pointer}
+#aydaCompactDock button:focus-visible{outline:3px solid #cb911e;outline-offset:2px}
+.ayda-compact-head{display:flex;align-items:center;gap:12px;min-width:0}
+.ayda-compact-back{flex:0 0 auto;border:1px solid var(--flow-line);background:#fff;border-radius:10px;color:var(--flow-navy);font-size:12px;font-weight:800;min-height:38px;padding:0 11px}
+.ayda-compact-back:hover{background:#f0f4f9}
+.ayda-compact-summary{display:flex;flex-direction:column;min-width:0;gap:2px;line-height:1.25}
+.ayda-compact-summary strong{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ayda-compact-summary span{font-size:11px;color:#557083}
+.ayda-compact-progress{height:4px;border-radius:50px;background:#e8edf2;overflow:hidden;margin:9px 0 8px}
+#aydaCompactProgressBar{display:block;height:100%;background:#19776b;width:0;transition:width .2s ease}
+.ayda-compact-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.ayda-compact-tabs button{background:#f0f3f7;color:#30445b;font-size:13px;font-weight:850;border:1px solid transparent;border-radius:10px;min-height:43px}
+.ayda-compact-tabs button.active{background:var(--flow-navy);color:#fff;border-color:var(--flow-navy)}
+.ayda-compact-tabs button:hover:not(.active){background:#e6edf5}
+.ayda-compact-note{display:block;text-align:center;margin:7px auto 0;color:#586e82;font-size:11px;line-height:1.35}
+#aydaCompactSetPicker{margin-top:9px}
+.ayda-compact-set-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(90px,1.5fr);gap:6px}
+.ayda-compact-set-buttons button{
+  background:#f4f6fa;border:1px solid #dbe3eb;color:#21384d;
+  border-radius:9px;min-height:38px;font-size:12px;font-weight:850;padding:3px 5px
+}
+.ayda-compact-set-buttons button.active{background:#f4e6c1;color:#15263a;border-color:#b18b39}
+.ayda-compact-set-buttons button:hover:not(.active){background:#e8eff6}
+.ayda-compact-set-summary{text-align:center;margin-top:5px;font-size:11px;color:#466276;font-weight:700}
+body.ayda-compact-active #aydaLessonNav{display:none!important}
+body.ayda-compact-active .detailPage{padding-bottom:210px!important}
+body.ayda-compact-active .detailPage .detailTop{min-height:56px}
+body.ayda-compact-active .detailPage .unitHero{
+  padding:20px 23px;gap:14px;margin-top:12px;align-items:start
+}
+body.ayda-compact-active .detailPage .unitHero h1{
+  font-size:clamp(24px,3.8vw,34px);margin-top:6px;line-height:1.17
+}
+body.ayda-compact-active .detailPage .unitHero>div>p{font-size:14px;line-height:1.4}
+body.ayda-compact-active .detailPage .goalGrid{gap:6px}
+body.ayda-compact-active .detailPage .goalGrid div{padding:8px 10px;gap:2px}
+body.ayda-compact-active .detailPage .goalGrid b{font-size:12px}
+body.ayda-compact-active .detailPage .listenNote,
+body.ayda-compact-active .detailPage .videoLesson,
+body.ayda-compact-active .detailPage .explanation,
+body.ayda-compact-active .detailPage .activityRunner,
+body.ayda-compact-active .detailPage .readingSection,
+body.ayda-compact-active .detailPage .productionGrid,
+body.ayda-compact-active .detailPage .unitCheck{display:none!important}
+body.ayda-compact-active[data-ayda-tab="learn"] .detailPage .listenNote{display:flex!important}
+body.ayda-compact-active[data-ayda-tab="learn"] .detailPage .explanation{display:block!important}
+body.ayda-compact-active[data-ayda-tab="video"] .detailPage .videoLesson{display:block!important}
+body.ayda-compact-active[data-ayda-tab="practice"][data-ayda-stage="sets"] .detailPage .activityRunner{display:block!important}
+body.ayda-compact-active[data-ayda-tab="practice"][data-ayda-stage="skills"] .detailPage .readingSection{display:block!important}
+body.ayda-compact-active[data-ayda-tab="practice"][data-ayda-stage="skills"] .detailPage .productionGrid{display:grid!important}
+body.ayda-compact-active[data-ayda-tab="practice"][data-ayda-stage="skills"] .detailPage .unitCheck{display:flex!important}
+body.ayda-compact-active .detailPage .explanation,
+body.ayda-compact-active .detailPage .videoLesson,
+body.ayda-compact-active .detailPage .activityRunner,
+body.ayda-compact-active .detailPage .readingSection{scroll-margin-top:92px}
+body.ayda-compact-active .detailPage .activityRunner{margin-top:18px}
+body.ayda-compact-active .detailPage .runnerHeader{display:none!important}
+body.ayda-compact-active .detailPage .runnerSteps{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:8px 0 14px}
+body.ayda-compact-active .detailPage .runnerSteps button{
+  aspect-ratio:auto;min-height:46px;border-radius:10px;font-size:13px
+}
+body.ayda-compact-active[data-ayda-set="1"] .runnerSteps button:nth-child(n+7){display:none!important}
+body.ayda-compact-active[data-ayda-set="2"] .runnerSteps button:nth-child(-n+6),
+body.ayda-compact-active[data-ayda-set="2"] .runnerSteps button:nth-child(n+13){display:none!important}
+body.ayda-compact-active[data-ayda-set="3"] .runnerSteps button:nth-child(-n+12),
+body.ayda-compact-active[data-ayda-set="3"] .runnerSteps button:nth-child(n+19){display:none!important}
+body.ayda-compact-active[data-ayda-set="4"] .runnerSteps button:nth-child(-n+18){display:none!important}
+body.ayda-compact-active .detailPage .runnerCard{padding:clamp(16px,4vw,26px)}
+body.ayda-compact-active .detailPage .runnerCard>h4{margin:18px 0 14px;font-size:clamp(18px,3.3vw,22px)}
+body.ayda-compact-active .detailPage .runnerHint{margin-top:12px}
+body.ayda-compact-active .detailPage .runnerActions{margin-top:16px}
+body.ayda-compact-active .detailPage .runnerActions button{min-height:48px}
+body.ayda-compact-active .detailPage .readingSection{margin-top:18px}
+body.ayda-compact-active .detailPage .productionGrid{margin-top:16px}
+body.ayda-compact-active .detailPage .unitCheck{margin:22px auto 120px}
+body.ayda-compact-active #aydaLearnerTools{bottom:184px;z-index:72}
+body.ayda-compact-active[data-ayda-tab="practice"] #aydaLearnerTools{bottom:248px}
+@media(max-width:620px){
+  #aydaCompactDock{
+    bottom:0;left:0;transform:none;width:100%;padding:9px 11px calc(9px + env(safe-area-inset-bottom));
+    border-radius:16px 16px 0 0;border-right:0;border-left:0;border-bottom:0;box-shadow:0 -7px 34px #0b1b312b
+  }
+  .ayda-compact-head{gap:8px}
+  .ayda-compact-back{min-height:35px;padding:0 8px;font-size:11px}
+  .ayda-compact-summary strong{font-size:12px}
+  .ayda-compact-summary span{font-size:10px}
+  .ayda-compact-tabs button{min-height:43px;font-size:13px}
+  .ayda-compact-note{font-size:10px;margin-top:5px}
+  .ayda-compact-set-buttons{gap:4px;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(76px,1.4fr)}
+  .ayda-compact-set-buttons button{min-height:41px;font-size:11px;padding:2px 3px}
+  .ayda-compact-set-summary{font-size:10px}
+  body.ayda-compact-active .detailPage{padding-bottom:215px!important}
+  body.ayda-compact-active .detailPage .detailTop{min-height:51px;padding:5px 12px}
+  body.ayda-compact-active .detailPage .unitHero{padding:16px 15px;gap:11px}
+  body.ayda-compact-active .detailPage .unitHero h1{font-size:26px}
+  body.ayda-compact-active .detailPage .unitHero>div>p{font-size:13px}
+  body.ayda-compact-active .detailPage .goalGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.ayda-compact-active .detailPage .goalGrid div{padding:9px}
+  body.ayda-compact-active .detailPage .runnerSteps{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+  body.ayda-compact-active .detailPage .runnerSteps button{min-height:43px;font-size:12px}
+  body.ayda-compact-active .detailPage .explanation,
+  body.ayda-compact-active .detailPage .videoLesson,
+  body.ayda-compact-active .detailPage .activityRunner,
+  body.ayda-compact-active .detailPage .readingSection{scroll-margin-top:70px}
+  body.ayda-compact-active #aydaLearnerTools{right:10px;bottom:170px}
+  body.ayda-compact-active[data-ayda-tab="practice"] #aydaLearnerTools{bottom:229px}
+  body.ayda-compact-active #aydaLearnerTools button{min-height:38px;font-size:11px;padding:0 11px}
+}
+@media(prefers-reduced-motion:reduce){
+  #aydaCompactProgressBar{transition:none}
+}
+
+
+/* Minimal, always-visible lesson navigation within the content itself. */
+body.ayda-compact-active #aydaInlinePath{
+  width:min(1000px,calc(100% - 36px));
+  margin:14px auto 0;
+  padding:14px 16px 12px;
+  border:1px solid #dce3eb;
+  border-radius:16px;
+  box-shadow:0 5px 18px #1228500c;
+  background:#ffffff;color:#152d45;
+}
+.ayda-inline-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.ayda-inline-title strong{font-size:14px;letter-spacing:-.01em;font-weight:850}
+.ayda-inline-title span{font-size:12px;color:#667c91}
+.ayda-inline-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.ayda-inline-tabs button{
+  min-width:0;min-height:47px;padding:8px 6px;
+  border-radius:10px;border:1px solid #d6e0ea;
+  background:#f8fafc;color:#30465b;font-size:13px;
+  font-weight:800;cursor:pointer
+}
+.ayda-inline-tabs button:hover{background:#edf3f8}
+.ayda-inline-tabs button.active,
+.ayda-inline-tabs button[aria-pressed="true"]{
+  background:#102541;border-color:#102541;color:#fff
+}
+.ayda-inline-continue{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px}
+.ayda-inline-continue span{font-size:12px;color:#587083}
+#aydaInlinePath button:focus-visible,
+.ayda-inline-actions button:focus-visible{outline:3px solid #b48b37;outline-offset:3px}
+#aydaInlinePath .ayda-inline-primary,.ayda-inline-actions .ayda-inline-primary{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:45px;padding:9px 17px;
+  border-radius:10px;border:1px solid #102541;
+  background:#102541;color:#fff;font-size:13px;font-weight:850;
+  cursor:pointer;white-space:nowrap
+}
+#aydaInlinePath .ayda-inline-primary:hover,.ayda-inline-actions .ayda-inline-primary:hover{
+  background:#193b5c
+}
+.ayda-inline-actions{
+  display:none;align-items:center;justify-content:flex-end;flex-wrap:wrap;
+  gap:9px;margin:17px 0 0;padding-top:13px;border-top:1px solid #e3e9ef
+}
+.ayda-inline-actions .ayda-inline-secondary{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:9px 12px;min-height:45px;
+  background:#f7f9fc;border:1px solid #d9e3ed;
+  border-radius:10px;color:#294661;font-size:13px;font-weight:750;
+  cursor:pointer
+}
+.ayda-inline-actions .ayda-inline-secondary:hover{background:#ebf1f7}
+body.ayda-compact-active[data-ayda-tab="learn"] .ayda-inline-actions[data-ayda-actions="learn"],
+body.ayda-compact-active[data-ayda-tab="video"] .ayda-inline-actions[data-ayda-actions="video"],
+body.ayda-compact-active[data-ayda-tab="practice"][data-ayda-stage="sets"] .ayda-inline-actions[data-ayda-actions="practice"],
+body.ayda-compact-active[data-ayda-tab="practice"][data-ayda-stage="skills"] .ayda-inline-actions[data-ayda-actions="skills"]{
+  display:flex
+}
+body.ayda-compact-active .detailPage .ayda-inline-actions[data-ayda-actions="skills"]{
+  width:min(1000px,calc(100% - 36px));margin:12px auto 25px;
+  padding:14px 0
+}
+@media(max-width:620px){
+  body.ayda-compact-active #aydaInlinePath{
+    width:calc(100% - 26px);margin-top:10px;
+    padding:11px 11px 10px;border-radius:13px
+  }
+  .ayda-inline-title{margin-bottom:8px}
+  .ayda-inline-title strong{font-size:13px}
+  .ayda-inline-title span{font-size:11px;text-align:right}
+  .ayda-inline-tabs{gap:5px}
+  .ayda-inline-tabs button{min-height:45px;font-size:11.5px;line-height:1.25;padding:8px 3px}
+  .ayda-inline-continue{margin-top:9px;gap:8px}
+  .ayda-inline-continue span{font-size:11px;line-height:1.2}
+  #aydaInlinePath .ayda-inline-primary{min-height:43px;font-size:12px;padding:8px 11px;white-space:normal;text-align:center}
+  .ayda-inline-actions{gap:7px;justify-content:stretch}
+  .ayda-inline-actions button{flex:1 1 auto}
+  .ayda-inline-actions .ayda-inline-primary,
+  .ayda-inline-actions .ayda-inline-secondary{font-size:12px;padding:8px 9px;white-space:normal;text-align:center}
+  body.ayda-compact-active .detailPage .ayda-inline-actions[data-ayda-actions="skills"]{width:calc(100% - 26px)}
+}

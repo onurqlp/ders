@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) body>#aydaProtectedContent{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#0b1b31,#214d75);position:relative;z-index:99999;font-family:system-ui,-apple-system,sans-serif}
+#aydaLoginBox .ayda-exam-login-card{background:#fff;color:#102541;padding:28px;width:min(440px,100%);border-radius:19px;box-shadow:0 20px 54px #0003}
+#aydaLoginBox h1{font-size:23px;line-height:1.3;margin:0 0 9px;color:#102541}
+#aydaLoginBox p{font-size:14px;line-height:1.55;color:#5e7287}
+#aydaLoginBox label{display:block;font-weight:800;font-size:13px;margin:20px 0 6px;color:#102541}
+#aydaLoginBox input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1px solid #a6b8c9;border-radius:10px;background:#fff;color:#102541;font:16px system-ui}
+#aydaLoginBox button{width:100%;min-height:49px;background:#102541;color:#fff;border:0;border-radius:10px;font:800 15px system-ui;margin-top:12px;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+#aydaLoginBox .ayda-exam-message{min-height:22px;margin-top:10px;font-size:13px;color:#9f3838}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A1 Sınav Hazırlık Merkezi | AYDA Ankara Yabancı Dil Akademisi</title>
+  <meta name="description" content="TELC, Goethe ve ÖSD A1 sınavlarına hazırlık için örnek sınavlar, stratejiler, yazma-konuşma alıştırmaları ve sınav taktikleri.">
+  <meta name="theme-color" content="#234078">
+
+  <meta property="og:title" content="A1 Sınav Hazırlık Merkezi | AYDA">
+  <meta property="og:description" content="TELC, Goethe ve ÖSD A1 sınavlarına hazırlık içerikleri AYDA güvencesiyle tek yerde.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+
+  <style>
+    :root {
+      --ayda-blue: #234078;
+      --ayda-blue-dark: #182d57;
+      --ayda-blue-soft: #eef3fb;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #eef2f7;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --gray-900: #111827;
+      --shadow: 0 18px 45px rgba(17, 24, 39, 0.12);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--gray-900);
+      background: var(--gray-50);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.18), transparent 26%),
+        linear-gradient(135deg, var(--ayda-blue), var(--ayda-blue-dark));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -120px auto;
+      width: 360px;
+      height: 360px;
+      border: 48px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--ayda-blue);
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-text small {
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0.82;
+    }
+
+    .nav-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 180ms ease, background-color 180ms ease;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 42px;
+      align-items: center;
+      padding: 54px 0 80px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 740px;
+      margin: 0;
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(17px, 2.2vw, 21px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      font-weight: 800;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(17, 24, 39, 0.16);
+    }
+
+    .button-primary {
+      color: var(--ayda-blue);
+      background: var(--white);
+    }
+
+    .button-secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .trust-panel {
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .trust-panel h2 {
+      margin: 0 0 18px;
+      color: var(--white);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .trust-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 700;
+    }
+
+    .check {
+      flex: 0 0 auto;
+      display: grid;
+      width: 24px;
+      height: 24px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ayda-blue);
+      background: var(--white);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .section-label {
+      margin: 0 0 8px;
+      color: var(--ayda-blue);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .section h2 {
+      margin: 0;
+      color: var(--gray-900);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .exam-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .exam-card,
+    .benefit-card {
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.07);
+    }
+
+    .exam-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 320px;
+      padding: 30px;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .exam-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(35, 64, 120, 0.25);
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 24px;
+      place-items: center;
+      border-radius: 16px;
+      color: var(--ayda-blue);
+      background: var(--ayda-blue-soft);
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .exam-card h3 {
+      margin: 0;
+      color: var(--ayda-blue);
+      font-size: 25px;
+      line-height: 1.2;
+    }
+
+    .exam-card p {
+      margin: 16px 0 26px;
+      color: var(--gray-700);
+      font-size: 16px;
+    }
+
+    .card-link {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      margin-top: auto;
+      padding: 13px 22px;
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--ayda-blue);
+      font-weight: 800;
+      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-2px);
+      background: var(--ayda-blue-dark);
+      box-shadow: 0 12px 22px rgba(35, 64, 120, 0.22);
+    }
+
+    .why-section {
+      background: var(--white);
+      border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .benefit-card {
+      padding: 24px;
+    }
+
+    .benefit-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--ayda-blue);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .benefit-card h3 {
+      margin: 0 0 10px;
+      color: var(--gray-900);
+      font-size: 19px;
+      line-height: 1.3;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--gray-500);
+      font-size: 15px;
+    }
+
+    .footer {
+      padding: 30px 0;
+      color: rgba(255, 255, 255, 0.82);
+      background: var(--ayda-blue-dark);
+      text-align: center;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .hero-content,
+      .exam-grid,
+      .benefit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding: 34px 0 58px;
+      }
+
+      .trust-panel {
+        max-width: 560px;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-link,
+      .button,
+      .card-link {
+        width: 100%;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .exam-card,
+      .benefit-card,
+      .trust-panel {
+        padding: 22px;
+      }
+
+      .exam-card {
+        min-height: auto;
+      }
+    }
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="color:#b18c4f;font-weight:900;font-size:12px;letter-spacing:.11em;margin:0 0 8px">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Çalışmaya devam etmek için AYDA merkezi giriş kodunu kullanın.</p><label for="aydaPasswordInput">Sınıf giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" class="ayda-exam-message" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav hazırlık ana sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+  <div class="page">
+    <header class="hero">
+      <div class="container">
+        <nav class="nav" aria-label="Ana menü">
+          <a class="brand" href="index.html" aria-label="AYDA ana sayfa">
+            <span class="brand-mark">A</span>
+            <span class="brand-text">
+              <span>AYDA</span>
+              <small>Ankara Yabancı Dil Akademisi</small>
+            </span>
+          </a>
+          <a class="nav-link" href="#sinavlar">Sınav seçenekleri</a>
+        </nav>
+
+        <div class="hero-content">
+          <div>
+            <p class="eyebrow">A1 Almanca sınav hazırlığı</p>
+            <h1>A1 Sınav Hazırlık Merkezi</h1>
+            <p class="hero-description">
+              TELC, Goethe ve ÖSD A1 sınavlarına hazırlık için örnek sınavlar,
+              stratejiler, yazma-konuşma alıştırmaları ve sınav taktikleri tek yerde.
+            </p>
+
+            <div class="hero-actions" aria-label="Hızlı erişim">
+              <a class="button button-primary" href="telca1.html">TELC / Goethe A1</a>
+              <a class="button button-secondary" href="https://onurqlp.github.io/osd_a1_ayda/">ÖSD A1</a>
+            </div>
+          </div>
+
+          <aside class="trust-panel" aria-label="AYDA çalışma alanı özellikleri">
+            <h2>AYDA ile düzenli ve sade hazırlık</h2>
+            <ul class="trust-list">
+              <li><span class="check">✓</span><span>Online Almanca sınav hazırlığı</span></li>
+              <li><span class="check">✓</span><span>Mobil uyumlu çalışma alanı</span></li>
+              <li><span class="check">✓</span><span>Sınav formatına uygun içerikler</span></li>
+              <li><span class="check">✓</span><span>Öğrenci dostu sade kullanım</span></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="sinavlar">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">Hazırlık yolları</p>
+            <h2>Sınavına uygun çalışma alanını seç</h2>
+          </div>
+
+          <div class="exam-grid">
+            <article class="exam-card">
+              <div class="card-icon" aria-hidden="true">T</div>
+              <h3>TELC &amp; Goethe A1 Hazırlık</h3>
+              <p>
+                A1 seviyesinde TELC ve Goethe sınav formatına uygun örnekler,
+                alıştırmalar ve stratejiler.
+              </p>
+              <a class="card-link" href="telca1.html">TELC / Goethe A1’e Git</a>
+            </article>
+
+            <article class="exam-card">
+              <div class="card-icon" aria-hidden="true">Ö</div>
+              <h3>ÖSD A1 Hazırlık</h3>
+              <p>
+                ÖSD A1 sınavına özel örnek sınavlar, ipuçları ve
+                yazma-konuşma pratikleri.
+              </p>
+              <a class="card-link" href="https://onurqlp.github.io/osd_a1_ayda/">ÖSD A1’e Git</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section why-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">AYDA farkı</p>
+            <h2>Neden AYDA Sınav Hazırlık?</h2>
+          </div>
+
+          <div class="benefit-grid">
+            <article class="benefit-card">
+              <span class="benefit-number">1</span>
+              <h3>Sınav formatına uygun içerik</h3>
+              <p>A1 sınav bölümlerine göre düzenlenmiş anlaşılır ve hedef odaklı çalışma yapısı.</p>
+            </article>
+
+            <article class="benefit-card">
+              <span class="benefit-number">2</span>
+              <h3>Mobil ve kolay kullanım</h3>
+              <p>Telefondan, tabletten ve bilgisayardan rahat okunan hızlı ve sade arayüz.</p>
+            </article>
+
+            <article class="benefit-card">
+              <span class="benefit-number">3</span>
+              <h3>Strateji + pratik odaklı çalışma</h3>
+              <p>Örnekler, ipuçları ve alıştırmalarla sınav günü için daha güvenli hazırlık.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <strong>© AYDA Ankara Yabancı Dil Akademisi</strong>
+        <p>Almanca sınav hazırlık içerikleri öğrenci çalışmasını kolaylaştırmak için hazırlanmıştır.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Klavye kullanıcıları için sayfa içi geçişleri doğal ve hızlı tutar.
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        var target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Giriş hizmetine ulaşılamıyor.'"></script>
+<script id="ayda-exam-authorization-sync">(function(){
+ const content=document.getElementById('aydaProtectedContent');
+ if(!content)return;
+ function sync(){const allowed=content.style.display==='block';document.documentElement.classList.toggle('ayda-exam-authorized',allowed);}
+ new MutationObserver(sync).observe(content,{attributes:true,attributeFilter:['style']});sync();
+})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

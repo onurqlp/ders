@@ -1,0 +1,294 @@
+/* AYDA Learning UI v2 — additive theme layer.
+   The original B1 educational content, exercises, access control and progress logic remain untouched. */
+:root {
+  --ayda-deep:#0b1b31; --ayda-navy:#102541; --ayda-blue:#214d75;
+  --ayda-gold:#e8c37b; --ayda-gold-ink:#74511b; --ayda-cream:#fbf9f5;
+  --ayda-white:#fff; --ayda-sky:#edf5fb; --ayda-text:#142b44;
+  --ayda-muted:#536779; --ayda-border:#dbe3ea; --ayda-green:#19776b;
+  --ayda-red:#aa514c; --ayda-radius:17px;
+  --navy:var(--ayda-navy); --ink:var(--ayda-text);
+  --muted:var(--ayda-muted); --cream:var(--ayda-cream);
+  --yellow:var(--ayda-gold); --mint:var(--ayda-green);
+  --line:var(--ayda-border);
+  color-scheme:light;
+}
+html {scroll-padding-top:96px}
+body {background:var(--ayda-cream);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65}
+#aydaProtectedContent *,#aydaLoginBox * {min-width:0}
+#aydaProtectedContent img,#aydaProtectedContent iframe {max-width:100%}
+#aydaProtectedContent > main:not(.detailPage) {display:flex;flex-direction:column;min-height:100vh;overflow:visible}
+#aydaProtectedContent > main:not(.detailPage) > .topbar {order:1}
+#aydaProtectedContent > main:not(.detailPage) > .hero {order:2}
+#aydaProtectedContent > main:not(.detailPage) > .unitIntro {order:3}
+#aydaProtectedContent > main:not(.detailPage) > .filterTabs {order:4}
+#aydaProtectedContent > main:not(.detailPage) > .unitGrid {order:5}
+#aydaProtectedContent > main:not(.detailPage) > .methodSection {order:6}
+#aydaProtectedContent > main:not(.detailPage) > .resourceHub {order:7}
+#aydaProtectedContent > main:not(.detailPage) > footer {order:8}
+.topbar {background:var(--ayda-deep);color:#fff;width:100%;max-width:none;min-height:72px;
+ padding:10px max(18px,calc((100vw - 1120px)/2));position:sticky;top:0;z-index:40;
+ border-bottom:1px solid #ffffff1c;box-shadow:0 6px 24px #0b1b3116}
+.topbar nav {gap:20px}
+.topbar nav a {color:#e5edf4;font-weight:650}
+.topbar nav a:hover,.topbar nav a:focus-visible {color:var(--ayda-gold)}
+.brand,.loginBrand {font-size:0;letter-spacing:normal;gap:10px}
+.brand > span:last-child,.loginBrand > span:last-child {font-size:13px;font-weight:750;letter-spacing:.01em;color:#fff}
+.brand strong,.loginBrand strong {color:var(--ayda-gold)}
+.brandMark {background-color:transparent;background-repeat:no-repeat;background-size:contain;
+ background-position:center;flex:none;border-radius:0;width:125px;height:43px;font-size:0!important;line-height:0;overflow:hidden}
+.levelPill {background:#193552;color:#f6e3b8;border-color:#33506c}
+.hero {background:linear-gradient(110deg,#0b1b31,#173755);border-radius:0 0 22px 22px;
+ width:min(1120px,100% - 36px);min-height:0;grid-template-columns:minmax(0,1.5fr) minmax(250px,.6fr);
+ gap:26px;margin:18px auto 0;padding:30px 34px;align-items:start}
+.hero:before,.hero:after {display:none}
+.hero .eyebrow {color:var(--ayda-gold);margin:0 0 9px;font-size:11px}
+.hero h1 {font-size:clamp(30px,3.6vw,43px);line-height:1.15;letter-spacing:-.035em}
+.heroLead {font-size:15px;line-height:1.6;margin:12px 0 16px;max-width:58ch}
+.primaryButton {min-height:48px;background:var(--ayda-gold);color:#152c44;
+ border-radius:12px;box-shadow:none;font-weight:800}
+.proofRow {margin-top:15px;gap:18px;color:#d3e0ef;font-size:11px}
+.proofRow span {display:inline-flex;flex-direction:row;align-items:center;gap:5px}
+.proofRow b {color:#fff;font-size:15px}
+.studyCard {border:1px solid #ffffff26;transform:none;box-shadow:none;
+ border-radius:16px;padding:20px;align-self:stretch}
+.studyBadge {color:var(--ayda-green);background:#eaf6f2;margin-bottom:5px}
+.bigPercent {font-size:42px;line-height:1.12;margin:3px 0}
+.progressStats {gap:6px;margin-top:12px}
+.resetButton {min-height:42px;text-align:left;margin-top:8px}
+.unitIntro {width:min(1060px,100% - 36px);margin:34px auto 18px;align-items:center}
+.unitIntro h2 {font-size:clamp(26px,3vw,34px)}
+.unitIntro>p {font-size:14px}
+.filterTabs {width:min(1060px,100% - 36px);margin:0 auto 16px;gap:8px;padding-bottom:5px;scrollbar-width:thin}
+.filterTabs button {min-height:46px;border-radius:11px}
+.unitGrid {width:min(1060px,100% - 36px);margin:0 auto 34px;gap:14px}
+.unitCard {border:1px solid var(--ayda-border)!important;border-radius:17px;box-shadow:0 7px 24px #0b1b3108;
+ padding:20px;transition:border-color .15s,transform .15s}
+.unitCard:hover {border-color:#9aafc4!important;transform:translateY(-1px)}
+.unitCard h3 {min-height:0;margin:0 0 13px;font-size:18px;line-height:1.38}
+.unitCard>p {margin:10px 0 6px}
+.unitIndex {font-size:24px}
+.unitStatus {font-size:12px}
+.tagRow {min-height:0}
+.tagRow span {font-size:11px;padding:6px 9px}
+.unitCardFlow {margin-top:12px}
+.unitCardFlow span {color:var(--ayda-blue);background:var(--ayda-sky)}
+.unitCardFlow span:last-child {background:#fcf3db;color:var(--ayda-gold-ink)}
+.cardProgress {margin:16px 0 13px}
+.cardProgress span,.detailProgress span,.miniProgress span {background:var(--ayda-green)}
+.unitCard>button {border-radius:11px;min-height:48px;background:var(--ayda-navy)}
+.unitCard>button:focus-visible,.filterTabs button:focus-visible,.backButton:focus-visible {outline:3px solid var(--ayda-gold);outline-offset:3px}
+.methodSection {margin:20px auto 30px;background:#eef3f7;border-radius:18px;padding:26px}
+.methodSection>h2 {font-size:27px}
+.methodSection>div {gap:16px;margin-top:18px}
+.methodSection article p {font-size:14px}
+.resourceHub {width:min(1060px,100% - 36px);border-radius:18px;box-shadow:none;margin:10px auto 30px;padding:22px}
+.resourceHub>header {align-items:start;margin-bottom:15px}
+.resourceHub>header h2 {font-size:24px}
+.resourceGrid {gap:10px}
+.resourceCard {min-height:0;padding:17px;gap:10px;border-radius:13px}
+.resourceCard.live {background:var(--ayda-navy)}
+.resourceCard.library {background:#f8f1df;color:var(--ayda-text)}
+.resourceCard.exam {background:var(--ayda-sky);color:var(--ayda-blue)}
+.resourceCard h3 {font-size:16px;margin:6px 0}
+.resourceCard strong {margin-top:10px}
+.detailPage {background:var(--ayda-cream);overflow:visible}
+.detailTop {background:var(--ayda-deep);position:sticky;top:0;z-index:40;
+ width:100%;max-width:none;min-height:66px;padding:10px max(18px,calc((100vw - 1120px)/2));color:#fff}
+.detailTop .backButton {color:#fff;min-height:44px;text-align:left}
+.detailTop .detailProgress {background:#334960}
+.detailTop .detailProgress span {background:var(--ayda-gold)}
+.unitHero {width:min(1120px,100% - 36px);border-radius:18px;margin:18px auto 0;
+ background:linear-gradient(110deg,#0b1b31,#163653);padding:28px 32px;gap:26px}
+.unitHero h1 {font-size:clamp(29px,3.7vw,45px);line-height:1.17}
+.unitHero>div>p {font-size:16px;line-height:1.5}
+.unitNumber {color:var(--ayda-gold)}
+.goalGrid {gap:8px}
+.goalGrid div {padding:12px;border:1px solid #ffffff1b}
+.goalGrid span {color:var(--ayda-gold)}
+.listenNote,.videoLesson,.explanation,.readingSection,.productionGrid,.activityRunner,.unitCheck {width:min(1000px,100% - 36px)}
+.listenNote {margin-top:14px;background:#eaf5f1;border-color:#cde7df}
+.listenNote b {color:var(--ayda-green)}
+.videoLesson {margin-top:14px;padding:24px;background:#edf3f8;border-radius:18px}
+.videoLessonHeader {margin-bottom:14px}
+.videoLessonHeader h2 {font-size:clamp(23px,3vw,30px)}
+.videoPlayerColumn,.videoPlaylist {border-radius:13px}
+.videoFrame iframe {width:100%;height:100%}
+.videoNow a {min-height:44px;display:inline-flex;align-items:center}
+.videoPlaylist button {min-height:57px}
+.videoPlaylist button.active {background:#edf4f9;border-color:var(--ayda-blue)}
+.explanation {margin-top:14px;border-radius:18px}
+.explanation summary {padding:17px 20px;min-height:55px;color:var(--ayda-navy)}
+.explanation summary>span {display:none}
+.explanation summary:after {content:"⌄";margin-left:auto;font-size:20px;line-height:1}
+.explanation[open] summary:after {transform:rotate(180deg)}
+.explanationBody {padding:0 20px 22px}
+.logicBlock {padding:22px;border-radius:13px;background:var(--ayda-sky)}
+.logicBlock p {font-size:15px;line-height:1.75}
+.ruleGrid article,.exampleGrid article {padding:17px}
+.ruleGrid .mistake {background:#fff1ec}
+.ruleGrid .tip {background:#fdf6e4}
+.exampleGrid span {font-size:14px}
+.activityRunner {margin-top:26px}
+.runnerActions button,.taskActions button {min-height:48px}
+.options label {cursor:pointer}
+.feedback.error {background:#fff1ec}
+.readingText {font-size:16px;line-height:1.8;border-left-color:var(--ayda-gold)}
+.productionCard {border:1px solid var(--ayda-border);border-radius:18px}
+.productionCard textarea,.runnerCard textarea,.runnerInput {font-size:16px}
+.unitCheck {background:var(--ayda-deep)}
+.loginPage {background:linear-gradient(145deg,#0b1b31,#173755)}
+.loginCard {box-shadow:0 24px 70px #0003;border-radius:20px}
+.loginBrand>span:last-child {color:var(--ayda-text)}
+.loginCard h1 {font-size:clamp(29px,8vw,43px);line-height:1.13}
+.loginCard button {background:var(--ayda-gold);color:var(--ayda-navy)}
+/* Complementary learner support. Added below the original topic explanations. */
+.ayda-extra {margin-top:18px;padding:18px;border:1px solid #c9dfed;border-radius:13px;
+ background:#f5faff;color:var(--ayda-text)}
+.ayda-extra .ayda-kicker {display:block;color:var(--ayda-blue);font-size:11px;
+ font-weight:850;letter-spacing:.08em;margin-bottom:6px}
+.ayda-extra h3 {font-size:19px;font-weight:850;line-height:1.35;margin:0 0 8px}
+.ayda-extra p {font-size:15px;line-height:1.7;margin:7px 0}
+.ayda-extra .ayda-example {background:#fff;border-left:3px solid var(--ayda-gold);
+ padding:11px 13px;border-radius:0 9px 9px 0;margin:13px 0}
+.ayda-extra .ayda-example strong {display:block;color:var(--ayda-navy);font-size:16px}
+.ayda-extra .ayda-example span {display:block;color:var(--ayda-muted);font-size:14px}
+.ayda-extra .ayda-try {background:#e9f4f1;padding:11px 13px;border-radius:9px}
+.ayda-draft-note {font-size:12px;color:var(--ayda-green);margin-top:6px}
+#aydaLearnerTools[hidden],#aydaSearchDialog[hidden],#aydaLessonNav[hidden] {display:none!important}
+#aydaLearnerTools {position:fixed;z-index:71;right:18px;bottom:20px}
+#aydaLearnerTools button {border:0;background:var(--ayda-navy);color:#fff;
+ border-radius:999px;box-shadow:0 8px 24px #0b1b3133;font-weight:800;
+ padding:0 18px;min-height:49px;cursor:pointer}
+#aydaSearchDialog {position:fixed;inset:0;z-index:90;background:#071729b8;
+ display:flex;justify-content:center;align-items:flex-start;padding:10vh 14px 30px;overflow-y:auto}
+#aydaSearchPanel {width:min(100%,570px);background:#fff;border-radius:18px;
+ box-shadow:0 24px 64px #0004;padding:20px;color:var(--ayda-text)}
+#aydaSearchPanel h2 {font-size:22px;font-weight:850;margin:0}
+#aydaSearchPanel p {color:var(--ayda-muted);font-size:13px;margin:5px 0 13px}
+#aydaSearchPanel .ayda-search-head {display:flex;align-items:center;justify-content:space-between;gap:12px}
+#aydaSearchClose {border:1px solid var(--ayda-border);border-radius:9px;background:#fff;
+ width:44px;height:44px;cursor:pointer;font-size:21px}
+#aydaSearchInput {width:100%;height:50px;border:1px solid #9db2c5;border-radius:11px;
+ padding:0 14px;font-size:16px;color:var(--ayda-text);background:#fff}
+#aydaSearchResults {max-height:50vh;overflow:auto;display:grid;gap:6px;margin-top:12px}
+#aydaSearchResults button {text-align:left;border:1px solid var(--ayda-border);border-radius:10px;
+ background:#fbfcfd;min-height:55px;padding:10px 12px;cursor:pointer;display:grid;gap:2px}
+#aydaSearchResults button:hover {border-color:var(--ayda-blue);background:#edf5fb}
+#aydaSearchResults small {color:var(--ayda-muted);font-size:12px}
+#aydaLessonNav {display:none}
+@media (max-width:900px) {
+ .hero {grid-template-columns:1fr}
+ .unitHero {grid-template-columns:1fr}
+ .topbar {padding:10px 18px}
+ .detailTop {padding:10px 18px}
+ .resourceGrid {grid-template-columns:1fr}
+ .resourceCard {min-height:0}
+}
+@media (max-width:620px) {
+ html {scroll-padding-top:118px}
+ body {font-size:15px}
+ #aydaProtectedContent > main:not(.detailPage) {padding-bottom:80px}
+ .topbar {display:flex;flex-wrap:wrap;gap:4px 10px;min-height:64px;padding:8px 13px}
+ .brandMark {width:117px;height:40px}
+ .topbar nav {order:3;width:100%;display:flex;gap:4px;overflow-x:auto;
+   scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .topbar nav a {flex:none;padding:8px 10px;min-height:40px;display:inline-flex;
+   align-items:center;font-size:12px;border-radius:7px}
+ .topbar nav a:focus-visible {outline:2px solid var(--ayda-gold)}
+ .levelPill {padding:5px 8px;font-size:12px;margin-left:auto}
+ .hero,.unitHero,.unitIntro,.unitGrid,.filterTabs,.methodSection,.resourceHub,
+ .listenNote,.videoLesson,.explanation,.readingSection,.productionGrid,.activityRunner,.unitCheck {
+  width:calc(100% - 24px)}
+ .hero {border-radius:16px;padding:20px 18px;margin-top:10px;gap:16px}
+ .hero h1 {font-size:32px;line-height:1.16}
+ .heroLead {font-size:14px;margin:10px 0 14px}
+ .primaryButton {width:100%}
+ .proofRow {flex-wrap:wrap;justify-content:flex-start;gap:8px 14px}
+ .proofRow span {font-size:11px}
+ .studyCard {padding:16px}
+ .bigPercent {font-size:35px}
+ .progressStats span {font-size:12px}
+ .unitIntro {margin:26px auto 12px}
+ .unitIntro h2 {font-size:26px}
+ .unitIntro>p {font-size:13px}
+ .filterTabs {margin:0 auto 12px}
+ .unitGrid {grid-template-columns:1fr;gap:10px;margin-bottom:22px}
+ .unitCard {padding:17px}
+ .unitCard h3 {font-size:19px;margin-bottom:12px}
+ .unitCard>button {min-height:52px}
+ .methodSection {padding:19px;margin:8px auto 20px}
+ .methodSection>h2 {font-size:23px}
+ .methodSection>div {grid-template-columns:1fr;gap:12px}
+ .resourceHub {padding:18px;margin:8px auto 24px}
+ .resourceHub>header {gap:6px}
+ .resourceHub>header h2 {font-size:21px}
+ .resourceCard {padding:14px}
+ .detailTop {grid-template-columns:auto minmax(45px,1fr) auto;gap:9px;padding:7px 12px;min-height:56px}
+ .detailTop .backButton {max-width:132px;font-size:12px;line-height:1.2}
+ .unitHero {margin-top:9px;border-radius:14px;padding:21px 18px;gap:16px}
+ .unitHero h1 {font-size:30px}
+ .unitHero>div>p {font-size:14px}
+ .goalGrid {grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .goalGrid div {padding:10px;border-radius:10px}
+ .goalGrid b {font-size:11px}
+ .listenNote {padding:12px;gap:9px}
+ .listenNote p {font-size:13px}
+ .videoLesson {padding:14px;border-radius:14px}
+ .videoLessonHeader {gap:8px}
+ .videoLessonHeader h2 {font-size:24px}
+ .videoWorkspace {grid-template-columns:1fr}
+ .videoFrame {aspect-ratio:16/9}
+ .videoNow {padding:12px;gap:8px;flex-direction:row;align-items:start}
+ .videoNow a {font-size:11px}
+ .videoPlaylist {padding:10px}
+ .explanation summary {font-size:14px;padding:14px 15px}
+ .explanationBody {padding:0 12px 16px}
+ .logicBlock {padding:16px}
+ .logicBlock h2 {font-size:19px}
+ .ruleGrid,.exampleGrid {grid-template-columns:1fr;gap:8px}
+ .ruleGrid article,.exampleGrid article {padding:14px}
+ .comparisonTable>div {grid-template-columns:1fr;gap:4px}
+ .runnerHeader h2 {font-size:23px}
+ .runnerSteps {grid-template-columns:repeat(6,minmax(0,1fr))}
+ .runnerCard {padding:17px 14px}
+ .runnerActions {display:grid;grid-template-columns:1fr 1fr}
+ .runnerActions button {padding:7px;font-size:13px}
+ .readingSection {margin-top:35px}
+ .readingText {font-size:15px;padding:17px}
+ .productionGrid {grid-template-columns:1fr;gap:12px;margin-top:26px}
+ .productionCard {padding:18px 15px}
+ .unitCheck {margin-top:30px;margin-bottom:96px;padding:20px}
+ .unitCheck h2 {font-size:20px}
+ .ayda-extra {padding:14px}
+ .ayda-extra h3 {font-size:17px}
+ .ayda-extra p {font-size:14px}
+ #aydaLessonNav {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+   position:fixed;bottom:0;left:0;right:0;z-index:69;background:#fff;
+   border-top:1px solid #cdd7e2;box-shadow:0 -6px 20px #0b1b3116;
+   padding:5px max(5px,env(safe-area-inset-right)) calc(5px + env(safe-area-inset-bottom))}
+ #aydaLessonNav button {border:0;background:transparent;color:var(--ayda-blue);
+   min-height:48px;border-radius:8px;display:grid;place-items:center;
+   gap:0;font-size:11px;font-weight:750;padding:4px;cursor:pointer}
+ #aydaLessonNav button span {font-size:17px;line-height:1.1}
+ #aydaLessonNav button.active {background:#edf5fb;color:var(--ayda-navy)}
+ #aydaLearnerTools {bottom:76px;right:12px}
+ #aydaLearnerTools button {min-height:45px;padding:0 15px;font-size:13px}
+}
+@media (max-width:390px) {
+ .brandMark {width:105px;height:36px}
+ .topbar {padding:7px 12px}
+ .topbar nav a {padding:7px 8px;font-size:11px}
+ .hero h1 {font-size:29px}
+ .goalGrid {grid-template-columns:1fr 1fr}
+}
+@media (max-width:350px) {
+ .goalGrid {grid-template-columns:1fr}
+ .videoNow {flex-wrap:wrap}
+ .runnerActions {grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce) {
+ *,*:before,*:after {scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
+/* Preserve the original visible AYDA wordmark if a separately verified official logo asset is unavailable. */
+.brandMark:not([data-ayda-logo="1"]) {width:38px;height:38px;background:var(--ayda-navy);border-radius:10px;font-size:18px!important;line-height:38px}

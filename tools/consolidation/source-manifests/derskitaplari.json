@@ -1,0 +1,25 @@
+{
+  "repository": "onurqlp/derskitaplari",
+  "source_ref": "main",
+  "source_commit": "b28d7133779c1756e0d19c11ccb12e20bdd443e2",
+  "destination": "sites/derskitaplari",
+  "file_count": 3,
+  "total_bytes": 116026,
+  "files": [
+    {
+      "path": ".github/workflows/g6-preview-check.yml",
+      "sha256": "9222c22f5f00f37ebb37d1314864217510a35a2a60f6f1ec611b652846b45559",
+      "bytes": 1999
+    },
+    {
+      "path": "g6-onizleme/index.html",
+      "sha256": "6f33e95c93922cde58bfdb00de6ab10ca6bf88c4c053997a61750b331305f749",
+      "bytes": 58977
+    },
+    {
+      "path": "index.html",
+      "sha256": "a0157a37f32528c52839fe03e71b12f3a66ae09e7e487db9d3b9e8d2bc105848",
+      "bytes": 55050
+    }
+  ]
+}

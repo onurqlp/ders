@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="de">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GXN9L87ZF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2GXN9L87ZF');
+</script>
+
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) body>#aydaProtectedContent{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#0b1b31,#214d75);position:relative;z-index:99999;font-family:system-ui,-apple-system,sans-serif}
+#aydaLoginBox .ayda-exam-login-card{background:#fff;color:#102541;padding:28px;width:min(440px,100%);border-radius:19px;box-shadow:0 20px 54px #0003}
+#aydaLoginBox h1{font-size:23px;line-height:1.3;margin:0 0 9px;color:#102541}
+#aydaLoginBox p{font-size:14px;line-height:1.55;color:#5e7287}
+#aydaLoginBox label{display:block;font-weight:800;font-size:13px;margin:20px 0 6px;color:#102541}
+#aydaLoginBox input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1px solid #a6b8c9;border-radius:10px;background:#fff;color:#102541;font:16px system-ui}
+#aydaLoginBox button{width:100%;min-height:49px;background:#102541;color:#fff;border:0;border-radius:10px;font:800 15px system-ui;margin-top:12px;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+#aydaLoginBox .ayda-exam-message{min-height:22px;margin-top:10px;font-size:13px;color:#9f3838}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#234078">
+<title>TELC Prüfungen</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ayda-blue: #234078;
+  --ayda-blue-dark: #172b52;
+  --ayda-blue-soft: #eef3fb;
+  --ayda-gold: #d8a84f;
+  --text-main: #14213d;
+  --text-muted: #667085;
+  --white: #ffffff;
+  --border: rgba(35, 64, 120, 0.14);
+  --shadow-soft: 0 20px 55px rgba(21, 42, 84, 0.16);
+  --shadow-card: 0 14px 35px rgba(21, 42, 84, 0.14);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(216, 168, 79, 0.22) 0, transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.14) 0, transparent 28%),
+    linear-gradient(135deg, var(--ayda-blue-dark) 0%, var(--ayda-blue) 58%, #315992 100%);
+  min-height: 100vh;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 82%);
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  right: -180px;
+  bottom: -190px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* Main layout */
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 54px 20px 44px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* AYDA brand badge */
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  margin-bottom: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.94);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  backdrop-filter: blur(14px);
+  animation: fadeInDown 0.75s ease-out both;
+}
+
+.brand-badge i {
+  color: var(--ayda-gold);
+}
+
+.brand-badge span {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+  max-width: 820px;
+  animation: fadeInDown 0.8s ease-out 0.05s both;
+}
+
+.header h1 {
+  color: var(--white);
+  font-size: clamp(2.25rem, 5.6vw, 4.65rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -1.6px;
+  margin-bottom: 18px;
+  text-shadow: 0 12px 38px rgba(0,0,0,0.24);
+}
+
+.header p {
+  color: rgba(255,255,255,0.88);
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.7;
+  font-weight: 400;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Main promo strip */
+.ayda-promo-strip {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 30px;
+  padding: 14px 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.88);
+  text-align: center;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+  animation: fadeInUp 0.8s ease-out 0.12s both;
+}
+
+.ayda-promo-strip strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.ayda-promo-strip span {
+  color: rgba(255,255,255,0.78);
+  font-size: 13px;
+}
+
+/* Level buttons */
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(190px, 240px));
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
+  animation: fadeInUp 0.8s ease-out 0.18s both;
+}
+
+.level-button {
+  min-height: 210px;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-decoration: none;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.96);
+  color: var(--ayda-blue);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.72);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.level-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 30% 15%, rgba(216,168,79,0.24), transparent 34%),
+    linear-gradient(135deg, var(--white), #f7f9fd 52%, #edf3fb);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.level-button::after {
+  content: 'Zur Prüfung';
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(35, 64, 120, 0.68);
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(35, 64, 120, 0.075);
+  border: 1px solid rgba(35, 64, 120, 0.10);
+  transition: all 0.3s ease;
+}
+
+.level-button:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 58px rgba(8, 24, 58, 0.26);
+  border-color: rgba(216, 168, 79, 0.58);
+}
+
+.level-button:hover::after {
+  color: var(--ayda-blue);
+  background: rgba(216, 168, 79, 0.18);
+  border-color: rgba(216, 168, 79, 0.32);
+}
+
+.level-button span {
+  display: block;
+  font-size: clamp(3.1rem, 6vw, 4.25rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.level-button .level-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* C1 info banner */
+.c1-banner {
+  width: 100%;
+  max-width: 720px;
+  margin: 44px auto 0;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.75);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  position: relative;
+  animation: fadeInUp 0.8s ease-out 0.34s both;
+}
+
+.c1-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(216,168,79,0.18), transparent 38%),
+    linear-gradient(90deg, rgba(35,64,120,0.045), transparent);
+  pointer-events: none;
+}
+
+.c1-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: relative;
+  color: var(--ayda-blue);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--ayda-blue-soft);
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+
+.c1-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.c1-level {
+  flex-shrink: 0;
+  width: 92px;
+  height: 92px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--ayda-blue), #315992);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: 700;
+  box-shadow: 0 14px 28px rgba(35,64,120,0.25);
+}
+
+.c1-text h2 {
+  color: var(--text-main);
+  font-size: 21px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.c1-features {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.c1-features li {
+  color: var(--ayda-blue);
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(35,64,120,0.07);
+  border: 1px solid rgba(35,64,120,0.10);
+  padding: 7px 12px;
+  border-radius: 999px;
+}
+
+/* Main contact card */
+.ayda-contact-card {
+  width: 100%;
+  max-width: 720px;
+  margin: 34px auto 0;
+  padding: 22px;
+  border-radius: 26px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.74);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out 0.28s both;
+}
+
+.ayda-contact-card h3 {
+  color: var(--text-main);
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.ayda-contact-card p {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.ayda-contact-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ayda-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  color: var(--ayda-blue);
+  background: rgba(35,64,120,0.07);
+  border: 1px solid rgba(35,64,120,0.10);
+  padding: 9px 13px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.ayda-contact-link:hover {
+  background: rgba(216,168,79,0.18);
+  border-color: rgba(216,168,79,0.32);
+  transform: translateY(-1px);
+}
+
+.ayda-whatsapp-main {
+  color: #fff;
+  background: #25D366;
+  border-color: rgba(37,211,102,0.40);
+}
+
+.ayda-whatsapp-main:hover {
+  color: #fff;
+  background: #1fb95a;
+  border-color: rgba(37,211,102,0.55);
+}
+
+/* Floating WhatsApp */
+.floating-whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 17px;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px);
+  background: #1fb95a;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+}
+
+.floating-whatsapp i {
+  font-size: 18px;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 24px 20px 32px;
+  text-align: center;
+  color: rgba(255,255,255,0.72);
+}
+
+.footer-content {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.16);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.86);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.copyright {
+  font-size: 13px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 38px 16px 34px;
+  }
+
+  .brand-badge {
+    margin-bottom: 24px;
+  }
+
+  .header {
+    margin-bottom: 22px;
+  }
+
+  .buttons-container {
+    grid-template-columns: repeat(2, minmax(135px, 1fr));
+    gap: 16px;
+  }
+
+  .level-button {
+    min-height: 166px;
+    border-radius: 22px;
+  }
+
+  .level-button::after {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  .c1-banner {
+    margin-top: 30px;
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .c1-content {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .c1-level {
+    width: 74px;
+    height: 74px;
+    border-radius: 20px;
+    font-size: 30px;
+  }
+
+  .ayda-promo-strip {
+    margin-bottom: 24px;
+    padding: 13px 15px;
+  }
+
+  .floating-whatsapp {
+    right: 16px;
+    bottom: 16px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 520px) {
+  .main-content {
+    align-items: stretch;
+  }
+
+  .brand-badge {
+    align-self: center;
+  }
+
+  .buttons-container {
+    grid-template-columns: 1fr;
+  }
+
+  .level-button {
+    min-height: 136px;
+  }
+
+  .c1-content {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .c1-features {
+    flex-direction: column;
+  }
+
+  .c1-features li {
+    width: 100%;
+  }
+
+  .ayda-contact-card {
+    padding: 20px 16px;
+  }
+
+  .ayda-contact-actions {
+    flex-direction: column;
+  }
+
+  .ayda-contact-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .floating-whatsapp {
+    left: 16px;
+    right: 16px;
+    justify-content: center;
+  }
+}
+</style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="color:#b18c4f;font-weight:900;font-size:12px;letter-spacing:.11em;margin:0 0 8px">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Çalışmaya devam etmek için AYDA merkezi giriş kodunu kullanın.</p><label for="aydaPasswordInput">Sınıf giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" class="ayda-exam-message" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav hazırlık ana sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+  <main class="main-content">
+    <div class="brand-badge">
+      <i class="fas fa-graduation-cap"></i>
+      <span>AYDA Dil Akademisi</span>
+    </div>
+
+    <div class="header">
+      <h1>Willkommen zu unserem Test</h1>
+      <p>Wir freuen uns, Sie hier zu haben.</p>
+    </div>
+
+    <div class="ayda-promo-strip">
+      <strong>AYDA Dil Akademisi</strong> ile TELC sınavına yönelik sistemli hazırlık.
+      <br>
+      <span>Online Almanca eğitimleri, sınav stratejileri ve öğrenci odaklı çalışma içerikleri.</span>
+    </div>
+
+    <div class="buttons-container">
+      <a href="indexb1.html" class="level-button">
+        <span>B1</span>
+        <div class="level-subtitle">TELC Vorbereitung</div>
+      </a>
+
+      <a href="indexb2.html" class="level-button">
+        <span>B2</span>
+        <div class="level-subtitle">TELC Vorbereitung</div>
+      </a>
+    </div>
+
+    <div class="ayda-contact-card">
+      <h3>Sorunuz mu var?</h3>
+      <p>
+        TELC hazırlık süreci, online Almanca kursları veya sınav organizasyonu hakkında bilgi almak için AYDA ekibiyle iletişime geçebilirsiniz.
+      </p>
+
+      <div class="ayda-contact-actions">
+        <a class="ayda-contact-link ayda-whatsapp-main" href="https://wa.me/905409122503" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i>
+          WhatsApp ile Ulaş
+        </a>
+
+        <a class="ayda-contact-link" href="https://www.aydadil.com" target="_blank" rel="noopener">
+          <i class="fas fa-globe"></i>
+          www.aydadil.com
+        </a>
+
+        <a class="ayda-contact-link" href="https://www.instagram.com/ayda.dil/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <a class="floating-whatsapp" href="https://wa.me/905409122503" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+    Sorunuz varsa bize ulaşın
+  </a>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://www.aydadil.com" target="_blank" rel="noopener">
+          <i class="fas fa-globe"></i> www.aydadil.com
+        </a>
+        <a href="https://www.instagram.com/ayda.dil/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i> @ayda.dil
+        </a>
+        <a href="https://wa.me/905409122503" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> 0540 912 25 03
+        </a>
+      </div>
+
+      <div class="copyright">© 2026 AYDA Dil Akademisi</div>
+    </div>
+  </footer>
+
+  </div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Giriş hizmetine ulaşılamıyor.'"></script>
+<script id="ayda-exam-authorization-sync">(function(){
+ const content=document.getElementById('aydaProtectedContent');
+ if(!content)return;
+ function sync(){const allowed=content.style.display==='block';document.documentElement.classList.toggle('ayda-exam-authorized',allowed);}
+ new MutationObserver(sync).observe(content,{attributes:true,attributeFilter:['style']});sync();
+})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

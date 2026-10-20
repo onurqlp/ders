@@ -1,0 +1,42 @@
+name: G5 B1 Preview Chrome QA
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/g5-preview-qa.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - run: python -m pip install selenium
+      - name: Test B1 preview
+        run: |
+          mkdir -p /tmp/g5
+          python - <<'PY'
+          import json,time
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          opt=Options()
+          for a in ['--headless=new','--no-sandbox','--disable-dev-shm-usage']:opt.add_argument(a)
+          d=webdriver.Chrome(options=opt)
+          try:
+            for name,w,h in [('desktop',1440,900),('mobile',390,844)]:
+              d.set_window_size(w,h)
+              d.get('https://onurqlp.github.io/b1ayda/g5-onizleme/?t='+str(time.time()))
+              time.sleep(7)
+              x=d.execute_script("""const e=document.querySelector('.loginPage');return {url:location.href,title:document.title,login:!!e,password:!!document.querySelector('#aydaPasswordInput'),app:!!document.querySelector('#root'),css:!![...document.styleSheets].find(s=>s.ownerNode?.id==='g5-ayda-corporate'),overflow:document.documentElement.scrollWidth-innerWidth,body:document.body?.innerText?.slice(0,180)}""")
+              print(json.dumps({'screen':name,'checks':x},ensure_ascii=False),flush=True)
+              d.save_screenshot('/tmp/g5/'+name+'.png')
+              assert x['login'] and x['password'] and x['app'] and x['css'] and x['overflow']<=4
+            print('G5_B1_PREVIEW_OK',flush=True)
+          finally:d.quit()
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g5-preview-screenshots
+          path: /tmp/g5/*.png
+          retention-days: 7

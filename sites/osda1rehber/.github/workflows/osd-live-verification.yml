@@ -1,0 +1,43 @@
+name: ÖSD live URL verification
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/osd-live-verification.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for new GitHub Pages release
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="https://osd.aydadil.com"
+          passed=0
+          for attempt in $(seq 1 18); do
+            if curl -fsSL --connect-timeout 8 --max-time 15 "$BASE/?livecheck=20261019" | grep -q 'href="a1/"'; then
+              passed=1
+              break
+            fi
+            echo "Waiting for updated homepage ($attempt/18)"
+            sleep 10
+          done
+          test "$passed" -eq 1
+          echo "New level selection page is live"
+      - name: Verify A1/A2 pages, scripts and genuine exam images
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="https://osd.aydadil.com"
+          for path in a1/ a2/ a1/app.js a2/app.js landing.css a1/assets/model/za1-page-02.jpg a1/assets/model/za1-page-12.jpg a2/assets/model/za2-page-02.jpg a2/assets/model/za2-page-10.jpg assets/ayda-logo.png; do
+            status=$(curl -L -s -o /dev/null --connect-timeout 8 --max-time 15 -w "%{http_code}" "$BASE/$path?verify=20261019")
+            echo "$path HTTP $status"
+            test "$status" = "200"
+          done
+          curl -fsSL --max-time 15 "$BASE/a1/app.js" -o /tmp/osd-a1.js
+          curl -fsSL --max-time 15 "$BASE/a2/app.js" -o /tmp/osd-a2.js
+          grep -q 'officialA1Card' /tmp/osd-a1.js
+          grep -q 'officialScanCard' /tmp/osd-a2.js
+          echo "SUCCESS: Live pages, both official exam task image sets and scripts verified"

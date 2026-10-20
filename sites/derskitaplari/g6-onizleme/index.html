@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AYDA Ders Kitapları ve Materyalleri | A1 A2 B1 B2</title>
+  <link rel="canonical" href="https://www.aydadil.com/derskitaplari/" />
+  <meta name="description" content="AYDA A1, A2, B1 ve B2 ders kitapları, çalışma dosyaları, dinleme ve video materyalleri. Seviyenizi seçin, arayın ve materyale ulaşın." />
+  <meta name="theme-color" content="#122850" />
+
+  <style>
+    :root {
+      --ayda: #234078;
+      --ayda-dark: #162b57;
+      --ayda-soft: #eef3ff;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --border: #e3e8f3;
+      --a1: #234078;
+      --a2: #0f766e;
+      --b1: #b45309;
+      --b2: #6d28d9;
+      --shadow: 0 14px 35px rgba(35, 64, 120, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(35,64,120,0.14), transparent 34%),
+        linear-gradient(180deg, #f8faff 0%, #f5f7fb 100%);
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 24px 0 70px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--ayda), var(--ayda-dark));
+      color: white;
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 280px;
+      height: 280px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(255,255,255,0.14);
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: white;
+      font-size: clamp(31px, 5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -1.2px;
+    }
+
+    .hero p {
+      margin: 16px 0 0;
+      max-width: 760px;
+      color: rgba(255,255,255,0.90);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .hero-note {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 18px;
+      padding: 14px 16px;
+      color: white;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .level-shortcuts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .level-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 108px;
+      border-radius: 22px;
+      padding: 18px;
+      color: white;
+      box-shadow: 0 10px 25px rgba(35,64,120,0.18);
+      transition: .2s ease;
+    }
+
+    .level-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px rgba(35,64,120,0.24);
+    }
+
+    .level-btn span:first-child {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .level-btn span:last-child {
+      margin-top: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,.90);
+      font-weight: 700;
+    }
+
+    .level-a1 { background: linear-gradient(135deg, #234078, #315da5); }
+    .level-a2 { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+    .level-b1 { background: linear-gradient(135deg, #b45309, #f59e0b); }
+    .level-b2 { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .help-box,
+    .contact-box,
+    .search-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(35,64,120,0.07);
+    }
+
+    .help-box h2,
+    .contact-box h2 {
+      margin: 0 0 10px;
+      color: var(--ayda);
+      font-size: 22px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .step {
+      background: var(--ayda-soft);
+      border: 1px solid #dbe6ff;
+      border-radius: 16px;
+      padding: 14px;
+      font-weight: 900;
+      color: var(--ayda);
+      line-height: 1.45;
+    }
+
+    .step small {
+      display: block;
+      color: var(--muted);
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .contact-box p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .contact-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .contact-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 14px;
+      font-weight: 900;
+      color: white;
+      background: var(--ayda);
+      transition: .2s ease;
+    }
+
+    .contact-action.whatsapp {
+      background: #18a84f;
+    }
+
+    .contact-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(35,64,120,.18);
+    }
+
+    .search-box {
+      margin-top: 18px;
+    }
+
+    .search-box label {
+      display: block;
+      font-weight: 900;
+      color: var(--ayda);
+      margin-bottom: 10px;
+    }
+
+    #searchInput {
+      width: 100%;
+      height: 56px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0 16px;
+      font-size: 16px;
+      outline: none;
+      background: #fbfcff;
+    }
+
+    #searchInput:focus {
+      border-color: var(--ayda);
+      box-shadow: 0 0 0 4px rgba(35,64,120,0.10);
+    }
+
+    .empty {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      border-radius: 16px;
+      font-weight: 900;
+    }
+
+    .section {
+      margin-top: 30px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 29px;
+      letter-spacing: -0.4px;
+    }
+
+    .section-title small {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: 0 10px 28px rgba(35,64,120,0.08);
+      overflow: hidden;
+    }
+
+    .panel-a1 { border-top: 8px solid var(--a1); }
+    .panel-a2 { border-top: 8px solid var(--a2); }
+    .panel-b1 { border-top: 8px solid var(--b1); }
+    .panel-b2 { border-top: 8px solid var(--b2); }
+
+    .section-a1 h2 { color: var(--a1); }
+    .section-a2 h2 { color: var(--a2); }
+    .section-b1 h2 { color: var(--b1); }
+    .section-b2 h2 { color: var(--b2); }
+
+    .main-folder {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 20px;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .panel-a1 .main-folder { background: linear-gradient(135deg, #234078, #315da5); }
+    .panel-a2 .main-folder { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+    .panel-b1 .main-folder { background: linear-gradient(135deg, #b45309, #f59e0b); }
+    .panel-b2 .main-folder { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+
+    .main-folder strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .main-folder span {
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+    }
+
+    .main-folder a {
+      flex: 0 0 auto;
+      background: white;
+      color: var(--ayda);
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-weight: 900;
+    }
+
+    details {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fbfcff;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 18px;
+      font-size: 18px;
+      font-weight: 900;
+      list-style: none;
+      position: relative;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "Aç / Kapat";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+
+    .panel-a1 summary {
+      color: #234078;
+      background: #eef3ff;
+    }
+
+    .panel-a1 summary::after {
+      background: #234078;
+    }
+
+    .panel-a2 summary {
+      color: #0f766e;
+      background: #ecfdf5;
+    }
+
+    .panel-a2 summary::after {
+      background: #0f766e;
+    }
+
+    .panel-b1 summary {
+      color: #92400e;
+      background: #fffbeb;
+    }
+
+    .panel-b1 summary::after {
+      background: #b45309;
+    }
+
+    .panel-b2 summary {
+      color: #5b21b6;
+      background: #f5f3ff;
+    }
+
+    .panel-b2 summary::after {
+      background: #6d28d9;
+    }
+
+    .material-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .material-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 132px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      transition: .2s ease;
+      box-shadow: 0 6px 18px rgba(35,64,120,0.05);
+      color: inherit;
+    }
+
+    .material-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(35,64,120,0.12);
+      border-color: #cbd8f5;
+    }
+
+    .material-title {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .material-desc {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--ayda-soft);
+      color: var(--ayda);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .open {
+      color: var(--ayda);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .video-card {
+      border: 2px solid #c7d2fe;
+      background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+    }
+
+    .video-card .tag {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .mini-ad {
+      margin-top: 30px;
+      background: linear-gradient(135deg, #ffffff, #f7f9ff);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(35,64,120,0.07);
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .mini-ad h2 {
+      margin: 0 0 8px;
+      color: var(--ayda);
+      font-size: 24px;
+    }
+
+    .mini-ad p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .ad-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .ad-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-weight: 900;
+      color: white;
+      background: var(--ayda);
+    }
+
+    .ad-btn.instagram {
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    }
+
+    .footer {
+      margin-top: 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer strong {
+      color: var(--ayda);
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #18a84f;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 31px;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(24,168,79,.35);
+      z-index: 999;
+      animation: pulseWp 1.8s infinite;
+    }
+
+    .floating-whatsapp::after {
+      content: "Sorunuz varsa yazın";
+      position: absolute;
+      right: 74px;
+      bottom: 10px;
+      width: 150px;
+      background: white;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      border-radius: 14px;
+      padding: 9px 11px;
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(0,0,0,.10);
+    }
+
+    @keyframes pulseWp {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(24,168,79,.45);
+      }
+      70% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 16px rgba(24,168,79,0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(24,168,79,0);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .level-shortcuts,
+      .steps,
+      .material-grid,
+      .info-grid,
+      .mini-ad {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mini-ad {
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding-top: 14px;
+      }
+
+      .hero {
+        padding: 24px 18px;
+        border-radius: 24px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .level-shortcuts,
+      .steps,
+      .material-grid,
+      .info-grid,
+      .mini-ad {
+        grid-template-columns: 1fr;
+      }
+
+      .main-folder {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .main-folder a {
+        width: 100%;
+        text-align: center;
+      }
+
+      summary {
+        padding-right: 112px;
+        font-size: 16px;
+      }
+
+      .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .ad-buttons {
+        justify-content: flex-start;
+      }
+
+      .ad-btn {
+        width: 100%;
+      }
+
+      .floating-whatsapp {
+        width: 58px;
+        height: 58px;
+        font-size: 28px;
+        right: 14px;
+        bottom: 14px;
+      }
+
+      .floating-whatsapp::after {
+        display: none;
+      }
+    }
+  
+/* AYDA compact student resource directory · all original file links preserved */
+:root{--ayda:#102541;--ayda-dark:#0b1b30;--ayda-soft:#f0f3f6;--bg:#fbf9f5;--border:#e7e6e0;--shadow:0 10px 26px rgba(16,37,65,.065)}
+html{scroll-behavior:smooth}
+.hero{padding:24px 28px;border-radius:20px}
+.hero::after{opacity:.35}
+.hero h1{font-size:clamp(23px,3vw,32px)}
+.hero p{font-size:14px;line-height:1.5}
+.hero-note{font-size:12px;padding:9px 12px}
+.search-box{position:relative;margin:14px 0 10px;border:1px solid #e6e4de;border-radius:16px;padding:13px 15px;background:#fff;box-shadow:0 6px 18px rgba(16,37,65,.03)}
+.search-box input{min-height:46px;border-radius:10px;font-size:15px}
+.search-feedback{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:9px;font-size:12px;color:#657185}
+.clear-search{min-height:34px;padding:6px 12px;border:1px solid #dbe3e9;background:#f6f8fa;color:#102541;font:750 12px/1.2 inherit;border-radius:9px;cursor:pointer}
+.clear-search[hidden]{display:none}
+.level-shortcuts{gap:8px;margin-bottom:12px}
+.level-btn{border-radius:12px;min-height:64px}
+.help-collapsible{margin:0 0 16px;border:1px solid #e5e5e1;background:#fff;border-radius:14px;overflow:hidden}
+.help-collapsible>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;font-size:13px;color:#102541;font-weight:800;cursor:pointer;list-style:none}
+.help-collapsible>summary::-webkit-details-marker{display:none}
+.help-collapsible[open]>summary span{transform:rotate(180deg)}
+.help-collapsible .info-grid{margin:0;padding:0 12px 12px}
+.folder-group{margin-bottom:9px}
+.folder-group>summary{cursor:pointer;min-height:47px;font-size:14px}
+.material-grid{gap:9px}
+.material-card{border-radius:12px;min-height:0;padding:13px}
+.material-title{font-size:14px}
+.material-desc{font-size:12px;line-height:1.4}
+.material-card .open{white-space:nowrap}
+.section{scroll-margin-top:15px}
+.floating-whatsapp{animation:none;width:54px;height:54px;font-size:25px}
+.floating-whatsapp::after{display:none}
+@media(max-width:640px){
+ .page{width:min(100% - 16px,1120px);padding-top:8px}
+ .hero{padding:19px 17px;border-radius:16px}
+ .hero h1{font-size:24px}
+ .hero p{font-size:13px}
+ .hero-note{line-height:1.45}
+ .search-box{margin:10px 0 9px;padding:12px}
+ .level-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .level-btn{min-height:57px;padding:10px;font-size:13px}
+ .level-btn span:last-child{font-size:11px;line-height:1.25}
+ .help-collapsible>summary{padding:12px 13px!important;font-size:12px!important}
+ .help-collapsible .info-grid{grid-template-columns:1fr}
+ .section-title{padding:12px}
+ .section-title h2{font-size:18px}
+ .folder-group>summary{padding:13px 44px 13px 12px;font-size:14px}
+ .material-grid{grid-template-columns:1fr}
+ .floating-whatsapp{height:48px;width:48px;font-size:22px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* AYDA B1-derived design language: navy, cream, warm yellow and mint */
+:root{--ayda:#122850;--ayda-dark:#0e2144;--ayda-soft:#eef3f8;--bg:#f8f7f2;--card:#fff;--text:#14213d;--muted:#60708d;--border:#dde5f0;--shadow:0 14px 38px #12285012;--a1:#122850;--a2:#16755f;--b1:#ab6c17;--b2:#634fbe}
+body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.hero{background:linear-gradient(145deg,#122850,#244269);box-shadow:0 16px 42px #12285023;border:1px solid #ffffff20}
+.brand{background:#ffffff16}
+.hero h1{font-weight:900;letter-spacing:-.04em}
+.level-shortcuts{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.level-btn{box-shadow:none;border:1px solid #e1e8f0;min-height:73px;border-radius:15px;padding:13px;text-align:left}
+.level-btn.active{outline:3px solid #ffcf4a;outline-offset:0}
+.level-all{background:#fff;color:#122850;cursor:pointer;font-family:inherit}
+.level-all:hover{background:#fff4d4}
+.level-btn span:first-child{font-weight:900}
+.search-box{border-radius:17px;box-shadow:0 6px 21px #1228500b}
+.search-box input{border-color:#d3dce9}
+.search-box input:focus{border-color:#122850;outline:3px solid #ffcf4a55}
+.material-type-filters{display:flex;overflow-x:auto;gap:7px;scrollbar-width:thin;padding:11px 0 2px}
+.type-chip{flex:none;min-height:38px;padding:7px 12px;border:1px solid #dde5f0;border-radius:999px;color:#364968;background:#f7f9fc;cursor:pointer;font:750 12px/1.25 inherit}
+.type-chip.active{background:#122850;color:#fff;border-color:#122850}
+.type-chip:hover{border-color:#122850}
+.search-feedback{font-size:12px;min-height:29px}
+.clear-search{background:#ffcf4a;color:#2f270b;border-color:#ffcf4a}
+.folder-group{border-color:#e1e7ed}
+.folder-group>summary{color:#14213d}
+.folder-group[hidden],.search-section[hidden],.material-tile[hidden]{display:none!important}
+.material-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.material-tile{display:flex;flex-direction:column;min-width:0;border:1px solid #dde5f0;border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 5px 15px #1228500a}
+.material-tile .material-card{flex:1;border:0!important;box-shadow:none!important;border-radius:0!important;padding:15px;min-height:107px}
+.material-copy{display:flex;align-items:center;justify-content:center;gap:6px;background:#f3f6fa;border:0;border-top:1px solid #dde5f0;color:#122850;min-height:42px;font:800 12px/1.3 inherit;cursor:pointer}
+.material-copy:hover{background:#fff0c7}
+.material-tile .material-card:hover{transform:none;box-shadow:none}
+.material-toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));z-index:1001;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:#122850;color:white;border-radius:12px;padding:12px 17px;font-size:13px;font-weight:800;max-width:calc(100% - 26px);text-align:center;box-shadow:0 12px 30px #12285044;transition:.2s}
+.material-toast.visible{opacity:1;transform:translate(-50%,0)}
+.help-collapsible{border-radius:14px}
+:focus-visible{outline:3px solid #ffcf4a;outline-offset:3px}
+@media(max-width:920px){.material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+ .level-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .level-btn{min-height:65px;padding:9px}
+ .level-btn span:last-child{font-size:10px}
+ .material-grid{grid-template-columns:1fr;gap:9px}
+ .material-tile .material-card{min-height:88px;padding:12px}
+ .material-copy{min-height:43px}
+ .search-box{padding:13px}
+ .type-chip{min-height:42px}
+}
+@media(max-width:350px){.level-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.material-toast{transition:none}}
+
+/* AYDA 2026: clarity and responsive polish */
+:root { color-scheme: light; }
+:focus-visible{outline:3px solid #d4a44b!important;outline-offset:3px}
+html{scroll-padding-top:22px}
+.level-btn,.material-card,.contact-action,.main-folder a,.type-chip{touch-action:manipulation}
+.material-card,.level-btn{transition:transform .16s ease,box-shadow .16s ease}
+@media(max-width:740px){
+ .page{width:calc(100% - 24px);padding-top:12px}
+ .hero{padding:24px 20px;border-radius:22px}
+ .hero h1{font-size:clamp(29px,8vw,42px);line-height:1.15}
+ .hero p{font-size:15px}
+ .level-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .level-btn{min-height:88px;border-radius:16px;padding:14px}
+ .info-grid,.steps{grid-template-columns:1fr}
+ .section-title{align-items:flex-start;flex-direction:column}
+ .section-title h2{font-size:25px}
+ .panel{padding:12px;border-radius:18px}
+ .material-grid{grid-template-columns:1fr;gap:10px;padding:10px}
+ .material-card{min-height:100px;padding:14px}
+ .main-folder{flex-wrap:wrap;padding:15px}
+ .main-folder a{width:100%;text-align:center}
+ summary{padding:16px 95px 16px 14px;font-size:16px}
+ summary::after{right:9px;font-size:11px}
+}
+@media(min-width:741px) and (max-width:1030px){
+ .material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+</style>
+<style id="g6-ayda-design">
+:root{--ayda:#234078;--ayda-dark:#172b52;--border:#dfe7f2;--shadow:0 12px 32px rgba(23,43,82,.08)}
+body{background:#f6f8fc!important;color:#172b52!important;font-family:Inter,Arial,Helvetica,sans-serif!important}
+.g6-site-header{width:100%;color:white;background:#234078}
+.g6-container{max-width:1180px;margin:auto;padding:0 20px}
+.g6-announcement{background:#172b52}
+.g6-announcement .g6-container{min-height:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:11px}
+.g6-site-header a{color:white;text-decoration:none}
+.g6-navbar .g6-container{min-height:92px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.g6-logo{flex:0 0 165px;display:flex;align-items:center}
+.g6-logo img{display:block;width:165px;height:auto;max-width:100%;object-fit:contain}
+.g6-nav{display:flex;align-items:center;justify-content:center;gap:18px;flex:1;min-width:0}
+.g6-nav a,.g6-main-link{font-size:12px;font-weight:750;white-space:nowrap}
+.g6-nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:2px}
+.g6-main-link{border:1px solid #ffffff60;border-radius:12px;padding:12px 14px}
+.page{width:min(1120px,calc(100% - 32px))!important;padding-top:28px!important}
+.page .hero{padding:39px 43px!important;min-height:0!important;background:#172b52!important;border-radius:22px!important;box-shadow:var(--shadow)!important}
+.page .hero::after{display:none!important}
+.page .hero h1{font-size:clamp(30px,4.2vw,46px)!important;line-height:1.14!important}
+.page .hero p{max-width:760px!important;line-height:1.65!important}
+.page .hero .brand{background:#ffffff16!important;border-color:#ffffff32!important;border-radius:999px!important;padding:8px 13px!important}
+.page .search-box,.page .help-box,.page .material-card,.page .material-section,.page .materials-section{border-radius:17px!important;border-color:#dfe7f2!important}
+.page .material-card{box-shadow:0 6px 20px #172b5208!important}
+.page .level-btn{border-radius:14px!important}
+.page button,.page input{font-family:inherit}
+.page button:focus-visible,.page a:focus-visible,.g6-site-header a:focus-visible{outline:3px solid #e8c37b;outline-offset:3px}
+@media(max-width:980px){.g6-nav{gap:10px}.g6-nav a{font-size:11px}.g6-main-link{display:none}}
+@media(max-width:740px){.g6-navbar .g6-container{min-height:78px;gap:14px}.g6-logo{flex:0 0 125px}.g6-logo img{width:125px}.g6-nav{overflow-x:auto;justify-content:flex-start;scrollbar-width:none}.g6-nav::-webkit-scrollbar{display:none}.g6-nav a{font-size:11px}.page{padding-top:15px!important}.page .hero{padding:26px 23px!important;border-radius:17px!important}}
+@media(max-width:420px){.g6-container{padding:0 12px}.g6-announcement .g6-container{font-size:9px}.g6-navbar .g6-container{gap:8px;min-height:68px}.g6-logo{flex-basis:105px}.g6-logo img{width:105px}.g6-nav{gap:12px}.page .hero{padding:22px 18px!important}}
+</style>
+</head>
+
+<body>
+<header class="g6-site-header">
+<div class="g6-announcement"><div class="g6-container"><span>AYDA DİL AKADEMİSİ · DİJİTAL ÖĞRENME</span><a href="https://www.aydadil.com/">Kurumsal web sitesi ↗</a></div></div>
+<div class="g6-navbar"><div class="g6-container">
+<a class="g6-logo" href="https://ders.aydadil.com/" aria-label="AYDA Öğrenci Portalı"><img src="https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png" alt="AYDA Dil Akademisi logosu" width="160" height="58" decoding="async"></a>
+<nav class="g6-nav" aria-label="AYDA platformları"><a href="https://ders.aydadil.com/">Öğrenci Portalı</a><a href="https://www.aydadil.com/bibliothek/">Dijital Kütüphane</a><a href="https://www.aydadil.com/sinavhazirlik/">Sınav Hazırlık</a><a href="https://www.aydadil.com/derskitaplari/" aria-current="page">Ders Kitapları</a></nav>
+<a class="g6-main-link" href="https://www.aydadil.com/">AYDA Ana Sayfa ↗</a></div></div>
+</header>
+  <a class="floating-whatsapp" href="https://wa.me/905409122503" target="_blank" rel="noopener" aria-label="WhatsApp ile iletişime geç">
+    ☎
+  </a>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          AYDA Dil Akademisi
+        </div>
+
+        <h1>Ders Materyalleri İndirme Merkezi</h1>
+
+        <p>
+          Bu sayfadan ders kitaplarına, çalışma kitaplarına, ses dosyalarına ve Menschen alıştırma videolarına kolayca ulaşabilirsiniz.
+          Seviyenizi seçin, ihtiyacınız olan materyali açın.
+        </p>
+
+        <div class="hero-note">
+          <strong>Nasıl kullanılır?</strong> Önce seviyenize tıklayın. Sonra “Kursbuch”, “Arbeitsbuch”, “Audio” veya
+          “Menschen Alıştırma Videoları” bölümünü açın.
+        </div>
+      </div>
+    </section>
+
+    <section class="search-box">
+      <label for="searchInput">Materyal ara</label>
+      <input id="searchInput" type="search" placeholder="PDF, Audio, Menschen A1.1 veya TELC B2 ara..." />
+      <div class="material-type-filters" role="group" aria-label="Dosya türüne göre filtrele">
+<button class="type-chip active" data-kind="all" type="button" aria-pressed="true">Tüm kaynaklar</button>
+<button class="type-chip" data-kind="book" type="button" aria-pressed="false">Kitap / PDF</button>
+<button class="type-chip" data-kind="audio" type="button" aria-pressed="false">Ses dosyaları</button>
+<button class="type-chip" data-kind="video" type="button" aria-pressed="false">Video</button>
+<button class="type-chip" data-kind="exam" type="button" aria-pressed="false">Sınav</button>
+<button class="type-chip" data-kind="other" type="button" aria-pressed="false">Diğer klasörler</button>
+</div>
+      <div class="search-feedback"><span id="searchResultSummary" role="status" aria-live="polite">Seviyeni seç veya materyal adıyla ara.</span><button type="button" id="clearSearchBtn" class="clear-search" hidden>Temizle ×</button></div>
+      <div class="empty" id="emptyMessage">Aramanızla eşleşen materyal bulunamadı.</div>
+    </section>
+
+    <div class="level-shortcuts">
+<button class="level-btn level-all" type="button" id="allMaterialsBtn" aria-pressed="true"><span>Tümü</span><span>Bütün seviyeler</span></button>
+      <a href="#a1-materials" class="level-btn level-a1">
+        <span>A1</span>
+        <span>Başlangıç seviyesi materyalleri</span>
+      </a>
+
+      <a href="#a2-materials" class="level-btn level-a2">
+        <span>A2</span>
+        <span>Temel seviye materyalleri</span>
+      </a>
+
+      <a href="#b1-materials" class="level-btn level-b1">
+        <span>B1</span>
+        <span>Orta seviye materyalleri</span>
+      </a>
+
+      <a href="#b2-materials" class="level-btn level-b2">
+        <span>B2</span>
+        <span>İleri seviye materyalleri</span>
+      </a>
+    </div>
+
+    <details class="help-collapsible">
+<summary>Nasıl kullanılır? · Yardım ve iletişim <span aria-hidden="true">⌄</span></summary>
+<section class="info-grid">
+      <div class="help-box">
+        <h2>3 Adımda Materyale Ulaşın</h2>
+
+        <div class="steps">
+          <div class="step">
+            1. Seviyeni seç
+            <small>A1, A2, B1 veya B2 bölümüne git.</small>
+          </div>
+
+          <div class="step">
+            2. Kitabını aç
+            <small>Kursbuch veya Arbeitsbuch klasörüne tıkla.</small>
+          </div>
+
+          <div class="step">
+            3. Audio / Video aç
+            <small>Dinleme veya alıştırma videolarını kullan.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <h2>Yardım Gerekirse</h2>
+        <p>
+          Materyali açamıyorsanız, link çalışmıyorsa veya hangi dosyayı kullanacağınızı bilmiyorsanız bize ulaşabilirsiniz.
+        </p>
+
+        <div class="contact-actions">
+          <a class="contact-action whatsapp" href="https://wa.me/905409122503" target="_blank" rel="noopener">
+            WhatsApp: 0540 912 25 03
+          </a>
+          <a class="contact-action" href="tel:+905409122503">
+            Telefonla Ara
+          </a>
+        </div>
+      </div>
+    </section>
+
+    </details>
+
+<!-- A1 -->
+    <section class="section section-a1 search-section" id="a1-materials">
+      <div class="section-title">
+        <h2>A1 Materyalleri</h2>
+        <small>Başlangıç seviyesi — kitap, çalışma kitabı, audio ve Menschen alıştırma videoları</small>
+      </div>
+
+      <div class="panel panel-a1">
+        <div class="main-folder">
+          <div>
+            <strong>A1 Ana Klasör</strong>
+            <span>Tüm A1 materyallerinin ana klasörü.</span>
+          </div>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1EhcIIju4RZyB5HfcccAF6q8nHIou2uwT">A1 Ana Klasörü Aç</a>
+        </div>
+
+        <details class="folder-group">
+          <summary>A1 Genel Klasörler</summary>
+          <div class="material-grid">
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1hNxBPJsk0vszbqwS7Zn6zuFf4KxNEYuT">
+              <div>
+                <div class="material-title">A1 Klasörü</div>
+                <div class="material-desc">A1 seviyesine ait genel ders materyalleri.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Klasör</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card video-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1nJdAaZNtqEbpknd0EEdXFd4IDsm_oRR5">
+              <div>
+                <div class="material-title">Menschen Alıştırma Videoları</div>
+                <div class="material-desc">A1 seviyesi için Menschen video alıştırmaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Video Alıştırma</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+
+        <details class="folder-group">
+          <summary>Menschen A1.1</summary>
+          <div class="material-grid">
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1TvFJk-yKOMhz4-Bq9OQ4GCHMPhuLqv17">
+              <div>
+                <div class="material-title">Menschen A1.1 PDF</div>
+                <div class="material-desc">A1.1 kitap klasörü.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">PDF</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1Mf9NLn8ZEAarQWs1OYO0DYEEdHAGfdsn">
+              <div>
+                <div class="material-title">A1.1 Kursbuch</div>
+                <div class="material-desc">Ders kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Kursbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/117RnDS1JDWIBGzGUOzxtqVdQrB5lI2qs">
+              <div>
+                <div class="material-title">A1.1 Kursbuch Audio</div>
+                <div class="material-desc">Ders kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/15aoL2cFJejoy01ns0LYu_LAYCIHW1IwR">
+              <div>
+                <div class="material-title">A1.1 Arbeitsbuch</div>
+                <div class="material-desc">Çalışma kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Arbeitsbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1TixCRp2M_gNT_rtcITRFHmhBNu0M_ELB">
+              <div>
+                <div class="material-title">A1.1 Arbeitsbuch Audio</div>
+                <div class="material-desc">Çalışma kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+
+        <details class="folder-group">
+          <summary>Menschen A1.2</summary>
+          <div class="material-grid">
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1OOC9YeJ33nRbJs4icrqD3j8GaAQnAEfu">
+              <div>
+                <div class="material-title">Menschen A1.2 PDF</div>
+                <div class="material-desc">A1.2 kitap klasörü.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">PDF</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1J4YyUyjn2HbOwvjV3oUgVywBb7Trqyfg">
+              <div>
+                <div class="material-title">A1.2 Kursbuch</div>
+                <div class="material-desc">Ders kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Kursbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1DR3A82DUPkvOwBgHyrVcSsmUMl3W4ul-">
+              <div>
+                <div class="material-title">A1.2 Kursbuch Audio</div>
+                <div class="material-desc">Ders kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/13EW52p4q0J11wMOitL1I0Q0ogxV8oH4h">
+              <div>
+                <div class="material-title">A1.2 Arbeitsbuch</div>
+                <div class="material-desc">Çalışma kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Arbeitsbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1sHEHWbaeugRGiFPgs1m9qH3tTnJLEo5d">
+              <div>
+                <div class="material-title">A1.2 Arbeitsbuch Audio</div>
+                <div class="material-desc">Çalışma kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- A2 -->
+    <section class="section section-a2 search-section" id="a2-materials">
+      <div class="section-title">
+        <h2>A2 Materyalleri</h2>
+        <small>Temel seviye — kitap, çalışma kitabı, audio ve Menschen alıştırma videoları</small>
+      </div>
+
+      <div class="panel panel-a2">
+        <div class="main-folder">
+          <div>
+            <strong>A2 Ana Klasör</strong>
+            <span>Tüm A2 materyallerinin ana klasörü.</span>
+          </div>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1yHVZn0fu2s8kG1f_2uelqnpbQfsN6r3L">A2 Ana Klasörü Aç</a>
+        </div>
+
+        <details class="folder-group">
+          <summary>Menschen A2.1</summary>
+          <div class="material-grid">
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1LQRrB2gAFQ7MGEWvdYzSw1UKt9VcKuyY">
+              <div>
+                <div class="material-title">Menschen A2.1</div>
+                <div class="material-desc">A2.1 ana kitap klasörü.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Klasör</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1CuWrbAEYKxj2pkE0jJx7f86galZwH-cT">
+              <div>
+                <div class="material-title">A2.1 Kursbuch</div>
+                <div class="material-desc">Ders kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Kursbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/12xKoLjs6LE6z5ZvoWKcLcL2WUPW3NgE5">
+              <div>
+                <div class="material-title">A2.1 Kursbuch Audio</div>
+                <div class="material-desc">Ders kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1oNQSuWPipxNACVDmj91jSgbiKGxlOHPP">
+              <div>
+                <div class="material-title">A2.1 Arbeitsbuch</div>
+                <div class="material-desc">Çalışma kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Arbeitsbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/11MhVBS3ewiJQuhTrkOA3RA_lRX6v1Cag">
+              <div>
+                <div class="material-title">A2.1 Arbeitsbuch Audio</div>
+                <div class="material-desc">Çalışma kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+
+        <details class="folder-group">
+          <summary>Menschen A2.2</summary>
+          <div class="material-grid">
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1rB6_Fo-MppXvGNTDknabdkRVYGhdxznK">
+              <div>
+                <div class="material-title">Menschen A2.2</div>
+                <div class="material-desc">A2.2 ana kitap klasörü.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Klasör</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1FVfmmRFeLGcbnWhLfXAFylho03mjd4-F">
+              <div>
+                <div class="material-title">A2.2 Kursbuch</div>
+                <div class="material-desc">Ders kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Kursbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1VrxyGAyu_XuNEI_SKzPDWZMI_9Ne5bkb">
+              <div>
+                <div class="material-title">A2.2 Kursbuch Audio</div>
+                <div class="material-desc">Ders kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1GzhnrRs3IScSLZy0u8TNLjiFqegMepbO">
+              <div>
+                <div class="material-title">A2.2 Arbeitsbuch</div>
+                <div class="material-desc">Çalışma kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Arbeitsbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1MA58u7GrCGwfFc6QGFDk7O7jR0idmFGZ">
+              <div>
+                <div class="material-title">A2.2 Arbeitsbuch Audio</div>
+                <div class="material-desc">Çalışma kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+
+        <details class="folder-group">
+          <summary>Menschen Alıştırma Videoları</summary>
+          <div class="material-grid">
+            <a class="material-card video-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1LlOCyTPtjgz40XJI_8dnbs0YYXxtyU9S">
+              <div>
+                <div class="material-title">Menschen Alıştırma Videoları</div>
+                <div class="material-desc">A2 seviyesi için Menschen video alıştırmaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Video Alıştırma</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- B1 -->
+    <section class="section section-b1 search-section" id="b1-materials">
+      <div class="section-title">
+        <h2>B1 Materyalleri</h2>
+        <small>Orta seviye — kitap, çalışma kitabı, audio ve Menschen alıştırma videoları</small>
+      </div>
+
+      <div class="panel panel-b1">
+        <div class="main-folder">
+          <div>
+            <strong>B1 Ana Klasör</strong>
+            <span>Tüm B1 materyallerinin ana klasörü.</span>
+          </div>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1-4HicuJ5pDdyZim4mT_2ougN2v-vEwPD">B1 Ana Klasörü Aç</a>
+        </div>
+
+        <details class="folder-group">
+          <summary>Menschen B1.1</summary>
+          <div class="material-grid">
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1SJc0Y5IM0a-blfHqkvjKj9Ae7Tgsi0qz">
+              <div>
+                <div class="material-title">Menschen B1.1</div>
+                <div class="material-desc">B1.1 ana kitap klasörü.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Klasör</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1hnRI0fgCkkzGWIVxre7YW8bRAuEHAvk6">
+              <div>
+                <div class="material-title">B1.1 Kursbuch</div>
+                <div class="material-desc">Ders kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Kursbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/15JVAZ5k55peFFpkz7hdwYRGzdcD8DsHW">
+              <div>
+                <div class="material-title">B1.1 Kursbuch Audio</div>
+                <div class="material-desc">Ders kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1athawCnW_nn_jDwe-iyFydp7CpWvVDum">
+              <div>
+                <div class="material-title">B1.1 Arbeitsbuch</div>
+                <div class="material-desc">Çalışma kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Arbeitsbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/10SXNoOLFShZxPDbrtXqBWLuDyikUobyq">
+              <div>
+                <div class="material-title">B1.1 Arbeitsbuch Audio</div>
+                <div class="material-desc">Çalışma kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+
+        <details class="folder-group">
+          <summary>Menschen B1.2</summary>
+          <div class="material-grid">
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/14JLPjC9_cctPe5jDRL18mrpc8xCed9mi">
+              <div>
+                <div class="material-title">Menschen B1.2</div>
+                <div class="material-desc">B1.2 ana kitap klasörü.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Klasör</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1K1bUzU1dKdXupqb2PzKF-EB6wTgx_umt">
+              <div>
+                <div class="material-title">B1.2 Kursbuch</div>
+                <div class="material-desc">Ders kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Kursbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1vBBWSMGljuaOi9Yh2cc1z84odLhSc9V5">
+              <div>
+                <div class="material-title">B1.2 Kursbuch Audio</div>
+                <div class="material-desc">Ders kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1c5dT0kl-aMgQDAz0ak2WzHFN6dVXaGOm">
+              <div>
+                <div class="material-title">B1.2 Arbeitsbuch</div>
+                <div class="material-desc">Çalışma kitabı dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Arbeitsbuch</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/12y7vOgs002RkfK3uQVaTvYhYqGUoinYA">
+              <div>
+                <div class="material-title">B1.2 Arbeitsbuch Audio</div>
+                <div class="material-desc">Çalışma kitabı ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+
+        <details class="folder-group">
+          <summary>Menschen Alıştırma Videoları</summary>
+          <div class="material-grid">
+            <a class="material-card video-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1K3NJ7NThAA8YxFNcYYsHX0wGpFUIvbMJ">
+              <div>
+                <div class="material-title">Menschen Alıştırma Videoları</div>
+                <div class="material-desc">B1 seviyesi için Menschen video alıştırmaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Video Alıştırma</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- B2 -->
+    <section class="section section-b2 search-section" id="b2-materials">
+      <div class="section-title">
+        <h2>B2 Materyalleri</h2>
+        <small>İleri seviye — TELC B2 kitabı ve audio materyalleri</small>
+      </div>
+
+      <div class="panel panel-b2">
+        <div class="main-folder">
+          <div>
+            <strong>B2 Ana Klasör</strong>
+            <span>Tüm B2 materyallerinin ana klasörü.</span>
+          </div>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1nwBOKfm6XL5TQZKNpQTonkJ21Qe5oF-w">B2 Ana Klasörü Aç</a>
+        </div>
+
+        <details class="folder-group">
+          <summary>TELC B2 Materyalleri</summary>
+          <div class="material-grid">
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1RtgwggyAqZ9eSFKa0zp48Wcmpw7jbjYK/view?usp=drive_link">
+              <div>
+                <div class="material-title">TELC B2 Kitabı</div>
+                <div class="material-desc">TELC B2 ders / sınav kitabı.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Kitap</span><span class="open">Aç →</span></div>
+            </a>
+
+            <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1JtQH-Idh-291oACbXXq3k-aq2mnc69gI">
+              <div>
+                <div class="material-title">TELC B2 Audio</div>
+                <div class="material-desc">TELC B2 ses dosyaları.</div>
+              </div>
+              <div class="card-bottom"><span class="tag">Audio</span><span class="open">Aç →</span></div>
+            </a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="mini-ad">
+      <div>
+        <h2>AYDA ile Almanca Öğrenin</h2>
+        <p>
+          Online Almanca eğitimleri, sınav hazırlığı ve duyurular için web sitemizi ve Instagram hesabımızı takip edebilirsiniz.
+        </p>
+      </div>
+
+      <div class="ad-buttons">
+        <a class="ad-btn" target="_blank" rel="noopener" href="https://www.aydadil.com">aydadil.com</a>
+        <a class="ad-btn instagram" target="_blank" rel="noopener" href="https://www.instagram.com/ayda.dil/">Instagram</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>AYDA Dil Akademisi</strong><br />
+      Ders materyallerine erişim sayfası.<br />
+      Sorunuz varsa <strong>0540 912 25 03</strong> numarasından bize ulaşabilirsiniz.
+    </footer>
+  </main>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const input=document.getElementById("searchInput");
+  const cards=Array.from(document.querySelectorAll(".material-card"));
+  const groups=Array.from(document.querySelectorAll(".folder-group"));
+  const sections=Array.from(document.querySelectorAll(".search-section"));
+  const empty=document.getElementById("emptyMessage");
+  const status=document.getElementById("searchResultSummary");
+  const clearButton=document.getElementById("clearSearchBtn");
+  const chips=Array.from(document.querySelectorAll(".type-chip"));
+  const levels=Array.from(document.querySelectorAll(".level-shortcuts a.level-btn"));
+  const allButton=document.getElementById("allMaterialsBtn");
+  let selectedLevel="all";
+  let selectedKind="all";
+
+  function classify(card){
+    const text=(card.textContent||"").toLocaleLowerCase("tr-TR");
+    if(/video|youtube|film|videoları/.test(text))return "video";
+    if(/audio|ses dosya|dinleme|hörverstehen/.test(text))return "audio";
+    if(/telc|goethe|ösd|sınav|prüfung/.test(text))return "exam";
+    if(/pdf|kursbuch|arbeitsbuch|kitap|testtrainer|çalışma kitabı/.test(text))return "book";
+    return "other";
+  }
+  let toastTimer;
+  const toast=document.createElement("div");
+  toast.className="material-toast";
+  toast.setAttribute("role","status");
+  toast.setAttribute("aria-live","polite");
+  document.body.appendChild(toast);
+  function notify(msg){
+    toast.textContent=msg;
+    toast.classList.add("visible");
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>toast.classList.remove("visible"),1900);
+  }
+  async function copyLink(url){
+    let success=false;
+    if(navigator.clipboard && window.isSecureContext){
+      try{await navigator.clipboard.writeText(url);success=true;}catch(e){}
+    }
+    if(!success){
+      const field=document.createElement("textarea");
+      field.value=url;field.setAttribute("readonly","");
+      field.style.cssText="position:fixed;left:-9999px;top:0;";
+      document.body.appendChild(field);field.select();
+      try{success=document.execCommand("copy");}catch(e){}
+      field.remove();
+    }
+    notify(success?"Bağlantı kopyalandı":"Kopyalama başarısız. Dosyayı açarak bağlantıyı alabilirsiniz.");
+  }
+  cards.forEach(card=>{
+    card.dataset.kind=classify(card);
+    card.setAttribute("rel","noopener noreferrer");
+    const tile=document.createElement("div");
+    tile.className="material-tile";
+    card.parentElement.insertBefore(tile,card);
+    tile.appendChild(card);
+    const button=document.createElement("button");
+    button.type="button";
+    button.className="material-copy";
+    button.textContent="⧉  Bağlantıyı kopyala";
+    button.setAttribute("aria-label", (card.querySelector(".material-title")?.textContent||"Materyal")+" bağlantısını kopyala");
+    button.addEventListener("click",()=>copyLink(card.href));
+    tile.appendChild(button);
+  });
+  function applyFilters(){
+    const query=input.value.trim().toLocaleLowerCase("tr-TR");
+    let found=0;
+    sections.forEach(section=>{
+      const levelOK=selectedLevel==="all"||section.id===selectedLevel;
+      const levelTitle=section.querySelector("h2")?.textContent||"";
+      let matches=0;
+      section.querySelectorAll(".material-card").forEach(card=>{
+        const corpus=(levelTitle+" "+card.textContent).toLocaleLowerCase("tr-TR");
+        const show=levelOK && (selectedKind==="all"||card.dataset.kind===selectedKind) && (!query||corpus.includes(query));
+        card.closest(".material-tile").hidden=!show;
+        if(show){matches++;found++;}
+      });
+      section.hidden=!levelOK||matches===0;
+      section.querySelectorAll(".folder-group").forEach(group=>{
+        const any=!!group.querySelector(".material-tile:not([hidden])");
+        group.hidden=!any;
+        if(any&&(query||selectedKind!=="all"))group.open=true;
+        else if(!query&&selectedKind==="all")group.open=false;
+      });
+    });
+    const active=Boolean(query||selectedLevel!=="all"||selectedKind!=="all");
+    empty.style.display=active&&found===0?"block":"none";
+    status.textContent=active ? found+" materyal bulundu." : cards.length+" materyal · Seviye veya dosya türü seçin.";
+    clearButton.hidden=!active;
+    chips.forEach(chip=>{
+      const selected=chip.dataset.kind===selectedKind;
+      chip.classList.toggle("active",selected);
+      chip.setAttribute("aria-pressed",String(selected));
+    });
+    levels.forEach(level=>{
+      const selected=level.getAttribute("href").slice(1)===selectedLevel;
+      level.classList.toggle("active",selected);
+      level.setAttribute("aria-current",selected?"true":"false");
+    });
+    allButton.classList.toggle("active",selectedLevel==="all");
+    allButton.setAttribute("aria-pressed",String(selectedLevel==="all"));
+  }
+  levels.forEach(level=>level.addEventListener("click",event=>{
+    event.preventDefault();
+    selectedLevel=level.getAttribute("href").slice(1);
+    applyFilters();
+    const target=document.getElementById(selectedLevel);
+    if(target&&!target.hidden)target.scrollIntoView({behavior:"smooth",block:"start"});
+  }));
+  allButton.addEventListener("click",()=>{selectedLevel="all";applyFilters();});
+  chips.forEach(chip=>chip.addEventListener("click",()=>{selectedKind=chip.dataset.kind;applyFilters();}));
+  clearButton.addEventListener("click",()=>{
+    input.value="";selectedLevel="all";selectedKind="all";applyFilters();input.focus();
+  });
+  input.addEventListener("input",applyFilters);
+  const hash=decodeURIComponent(location.hash.slice(1));
+  if(sections.some(section=>section.id===hash))selectedLevel=hash;
+  applyFilters();
+});
+</script>
+</body>
+</html>

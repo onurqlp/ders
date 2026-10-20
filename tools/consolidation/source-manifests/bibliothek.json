@@ -1,0 +1,45 @@
+{
+  "repository": "onurqlp/bibliothek",
+  "source_ref": "main",
+  "source_commit": "47b330d09884ab73ebf44edc915d586e4904af00",
+  "destination": "sites/bibliothek",
+  "file_count": 7,
+  "total_bytes": 226745,
+  "files": [
+    {
+      "path": ".github/workflows/g4-library-preview-qa.yml",
+      "sha256": "fb0846b6fbb7b96ae3fb1b7ec8ad0c93bfb74ec9c40cbfee73f708b6669274bf",
+      "bytes": 1671
+    },
+    {
+      "path": "g4-preview/AYDA-UI-SYSTEM.md",
+      "sha256": "5edd10a850236590650f539c1d828b5e77d1c7e742fdfc90738ec976218c24e1",
+      "bytes": 1614
+    },
+    {
+      "path": "g4-preview/check-preview.cjs",
+      "sha256": "16bfc8ab7efc294c0e96246e99984fc63e92454599f88f218fd8a3cb87946875",
+      "bytes": 6586
+    },
+    {
+      "path": "g4-preview/index.html",
+      "sha256": "a8408aef9e3963c716a7ef1c7b94a01040cef6ee9b6a905fa24bd272a6782db4",
+      "bytes": 76859
+    },
+    {
+      "path": "g4-preview/qa/latest.json",
+      "sha256": "c558d38ec3247377cda71b8065f0a616618e2d9bb8feb702ac5b345cdd8a547e",
+      "bytes": 2474
+    },
+    {
+      "path": "g4-production/index.html",
+      "sha256": "b2409c4b33c8fe9e8eca984c77dd7cbaabfbc3cd97f708865387634db320c326",
+      "bytes": 80929
+    },
+    {
+      "path": "index.html",
+      "sha256": "2a9dc777baa8fc5d1242f25eb502cc5ea288f503d670dc7497d16654c75f72c1",
+      "bytes": 56612
+    }
+  ]
+}

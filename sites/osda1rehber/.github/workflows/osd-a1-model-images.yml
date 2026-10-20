@@ -1,0 +1,29 @@
+name: Render official A1 exam paper screenshots
+on:
+  push:
+    branches: [release-osd-a1-a2-20261019]
+    paths: ['a1/tools/render_model_scans.py','.github/workflows/osd-a1-model-images.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  scans:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF rendering requirements
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y poppler-utils
+          python -m pip install Pillow
+      - name: Produce original official ÖSD ZA1 model screenshots
+        run: python a1/tools/render_model_scans.py
+      - name: Commit derived exam page screenshots
+        run: |
+          git config user.name "AYDA publishing bot"
+          git config user.email "127854929+onurqlp@users.noreply.github.com"
+          git add a1/assets/model/
+          if ! git diff --cached --quiet; then
+            git commit -m "Add verified official A1 model exam screenshots"
+            git push origin HEAD:release-osd-a1-a2-20261019
+          fi

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="tr">
+  <head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) #aydaProtectedContent{display:none!important}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(135deg,#0b1b31,#214d75);font:15px system-ui,-apple-system,sans-serif;z-index:99999;position:relative}
+#aydaLoginBox .ayda-exam-login-card{width:min(440px,100%);background:white;color:#102541;border-radius:18px;padding:28px;box-shadow:0 18px 44px #0003}
+#aydaLoginBox h1{font:900 24px/1.25 system-ui;color:#102541;margin:0 0 10px}
+#aydaLoginBox p{font:14px/1.5 system-ui;color:#52657c}
+#aydaLoginBox label{display:block;margin:17px 0 8px;font-weight:800;color:#102541}
+#aydaLoginBox input{display:block;width:100%;box-sizing:border-box;padding:12px;min-height:49px;border:1px solid #a9b9c9;border-radius:10px;font:16px system-ui;background:white;color:#102541}
+#aydaLoginBox button{display:block;width:100%;min-height:48px;border:0;border-radius:10px;margin:12px 0;background:#102541;color:white;font:bold 15px system-ui;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AYDA A2 Kelime Antrenman&#305;</title>
+    <meta name="description" content="A2 Almanca kelimeleri anlam, artikel, &ouml;rnek c&uuml;mle ve mini testlerle &ccedil;al&#305;&#351;ma sayfas&#305;.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="font-weight:900;letter-spacing:.1em;color:#a98442">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Devam etmek için merkezi AYDA sınıf kodunu girin.</p><label for="aydaPasswordInput">Giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav Hazırlık Ana Sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none">
+    <main id="home" class="home-shell">
+      <section class="hero-panel" aria-labelledby="app-title">
+        <div class="brand-mark">AYDA Dil Akademisi</div>
+        <h1 id="app-title">AYDA A2 Kelime Antrenman&#305;</h1>
+        <p>A2 kelimelerini anlamlar&#305;, artikelleri ve k&#305;sa &ouml;rnek c&uuml;mleleriyle sakin bir tempoda &ccedil;al&#305;&#351;.</p>
+      </section>
+
+      <section class="progress-strip" aria-label="Genel ilerleme">
+        <article>
+          <span>Bug&uuml;n</span>
+          <strong id="today-count">0</strong>
+          <small>soru</small>
+        </article>
+        <article>
+          <span>Do&#287;ru</span>
+          <strong id="correct-count">0</strong>
+          <small>cevap</small>
+        </article>
+        <article>
+          <span>Yanl&#305;&#351;</span>
+          <strong id="wrong-count">0</strong>
+          <small>tekrar</small>
+        </article>
+        <p id="motivation">Bug&uuml;n k&#305;sa bir kelime seti bile iyi bir ba&#351;lang&#305;&ccedil;.</p>
+      </section>
+
+      <section class="module-grid" aria-label="Al&#305;&#351;t&#305;rma se&ccedil;imi">
+        <article class="module-card">
+          <h2>Kelime Kartlar&#305;</h2>
+          <p>A2 kelimelerini anlam&#305; ve &ouml;rnek c&uuml;mlesiyle &ouml;&#287;ren.</p>
+          <button type="button" data-module="cards">Ba&#351;la</button>
+        </article>
+        <article class="module-card">
+          <h2>Anlam&#305;n&#305; Se&ccedil;</h2>
+          <p>Almanca kelimenin T&uuml;rk&ccedil;e anlam&#305;n&#305; bul.</p>
+          <button type="button" data-module="meaning">Ba&#351;la</button>
+        </article>
+        <article class="module-card">
+          <h2>C&uuml;mlede Bo&#351;luk Doldur</h2>
+          <p>Kelimeyi k&#305;sa A2 c&uuml;mlesi i&ccedil;inde kullan.</p>
+          <button type="button" data-module="blank">Ba&#351;la</button>
+        </article>
+        <article class="module-card">
+          <h2>T&uuml;rk&ccedil;eden Almancaya</h2>
+          <p>T&uuml;rk&ccedil;e anlamdan do&#287;ru Almanca kelimeyi se&ccedil;.</p>
+          <button type="button" data-module="reverse">Ba&#351;la</button>
+        </article>
+        <article class="module-card">
+          <h2>Form Kelimeleri</h2>
+          <p>Geburtsdatum, Adresse, Beruf gibi formlarda &ccedil;&#305;kan kelimeleri &ccedil;al&#305;&#351;.</p>
+          <button type="button" data-module="formWords">Ba&#351;la</button>
+        </article>
+        <article class="module-card">
+          <h2>Konuya G&ouml;re Kelimeler</h2>
+          <p>Sa&#287;l&#305;k, ula&#351;&#305;m, al&#305;&#351;veri&#351;, i&#351;, aile ve kurs kelimelerini kategori kategori &ouml;&#287;ren.</p>
+          <button type="button" data-module="category">Ba&#351;la</button>
+        </article>
+        <article class="module-card">
+          <h2>Kar&#305;&#351;&#305;k 10 Kelime</h2>
+          <p>Rastgele 10 kelimeyle h&#305;zl&#305; tekrar yap.</p>
+          <button type="button" data-module="mixed">Ba&#351;la</button>
+        </article>
+        <article class="module-card">
+          <h2>Yanl&#305;&#351;lar&#305;m&#305; Tekrar Et</h2>
+          <p>Daha &ouml;nce yanl&#305;&#351; yapt&#305;&#287;&#305;n kelimeleri yeniden &ccedil;al&#305;&#351;.</p>
+          <button type="button" data-module="review">Ba&#351;la</button>
+        </article>
+      </section>
+
+      <section class="other-section" aria-label="Di&#287;er A2 s&#305;nav &ccedil;al&#305;&#351;malar&#305;">
+        <div>
+          <h2>Di&#287;er A2 s&#305;nav &ccedil;al&#305;&#351;malar&#305;</h2>
+          <p>Kelime d&#305;&#351;&#305;ndaki b&ouml;l&uuml;mler ayr&#305; sayfalarda &ccedil;al&#305;&#351;&#305;labilir.</p>
+        </div>
+        <nav class="link-grid" aria-label="S&#305;nav b&ouml;l&uuml;m&uuml; ba&#287;lant&#305;lar&#305;">
+          <a id="reading-link" href="#">Lesen Al&#305;&#351;t&#305;rmalar&#305;na Git</a>
+          <a id="writing-link" href="#">Schreiben Al&#305;&#351;t&#305;rmalar&#305;na Git</a>
+          <a id="speaking-link" href="#">Sprechen Al&#305;&#351;t&#305;rmalar&#305;na Git</a>
+          <a id="exam-link" href="#">Deneme S&#305;nav&#305;na Git</a>
+        </nav>
+      </section>
+    </main>
+
+    <section id="study" class="study-shell" hidden aria-live="polite">
+      <div class="study-card">
+        <header class="study-header">
+          <div>
+            <span id="study-kicker">Kelime &ccedil;al&#305;&#351;mas&#305;</span>
+            <h2 id="study-title">Kelime Kartlar&#305;</h2>
+          </div>
+          <button id="close-study" class="icon-button" type="button" aria-label="&Ccedil;al&#305;&#351;may&#305; kapat">X</button>
+        </header>
+
+        <div class="study-actions">
+          <button id="home-button" class="secondary-button" type="button">Ana Sayfaya D&ouml;n</button>
+          <button id="shuffle-button" class="primary-button" type="button">Yeni Kar&#305;&#351;&#305;k Set Ba&#351;lat</button>
+        </div>
+
+        <div class="study-progress" aria-label="Set ilerlemesi">
+          <span id="progress-text">1 / 10</span>
+          <div class="bar"><span id="progress-bar"></span></div>
+        </div>
+
+        <aside id="exam-tip" class="tip-box"></aside>
+        <div id="exercise-area" class="exercise-area"></div>
+      </div>
+    </section>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Şifre hizmeti yüklenemedi.'"></script><script id="ayda-exam-authorization-sync">(function(){const p=document.getElementById('aydaProtectedContent');if(!p)return;function sync(){document.documentElement.classList.toggle('ayda-exam-authorized',p.style.display==='block')}new MutationObserver(sync).observe(p,{attributes:true,attributeFilter:['style']});sync()})();</script></body>
+</html>

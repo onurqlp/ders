@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AYDA · A1ekim25</title>
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#234078">
+  <style>
+    :root{
+      --ayda:#234078; --bg:#f7f9fc; --ink:#1d2433; --muted:#5b667a; --card:#ffffff; --border:rgba(35,64,120,.10);
+      --radius:18px; --shadow:0 10px 28px rgba(0,0,0,.06); --ring:rgba(35,64,120,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif}
+    .container{max-width:1140px;margin-inline:auto;padding:18px}
+
+    /* Üst çubuk+butonlar: TAMAMEN SABİT */
+    header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);z-index:20}
+    .nav{display:flex;align-items:center;gap:12px;padding:12px 18px}
+    .logo{width:36px;height:36px;display:grid;place-items:center;border-radius:12px;background:var(--ayda);color:#fff;font-weight:800;box-shadow:var(--shadow)}
+    .title{font-weight:800}
+    .subtitle{font-size:.92rem;color:var(--muted)}
+
+    /* Sabit eylem butonları */
+    .actions{display:flex;gap:10px;flex-wrap:wrap;padding:10px 18px;border-top:1px solid var(--border)}
+    .btn{appearance:none;border:1px solid var(--ayda);background:var(--ayda);color:#fff;padding:10px 12px;border-radius:12px;font-weight:700;cursor:pointer}
+    .btn.secondary{background:#fff;color:var(--ayda)}
+    .btn.small{font-size:.9rem;padding:8px 10px;border-radius:10px}
+    .btn:focus{outline:none;box-shadow:0 0 0 6px var(--ring)}
+    .btn[aria-expanded="true"]{outline:3px solid var(--ring)}
+
+    /* Kartlar */
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border)}
+    .head{padding:18px 18px 6px 18px}
+    .body{padding:0 18px 18px 18px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(35,64,120,.06);color:var(--ayda);font-weight:700;font-size:.93rem}
+
+    .player{position:relative;display:block;width:100%;aspect-ratio:16/9;border-bottom-left-radius:var(--radius);border-bottom-right-radius:var(--radius);overflow:hidden}
+    .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+    @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+
+    .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .titleRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .btns{display:flex;gap:8px;flex-wrap:wrap}
+
+    footer{color:var(--muted);font-size:.9rem;padding:26px 18px;text-align:center}
+
+    /* Gizle/Göster */
+    .is-hidden{display:none}
+
+    /* İçeriğin üstteki sabit alana çarpmaması için boşluk */
+    main{padding-top:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="logo" aria-hidden="true">A</div>
+      <div>
+        <div class="title">AYDA Online Eğitim Platformu</div>
+        <div class="subtitle">Grup: A1ekim25 · Hazal Hoca</div>
+      </div>
+    </div>
+    <!-- Sabit Butonlar -->
+    <div class="actions container" role="toolbar" aria-label="Hızlı Erişim">
+      <button class="btn" id="btnReplay" aria-controls="dersListesi" aria-expanded="false">Canlı Ders Tekrarları</button>
+      <button class="btn secondary" id="btnExtras" aria-controls="ekVideolar" aria-expanded="false">Ek Videolar & Materyaller</button>
+      <button class="btn secondary" id="btnOther" aria-controls="digerBaglantilar" aria-expanded="false">Diğer Bağlantılar</button>
+      <button class="btn small secondary" id="btnCloseAll" title="Açık bölümleri kapat">Tümünü Kapat</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1) Canlı Ders Tekrarları -->
+    <section class="card is-hidden" aria-label="Ders Listesi" id="dersListesi">
+      <div class="head"><span class="badge">A1ekim25 — Online Dersler</span></div>
+      <div class="player">
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=PLQwhOGFlptnKXysnY-DNosAk3w0-VW13l&rel=0&modestbranding=1"
+          title="AYDA Ders Listesi"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="body">
+        <p class="subtitle">Listeye yeni video eklendiğinde burada otomatik görünür.</p>
+        <div class="btns">
+          <a class="btn secondary" target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLQwhOGFlptnKXysnY-DNosAk3w0-VW13l">Tüm Canlı Dersler (YouTube)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) Ek Videolar & Materyaller -->
+    <section class="card is-hidden" aria-label="Ek Videolar ve Materyaller" id="ekVideolar">
+      <div class="head"><span class="badge">Ek Videolar & Materyaller — A1</span></div>
+      <div class="body">
+        <div class="grid">
+          <!-- DERS MATERYALLERİ (Drive Folder) -->
+          <article class="card" aria-label="Ders Materyalleri">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Ders Materyalleri (Drive)</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1EhcIIju4RZyB5HfcccAF6q8nHIou2uwT?usp=sharing">Git</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- A1 Menschen Ders Videoları (Drive Folder) -->
+          <article class="card" aria-label="A1 Menschen Ders Videoları">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">A1 Menschen Ders Videoları (Drive)</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1mv_Crm7n8s1javra-rW4a7fGz6PkFjQZ?usp=drive_link">Git</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- A1 Ek Materyal (Drive Folder) -->
+          <article class="card" aria-label="A1 Ek Materyal">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">A1 Ek Materyal (Drive)</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1vxr47d-wdfN6bBQfUJwKXvmv4luPiasq?usp=drive_link">Git</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- A1 Cümle Kalıpları (Drive Folder) -->
+          <article class="card" aria-label="A1 Cümle Kalıpları">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">A1 Cümle Kalıpları (Drive)</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1VAz1AtWp4RDmmRddSZwqQr5XtfszjkOS?usp=sharing">Git</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- KISA KONU ANLATIMLARI A1 — Ünite 1-3 (YouTube Playlist) -->
+          <article class="card" aria-label="Kısa Konu Anlatımları A1 Ünite 1-3">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Kısa Konu Anlatımları — Ünite 1–3</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLlPnminIi7ZFg8jGfuZqcMvQEPS6Dubaj">Git</a>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="player">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZFg8jGfuZqcMvQEPS6Dubaj&rel=0&modestbranding=1" title="Kısa Konu Anlatımları A1 — Ünite 1–3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ünite 3-9 (YouTube Playlist) -->
+          <article class="card" aria-label="Kısa Konu Anlatımları A1 Ünite 3-9">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Kısa Konu Anlatımları — Ünite 3–9</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLlPnminIi7ZFaNGGwJVk4Y2F4moEsCY76">Git</a>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="player">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZFaNGGwJVk4Y2F4moEsCY76&rel=0&modestbranding=1" title="Kısa Konu Anlatımları A1 — Ünite 3–9" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ünite 10-12 (YouTube Playlist) -->
+          <article class="card" aria-label="Kısa Konu Anlatımları A1 Ünite 10-12">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Kısa Konu Anlatımları — Ünite 10–12</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLlPnminIi7ZHrt1mHEz_heegM9KlCfeVw">Git</a>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="player">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZHrt1mHEz_heegM9KlCfeVw&rel=0&modestbranding=1" title="Kısa Konu Anlatımları A1 — Ünite 10–12" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ünite 13-18 (YouTube Playlist) -->
+          <article class="card" aria-label="Kısa Konu Anlatımları A1 Ünite 13-18">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Kısa Konu Anlatımları — Ünite 13–18</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLlPnminIi7ZGZv5oqWOqn-MUNvMa6d_JQ">Git</a>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="player">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZGZv5oqWOqn-MUNvMa6d_JQ&rel=0&modestbranding=1" title="Kısa Konu Anlatımları A1 — Ünite 13–18" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ünite 18-24 (YouTube Playlist) -->
+          <article class="card" aria-label="Kısa Konu Anlatımları A1 Ünite 18-24">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Kısa Konu Anlatımları — Ünite 18–24</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLlPnminIi7ZHcKC5tsXwGulBB3SDj6bcp">Git</a>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="player">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZHcKC5tsXwGulBB3SDj6bcp&rel=0&modestbranding=1" title="Kısa Konu Anlatımları A1 — Ünite 18–24" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Diğer Bağlantılar -->
+    <section class="card is-hidden" aria-label="Diğer Bağlantılar" id="digerBaglantilar">
+      <div class="head"><span class="badge">Diğer Bağlantılar</span></div>
+      <div class="body">
+        <div class="grid">
+          <!-- Arbeitsbuch Dinlemeleri (embed + git) -->
+          <article class="card">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Arbeitsbuch Dinlemeleri — İndirme</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://youtu.be/SgLBimupSIU">Git</a>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="player" style="margin-top:8px">
+                <iframe src="https://www.youtube.com/embed/SgLBimupSIU" title="Arbeitsbuch Dinlemeleri" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- YouTube Almanca müzikler (playlist embed + git) -->
+          <article class="card">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">YouTube Almanca Müzikler</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLlPnminIi7ZGaC8tkVghThkGQ_L-QkYY0">Git</a>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="player" style="margin-top:8px">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZGaC8tkVghThkGQ_L-QkYY0&rel=0&modestbranding=1" title="Almanca Müzikler" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Nicos Weg A1 (DW) -->
+          <article class="card">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Nicos Weg A1 (DW)</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://learngerman.dw.com/tr/nicos-weg/c-54846011">Git</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Quizlet A1 Menschen -->
+          <article class="card">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Quizlet A1 Menschen Kelime</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://quizlet.com/onurqlp/folders/menschen-a1?x=1xqt&i=3m8fpg">Git</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Menschen Online Alıştırmalar 1 -->
+          <article class="card">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Menschen Online Alıştırmalar 1</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://www.hueber.de/menschen/lernen/uebungen">Git</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Menschen Online Alıştırmalar 2 (Arbeitsbuch) -->
+          <article class="card">
+            <div class="head">
+              <div class="row">
+                <div class="titleRow"><span class="badge">Menschen Online Alıştırmalar 2 (Arbeitsbuch)</span></div>
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener" href="https://www.hueber.de/menschen/lernen/uebungen?bestandteil=arbeitsbuch">Git</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="y"></span> AYDA Ankara Yabancı Dil Akademisi</footer>
+
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+
+    const sections = [
+      {btn:'btnReplay', id:'dersListesi'},
+      {btn:'btnExtras', id:'ekVideolar'},
+      {btn:'btnOther',  id:'digerBaglantilar'}
+    ];
+
+    // Durumu kaydet/geri yükle
+    const KEY='a1ekim25_openSections';
+    function saveState(){
+      const open = sections.filter(s=>!document.getElementById(s.id).classList.contains('is-hidden')).map(s=>s.id);
+      localStorage.setItem(KEY, JSON.stringify(open));
+    }
+    function restoreState(){
+      const raw = localStorage.getItem(KEY);
+      if(!raw) return;
+      try{
+        const openIds = JSON.parse(raw);
+        sections.forEach(s=>{
+          const el=document.getElementById(s.id);
+          const btn=document.getElementById(s.btn);
+          const willOpen = openIds.includes(s.id);
+          el.classList.toggle('is-hidden', !willOpen);
+          btn.setAttribute('aria-expanded', willOpen? 'true':'false');
+        });
+      }catch{}
+    }
+
+    function toggleSection(btnId, sectionId){
+      const btn = document.getElementById(btnId);
+      const el  = document.getElementById(sectionId);
+      const willOpen = el.classList.contains('is-hidden');
+      el.classList.toggle('is-hidden');
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      if (willOpen) el.scrollIntoView({behavior:'smooth', block:'start'});
+      saveState();
+    }
+
+    sections.forEach(s=>{
+      document.getElementById(s.btn).addEventListener('click',()=>toggleSection(s.btn,s.id));
+    });
+
+    document.getElementById('btnCloseAll').addEventListener('click',()=>{
+      sections.forEach(s=>{
+        document.getElementById(s.id).classList.add('is-hidden');
+        document.getElementById(s.btn).setAttribute('aria-expanded','false');
+      });
+      saveState();
+    });
+
+    // İlk yüklemede son durumu getir
+    restoreState();
+  </script>
+</body>
+</html>

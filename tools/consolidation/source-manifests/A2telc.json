@@ -1,0 +1,30 @@
+{
+  "repository": "onurqlp/A2telc",
+  "source_ref": "main",
+  "source_commit": "9480ab9883b9ad8287a8e32090ba895ca6a2140f",
+  "destination": "sites/A2telc",
+  "file_count": 4,
+  "total_bytes": 74986,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "89b03c6e50dd348c17c35c37fbf5667523bab7173a260b53f881850f6f70c23e",
+      "bytes": 800
+    },
+    {
+      "path": "index.html",
+      "sha256": "9da4dac2e7c106f0adf3e6629f4bc9ee8b8109273d37687a6e714b5db339c489",
+      "bytes": 36883
+    },
+    {
+      "path": "script.js",
+      "sha256": "55642d34c37d3b0d981d5d9d010278ce9489dfa49d9d7abfc7e618793b9d1f2c",
+      "bytes": 4861
+    },
+    {
+      "path": "style.css",
+      "sha256": "923522e9408f56b07dfa43152da1f07e7d33434007e2a3e1bfbeeb2408086c47",
+      "bytes": 32442
+    }
+  ]
+}

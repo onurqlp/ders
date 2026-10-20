@@ -1,0 +1,1838 @@
+<!doctype html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) #aydaProtectedContent{display:none!important}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(135deg,#0b1b31,#214d75);font:15px system-ui,-apple-system,sans-serif;z-index:99999;position:relative}
+#aydaLoginBox .ayda-exam-login-card{width:min(440px,100%);background:white;color:#102541;border-radius:18px;padding:28px;box-shadow:0 18px 44px #0003}
+#aydaLoginBox h1{font:900 24px/1.25 system-ui;color:#102541;margin:0 0 10px}
+#aydaLoginBox p{font:14px/1.5 system-ui;color:#52657c}
+#aydaLoginBox label{display:block;margin:17px 0 8px;font-weight:800;color:#102541}
+#aydaLoginBox input{display:block;width:100%;box-sizing:border-box;padding:12px;min-height:49px;border:1px solid #a9b9c9;border-radius:10px;font:16px system-ui;background:white;color:#102541}
+#aydaLoginBox button{display:block;width:100%;min-height:48px;border:0;border-radius:10px;margin:12px 0;background:#102541;color:white;font:bold 15px system-ui;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ÖSD A1 Sınav Hazırlık Platformu | AYDA</title>
+  <meta name="description" content="AYDA Ankara Yabancı Dil Akademisi için ÖSD A1 sınav rehberi, Lesen, Schreiben, Sprechen, Hören stratejisi, kelime çalışması ve 20+ deneme.">
+  <meta name="theme-color" content="#234078">
+  <style>
+    :root {
+      --brand: #234078;
+      --brand-dark: #1b305c;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #627089;
+      --line: #dfe6f2;
+      --soft: #eef3fb;
+      --good: #0f7b52;
+      --good-bg: #e7f7ef;
+      --bad: #b42318;
+      --bad-bg: #fff0ed;
+      --warn: #9a6500;
+      --warn-bg: #fff6d9;
+      --shadow: 0 10px 26px rgba(26, 43, 83, .09);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      padding-bottom: 76px;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1160px, calc(100% - 28px)); margin: 0 auto; }
+    .hero {
+      background: linear-gradient(145deg, var(--brand), var(--brand-dark));
+      color: white;
+      padding: 28px 0 24px;
+    }
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .brandmark { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .2px; }
+    .logo {
+      width: 42px; height: 42px; border-radius: var(--radius);
+      background: white; color: var(--brand);
+      display: grid; place-items: center; font-weight: 900;
+      box-shadow: 0 8px 20px rgba(0,0,0,.16);
+    }
+    .hero-grid { display: grid; gap: 20px; align-items: end; }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 7vw, 4rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+      max-width: 850px;
+    }
+    .hero p { margin: 0; max-width: 720px; color: rgba(255,255,255,.88); font-size: 1.06rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .nav-wrap {
+      background: white;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 5px 18px rgba(26, 43, 83, .05);
+      overflow: hidden;
+    }
+    .nav-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 0;
+      scrollbar-width: thin;
+      width: 100%;
+    }
+    .nav-chip {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--brand);
+      border-radius: 999px;
+      padding: 10px 14px;
+      white-space: nowrap;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .nav-chip:hover, .nav-chip.active { background: var(--brand); color: white; border-color: var(--brand); }
+    .searchbox {
+      margin-left: auto;
+      min-width: 220px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      min-height: 44px;
+      color: var(--text);
+      background: var(--bg);
+    }
+    main { padding: 22px 0 34px; }
+    .section-head { display: flex; justify-content: space-between; gap: 14px; align-items: end; margin: 8px 0 16px; }
+    .section-head h2 { margin: 0; font-size: clamp(1.45rem, 4vw, 2.2rem); letter-spacing: 0; }
+    .section-head p { margin: 6px 0 0; color: var(--muted); max-width: 760px; }
+    .grid { display: grid; gap: 14px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card, .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .panel { box-shadow: none; }
+    .card h3, .panel h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .muted { color: var(--muted); }
+    .small { font-size: .9rem; }
+    .tiny { font-size: .8rem; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: var(--soft);
+      color: var(--brand);
+      font-weight: 700;
+      font-size: .8rem;
+      border: 1px solid #d8e1f2;
+    }
+    .btn {
+      border: 0;
+      background: var(--brand);
+      color: white;
+      border-radius: var(--radius);
+      min-height: 46px;
+      padding: 11px 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+    }
+    .btn:hover { background: var(--brand-dark); }
+    .btn.secondary { background: white; color: var(--brand); border: 1px solid var(--line); }
+    .btn.secondary:hover { background: var(--soft); }
+    .btn.good { background: var(--good); }
+    .btn.warn { background: var(--warn); }
+    .btn.ghost { background: transparent; color: var(--brand); border: 1px solid var(--line); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .cta-strip {
+      background: white;
+      border: 1px solid #ccdaee;
+      border-left: 5px solid var(--brand);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin: 16px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+    .progress-shell { height: 12px; background: #e4eaf4; border-radius: 999px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--brand), #0f766e); transition: width .25s ease; }
+    table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: var(--radius); }
+    th, td { padding: 11px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: var(--soft); color: var(--brand); }
+    tr:last-child td { border-bottom: 0; }
+    details {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      box-shadow: 0 4px 12px rgba(26, 43, 83, .05);
+    }
+    details + details { margin-top: 10px; }
+    summary { cursor: pointer; font-weight: 800; color: var(--brand); }
+    .field { display: grid; gap: 6px; margin: 10px 0; }
+    label { font-weight: 750; }
+    input, select, textarea {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      width: 100%;
+      min-height: 46px;
+      background: white;
+      color: var(--text);
+    }
+    textarea { min-height: 150px; resize: vertical; }
+    .option-list { display: grid; gap: 10px; margin-top: 10px; }
+    .option {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      padding: 12px;
+      display: grid;
+      gap: 5px;
+    }
+    .question {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 13px;
+      background: #fbfcff;
+      margin-top: 12px;
+    }
+    .correct { border-color: #83d6b3 !important; background: var(--good-bg) !important; }
+    .wrong { border-color: #f3aaa2 !important; background: var(--bad-bg) !important; }
+    .hint { background: var(--warn-bg); color: #5d4100; border: 1px solid #f1dc8f; border-radius: var(--radius); padding: 10px; margin-top: 8px; }
+    .result {
+      border-radius: var(--radius);
+      padding: 13px;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+    .tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 12px; }
+    .tab { flex: 0 0 auto; }
+    .split { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 14px; align-items: start; }
+    .list-scroll { max-height: 620px; overflow: auto; padding-right: 4px; }
+    .item-btn {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: var(--radius);
+      padding: 11px;
+      min-height: 52px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .item-btn:hover, .item-btn.active { border-color: var(--brand); background: var(--soft); }
+    .timer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 92px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--warn-bg);
+      color: #5d4100;
+      font-weight: 900;
+    }
+    .flashcard {
+      min-height: 210px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border: 2px solid #d7e2f2;
+      border-radius: var(--radius);
+      background: white;
+      padding: 20px;
+      cursor: pointer;
+    }
+    .flashcard strong { display: block; font-size: clamp(1.8rem, 8vw, 3.1rem); color: var(--brand); }
+    .pillbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: white;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .pill.active { background: var(--brand); color: white; border-color: var(--brand); }
+    .iframe-box { aspect-ratio: 16 / 9; background: #dfe6f2; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+    .iframe-box iframe { width: 100%; height: 100%; border: 0; }
+    .footer {
+      background: #17243d;
+      color: white;
+      padding: 28px 0 86px;
+      margin-top: 22px;
+    }
+    .footer a { color: white; text-decoration: underline; text-underline-offset: 3px; }
+    .sticky-actions {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: white;
+      border-top: 1px solid var(--line);
+      box-shadow: 0 -10px 24px rgba(26, 43, 83, .12);
+      z-index: 20;
+    }
+    .sticky-actions .container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 8px 0; }
+    .sticky-actions a {
+      min-height: 48px;
+      border-radius: var(--radius);
+      background: var(--brand);
+      color: white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: .82rem;
+      font-weight: 850;
+      padding: 7px;
+    }
+    .sticky-actions a:nth-child(1) { background: #0f7b52; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    @media (max-width: 920px) {
+      .grid.two, .grid.three, .grid.four { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .list-scroll { max-height: 330px; }
+      .searchbox { min-width: 190px; margin-left: 0; }
+      .section-head { align-items: start; flex-direction: column; }
+      .cta-strip { align-items: start; flex-direction: column; }
+    }
+    @media (min-width: 760px) {
+      body { padding-bottom: 0; }
+      .hero-grid { grid-template-columns: minmax(0, 1fr) 280px; }
+      .sticky-actions { display: none; }
+      .footer { padding-bottom: 34px; }
+    }
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="font-weight:900;letter-spacing:.1em;color:#a98442">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Devam etmek için merkezi AYDA sınıf kodunu girin.</p><label for="aydaPasswordInput">Giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav Hazırlık Ana Sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+  <header class="hero">
+    <div class="container">
+      <div class="topline">
+        <a class="brandmark" href="#dashboard" aria-label="AYDA ana sayfa">
+          <span class="logo">A</span>
+          <span>AYDA Ankara Yabancı Dil Akademisi</span>
+        </a>
+        <a class="btn secondary" href="https://www.aydadil.com" target="_blank" rel="noopener">aydadil.com</a>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <h1>ÖSD A1 Sınav Hazırlık Platformu</h1>
+          <p>Bu platformda ÖSD A1 sınav formatını görebilir, Lesen-Schreiben-Sprechen-Hören bölümlerine göre çalışabilir, kelime tekrarı yapabilir ve deneme sınavlarıyla seviyeni ölçebilirsin.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#mocks">Deneme Sınavına Başla</a>
+            <a class="btn secondary" href="#guide">Sınav Formatını İncele</a>
+            <a class="btn secondary" href="#vocab">Kelime Çalış</a>
+          </div>
+        </div>
+        <div class="card" style="color:var(--text)">
+          <span class="badge">Öğrenci paneli</span>
+          <h3 style="margin-top:10px">Bugünkü hedefin</h3>
+          <p class="muted">Bir bölüm seç, kısa bir alıştırma çöz, yanlışlarını incele ve ilerlemeni kaydet. Düzenli tekrar sınav güvenini artırır.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-wrap">
+    <div class="container">
+      <nav class="nav-row" aria-label="Ana menü" id="mainNav">
+        <a class="nav-chip" href="#dashboard">Ana Sayfa</a>
+        <a class="nav-chip" href="#guide">Sınav Formatı</a>
+        <a class="nav-chip" href="#reading">Lesen</a>
+        <a class="nav-chip" href="#writing">Schreiben</a>
+        <a class="nav-chip" href="#speaking">Sprechen</a>
+        <a class="nav-chip" href="#listening">Hören</a>
+        <a class="nav-chip" href="#vocab">Kelimeler</a>
+        <a class="nav-chip" href="#mocks">Deneme Sınavları</a>
+        <a class="nav-chip" href="#plan">Çalışma Planı</a>
+        <label class="sr-only" for="globalSearch">Sayfa içi arama</label>
+        <input class="searchbox" id="globalSearch" type="search" placeholder="Kelime, deneme, konu ara">
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <div class="container" id="app" aria-live="polite"></div>
+  </main>
+
+  <footer class="footer" id="supportFooter">
+    <div class="container grid three">
+      <div>
+        <h2>AYDA Ankara Yabancı Dil Akademisi</h2>
+        <p>Bu platform ÖSD A1 sınav hazırlığı için öğrencilerimize sunulmuştur.</p>
+      </div>
+      <div>
+        <h3>Kullanım</h3>
+        <p>Formatı incele, alıştırma çöz, deneme sonucunu kaydet ve zor kelimeleri tekrar et.</p>
+      </div>
+      <div>
+        <h3>Not</h3>
+        <p class="small">Resmi sınav garantisi vermez; çalışma, tekrar ve öz değerlendirme amaçlıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-actions" aria-label="Hızlı aksiyonlar">
+    <div class="container">
+      <a href="#mocks">Deneme Çöz</a>
+      <a href="#vocab">Kelime Çalış</a>
+      <a href="#guide">Sınav Formatı</a>
+    </div>
+  </div>
+
+  <script>
+    const YOUTUBE_URL = "https://youtube.com/playlist?list=PL40MMegfbWHaJ4iULdCOOsEdunOer9PbI&si=wamiPNIMwr9P0yQG";
+    const YOUTUBE_EMBED = "https://www.youtube.com/embed/videoseries?list=PL40MMegfbWHaJ4iULdCOOsEdunOer9PbI";
+
+    const storage = {
+      get(key, fallback) {
+        try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
+        catch (error) { return fallback; }
+      },
+      set(key, value) {
+        try { localStorage.setItem(key, JSON.stringify(value)); }
+        catch (error) { console.warn("LocalStorage yazılamadı", error); }
+      }
+    };
+
+    let progress = storage.get("aydaOsdA1Progress", {
+      completed: {},
+      scores: {},
+      vocabKnown: {},
+      vocabHard: {},
+      plan: {}
+    });
+    let selected = {
+      reading: 0,
+      readingMode: "study",
+      writingTab: "form",
+      form: 0,
+      email: 0,
+      speaking: 0,
+      mock: 0,
+      mockSection: "hoeren",
+      vocabMode: "flashcard",
+      vocabIndex: 0,
+      vocabCategory: "Tümü",
+      vocabOnlyHard: false,
+      flashBack: false
+    };
+    let timers = {};
+    let recorderState = { recorder: null, chunks: [] };
+
+    const plan = [
+      ["1. Gün", "Sınav formatı + Lesen Aufgabe 1", "İlanlarda anahtar kelime yakala."],
+      ["2. Gün", "Lesen Aufgabe 2 + Richtig/Falsch", "Cümleyi birebir değil, anlamıyla karşılaştır."],
+      ["3. Gün", "Schreiben Form + kişisel bilgiler", "Tarih, telefon, adres yazımını otomatikleştir."],
+      ["4. Gün", "Schreiben E-mail", "Selamlama, 3 cevap, kapanış düzenini çalış."],
+      ["5. Gün", "Sprechen tanıtma + kartlar", "Kısa cümlelerle durmadan konuşma pratiği yap."],
+      ["6. Gün", "Hören strateji + playlist", "Sayı, saat, tarih ve düzeltme ifadelerine odaklan."],
+      ["7. Gün", "Tam deneme + yanlış analizi", "Puanı gör, yarınki çalışmayı zayıf alana göre seç."]
+    ];
+
+    const plan14 = [
+      ["1. Gün", "Sınav formatını oku ve bölüm sürelerini öğren.", "guide"],
+      ["2. Gün", "Lesen Aufgabe 1 ilan eşleştirme çöz.", "reading"],
+      ["3. Gün", "Lesen Aufgabe 2 kısa metinleri çöz.", "reading"],
+      ["4. Gün", "Lesen Aufgabe 3 seçenek eşleştirme çöz.", "reading"],
+      ["5. Gün", "Schreiben form alanlarını tekrar et.", "writing"],
+      ["6. Gün", "Schreiben e-mail kalıplarıyla 2 metin yaz.", "writing"],
+      ["7. Gün", "Sprechen kendini tanıtma kaydı al.", "speaking"],
+      ["8. Gün", "Hören playlistinden 1 video dinle ve not al.", "listening"],
+      ["9. Gün", "Kelimelerde zor işaretlediğin kartları çalış.", "vocab"],
+      ["10. Gün", "ÖSD A1 Deneme Sınavı 1 çöz.", "mocks"],
+      ["11. Gün", "Yanlışları göster ve zayıf bölümünü tekrar et.", "mocks"],
+      ["12. Gün", "Yeni bir tam deneme çöz.", "mocks"],
+      ["13. Gün", "Sprechen rol yapma ve rica cümleleri tekrar et.", "speaking"],
+      ["14. Gün", "Son tekrar: format, kelime, 1 kısa e-mail.", "plan"]
+    ];
+
+    const adCatalog = [
+      { id:"deutschkurs", situation:"Sie möchten am Abend Deutsch lernen.", title:"Deutsch am Abend", text:"A1-Kurs, Montag und Mittwoch, 18:30 Uhr. Kleine Gruppe in Wien.", explanation:"Deutsch lernen, A1 ve Abend kelimeleri eşleşir." },
+      { id:"hotel", situation:"Sie suchen ein Zimmer für zwei Nächte.", title:"Hotel Sonne", text:"Einzelzimmer und Doppelzimmer frei. Frühstück ab 7 Uhr. Telefonische Reservierung.", explanation:"Zimmer, Nächte ve Hotel bilgileri aynı konudur." },
+      { id:"arzt", situation:"Sie sind krank und brauchen einen Termin.", title:"Praxis Dr. Bauer", text:"Hausarzt. Termine Montag bis Freitag. Bitte rufen Sie ab 8 Uhr an.", explanation:"Krank, Arzt ve Termin doğrudan ipucudur." },
+      { id:"apotheke", situation:"Sie brauchen Medikamente am Samstag.", title:"Apotheke am Markt", text:"Heute bis 18 Uhr offen. Medikamente und Beratung. Samstag Notdienst.", explanation:"Medikamente ve Samstag aynı ilanda geçiyor." },
+      { id:"bahn", situation:"Sie möchten mit dem Zug nach Graz fahren.", title:"Bahnhof Info", text:"Züge nach Graz jede Stunde. Fahrkarten am Schalter und online.", explanation:"Zug, Graz ve Fahrkarte ulaşım ilanıdır." },
+      { id:"bus", situation:"Sie suchen den Bus zum Flughafen.", title:"Airport Bus", text:"Bus 118 fährt alle 30 Minuten zum Flughafen. Haltestelle vor dem Bahnhof.", explanation:"Bus ve Flughafen kelimeleri eşleşir." },
+      { id:"supermarkt", situation:"Sie möchten günstig Lebensmittel kaufen.", title:"Supermarkt Frisch", text:"Brot, Milch, Obst und Gemüse heute im Angebot. Geöffnet bis 20 Uhr.", explanation:"Lebensmittel ve kaufen için süpermarket doğru yerdir." },
+      { id:"cafe", situation:"Sie möchten Kaffee trinken und Kuchen essen.", title:"Café Klein", text:"Kaffee, Tee und Kuchen. Ruhige Tische, täglich ab 9 Uhr geöffnet.", explanation:"Kaffee ve Kuchen doğrudan eşleşir." },
+      { id:"restaurant", situation:"Sie möchten mit Ihrer Familie essen gehen.", title:"Restaurant Familie", text:"Warme Küche ab 11 Uhr. Kinderkarte, Suppe, Salat und Pizza.", explanation:"Familie ve essen gehen restoranla ilgilidir." },
+      { id:"wohnung", situation:"Sie suchen eine kleine Wohnung.", title:"Wohnung frei", text:"2 Zimmer, Küche, Bad. Nähe Zentrum. Miete 640 Euro.", explanation:"Wohnung, Zimmer ve Miete anahtar kelimedir." },
+      { id:"post", situation:"Sie möchten ein Paket schicken.", title:"Postfiliale", text:"Briefe, Pakete und Formulare. Montag bis Freitag 8 bis 18 Uhr.", explanation:"Paket schicken için Post doğru seçenektir." },
+      { id:"bank", situation:"Sie möchten ein Konto eröffnen.", title:"Bank Beratung", text:"Neues Konto, Karte und Beratung. Bitte Pass mitbringen.", explanation:"Konto ve Bank aynı işlemdir." },
+      { id:"rathaus", situation:"Sie brauchen ein Formular für Ihre Adresse.", title:"Bürgerservice", text:"Meldeformular, Adresse ändern, Pass-Info. Nummer ziehen und warten.", explanation:"Formular, Adresse ve resmi işlem ipucudur." },
+      { id:"sport", situation:"Sie möchten nach der Arbeit Sport machen.", title:"Fit am Abend", text:"Yoga, Fitness und Schwimmen. Kurse um 17, 18 und 19 Uhr.", explanation:"Sport machen için Fitness/Yoga ilanı uygundur." },
+      { id:"kino", situation:"Sie möchten am Freitag einen Film sehen.", title:"Kino Heute", text:"Neue Filme Freitag und Samstag. Karten online oder an der Kasse.", explanation:"Film ve Kino eşleşir." },
+      { id:"bibliothek", situation:"Sie möchten ein Buch ausleihen.", title:"Stadtbibliothek", text:"Bücher, Zeitungen und ruhige Lernplätze. Ausweis kostenlos.", explanation:"Buch ausleihen için Bibliothek doğru yerdir." },
+      { id:"sprachpartner", situation:"Sie möchten Deutsch sprechen üben.", title:"Sprach-Treff", text:"Deutsch sprechen in kleiner Runde. Jeden Donnerstag um 18 Uhr.", explanation:"Sprechen üben ve Sprach-Treff aynı amaçtır." },
+      { id:"kleidung", situation:"Sie brauchen neue Schuhe und eine Jacke.", title:"Modehaus Nord", text:"Schuhe, Jacken und Hosen reduziert. Heute bis 19 Uhr geöffnet.", explanation:"Schuhe ve Jacke giyim mağazasıdır." },
+      { id:"handy", situation:"Ihr Handy ist kaputt.", title:"Handy Service", text:"Reparatur für Handy und Tablet. Schnelltest ohne Termin.", explanation:"Handy kaputt ve Reparatur eşleşir." },
+      { id:"reisebuero", situation:"Sie möchten Urlaub in Österreich buchen.", title:"Reisebüro Alpen", text:"Urlaub, Hotel und Zugticket. Beratung am Vormittag.", explanation:"Urlaub buchen ve Reisebüro doğru eşleşmedir." },
+      { id:"kindergarten", situation:"Sie suchen Betreuung für Ihr Kind.", title:"Kindergarten Blumen", text:"Plätze für Kinder ab 3 Jahren. Anmeldung im Büro.", explanation:"Kind ve Betreuung için Kindergarten uygundur." },
+      { id:"friseur", situation:"Sie möchten Ihre Haare schneiden lassen.", title:"Friseur Eva", text:"Haarschnitt für Damen und Herren. Termine auch am Samstag.", explanation:"Haare schneiden ve Friseur aynı konudur." },
+      { id:"schule", situation:"Ihr Kind braucht Hilfe in der Schule.", title:"Lernhilfe A1", text:"Nachhilfe in Deutsch und Mathe. Kleine Gruppen am Nachmittag.", explanation:"Schule ve Hilfe için Lernhilfe/Nachhilfe uygundur." },
+      { id:"museum", situation:"Sie möchten am Sonntag etwas mit Kultur machen.", title:"Museum Stadt", text:"Ausstellung, Führung und Café. Sonntag von 10 bis 17 Uhr.", explanation:"Kultur ve Museum aynı alandır." },
+      { id:"tandem", situation:"Sie möchten eine Person zum Deutschlernen treffen.", title:"Tandem Suche", text:"Ich lerne Deutsch und suche einen Lernpartner. Treffen im Café.", explanation:"Deutschlernen ve Lernpartner/Tandem ipucudur." },
+      { id:"fahrrad", situation:"Sie möchten ein Fahrrad mieten.", title:"Rad Verleih", text:"Fahrräder pro Tag 12 Euro. Helm und Schloss inklusive.", explanation:"Fahrrad mieten için Rad Verleih doğru seçenektir." },
+      { id:"taxi", situation:"Sie brauchen nachts ein Auto mit Fahrer.", title:"Taxi 24", text:"Taxi Tag und Nacht. Auch zum Bahnhof und Flughafen.", explanation:"Auto mit Fahrer ve nachts için Taxi uygundur." },
+      { id:"kursinfo", situation:"Sie möchten wissen, wann ein Kurs beginnt.", title:"Kursbüro", text:"Information zu Kursbeginn, Preisen und Anmeldung. Telefon 09 bis 16 Uhr.", explanation:"Kurs beginnt ve Kursbüro/Information eşleşir." },
+      { id:"ticket", situation:"Sie brauchen eine Eintrittskarte für ein Konzert.", title:"Ticket Shop", text:"Karten für Konzert, Theater und Kino. Online kaufen oder abholen.", explanation:"Eintrittskarte ve Konzert için Ticket Shop doğrudur." },
+      { id:"waschen", situation:"Sie möchten Ihre Kleidung waschen.", title:"Waschsalon", text:"Waschmaschinen und Trockner. Waschmittel am Automaten.", explanation:"Kleidung waschen için Waschsalon doğru seçenektir." }
+    ];
+
+    const readingSeeds = [
+      ["Kurs ve günlük işler", ["deutschkurs","arzt","supermarkt","post","sport"], ["bibliothek","bank","cafe","bahn","hotel"], "Anna", "Montag", "18:00", "Café", "19:30", "25 Euro"],
+      ["Otel ve şehir", ["hotel","bahn","restaurant","museum","taxi"], ["wohnung","reisebuero","ticket","bus","cafe"], "Leo", "Dienstag", "16:00", "Hotel", "20:00", "60 Euro"],
+      ["Sağlık ve randevu", ["arzt","apotheke","friseur","bus","post"], ["deutschkurs","supermarkt","bank","rathaus","sport"], "Mira", "Mittwoch", "09:15", "Praxis", "17:00", "12 Euro"],
+      ["Alışveriş", ["supermarkt","kleidung","handy","bank","waschen"], ["cafe","restaurant","fahrrad","post","kino"], "Paul", "Donnerstag", "14:30", "Einkaufszentrum", "18:15", "35 Euro"],
+      ["Ulaşım", ["bahn","bus","taxi","fahrrad","ticket"], ["hotel","reisebuero","restaurant","museum","post"], "Sofia", "Freitag", "07:45", "Bahnhof", "21:00", "18 Euro"],
+      ["Aile ve okul", ["kindergarten","schule","restaurant","bibliothek","sport"], ["arzt","supermarkt","kino","post","wohnung"], "Emre", "Samstag", "10:00", "Schule", "13:30", "20 Euro"],
+      ["Resmi işlemler", ["rathaus","bank","post","kursinfo","hotel"], ["arzt","apotheke","taxi","supermarkt","museum"], "Nina", "Montag", "11:20", "Büro", "15:45", "10 Euro"],
+      ["Boş zaman", ["kino","museum","sport","cafe","ticket"], ["deutschkurs","bank","post","waschen","arzt"], "Tom", "Sonntag", "12:00", "Kino", "18:30", "14 Euro"],
+      ["Ev ve şehir", ["wohnung","waschen","supermarkt","fahrrad","bus"], ["hotel","cafe","rathaus","sport","kino"], "Derya", "Dienstag", "08:30", "Wohnung", "16:00", "640 Euro"],
+      ["Dil öğrenme", ["deutschkurs","sprachpartner","tandem","kursinfo","bibliothek"], ["arzt","ticket","supermarkt","hotel","taxi"], "Felix", "Mittwoch", "17:30", "Kursraum", "19:00", "90 Euro"],
+      ["Tatil", ["reisebuero","hotel","bahn","restaurant","museum"], ["taxi","apotheke","post","kleidung","bank"], "Selin", "Freitag", "15:00", "Reisebüro", "12:30", "220 Euro"],
+      ["Telefon ve servis", ["handy","bank","post","ticket","taxi"], ["deutschkurs","cafe","wohnung","sport","bibliothek"], "Jonas", "Donnerstag", "10:45", "Service", "17:20", "45 Euro"],
+      ["Yemek ve kafe", ["cafe","restaurant","supermarkt","hotel","ticket"], ["arzt","post","museum","fahrrad","rathaus"], "Elif", "Samstag", "09:00", "Café", "14:00", "8 Euro"],
+      ["Çocuk ve aile", ["kindergarten","schule","arzt","restaurant","fahrrad"], ["bank","waschen","deutschkurs","kino","post"], "Markus", "Montag", "13:00", "Kindergarten", "16:45", "30 Euro"],
+      ["Adres ve kayıt", ["rathaus","wohnung","kursinfo","bank","post"], ["museum","ticket","cafe","apotheke","hotel"], "Aylin", "Dienstag", "09:30", "Amt", "11:30", "15 Euro"],
+      ["Akşam planı", ["sport","kino","cafe","restaurant","taxi"], ["schule","rathaus","apotheke","bibliothek","waschen"], "Can", "Freitag", "18:45", "Zentrum", "22:10", "22 Euro"],
+      ["Kitap ve kurs", ["bibliothek","deutschkurs","sprachpartner","schule","kursinfo"], ["supermarkt","taxi","hotel","friseur","ticket"], "Lisa", "Mittwoch", "08:00", "Bibliothek", "18:00", "5 Euro"],
+      ["Kişisel bakım", ["friseur","apotheke","arzt","kleidung","waschen"], ["bahn","museum","cafe","bank","kindergarten"], "Omar", "Donnerstag", "12:15", "Salon", "15:00", "28 Euro"],
+      ["Hafta sonu", ["museum","kino","fahrrad","restaurant","reisebuero"], ["post","rathaus","handy","schule","bank"], "Maria", "Sonntag", "10:30", "Park", "17:30", "16 Euro"],
+      ["Genel tekrar", ["deutschkurs","hotel","arzt","bahn","supermarkt"], ["rathaus","ticket","sprachpartner","taxi","cafe"], "Ali", "Samstag", "11:45", "Stadt", "19:45", "40 Euro"]
+    ];
+
+    function byId(id) { return adCatalog.find(item => item.id === id); }
+    function letter(index) { return String.fromCharCode(65 + index); }
+    function normalize(text) {
+      return String(text || "").toLowerCase().trim()
+        .replaceAll("ı","i").replaceAll("İ","i")
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[.,;:!?'"]/g, "").replace(/\s+/g, " ");
+    }
+    function rotate(array, offset) { return array.slice(offset).concat(array.slice(0, offset)); }
+    function scaleScore(correct, total, max) { return Math.round((correct / total) * max); }
+
+    function buildReadingTest(seed, index) {
+      const [title, keys1, keys3, name, day, time, place, close, price] = seed;
+      const distractor = adCatalog[(index * 3 + 7) % adCatalog.length].id;
+      const optionIds1 = rotate([...keys1, distractor], index % 6);
+      const options1 = optionIds1.map((id, optIndex) => ({ ...byId(id), letter: letter(optIndex) }));
+      const task1 = keys1.map((id, qIndex) => ({
+        situation: byId(id).situation,
+        correct: options1.findIndex(opt => opt.id === id),
+        explanation: byId(id).explanation,
+        hint: "Durumdaki fiil ve isimleri ilandaki kelimelerle eşleştir."
+      }));
+
+      const task2 = [
+        {
+          text: `Hallo ${name}, ich kann am ${day} nicht zum Treffen kommen. Ich habe um ${time} einen Termin. Wir treffen uns morgen im ${place}. Viele Grüße`,
+          questions: [
+            { q:`Die Person kommt am ${day} zum Treffen.`, answer:false, explanation:`Metinde "${day} nicht" deniyor; yani o gün gelmiyor.` },
+            { q:`Die Person hat um ${time} einen Termin.`, answer:true, explanation:`Saat bilgisi metinde açıkça yazıyor.` }
+          ]
+        },
+        {
+          text: `Information: Das ${place} ist heute bis ${close} geöffnet. Am Sonntag ist geschlossen. Der Eintritt kostet ${price}.`,
+          questions: [
+            { q:`Das ${place} ist heute geöffnet.`, answer:true, explanation:`"heute bis ${close} geöffnet" ifadesi açıktır.` },
+            { q:`Am Sonntag kann man kommen.`, answer:false, explanation:`"Am Sonntag ist geschlossen" kapalı demektir.` }
+          ]
+        },
+        {
+          text: `Sehr geehrte Damen und Herren, ich möchte mich anmelden. Ich heiße ${name} Yilmaz. Bitte schicken Sie mir Informationen per E-Mail. Danke.`,
+          questions: [
+            { q:`Die Person möchte Informationen bekommen.`, answer:true, explanation:`"Bitte schicken Sie mir Informationen" ifadesi bunu söyler.` },
+            { q:`Die Person schreibt an einen Freund.`, answer:false, explanation:`"Sehr geehrte Damen und Herren" resmi yazışmadır.` }
+          ]
+        }
+      ];
+
+      const optionIds3 = rotate([...keys3, adCatalog[(index * 5 + 11) % adCatalog.length].id], (index + 2) % 6);
+      const options3 = optionIds3.map((id, optIndex) => ({ ...byId(id), letter: letter(optIndex) }));
+      const task3 = keys3.map((id) => ({
+        text: `Sie lesen: "${byId(id).text}" Wohin passt das?`,
+        correct: options3.findIndex(opt => opt.id === id),
+        explanation: byId(id).explanation,
+        hint: "Yer, hizmet veya ürün kelimesini seçenekte ara."
+      }));
+
+      return { id:`lesen-${index + 1}`, title:`Lesen Denemesi ${index + 1}: ${title}`, task1, options1, task2, task3, options3 };
+    }
+
+    const formTasks = [
+      { title:"Kurs kayıt formu", scenario:"Anna Müller A1 Almanca kursuna kayıt olmak istiyor.", info:"Anna Müller, 12.04.1995, Avusturya, Wien, 0660 1234567, Sekreterin, A1 Abendkurs", fields:[["Vorname",["Anna"]],["Familienname",["Müller","Mueller"]],["Geburtsdatum",["12.04.1995","12.4.1995"]],["Staatsangehörigkeit",["Österreich","Osterreich"]],["Telefon",["0660 1234567","06601234567"]],["Kurs",["A1 Abendkurs","Abendkurs"]]] },
+      { title:"Otel rezervasyonu", scenario:"Leo Schneider iki gece otelde kalacak.", info:"Leo Schneider, 03.08.1988, Deutschland, Hamburg, 0176 5558822, Doppelzimmer, 2 Nächte", fields:[["Vorname",["Leo"]],["Familienname",["Schneider"]],["Land",["Deutschland"]],["Telefon",["0176 5558822","01765558822"]],["Zimmer",["Doppelzimmer"]],["Nächte",["2","zwei","2 Nächte"]]] },
+      { title:"Doktor randevusu", scenario:"Mira Kaya aile doktorundan randevu alıyor.", info:"Mira Kaya, 21.01.2001, Türkei, Graz, 0676 908070, Studentin, Termin 15.06 um 09:30", fields:[["Vorname",["Mira"]],["Familienname",["Kaya"]],["Geburtsdatum",["21.01.2001","21.1.2001"]],["Beruf",["Studentin"]],["Termin",["15.06","15.6","15.06 09:30","15.06 um 09:30"]],["Uhrzeit",["09:30","9:30"]]] },
+      { title:"Banka formu", scenario:"Paul Novak yeni hesap açıyor.", info:"Paul Novak, 30.11.1990, Slowakei, Linz, Lehrer, 0699 334455", fields:[["Vorname",["Paul"]],["Familienname",["Novak"]],["Geburtsdatum",["30.11.1990"]],["Staatsangehörigkeit",["Slowakei"]],["Beruf",["Lehrer"]],["Telefon",["0699 334455","0699334455"]]] },
+      { title:"Kütüphane kartı", scenario:"Sofia Demir kütüphane kartı istiyor.", info:"Sofia Demir, 04.05.1999, Wien, Favoritenstraße 10, 0664 112233, Türkei", fields:[["Vorname",["Sofia"]],["Familienname",["Demir"]],["Adresse",["Favoritenstraße 10","Favoritenstrasse 10"]],["Wohnort",["Wien"]],["Telefon",["0664 112233","0664112233"]],["Land",["Türkei","Turkei"]]] },
+      { title:"Spor kursu", scenario:"Emre Arslan yüzme kursuna yazılıyor.", info:"Emre Arslan, 18.09.1997, Ankara, 0650 777888, Schwimmen, Montag 18 Uhr", fields:[["Vorname",["Emre"]],["Familienname",["Arslan"]],["Geburtsdatum",["18.09.1997","18.9.1997"]],["Telefon",["0650 777888","0650777888"]],["Kurs",["Schwimmen","Schwimmkurs"]],["Tag",["Montag"]]] },
+      { title:"Adres değişikliği", scenario:"Nina Weber yeni adresini bildiriyor.", info:"Nina Weber, neue Adresse: Hauptstraße 45, 4020 Linz, Telefon 0732 123900, ledig", fields:[["Vorname",["Nina"]],["Familienname",["Weber"]],["Straße",["Hauptstraße 45","Hauptstrasse 45"]],["PLZ",["4020"]],["Ort",["Linz"]],["Familienstand",["ledig"]]] },
+      { title:"Sinema üyeliği", scenario:"Tom Berger sinema kartı istiyor.", info:"Tom Berger, 07.07.1994, Salzburg, 0660 909090, Beruf: Koch, E-Mail: tom@mail.at", fields:[["Vorname",["Tom"]],["Familienname",["Berger"]],["Geburtsdatum",["07.07.1994","7.7.1994"]],["Ort",["Salzburg"]],["Beruf",["Koch"]],["E-Mail",["tom@mail.at"]]] },
+      { title:"Ev arama formu", scenario:"Derya Öz küçük daire arıyor.", info:"Derya Öz, 1 Zimmer, max. 550 Euro, Wien, Telefon 0677 121212, ab August", fields:[["Vorname",["Derya"]],["Familienname",["Öz","Oz"]],["Zimmer",["1","ein","1 Zimmer"]],["Miete",["550","550 Euro","max. 550 Euro"]],["Ort",["Wien"]],["Ab wann?",["August","ab August"]]] },
+      { title:"Dil partneri", scenario:"Felix Maier konuşma partneri arıyor.", info:"Felix Maier, Deutsch und Englisch, Treffen Donnerstag 18 Uhr, Café, 0650 444333", fields:[["Vorname",["Felix"]],["Familienname",["Maier"]],["Sprache 1",["Deutsch"]],["Sprache 2",["Englisch"]],["Tag",["Donnerstag"]],["Uhrzeit",["18 Uhr","18:00"]]] },
+      { title:"Tatil formu", scenario:"Selin Acar tatil danışmanlığı formu dolduruyor.", info:"Selin Acar, Urlaub in Tirol, 4 Personen, Juli, Hotel mit Frühstück, 0678 222111", fields:[["Vorname",["Selin"]],["Familienname",["Acar"]],["Reiseziel",["Tirol"]],["Personen",["4","vier"]],["Monat",["Juli"]],["Wunsch",["Hotel mit Frühstück","Frühstück","Fruhstuck"]]] },
+      { title:"Telefon servisi", scenario:"Jonas Klein telefon tamiri için form dolduruyor.", info:"Jonas Klein, Handy kaputt, Modell X5, Abgabe 12.03, Telefon 0151 800700", fields:[["Vorname",["Jonas"]],["Familienname",["Klein"]],["Gerät",["Handy"]],["Modell",["X5","x5"]],["Datum",["12.03","12.3"]],["Telefon",["0151 800700","0151800700"]]] },
+      { title:"Kafe iş başvurusu", scenario:"Elif Yıldız kafe için kısa form dolduruyor.", info:"Elif Yıldız, 25 Jahre, Studentin, kann Samstag arbeiten, Telefon 0664 303030", fields:[["Vorname",["Elif"]],["Familienname",["Yıldız","Yildiz"]],["Alter",["25","25 Jahre"]],["Beruf",["Studentin"]],["Arbeitstag",["Samstag"]],["Telefon",["0664 303030","0664303030"]]] },
+      { title:"Çocuk kursu", scenario:"Markus Huber çocuğu için kurs formu dolduruyor.", info:"Kind: Lisa Huber, 6 Jahre, Kurs: Deutsch für Kinder, Mittwoch 16 Uhr, Vater: Markus", fields:[["Name des Kindes",["Lisa Huber"]],["Alter",["6","6 Jahre"]],["Kurs",["Deutsch für Kinder","Deutsch"]],["Tag",["Mittwoch"]],["Uhrzeit",["16 Uhr","16:00"]],["Kontaktperson",["Markus","Markus Huber"]]] },
+      { title:"Resmi randevu", scenario:"Aylin Çelik belediye randevusu istiyor.", info:"Aylin Çelik, Meldezettel, Termin 22.04 um 10:15, Adresse neu: Parkgasse 8", fields:[["Vorname",["Aylin"]],["Familienname",["Çelik","Celik"]],["Formular",["Meldezettel"]],["Datum",["22.04","22.4"]],["Uhrzeit",["10:15"]],["Adresse",["Parkgasse 8"]]] },
+      { title:"Restoran rezervasyonu", scenario:"Can Polat akşam için masa ayırtıyor.", info:"Can Polat, 3 Personen, Freitag 19:45, Nichtraucher, Telefon 0690 888999", fields:[["Vorname",["Can"]],["Familienname",["Polat"]],["Personen",["3","drei"]],["Tag",["Freitag"]],["Uhrzeit",["19:45"]],["Wunsch",["Nichtraucher"]]] },
+      { title:"Kitap siparişi", scenario:"Lisa Braun kitap siparişi veriyor.", info:"Lisa Braun, Buch: Deutsch A1, 1 Stück, Adresse: Seestraße 2, 6020 Innsbruck", fields:[["Vorname",["Lisa"]],["Familienname",["Braun"]],["Buch",["Deutsch A1"]],["Anzahl",["1","eins","1 Stück"]],["Adresse",["Seestraße 2","Seestrasse 2"]],["Ort",["Innsbruck"]]] },
+      { title:"Kuaför randevusu", scenario:"Omar Said saç kesimi randevusu alıyor.", info:"Omar Said, Haarschnitt, Samstag 11 Uhr, Telefon 0676 101010, kurz schneiden", fields:[["Vorname",["Omar"]],["Familienname",["Said"]],["Service",["Haarschnitt"]],["Tag",["Samstag"]],["Uhrzeit",["11 Uhr","11:00"]],["Wunsch",["kurz schneiden","kurz"]]] },
+      { title:"Müze ziyareti", scenario:"Maria Wolf grup ziyareti için form dolduruyor.", info:"Maria Wolf, Museum Stadt, 12 Personen, Sonntag 10:30, Führung Deutsch", fields:[["Vorname",["Maria"]],["Familienname",["Wolf"]],["Ort",["Museum Stadt","Museum"]],["Personen",["12","zwölf","zwoelf"]],["Tag",["Sonntag"]],["Uhrzeit",["10:30"]]] },
+      { title:"Genel başvuru", scenario:"Ali Kaplan kısa başvuru formu dolduruyor.", info:"Ali Kaplan, 29 Jahre, Türkei, Wien, Beruf: Fahrer, Telefon 0660 555444", fields:[["Vorname",["Ali"]],["Familienname",["Kaplan"]],["Alter",["29","29 Jahre"]],["Land",["Türkei","Turkei"]],["Beruf",["Fahrer"]],["Telefon",["0660 555444","0660555444"]]] }
+    ];
+
+    const emailTasks = [
+      ["Arkadaş daveti", "Arkadaşın seni Cumartesi kafeye çağırıyor. Cevap yaz.", ["Gelebilir misin?","Saat kaçta uygunsun?","Ne içmek istersin?"], [["ja","komme","kann"],["uhr","zeit","samstag"],["kaffee","tee","trinken"]], "Hallo Anna,\nich komme gern am Samstag. Um 15 Uhr habe ich Zeit. Ich möchte Kaffee trinken. Danke für die Einladung.\nLiebe Grüße\nAli"],
+      ["Kurs bilgisi", "Dil kursuna e-mail yaz. A1 kursu hakkında bilgi iste.", ["Hangi kursu istiyorsun?","Ne zaman başlayabilir misin?","Telefon numaran nedir?"], [["a1","deutsch"],["montag","abend","start"],["telefon","nummer"]], "Sehr geehrte Damen und Herren,\nich möchte einen A1-Deutschkurs besuchen. Ich kann am Abend kommen. Meine Telefonnummer ist 0660 1234567.\nMit freundlichen Grüßen\nAyşe"],
+      ["Otel", "Otele kısa rezervasyon e-maili yaz.", ["Kaç gece kalacaksın?","Kaç kişi?","Kahvaltı ister misin?"], [["nacht","nächte"],["person","personen"],["frühstück","fruhstuck"]], "Sehr geehrte Damen und Herren,\nich möchte zwei Nächte bleiben. Wir sind zwei Personen. Bitte ein Zimmer mit Frühstück.\nMit freundlichen Grüßen\nMehmet"],
+      ["Randevu iptali", "Doktor randevunu iptal etmek için yaz.", ["Neden gelemiyorsun?","Hangi gün randevun vardı?","Yeni randevu ister misin?"], [["krank","arbeit","nicht"],["montag","dienstag","termin"],["neu","randevu","termin"]], "Sehr geehrte Damen und Herren,\nich kann heute nicht kommen, weil ich arbeiten muss. Mein Termin ist am Montag. Ich möchte bitte einen neuen Termin.\nViele Grüße\nMira"],
+      ["Doğum günü", "Arkadaşına doğum günü için cevap yaz.", ["Tebrik et.","Gelebilir misin?","Ne getireceksin?"], [["alles gute","geburtstag"],["komme","kann"],["kuchen","geschenk","salat"]], "Hallo Leo,\nalles Gute zum Geburtstag! Ich komme gern zur Party. Ich bringe einen Kuchen mit.\nLiebe Grüße\nSofia"],
+      ["Yol sorma", "Bir kişiye istasyona nasıl gidileceğini sor.", ["Nereye gitmek istiyorsun?","Ne ile gitmek istiyorsun?","Teşekkür et."], [["bahnhof","station"],["bus","zug","bahn"],["danke","vielen dank"]], "Hallo,\nich möchte zum Bahnhof gehen. Kann ich mit dem Bus fahren? Vielen Dank für Ihre Hilfe.\nViele Grüße\nEmre"],
+      ["Alışveriş", "Mağazaya ürün hakkında e-mail yaz.", ["Ne almak istiyorsun?","Hangi beden/renk?","Fiyatı sor."], [["jacke","schuhe","hose"],["größe","groesse","farbe"],["preis","kostet"]], "Guten Tag,\nich möchte eine Jacke kaufen. Haben Sie Größe M in blau? Wie viel kostet die Jacke?\nViele Grüße\nNina"],
+      ["Ev arama", "Daire ilanına cevap yaz.", ["Kaç oda istiyorsun?","Ne kadar kira uygun?","Ne zaman taşınabilirsin?"], [["zimmer"],["miete","euro"],["august","september","ziehen"]], "Guten Tag,\nich suche eine Wohnung mit zwei Zimmern. Die Miete kann bis 650 Euro sein. Ich kann ab August einziehen.\nMit freundlichen Grüßen\nDerya"],
+      ["Kütüphane", "Kütüphaneye kart almak için yaz.", ["Kart istiyorsun.","Adresini yaz.","Ne zaman gelebilirsin?"], [["karte","ausweis"],["adresse","straße","strasse"],["montag","uhr","kommen"]], "Guten Tag,\nich möchte eine Bibliothekskarte. Meine Adresse ist Seestraße 2 in Innsbruck. Ich kann am Montag um 10 Uhr kommen.\nViele Grüße\nLisa"],
+      ["Spor kursu", "Spor merkezine kısa e-mail yaz.", ["Hangi kurs?","Hangi gün?","Telefonunu yaz."], [["yoga","fitness","schwimmen"],["montag","mittwoch","tag"],["telefon","nummer"]], "Guten Tag,\nich möchte Yoga machen. Ich kann am Mittwochabend kommen. Meine Telefonnummer ist 0676 101010.\nViele Grüße\nCan"],
+      ["Tatil planı", "Arkadaşına tatil planı hakkında yaz.", ["Nereye gitmek istiyorsun?","Ne zaman?","Kim geliyor?"], [["tirol","wien","meer"],["juli","august","wochenende"],["familie","freund","freundin"]], "Hallo Tom,\nich möchte im Juli nach Tirol fahren. Meine Familie kommt auch mit. Hast du am Wochenende Zeit?\nLiebe Grüße\nSelin"],
+      ["Kafe buluşması", "Arkadaşına buluşma e-maili yaz.", ["Nerede buluşacaksınız?","Saat kaçta?","Geç kalırsan ne olur?"], [["cafe","café"],["uhr","zeit"],["spät","spaet","anrufen"]], "Hallo Maria,\nwir treffen uns im Café Klein. Ich bin um 16 Uhr dort. Wenn ich spät bin, rufe ich dich an.\nLiebe Grüße\nJonas"],
+      ["Posta", "Postaneye paket hakkında yaz.", ["Ne göndermek istiyorsun?","Nereye?","Fiyat sor."], [["paket","brief"],["wien","graz","adresse"],["kostet","preis"]], "Guten Tag,\nich möchte ein Paket nach Graz schicken. Die Adresse ist Hauptstraße 45. Wie viel kostet das?\nViele Grüße\nPaul"],
+      ["Telefon tamiri", "Servise telefon tamiri için yaz.", ["Sorun nedir?","Ne zaman getirebilirsin?","Telefon numaran?"], [["kaputt","display","handy"],["montag","morgen","bringen"],["telefon","nummer"]], "Guten Tag,\nmein Handy ist kaputt. Ich kann es am Montag bringen. Meine Telefonnummer ist 0151 800700.\nViele Grüße\nOmar"],
+      ["Çocuk kursu", "Çocuk kursu için bilgi iste.", ["Çocuğun adı/yaşı.","Hangi kurs?","Saat sor."], [["kind","jahre","name"],["deutsch","kurs"],["uhr","wann","zeit"]], "Guten Tag,\nmeine Tochter Lisa ist sechs Jahre alt. Sie möchte einen Deutschkurs besuchen. Wann ist der Kurs?\nViele Grüße\nMarkus"],
+      ["Resmi form", "Belediyeye adres değişikliği için yaz.", ["Ne değiştirmek istiyorsun?","Yeni adresin nedir?","Randevu iste."], [["adresse","ändern","andern"],["parkgasse","straße","strasse"],["termin","randevu"]], "Sehr geehrte Damen und Herren,\nich möchte meine Adresse ändern. Meine neue Adresse ist Parkgasse 8. Ich brauche bitte einen Termin.\nMit freundlichen Grüßen\nAylin"],
+      ["Restoran", "Restorana rezervasyon e-maili yaz.", ["Kaç kişi?","Hangi gün/saat?","Özel isteğin var mı?"], [["person","personen"],["freitag","uhr"],["nichtraucher","fenster","wunsch"]], "Guten Tag,\nich möchte einen Tisch für drei Personen reservieren. Wir kommen am Freitag um 19:45 Uhr. Bitte einen Nichtrauchertisch.\nViele Grüße\nCan"],
+      ["Sinema", "Arkadaşına sinema planı yaz.", ["Hangi film?","Saat kaçta?","Bilet alacak mısın?"], [["film","kino"],["uhr","zeit"],["karte","ticket"]], "Hallo Elif,\nich möchte heute den neuen Film sehen. Der Film beginnt um 18 Uhr. Ich kaufe zwei Karten.\nLiebe Grüße\nTom"],
+      ["İş başvurusu", "Kafeye kısa iş başvuru e-maili yaz.", ["Kendini tanıt.","Ne zaman çalışabilirsin?","Telefonunu yaz."], [["heiße","heisse","student"],["samstag","abend","arbeiten"],["telefon","nummer"]], "Guten Tag,\nich heiße Elif und bin Studentin. Ich kann am Samstag arbeiten. Meine Telefonnummer ist 0664 303030.\nMit freundlichen Grüßen\nElif"],
+      ["Sınav provası", "AYDA’ya sınav provası için yaz.", ["Hangi sınav?","Ne zaman uygunsun?","Ne çalışmak istiyorsun?"], [["ösd","osd","a1"],["morgen","abend","samstag"],["sprechen","schreiben","lesen"]], "Guten Tag,\nich bereite mich auf ÖSD A1 vor. Ich habe am Samstag Zeit. Ich möchte Sprechen und Schreiben üben.\nViele Grüße\nAli"]
+    ].map((item, i) => ({ id:`email-${i + 1}`, title:`E-mail Görevi ${i + 1}: ${item[0]}`, situation:item[1], questions:item[2], keywords:item[3], sample:item[4], patterns:["Hallo ... / Guten Tag ...","ich möchte ...","ich kann am ... um ... kommen.","Bitte schreiben Sie mir.","Liebe Grüße / Mit freundlichen Grüßen"] }));
+
+    const speakingSeeds = [
+      ["Kafede buluşma", ["Bir kafede iki kişi oturuyor. Masada kahve ve kek var.", "Bir garson menü getiriyor. Bir kişi çay istiyor.", "Kasa yanında bir kişi ödeme yapıyor."], "Kafede kahve sipariş et ve fiyatı sor."],
+      ["Doktor", ["Bir hasta bekleme odasında oturuyor. Elinde sigorta kartı var.", "Doktor masada oturuyor. Hasta baş ağrısını anlatıyor.", "Resepsiyonda bir kişi randevu alıyor."], "Doktordan yeni randevu al."],
+      ["Tren istasyonu", ["Bir kişi bilet makinesinin önünde duruyor.", "Peronda insanlar treni bekliyor.", "Bir kişi görevliye saat soruyor."], "Graz’a tren bileti almak istediğini söyle."],
+      ["Alışveriş", ["Bir müşteri markette ekmek ve süt alıyor.", "Bir kişi kasada ödeme yapıyor.", "Bir kadın ayakkabı deniyor."], "Mağazada beden ve fiyat sor."],
+      ["Dil kursu", ["Sınıfta öğrenciler öğretmeni dinliyor.", "Tahtada Almanca kelimeler yazıyor.", "Bir öğrenci kayıt formu dolduruyor."], "A1 kursu hakkında bilgi iste."],
+      ["Otel", ["Resepsiyonda bir turist pasaport veriyor.", "Odada küçük bir yatak ve masa var.", "Kahvaltı salonunda insanlar oturuyor."], "Otel odası ayırt ve kahvaltı sor."],
+      ["Aile", ["Bir aile parkta yürüyor.", "Çocuk top oynuyor.", "Anne ve baba bankta oturuyor."], "Aileni kısa tanıt."],
+      ["Ev", ["Bir odada masa, sandalye ve lamba var.", "Mutfakta bir kişi yemek yapıyor.", "Banyoda havlu ve sabun var."], "Yeni daire hakkında soru sor."],
+      ["Postane", ["Bir kişi paket taşıyor.", "Posta görevlisi form veriyor.", "Kuyrukta üç kişi bekliyor."], "Paket göndermek istediğini söyle."],
+      ["Belediye", ["Bir kişi numara alıyor.", "Görevli bilgisayarda bakıyor.", "Form üzerinde adres yazıyor."], "Adres değişikliği için yardım iste."],
+      ["Spor", ["Bir kişi yüzme havuzuna gidiyor.", "İki kişi spor salonunda koşuyor.", "Bir eğitmen yoga gösteriyor."], "Spor kursuna kayıt olmak iste."],
+      ["Tatil", ["Bir aile valizle otelden çıkıyor.", "Haritada şehir isimleri var.", "Turist bilgi bürosunda broşür alıyor."], "Tatil için otel ve tren sor."],
+      ["Telefon", ["Bir kişi kırık telefon gösteriyor.", "Servis masasında küçük aletler var.", "Müşteri bekleme sandalyesinde oturuyor."], "Telefon tamiri için süre ve fiyat sor."],
+      ["Kütüphane", ["Raflarda çok kitap var.", "Bir öğrenci sessizce çalışıyor.", "Görevli kitap veriyor."], "Kütüphane kartı almak iste."],
+      ["Restoran", ["Masada çorba ve salata var.", "Garson sipariş alıyor.", "Aile akşam yemeği yiyor."], "Masa ayırt ve kişi sayısını söyle."],
+      ["Okul", ["Çocuklar sınıfta oturuyor.", "Öğretmen deftere bakıyor.", "Bir çocuk kalem istiyor."], "Çocuğun için kurs bilgisi iste."],
+      ["Sinema", ["Bilet gişesinde iki kişi var.", "Afişte yeni film yazıyor.", "İnsanlar salona giriyor."], "İki sinema bileti al."],
+      ["Kuaför", ["Bir kişi aynanın önünde oturuyor.", "Kuaför makas tutuyor.", "Bekleme koltuğunda dergi var."], "Saç kesimi için randevu al."],
+      ["Banka", ["Bir kişi kartını gösteriyor.", "Görevli form dolduruyor.", "Masada para ve kalem var."], "Yeni hesap açmak istediğini söyle."],
+      ["Genel tekrar", ["Bir şehir meydanında insanlar yürüyor.", "Bir kişi yol tabelasına bakıyor.", "Otobüs durağında insanlar bekliyor."], "Yol sor ve teşekkür et."]
+    ];
+
+    function buildSpeakingSet(seed, index) {
+      const baseTopics = ["Name", "Alter", "Wohnort", "Beruf", "Familie", "Sprachen", "Hobbys", "Essen"];
+      return {
+        id:`sprechen-${index + 1}`,
+        title:`Sprechen Set ${index + 1}: ${seed[0]}`,
+        introTopics: rotate(baseTopics, index % baseTopics.length).slice(0, 6),
+        scenes: seed[1],
+        role: seed[2],
+        starts: ["Ich heiße ...", "Ich wohne in ...", "Auf dem Bild sehe ich ...", "Ich möchte bitte ...", "Wie viel kostet ...?", "Kann ich einen Termin haben?"],
+        sample: `Ich heiße Ali. Ich wohne in Ankara. Auf der Karte sehe ich ${seed[0].toLowerCase()}. Die Personen sprechen. Ich kann einfache Fragen stellen und ruhig antworten.`,
+        patterns: ["Entschuldigung, ich habe eine Frage.", "Können Sie das bitte wiederholen?", "Ich weiß das Wort nicht, aber ...", "Noch einmal bitte.", "Danke, das ist alles."]
+      };
+    }
+
+    function buildListeningSheet(index) {
+      const topics = ["Termin", "Preis", "Telefon", "Uhrzeit", "Adresse", "Tag", "Monat", "Bahnhof", "Kurs", "Zimmer"];
+      return {
+        title:`Hören Antwortbogen ${index + 1}`,
+        instruction:"Playlistten bir A1 Hören videosu aç. Soruları videoya göre çöz ve cevaplarını burada işaretle. Sitede ses dosyası üretilmez.",
+        tasks:[
+          { title:"Aufgabe 1", note:"Kısa duyurular: doğru seçeneği işaretle.", count:5, options:["A","B","C"] },
+          { title:"Aufgabe 2", note:"Kısa konuşmalar: Richtig/Falsch işaretle.", count:5, options:["Richtig","Falsch"] },
+          { title:"Not alma", note:"Duyduğun ana bilgileri yaz.", count:5, prompts:rotate(topics, index % topics.length).slice(0,5) }
+        ]
+      };
+    }
+
+    const listeningPractice = [
+      { text:"Der Termin ist am Montag, dem 12. Mai, um 9 Uhr 30.", ask:"Tarih ve saati bul.", answer:["12. mai","12 mai","9 uhr 30","09:30","9:30"] },
+      { text:"Die Fahrkarte kostet 18 Euro und 50 Cent.", ask:"Fiyatı bul.", answer:["18,50","18 euro 50","18 euro"] },
+      { text:"Meine Telefonnummer ist 0664 123 45 67.", ask:"Telefon numarasını bul.", answer:["0664 123 45 67","06641234567"] },
+      { text:"Der Zug fährt nicht um 7 Uhr, sondern um 7 Uhr 45.", ask:"Doğru saati bul.", answer:["7 uhr 45","07:45","7:45"] },
+      { text:"Bitte kommen Sie in die Parkgasse 8, im zweiten Stock.", ask:"Adresi bul.", answer:["parkgasse 8","2 stock","zweiten stock"] }
+    ];
+
+    const vocabRaw = `
+der Vater|baba|aile
+die Mutter|anne|aile
+die Eltern|ebeveynler|aile
+der Sohn|erkek çocuk|aile
+die Tochter|kız çocuk|aile
+das Kind|çocuk|aile
+der Bruder|erkek kardeş|aile
+die Schwester|kız kardeş|aile
+der Mann|adam/eş|aile
+die Frau|kadın/eş|aile
+der Freund|erkek arkadaş|aile
+die Freundin|kız arkadaş|aile
+die Familie|aile|aile
+verheiratet|evli|aile
+ledig|bekar|aile
+alt|yaşlı/eski|aile
+jung|genç|aile
+heißen|adı olmak|aile
+der Lehrer|öğretmen|meslek
+die Lehrerin|öğretmen|meslek
+der Arzt|doktor|meslek
+die Ärztin|doktor|meslek
+der Verkäufer|satıcı|meslek
+die Verkäuferin|satıcı|meslek
+der Fahrer|şoför|meslek
+die Köchin|aşçı|meslek
+der Koch|aşçı|meslek
+der Student|öğrenci|meslek
+die Studentin|öğrenci|meslek
+arbeiten|çalışmak|meslek
+der Beruf|meslek|meslek
+die Arbeit|iş|meslek
+das Büro|ofis|meslek
+die Firma|şirket|meslek
+der Termin|randevu|randevu
+die Uhrzeit|saat|randevu
+der Kalender|takvim|randevu
+anrufen|aramak|randevu
+kommen|gelmek|randevu
+absagen|iptal etmek|randevu
+verschieben|ertelemek|randevu
+heute|bugün|tarih/saat
+morgen|yarın|tarih/saat
+gestern|dün|tarih/saat
+der Montag|pazartesi|tarih/saat
+der Dienstag|salı|tarih/saat
+der Mittwoch|çarşamba|tarih/saat
+der Donnerstag|perşembe|tarih/saat
+der Freitag|cuma|tarih/saat
+der Samstag|cumartesi|tarih/saat
+der Sonntag|pazar|tarih/saat
+der Januar|ocak|tarih/saat
+der Februar|şubat|tarih/saat
+der März|mart|tarih/saat
+der April|nisan|tarih/saat
+der Mai|mayıs|tarih/saat
+der Juni|haziran|tarih/saat
+der Juli|temmuz|tarih/saat
+der August|ağustos|tarih/saat
+der September|eylül|tarih/saat
+der Oktober|ekim|tarih/saat
+der November|kasım|tarih/saat
+der Dezember|aralık|tarih/saat
+die Stadt|şehir|şehir/ulaşım
+der Bahnhof|tren istasyonu|şehir/ulaşım
+der Zug|tren|şehir/ulaşım
+der Bus|otobüs|şehir/ulaşım
+die Haltestelle|durak|şehir/ulaşım
+das Taxi|taksi|şehir/ulaşım
+das Fahrrad|bisiklet|şehir/ulaşım
+die Straße|cadde/sokak|şehir/ulaşım
+die Adresse|adres|şehir/ulaşım
+der Flughafen|havalimanı|şehir/ulaşım
+die Fahrkarte|bilet|şehir/ulaşım
+fahren|gitmek/sürmek|şehir/ulaşım
+gehen|gitmek|şehir/ulaşım
+links|sol|yön/adres
+rechts|sağ|yön/adres
+geradeaus|düz|yön/adres
+oben|yukarıda|yön/adres
+unten|aşağıda|yön/adres
+in der Nähe|yakında|yön/adres
+weit|uzak|yön/adres
+nah|yakın|yön/adres
+der Supermarkt|süpermarket|alışveriş
+das Geschäft|mağaza|alışveriş
+kaufen|satın almak|alışveriş
+bezahlen|ödemek|alışveriş
+kosten|fiyatı olmak|alışveriş
+der Preis|fiyat|alışveriş
+billig|ucuz|alışveriş
+teuer|pahalı|alışveriş
+das Angebot|indirim/teklif|alışveriş
+die Kasse|kasa|alışveriş
+die Tasche|çanta|alışveriş
+die Jacke|ceket|alışveriş
+die Hose|pantolon|alışveriş
+die Schuhe|ayakkabılar|alışveriş
+die Größe|beden|alışveriş
+die Farbe|renk|alışveriş
+krank|hasta|sağlık
+gesund|sağlıklı|sağlık
+der Kopf|baş|sağlık
+der Bauch|karın|sağlık
+der Hals|boğaz|sağlık
+die Schmerzen|ağrılar|sağlık
+die Praxis|muayenehane|sağlık
+die Apotheke|eczane|sağlık
+das Medikament|ilaç|sağlık
+die Versicherung|sigorta|sağlık
+helfen|yardım etmek|sağlık
+brauchen|ihtiyaç duymak|sağlık
+das Hotel|otel|otel/tatil
+das Zimmer|oda|otel/tatil
+die Nacht|gece|otel/tatil
+das Frühstück|kahvaltı|otel/tatil
+die Reise|seyahat|otel/tatil
+der Urlaub|tatil|otel/tatil
+reservieren|rezervasyon yapmak|otel/tatil
+bleiben|kalmak|otel/tatil
+der Pass|pasaport|otel/tatil
+der Koffer|valiz|otel/tatil
+das Meer|deniz|otel/tatil
+die Berge|dağlar|otel/tatil
+das Brot|ekmek|yemek/içecek
+die Milch|süt|yemek/içecek
+der Kaffee|kahve|yemek/içecek
+der Tee|çay|yemek/içecek
+das Wasser|su|yemek/içecek
+der Saft|meyve suyu|yemek/içecek
+der Kuchen|kek|yemek/içecek
+die Suppe|çorba|yemek/içecek
+der Salat|salata|yemek/içecek
+die Pizza|pizza|yemek/içecek
+das Fleisch|et|yemek/içecek
+der Fisch|balık|yemek/içecek
+das Gemüse|sebze|yemek/içecek
+das Obst|meyve|yemek/içecek
+essen|yemek|yemek/içecek
+trinken|içmek|yemek/içecek
+der Kurs|kurs|kurs/okul
+die Schule|okul|kurs/okul
+der Unterricht|ders|kurs/okul
+der Lehrer|öğretmen|kurs/okul
+die Aufgabe|görev/soru|kurs/okul
+das Buch|kitap|kurs/okul
+das Heft|defter|kurs/okul
+der Stift|kalem|kurs/okul
+lernen|öğrenmek|kurs/okul
+lesen|okumak|kurs/okul
+schreiben|yazmak|kurs/okul
+sprechen|konuşmak|kurs/okul
+hören|dinlemek|kurs/okul
+die Prüfung|sınav|kurs/okul
+die Wohnung|daire|ev
+das Haus|ev|ev
+das Zimmer|oda|ev
+die Küche|mutfak|ev
+das Bad|banyo|ev
+der Tisch|masa|ev
+der Stuhl|sandalye|ev
+das Bett|yatak|ev
+die Lampe|lamba|ev
+die Miete|kira|ev
+wohnen|oturmak/yaşamak|ev
+umziehen|taşınmak|ev
+frei|boş|ev
+klein|küçük|ev
+groß|büyük|ev
+das Kino|sinema|boş zaman
+das Museum|müze|boş zaman
+der Park|park|boş zaman
+der Sport|spor|boş zaman
+schwimmen|yüzmek|boş zaman
+laufen|koşmak|boş zaman
+tanzen|dans etmek|boş zaman
+spielen|oynamak|boş zaman
+treffen|buluşmak|boş zaman
+die Musik|müzik|boş zaman
+der Film|film|boş zaman
+das Hobby|hobi|boş zaman
+das Formular|form|resmi işlemler
+die Anmeldung|kayıt|resmi işlemler
+der Ausweis|kimlik|resmi işlemler
+die Unterschrift|imza|resmi işlemler
+das Amt|resmi daire|resmi işlemler
+die Nummer|numara|resmi işlemler
+warten|beklemek|resmi işlemler
+mitbringen|getirmek|resmi işlemler
+ausfüllen|doldurmak|resmi işlemler
+schicken|göndermek|resmi işlemler
+die E-Mail|e-posta|resmi işlemler
+die Telefonnummer|telefon numarası|resmi işlemler
+eins|bir|sayılar
+zwei|iki|sayılar
+drei|üç|sayılar
+vier|dört|sayılar
+fünf|beş|sayılar
+sechs|altı|sayılar
+sieben|yedi|sayılar
+acht|sekiz|sayılar
+neun|dokuz|sayılar
+zehn|on|sayılar
+elf|on bir|sayılar
+zwölf|on iki|sayılar
+dreizehn|on üç|sayılar
+vierzehn|on dört|sayılar
+fünfzehn|on beş|sayılar
+sechzehn|on altı|sayılar
+siebzehn|on yedi|sayılar
+achtzehn|on sekiz|sayılar
+neunzehn|on dokuz|sayılar
+zwanzig|yirmi|sayılar
+dreißig|otuz|sayılar
+vierzig|kırk|sayılar
+fünfzig|elli|sayılar
+sechzig|altmış|sayılar
+siebzig|yetmiş|sayılar
+achtzig|seksen|sayılar
+neunzig|doksan|sayılar
+hundert|yüz|sayılar
+bitte|lütfen|kalıplar
+danke|teşekkürler|kalıplar
+Entschuldigung|affedersiniz|kalıplar
+Guten Morgen|günaydın|kalıplar
+Guten Tag|iyi günler|kalıplar
+Auf Wiedersehen|görüşmek üzere|kalıplar
+Wie bitte?|Nasıl lütfen?|kalıplar
+noch einmal|bir kez daha|kalıplar
+ich möchte|istiyorum|kalıplar
+ich brauche|ihtiyacım var|kalıplar
+ich habe eine Frage|bir sorum var|kalıplar
+rot|kırmızı|renkler
+blau|mavi|renkler
+grün|yeşil|renkler
+gelb|sarı|renkler
+schwarz|siyah|renkler
+weiß|beyaz|renkler
+grau|gri|renkler
+braun|kahverengi|renkler
+warm|sıcak|özellikler
+kalt|soğuk|özellikler
+neu|yeni|özellikler
+leicht|kolay/hafif|özellikler
+schwer|zor/ağır|özellikler
+schnell|hızlı|özellikler
+langsam|yavaş|özellikler
+laut|yüksek sesli|özellikler
+leise|sessiz|özellikler
+sauber|temiz|özellikler
+schmutzig|kirli|özellikler
+freundlich|arkadaşça|özellikler
+pünktlich|dakik|özellikler
+der Eingang|giriş|yön/adres
+der Ausgang|çıkış|yön/adres
+die Etage|kat|yön/adres
+der Stock|kat|yön/adres
+die Tür|kapı|ev
+das Fenster|pencere|ev
+der Schlüssel|anahtar|ev
+die Rechnung|fatura/hesap|alışveriş
+die Karte|kart|resmi işlemler
+bar bezahlen|nakit ödemek|alışveriş
+online|çevrimiçi|resmi işlemler
+öffnen|açmak|resmi işlemler
+geschlossen|kapalı|resmi işlemler
+geöffnet|açık|resmi işlemler
+`.trim();
+
+    function makeExample(de, category) {
+      const clean = de.replace(/^(der|die|das) /, "");
+      if (category === "sayılar") return `Die Zahl ist ${de}.`;
+      if (category === "tarih/saat") return `Am ${clean} habe ich Zeit.`;
+      if (category === "kalıplar") return `${de}, ich habe eine Frage.`;
+      if (category === "renkler" || category === "özellikler") return `Das ist ${de}.`;
+      if (de === "bar bezahlen") return "Ich möchte bar bezahlen.";
+      if (de === "in der Nähe") return "Das ist in der Nähe.";
+      if (/en$/.test(de) && !de.includes(" ")) return `Ich möchte ${de}.`;
+      if (["links","rechts","geradeaus","oben","unten"].includes(de)) return `Gehen Sie bitte ${de}.`;
+      if (["krank","gesund","billig","teuer","frei","klein","groß","alt","jung","ledig","verheiratet","nah","weit","online","geschlossen","geöffnet"].includes(de)) return `Das ist ${de}.`;
+      const article = de.startsWith("der ") ? "den " + clean : de.startsWith("die ") || de.startsWith("das ") ? de : clean;
+      return `Ich suche ${article}.`;
+    }
+
+    const vocabData = vocabRaw.split("\n").map((line, index) => {
+      const [de, tr, category] = line.split("|");
+      return { id:`v${index}`, de, tr, category, example:makeExample(de, category) };
+    });
+
+    const examData = {
+      readingTests: readingSeeds.map(buildReadingTest),
+      listeningSheets: readingSeeds.map((seed, i) => buildListeningSheet(i)),
+      formTasks,
+      emailTasks,
+      speakingSets: speakingSeeds.map(buildSpeakingSet),
+      mocks: readingSeeds.map((seed, i) => ({
+        id:`mock-${i + 1}`,
+        title:`ÖSD A1 Deneme Sınavı ${i + 1}`,
+        theme:seed[0],
+        hoeren:i,
+        reading:i,
+        form:i,
+        email:i,
+        speaking:i,
+        listening:"Dinleme çalışmasını videodan yapıp cevaplarını burada işaretleyebilirsin."
+      }))
+    };
+
+    function saveProgress() { storage.set("aydaOsdA1Progress", progress); }
+    function markDone(key, value = true) {
+      progress.completed[key] = value;
+      saveProgress();
+      updateProgressBars();
+    }
+    function calculateScore(type, payload) {
+      if (type === "reading") {
+        const { a, b, c } = payload;
+        return { lesen: scaleScore(a.correct, a.total, 10) + scaleScore(b.correct, b.total, 10) + scaleScore(c.correct, c.total, 10) };
+      }
+      if (type === "form") return { form: scaleScore(payload.correct, payload.total, 5) };
+      return {};
+    }
+    function app() { return document.getElementById("app"); }
+    function searchTerm() { return normalize(document.getElementById("globalSearch").value); }
+    function matchesSearch(text) {
+      const term = searchTerm();
+      return !term || normalize(text).includes(term);
+    }
+    function setRoute(route) {
+      document.querySelectorAll(".nav-chip").forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${route}`));
+    }
+    function route() { return (location.hash || "#dashboard").replace("#", ""); }
+    function render() {
+      clearAllTimers();
+      const current = route();
+      setRoute(current);
+      const renderers = { dashboard:renderDashboard, guide:renderGuide, reading:renderReading, writing:renderWriting, speaking:renderSpeaking, listening:renderListening, vocab:renderVocab, mocks:renderMocks, plan:renderPlan };
+      (renderers[current] || renderDashboard)();
+      updateProgressBars();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    function clearAllTimers() {
+      Object.values(timers).forEach(id => clearInterval(id));
+      timers = {};
+    }
+    function updateProgressBars() {
+      document.querySelectorAll("[data-progress-fill]").forEach(el => el.style.width = `${overallProgress()}%`);
+      document.querySelectorAll("[data-progress-text]").forEach(el => el.textContent = `${overallProgress()}%`);
+    }
+    function overallProgress() {
+      const completedCount = Object.values(progress.completed).filter(Boolean).length;
+      const knownCount = Object.values(progress.vocabKnown).filter(Boolean).length;
+      const max = examData.readingTests.length + formTasks.length + emailTasks.length + examData.speakingSets.length + examData.mocks.length + plan.length + plan14.length + Math.min(vocabData.length, 120);
+      return Math.min(100, Math.round(((completedCount + knownCount) / max) * 100));
+    }
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;" }[char]));
+    }
+    function studyNote(text) {
+      return `<div class="cta-strip"><div><strong>${text}</strong><div class="small muted">Notunu al, yanlışlarını işaretle ve derste öğretmenine sor.</div></div><a class="btn secondary" href="#plan">Çalışma planına dön</a></div>`;
+    }
+
+    function renderDashboard() {
+      const todayIndex = new Date().getDay() || 7;
+      const today = plan[(todayIndex - 1) % plan.length];
+      app().innerHTML = `
+        <section>
+          <div class="section-head">
+            <div>
+              <h2>Bugünkü çalışma merkezi</h2>
+              <p>Mobilde hızlı çalışmak için bölümleri küçük parçalara ayırdık. Çözdüklerin kaydedilir, zayıf alanın sonraki öneriye dönüşür.</p>
+            </div>
+            <span class="badge">İlerleme: <span data-progress-text>${overallProgress()}%</span></span>
+          </div>
+          <div class="card">
+            <div class="progress-shell" aria-label="Genel ilerleme"><div class="progress-fill" data-progress-fill></div></div>
+          </div>
+          <div class="grid three" style="margin-top:14px">
+            ${["Lesen|30 puan|İlan, kısa metin, eşleştirme|reading","Schreiben|15 puan|Form + 30 kelimelik e-mail|writing","Sprechen|25 puan|Tanıtma, kart, rol yapma|speaking","Hören|30 puan|Playlist ve cevap alanı|listening","Kelime Çalışması|200+ kelime|Flashcard ve test|vocab","Deneme Sınavları|20 tam deneme|Bölüm bölüm puan ve analiz|mocks"].map(item => {
+              const [h, score, p, link] = item.split("|");
+              return `<a class="card" href="#${link}"><span class="badge">${score}</span><h3>${h}</h3><p class="muted">${p}</p></a>`;
+            }).join("")}
+          </div>
+          <div class="grid two" style="margin-top:14px">
+            <div class="card">
+              <h3>Bugün ne çalışmalıyım?</h3>
+              <p><strong>${today[0]}:</strong> ${today[1]}</p>
+              <p class="muted">${today[2]}</p>
+              <div class="btn-row">
+                <button class="btn" onclick="markDone('plan-${today[0]}')">Bugünkü planı tamamladım</button>
+                <a class="btn secondary" href="#mocks">Deneme sınavı seç</a>
+                <a class="btn secondary" href="#plan">Çalışma planı</a>
+              </div>
+            </div>
+            <div class="card">
+              <h3>7 günlük çalışma planı</h3>
+              ${plan.map(day => `
+                <label class="option">
+                  <input type="checkbox" ${progress.completed[`plan-${day[0]}`] ? "checked" : ""} onchange="markDone('plan-${day[0]}', this.checked)" style="width:auto;min-height:auto">
+                  <strong>${day[0]}:</strong> ${day[1]}<br><span class="small muted">${day[2]}</span>
+                </label>`).join("")}
+            </div>
+          </div>
+          ${studyNote("Bugünkü çalışmadan sonra 2 yanlışını defterine yaz.")}
+        </section>
+      `;
+    }
+
+    function renderGuide() {
+      app().innerHTML = `
+        <section>
+          <div class="section-head">
+            <div>
+              <h2>ÖSD A1 Sınav Formatı</h2>
+              <p>ÖSD Zertifikat A1, 14 yaş ve üzeri öğrenenler içindir. Günlük ve tanıdık durumlarda temel iletişimi ölçer.</p>
+            </div>
+          </div>
+          <div class="card">
+            <table>
+              <thead><tr><th>Bölüm</th><th>Süre</th><th>Puan</th><th>Geçme notu için dikkat</th></tr></thead>
+              <tbody>
+                <tr><td>Lesen</td><td>25 dakika</td><td>30</td><td>Minimum 6/30</td></tr>
+                <tr><td>Hören</td><td>Yaklaşık 10 dakika</td><td>30</td><td>Minimum 6/30</td></tr>
+                <tr><td>Schreiben</td><td>20 dakika</td><td>15</td><td>Aufgabe 2 minimum 4/10</td></tr>
+                <tr><td>Sprechen</td><td>10 dakika hazırlık + yaklaşık 10 dakika sınav</td><td>25</td><td>Minimum 12/25</td></tr>
+              </tbody>
+            </table>
+            <p class="small muted">Schriftliche Prüfung toplam 75 puandır; geçmek için en az 38 puan gerekir. Sınavda sözlük ve elektronik yardımcılar kullanılmaz.</p>
+          </div>
+          <div style="margin-top:14px">
+            ${guideDetails().map(item => `<details ${item.open ? "open" : ""}><summary>${item.title}</summary><div class="grid two" style="margin-top:12px">${item.blocks.map(block => `<div class="panel"><h3>${block.h}</h3><p>${block.p}</p></div>`).join("")}</div></details>`).join("")}
+          </div>
+          ${studyNote("Formatı karıştırdığın bölümü çalışma planında tekrar işaretle.")}
+        </section>
+      `;
+    }
+    function guideDetails() {
+      return [
+        { title:"Schriftliche Prüfung nasıl işler?", open:true, blocks:[
+          {h:"Ne istenir?", p:"Lesen, Hören ve Schreiben aynı yazılı modüldedir. Toplam süre yaklaşık 55 dakikadır."},
+          {h:"Nasıl çözülür?", p:"Önce görev tipini tanı. Her bölümde anahtar kelime, tarih, saat, isim ve amaç bilgisine odaklan."},
+          {h:"Sık hata", p:"Öğrenci tek kelime gördüğü için hemen cevap seçer. ÖSD A1’de küçük olumsuzluklar ve saat değişiklikleri önemlidir."},
+          {h:"AYDA taktiği", p:"Cevabı seçmeden önce sorunun Türkçesini değil, Almanca amacını söyle: aramak, satın almak, randevu almak, bilgi istemek."}
+        ]},
+        { title:"Lesen görevleri", blocks:[
+          {h:"Aufgabe 1", p:"5 durum ve 6 ilan/metin vardır. 5 doğru eşleştirme 10 puandır."},
+          {h:"Aufgabe 2", p:"3 kısa metin ve her metin için 2 soru vardır. Ja/Nein veya Richtig/Falsch mantığıyla çözülür."},
+          {h:"Aufgabe 3", p:"5 kısa bilgi metni ve 6 seçenek vardır. Amaç doğru yeri, hizmeti veya bilgiyi bulmaktır."},
+          {h:"AYDA taktiği", p:"İlanlarda isimden çok fiile bak: kaufen, anmelden, reservieren, anrufen, schicken."}
+        ]},
+        { title:"Schreiben görevleri", blocks:[
+          {h:"Aufgabe 1", p:"Form doldurma 5 puandır. İsim, adres, telefon, tarih, meslek gibi net bilgiler yazılır."},
+          {h:"Aufgabe 2", p:"Yaklaşık 30 kelimelik kişisel e-mail 10 puandır. 3 Leitfrage cevaplanmalıdır."},
+          {h:"Sık hata", p:"Çok uzun ve karışık yazmak. A1’de kısa, doğru ve net cümle daha güvenlidir."},
+          {h:"AYDA taktiği", p:"E-mail şablonu: Selamlama + 3 kısa cevap + kapanış. 20-45 kelime arası tut."}
+        ]},
+        { title:"Sprechen görevleri", blocks:[
+          {h:"Aufgabe 1", p:"Kendini tanıtırsın. 6 konudan 4 tanesini seçerek kısa cümlelerle konuşursun."},
+          {h:"Aufgabe 2", p:"Resim veya durum kartını anlatırsın. Bu platformda görsel yerine sahne kartı var."},
+          {h:"Aufgabe 3", p:"Aynı durum üzerinden kısa rol yapma/diyalog yapılır."},
+          {h:"AYDA taktiği", p:"Durduğunda kurtarıcı cümle kullan: Können Sie das bitte wiederholen? Ich habe eine Frage."}
+        ]},
+        { title:"Hören stratejisi", blocks:[
+          {h:"Ne istenir?", p:"Bu sitede aktif sesli Hören sınavı yoktur. Strateji, not alma ve YouTube playlist yönlendirmesi vardır."},
+          {h:"Nasıl çalışılır?", p:"Soru kökünü önce oku. Sayı, saat, tarih, adres, telefon, gün, ay ve fiyat yakala."},
+          {h:"Sık hata", p:"İlk duyulan bilgiye atlamak. Özellikle nicht, sondern, später, früher gibi düzeltmelere dikkat et."},
+          {h:"AYDA taktiği", p:"Her dinlemeden sonra 3 bilgi yaz: sayı, zaman, yer. Bilmediğin kelimeye takılma."}
+        ]}
+      ];
+    }
+
+    function renderReading() {
+      const tests = examData.readingTests.filter(test => matchesSearch(test.title));
+      const test = tests[selected.reading] || tests[0] || examData.readingTests[0];
+      selected.reading = examData.readingTests.indexOf(test);
+      app().innerHTML = `
+        <section>
+          <div class="section-head">
+            <div><h2>Lesen Alıştırmaları</h2><p>ÖSD A1 formatına uygun 20 ayrı Lesen denemesi. Çalışma modunda ipucu görünür; sınav modunda süre çalışır.</p></div>
+            <span class="timer" id="readingTimer" style="${selected.readingMode === "exam" ? "" : "display:none"}">25:00</span>
+          </div>
+          <div class="tabs">
+            <button class="btn tab ${selected.readingMode === "study" ? "" : "secondary"}" onclick="selected.readingMode='study';renderReading()">Çalışma Modu</button>
+            <button class="btn tab ${selected.readingMode === "exam" ? "" : "secondary"}" onclick="selected.readingMode='exam';renderReading()">Sınav Modu</button>
+          </div>
+          <div class="split">
+            <aside class="card list-scroll" aria-label="Lesen denemeleri">
+              ${examData.readingTests.filter(t => matchesSearch(t.title)).map((item) => {
+                const realIndex = examData.readingTests.indexOf(item);
+                return `<button class="item-btn ${realIndex === selected.reading ? "active" : ""}" onclick="selected.reading=${realIndex};renderReading()"><strong>${item.title}</strong><br><span class="small muted">${progress.scores[item.id] ? "Son puan: " + progress.scores[item.id] + "/30" : "Henüz çözülmedi"}</span></button>`;
+              }).join("")}
+            </aside>
+            <div>${renderReadingTest(test, "reading")}</div>
+          </div>
+          ${studyNote("Lesen yanlışlarında anahtar kelimeyi ve metindeki kanıt cümlesini not et.")}
+        </section>
+      `;
+      if (selected.readingMode === "exam") startTimer("readingTimer", 25 * 60);
+    }
+
+    function renderReadingTest(test, prefix) {
+      const study = selected.readingMode === "study" && !prefix.startsWith("mock");
+      return `
+        <div class="card" data-reading-test="${test.id}" data-prefix="${prefix}">
+          <h3>${test.title}</h3>
+          <p class="muted">Aufgabe 1: Durumları doğru ilanlarla eşleştir.</p>
+          <div class="option-list">${test.options1.map((opt, i) => `<div class="option"><strong>${letter(i)}) ${opt.title}</strong><span>${opt.text}</span></div>`).join("")}</div>
+          ${test.task1.map((q, i) => `
+            <div class="question" id="${prefix}-a-${i}">
+              <label>${i + 1}. ${q.situation}</label>
+              <select id="${prefix}-a-select-${i}" aria-label="Aufgabe 1 soru ${i + 1}">
+                <option value="">Seç</option>${test.options1.map((_, oi) => `<option value="${oi}">${letter(oi)}</option>`).join("")}
+              </select>
+              ${study ? `<div class="hint">${q.hint}</div>` : ""}
+              <div class="small muted" id="${prefix}-a-exp-${i}"></div>
+            </div>`).join("")}
+          <p class="muted" style="margin-top:16px">Aufgabe 2: Metni oku ve Richtig/Falsch seç.</p>
+          ${test.task2.map((block, bi) => `
+            <div class="panel" style="margin-top:10px"><strong>Metin ${bi + 1}</strong><p>${block.text}</p>
+              ${block.questions.map((q, qi) => {
+                const id = `${prefix}-b-${bi}-${qi}`;
+                return `<div class="question" id="${id}">
+                  <p><strong>${q.q}</strong></p>
+                  <label><input type="radio" name="${id}" value="true" style="width:auto;min-height:auto"> Richtig / Ja</label>
+                  <label><input type="radio" name="${id}" value="false" style="width:auto;min-height:auto"> Falsch / Nein</label>
+                  <div class="small muted" id="${id}-exp"></div>
+                </div>`;
+              }).join("")}
+            </div>`).join("")}
+          <p class="muted" style="margin-top:16px">Aufgabe 3: Kısa bilgileri doğru seçenekle eşleştir.</p>
+          <div class="option-list">${test.options3.map((opt, i) => `<div class="option"><strong>${letter(i)}) ${opt.title}</strong><span>${opt.text}</span></div>`).join("")}</div>
+          ${test.task3.map((q, i) => `
+            <div class="question" id="${prefix}-c-${i}">
+              <label>${i + 1}. ${q.text}</label>
+              <select id="${prefix}-c-select-${i}" aria-label="Aufgabe 3 soru ${i + 1}">
+                <option value="">Seç</option>${test.options3.map((_, oi) => `<option value="${oi}">${letter(oi)}</option>`).join("")}
+              </select>
+              ${study ? `<div class="hint">${q.hint}</div>` : ""}
+              <div class="small muted" id="${prefix}-c-exp-${i}"></div>
+            </div>`).join("")}
+          <div class="btn-row">
+            <button class="btn" onclick="checkReading('${test.id}','${prefix}')">Kontrol Et</button>
+            <button class="btn secondary" onclick="resetReading('${prefix}')">Temizle</button>
+          </div>
+          <div class="result" id="${prefix}-reading-result">Cevapları seçince puanın burada görünecek.</div>
+        </div>
+      `;
+    }
+
+    function checkReading(testId, prefix) {
+      const test = examData.readingTests.find(t => t.id === testId);
+      const a = checkSelectTask(test.task1, prefix, "a");
+      const b = checkBoolTask(test.task2, prefix);
+      const c = checkSelectTask(test.task3, prefix, "c");
+      const score = calculateScore("reading", { a, b, c }).lesen;
+      const result = document.getElementById(`${prefix}-reading-result`);
+      result.innerHTML = `<strong>Lesen puanı: ${score}/30</strong><br>Aufgabe 1: ${a.correct}/${a.total}, Aufgabe 2: ${b.correct}/${b.total}, Aufgabe 3: ${c.correct}/${c.total}. Yanlışlarda açıklama satırına bak.`;
+      const scoreKey = prefix.startsWith("mock") ? `${prefix}-score` : test.id;
+      progress.scores[scoreKey] = score;
+      if (score >= 18) markDone(scoreKey);
+      saveProgress();
+      if (prefix.startsWith("mock")) updateMockSummary(prefix);
+    }
+    function checkSelectTask(items, prefix, part) {
+      let correct = 0;
+      items.forEach((q, i) => {
+        const box = document.getElementById(`${prefix}-${part}-${i}`);
+        const select = document.getElementById(`${prefix}-${part}-select-${i}`);
+        const exp = document.getElementById(`${prefix}-${part}-exp-${i}`);
+        const ok = Number(select.value) === q.correct;
+        box.classList.remove("correct","wrong");
+        box.classList.add(ok ? "correct" : "wrong");
+        if (ok) correct++;
+        exp.textContent = ok ? `Doğru. ${q.explanation}` : `Neden yanlış? Doğru cevap ${letter(q.correct)}. ${q.explanation}`;
+      });
+      return { correct, total:items.length };
+    }
+    function checkBoolTask(blocks, prefix) {
+      let correct = 0, total = 0;
+      blocks.forEach((block, bi) => block.questions.forEach((q, qi) => {
+        total++;
+        const id = `${prefix}-b-${bi}-${qi}`;
+        const box = document.getElementById(id);
+        const selectedRadio = document.querySelector(`input[name="${id}"]:checked`);
+        const ok = selectedRadio && String(q.answer) === selectedRadio.value;
+        box.classList.remove("correct","wrong");
+        box.classList.add(ok ? "correct" : "wrong");
+        if (ok) correct++;
+        document.getElementById(`${id}-exp`).textContent = ok ? `Doğru. ${q.explanation}` : `Neden yanlış? Doğru cevap ${q.answer ? "Richtig/Ja" : "Falsch/Nein"}. ${q.explanation}`;
+      }));
+      return { correct, total };
+    }
+    function resetReading(prefix) {
+      document.querySelectorAll(`[id^="${prefix}-"] select`).forEach(el => el.value = "");
+      document.querySelectorAll(`[id^="${prefix}-"] input[type="radio"]`).forEach(el => el.checked = false);
+      document.querySelectorAll(`[id^="${prefix}-"] .question`).forEach(el => el.classList.remove("correct","wrong"));
+      const result = document.getElementById(`${prefix}-reading-result`);
+      if (result) result.textContent = "Cevapları seçince puanın burada görünecek.";
+    }
+    function startTimer(id, seconds) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      let left = seconds;
+      const tick = () => {
+        const m = String(Math.floor(left / 60)).padStart(2, "0");
+        const s = String(left % 60).padStart(2, "0");
+        el.textContent = `${m}:${s}`;
+        if (left <= 0) { clearInterval(timers[id]); el.textContent = "Süre bitti"; }
+        left--;
+      };
+      tick();
+      timers[id] = setInterval(tick, 1000);
+    }
+
+    function renderWriting() {
+      app().innerHTML = `
+        <section>
+          <div class="section-head"><div><h2>Schreiben Alıştırmaları</h2><p>Aufgabe 1 form doldurma ve Aufgabe 2 yaklaşık 30 kelimelik e-mail. Kontrol sistemi basit destek verir; öğretmen değerlendirmesinin yerini tutmaz.</p></div></div>
+          <div class="tabs">
+            <button class="btn tab ${selected.writingTab === "form" ? "" : "secondary"}" onclick="selected.writingTab='form';renderWriting()">Aufgabe 1 Form</button>
+            <button class="btn tab ${selected.writingTab === "email" ? "" : "secondary"}" onclick="selected.writingTab='email';renderWriting()">Aufgabe 2 E-mail</button>
+          </div>
+          ${selected.writingTab === "form" ? renderFormPractice() : renderEmailPractice()}
+          ${studyNote("Schreiben çalışırken aynı şablonu farklı konulara uyarlamayı dene.")}
+        </section>
+      `;
+      if (selected.writingTab === "email") updateWordCount("emailText");
+    }
+    function renderFormPractice(prefix = "form") {
+      const filtered = formTasks.filter(t => matchesSearch(t.title + " " + t.scenario));
+      const task = filtered[selected.form] || filtered[0] || formTasks[0];
+      selected.form = formTasks.indexOf(task);
+      return `<div class="split">
+        <aside class="card list-scroll">${formTasks.filter(t => matchesSearch(t.title + " " + t.scenario)).map(t => {
+          const i = formTasks.indexOf(t);
+          return `<button class="item-btn ${i === selected.form ? "active" : ""}" onclick="selected.form=${i};renderWriting()"><strong>${i + 1}. ${t.title}</strong><br><span class="small muted">${t.scenario}</span></button>`;
+        }).join("")}</aside>
+        <div class="card" data-form-index="${selected.form}">
+          <h3>${task.title}</h3>
+          <p>${task.scenario}</p>
+          <div class="hint"><strong>Bilgiler:</strong> ${task.info}</div>
+          ${task.fields.map((field, i) => `<div class="field" id="${prefix}-field-${i}"><label>${field[0]}</label><input id="${prefix}-input-${i}" autocomplete="off"><div class="small muted" id="${prefix}-exp-${i}"></div></div>`).join("")}
+          <div class="btn-row"><button class="btn" onclick="checkForm(${selected.form}, '${prefix}')">Kontrol Et</button><button class="btn secondary" onclick="clearForm('${prefix}')">Temizle</button></div>
+          <div class="result" id="${prefix}-result">Form puanın burada görünecek.</div>
+        </div>
+      </div>`;
+    }
+    function checkForm(index, prefix) {
+      const task = formTasks[index];
+      let correct = 0;
+      task.fields.forEach((field, i) => {
+        const input = document.getElementById(`${prefix}-input-${i}`);
+        const box = document.getElementById(`${prefix}-field-${i}`);
+        const ok = field[1].some(ans => normalize(ans) === normalize(input.value));
+        box.classList.remove("correct","wrong");
+        box.classList.add(ok ? "correct" : "wrong");
+        document.getElementById(`${prefix}-exp-${i}`).textContent = ok ? "Doğru." : `Doğru örnek: ${field[1][0]}`;
+        if (ok) correct++;
+      });
+      const score = calculateScore("form", { correct, total:task.fields.length }).form;
+      document.getElementById(`${prefix}-result`).innerHTML = `<strong>Form puanı: ${score}/5</strong><br>${correct}/${task.fields.length} alan doğru. Tarih, telefon ve özel karakterlerde küçük yazım farkları için alternatif cevaplar desteklenir.`;
+      const scoreKey = prefix.startsWith("mock") ? `${prefix}-score` : `form-${index + 1}`;
+      progress.scores[scoreKey] = score;
+      if (score >= 4) markDone(scoreKey);
+      saveProgress();
+      if (prefix.startsWith("mock")) updateMockSummary(prefix);
+    }
+    function clearForm(prefix) {
+      document.querySelectorAll(`[id^="${prefix}-input-"]`).forEach(el => el.value = "");
+      document.querySelectorAll(`[id^="${prefix}-field-"]`).forEach(el => el.classList.remove("correct","wrong"));
+    }
+    function renderEmailPractice(prefix = "email") {
+      const filtered = emailTasks.filter(t => matchesSearch(t.title + " " + t.situation));
+      const task = filtered[selected.email] || filtered[0] || emailTasks[0];
+      selected.email = emailTasks.indexOf(task);
+      return `<div class="split">
+        <aside class="card list-scroll">${emailTasks.filter(t => matchesSearch(t.title + " " + t.situation)).map(t => {
+          const i = emailTasks.indexOf(t);
+          return `<button class="item-btn ${i === selected.email ? "active" : ""}" onclick="selected.email=${i};renderWriting()"><strong>${i + 1}. ${t.title}</strong><br><span class="small muted">${t.situation}</span></button>`;
+        }).join("")}</aside>
+        ${renderEmailBox(task, prefix)}
+      </div>`;
+    }
+    function renderEmailBox(task, prefix) {
+      return `<div class="card" data-email-index="${emailTasks.indexOf(task)}">
+        <h3>${task.title}</h3>
+        <p>${task.situation}</p>
+        <div class="panel"><strong>Leitfragen</strong><ol>${task.questions.map(q => `<li>${q}</li>`).join("")}</ol></div>
+        <div class="field"><label for="${prefix}Text">Cevabın</label><textarea id="${prefix}Text" oninput="updateWordCount('${prefix}Text')" placeholder="Hallo ...,"></textarea></div>
+        <p class="small muted">Kelime sayısı: <strong id="${prefix}Count">0</strong>. Hedef: yaklaşık 30 kelime, güvenli aralık 20-45.</p>
+        <div class="btn-row">
+          <button class="btn" onclick="checkEmail(${emailTasks.indexOf(task)}, '${prefix}')">Basit Kontrol</button>
+          <button class="btn secondary" onclick="toggleBox('${prefix}Sample')">Örnek Cevabı Göster</button>
+          <button class="btn secondary" onclick="toggleBox('${prefix}Patterns')">Kalıp Cümleler</button>
+          <button class="btn secondary" onclick="toggleBox('${prefix}Checklist')">Kontrol Listesi</button>
+        </div>
+        <div class="result" id="${prefix}Result">Kontrol sonucu burada görünecek.</div>
+        <div class="panel" id="${prefix}Sample" hidden><h3>Örnek cevap</h3><pre style="white-space:pre-wrap">${task.sample}</pre></div>
+        <div class="panel" id="${prefix}Patterns" hidden><h3>Kalıp cümleler</h3>${task.patterns.map(p => `<div class="option">${p}</div>`).join("")}</div>
+        <div class="panel" id="${prefix}Checklist" hidden><h3>Kontrol listesi</h3><ul><li>Selamlama var mı?</li><li>3 Leitfrage cevaplandı mı?</li><li>Kapanış var mı?</li><li>20-45 kelime arası mı?</li><li>Cümleler kısa ve net mi?</li></ul></div>
+      </div>`;
+    }
+    function updateWordCount(id) {
+      const text = document.getElementById(id)?.value || "";
+      const count = text.trim() ? text.trim().split(/\s+/).length : 0;
+      const target = document.getElementById(id.replace("Text","Count"));
+      if (target) target.textContent = count;
+      return count;
+    }
+    function checkEmail(index, prefix) {
+      const task = emailTasks[index];
+      const text = document.getElementById(`${prefix}Text`).value;
+      const lower = normalize(text);
+      const count = updateWordCount(`${prefix}Text`);
+      const greeting = /(hallo|guten tag|sehr geehrte|liebe|lieber)/i.test(lower);
+      const closing = /(grüße|grusse|gruesse|tschüss|mit freundlichen|danke)/i.test(lower);
+      const lengthOk = count >= 20 && count <= 45;
+      const answers = task.keywords.map(group => group.some(word => lower.includes(normalize(word))));
+      const okCount = [greeting, closing, lengthOk, ...answers].filter(Boolean).length;
+      document.getElementById(`${prefix}Result`).innerHTML = `
+        <strong>Basit kontrol: ${okCount}/6 madde uygun</strong><br>
+        ${greeting ? "Selamlama var." : "Selamlama eksik olabilir."}<br>
+        ${closing ? "Kapanış var." : "Kapanış eksik olabilir."}<br>
+        ${lengthOk ? "Kelime sayısı uygun." : "20-45 kelime aralığını hedefle."}<br>
+        Leitfrage cevapları: ${answers.map((ok, i) => ok ? `${i + 1}. var` : `${i + 1}. belirsiz`).join(", ")}.
+        <div class="small muted">Bu otomatik kontrol mükemmel değerlendirme iddiası taşımaz; anahtar kelime ve yapı kontrolüdür.</div>`;
+      const scoreKey = prefix.startsWith("mock") ? `${prefix}-score` : `email-${index + 1}`;
+      progress.scores[scoreKey] = okCount;
+      if (okCount >= 5) markDone(scoreKey);
+      saveProgress();
+      if (prefix.startsWith("mock")) updateMockSummary(prefix);
+    }
+    function toggleBox(id) {
+      const el = document.getElementById(id);
+      if (el) el.hidden = !el.hidden;
+    }
+
+    function renderSpeaking() {
+      const filtered = examData.speakingSets.filter(s => matchesSearch(s.title + " " + s.role));
+      const set = filtered[selected.speaking] || filtered[0] || examData.speakingSets[0];
+      selected.speaking = examData.speakingSets.indexOf(set);
+      app().innerHTML = `
+        <section>
+          <div class="section-head"><div><h2>Sprechen Alıştırmaları</h2><p>Kendini tanıtma, sahne kartı ve rol yapma. Görsel yerine metinle tarif edilen kartlar kullanılır.</p></div></div>
+          <div class="split">
+            <aside class="card list-scroll">${examData.speakingSets.filter(s => matchesSearch(s.title + " " + s.role)).map(s => {
+              const i = examData.speakingSets.indexOf(s);
+              return `<button class="item-btn ${i === selected.speaking ? "active" : ""}" onclick="selected.speaking=${i};renderSpeaking()"><strong>${s.title}</strong><br><span class="small muted">${s.role}</span></button>`;
+            }).join("")}</aside>
+            ${renderSpeakingSet(set, "speak")}
+          </div>
+          ${studyNote("Sprechen kaydını dinle ve durduğun yerleri kısa kalıplarla tekrar et.")}
+        </section>
+      `;
+    }
+    function renderSpeakingSet(set, prefix) {
+      return `<div class="card">
+        <h3>${set.title}</h3>
+        <div class="panel"><h3>Aufgabe 1: Kendini tanıtma</h3><p>6 konudan 4 tanesini seç ve her biri için 1 kısa cümle söyle.</p>
+          <div class="pillbar">${set.introTopics.map(t => `<label class="pill"><input type="checkbox" style="width:auto;min-height:auto"> ${t}</label>`).join("")}</div>
+        </div>
+        <div class="panel" style="margin-top:12px"><h3>Aufgabe 2: Sahne kartları</h3>${set.scenes.map((scene, i) => `<label class="option"><input type="radio" name="${prefix}-scene" style="width:auto;min-height:auto"> <strong>Kart ${i + 1}:</strong> ${scene}</label>`).join("")}</div>
+        <div class="panel" style="margin-top:12px"><h3>Aufgabe 3: Rol yapma</h3><p>${set.role}</p></div>
+        <div class="grid two" style="margin-top:12px">
+          <div class="panel"><h3>Almanca başlangıçlar</h3>${set.starts.map(s => `<div class="option">${s}</div>`).join("")}</div>
+          <div class="panel"><h3>A1 örnek cevap</h3><p>${set.sample}</p><h3>Kalıplar</h3>${set.patterns.map(s => `<div class="small">${s}</div>`).join("")}</div>
+        </div>
+        <div class="hint">Tavsiye: Kendini kaydet ve dinle. Cevap çok kısa olsa bile durmadan konuşmaya çalış.</div>
+        <div class="btn-row">
+          <button class="btn" onclick="markDone('${set.id}')">Bu seti çalıştım</button>
+          <button class="btn secondary" onclick="startRecording()">Ses kaydı dene</button>
+          <button class="btn secondary" onclick="stopRecording()">Kaydı durdur</button>
+        </div>
+        <div class="result" id="recordResult">Tarayıcı destekliyorsa burada kayıt durumu görünür.</div>
+      </div>`;
+    }
+    async function startRecording() {
+      const target = document.getElementById("recordResult");
+      if (!navigator.mediaDevices || !window.MediaRecorder) {
+        target.textContent = "Bu tarayıcı ses kaydını desteklemiyor. Telefonunun ses kaydedicisiyle prova yapabilirsin.";
+        return;
+      }
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio:true });
+        recorderState.chunks = [];
+        recorderState.recorder = new MediaRecorder(stream);
+        recorderState.recorder.ondataavailable = e => recorderState.chunks.push(e.data);
+        recorderState.recorder.onstop = () => {
+          const blob = new Blob(recorderState.chunks, { type:"audio/webm" });
+          const url = URL.createObjectURL(blob);
+          target.innerHTML = `<audio controls src="${url}"></audio><div class="small muted">Kaydını dinle: duraksama, telaffuz ve eksik cümleleri not al.</div>`;
+        };
+        recorderState.recorder.start();
+        target.textContent = "Kayıt başladı. Kısa bir Sprechen cevabı söyle.";
+      } catch (error) {
+        target.textContent = "Mikrofon izni alınamadı. Site bozulmaz; harici kayıt uygulamasıyla çalışabilirsin.";
+      }
+    }
+    function stopRecording() {
+      if (recorderState.recorder && recorderState.recorder.state !== "inactive") recorderState.recorder.stop();
+    }
+
+    function renderListening() {
+      app().innerHTML = `
+        <section>
+          <div class="section-head"><div><h2>Hören Strateji</h2><p>Bu bölüm aktif sesli Hören sınavı değildir. Strateji, not alma ve AYDA’nın önerdiği YouTube playlist yönlendirmesi içerir.</p></div></div>
+          <div class="card">
+            <h3>Hören çalışmak için playlisti aç</h3>
+            <p class="muted">Mobilde YouTube uygulamasında açmak için butonu kullan. iframe çalışmazsa buton yine çalışır.</p>
+            <div class="btn-row"><a class="btn" href="${YOUTUBE_URL}" target="_blank" rel="noopener">YouTube Playlist Aç</a><button class="btn secondary" onclick="markDone('listening-strategy')">Stratejileri okudum</button></div>
+            <div class="iframe-box" style="margin-top:14px"><iframe src="${YOUTUBE_EMBED}" title="ÖSD A1 Hören playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          </div>
+          <div class="grid two" style="margin-top:14px">
+            <div class="card"><h3>Hören ipuçları</h3><ul>
+              <li>Önce soru kökünü oku.</li><li>Sayı, saat, tarih, adres, telefon, gün, ay ve fiyat yakala.</li><li>Aufgabe 2’de not alma pratiği yap.</li><li>İlk duyduğuna atlama; olumsuzluk ve düzeltmelere dikkat et.</li><li>Avusturya, Almanya ve İsviçre telaffuzlarına alış.</li><li>Bilmediğin kelimeye takılma; ana bilgiyi yakala.</li>
+            </ul></div>
+            <div class="card"><h3>Mini not alma strateji alıştırması</h3><p class="muted">Bunlar Hören sınavı değildir; yazılı transkript üzerinden sayı/tarih/saat yakalama egzersizidir.</p>
+              ${listeningPractice.map((p, i) => `<div class="question" id="listen-${i}"><p><strong>${p.text}</strong></p><label>${p.ask}</label><input id="listen-input-${i}"><button class="btn secondary" style="margin-top:8px" onclick="checkListening(${i})">Kontrol</button><div class="small muted" id="listen-exp-${i}"></div></div>`).join("")}
+            </div>
+          </div>
+          ${studyNote("Hören çalışmasından sonra yakaladığın sayı, saat ve yer bilgisini yaz.")}
+        </section>
+      `;
+    }
+    function checkListening(i) {
+      const p = listeningPractice[i];
+      const val = normalize(document.getElementById(`listen-input-${i}`).value);
+      const ok = p.answer.some(ans => val.includes(normalize(ans)));
+      const box = document.getElementById(`listen-${i}`);
+      box.classList.remove("correct","wrong");
+      box.classList.add(ok ? "correct" : "wrong");
+      document.getElementById(`listen-exp-${i}`).textContent = ok ? "Doğru. Ana bilgiyi yakaladın." : `İpucu: düzeltme, sayı ve tarih ifadelerine bak. Örnek cevap: ${p.answer[0]}`;
+      if (ok) markDone(`listen-${i}`);
+    }
+
+    function renderVocab() {
+      const categories = ["Tümü", ...Array.from(new Set(vocabData.map(v => v.category)))];
+      const list = vocabList();
+      if (selected.vocabIndex >= list.length) selected.vocabIndex = 0;
+      const word = list[selected.vocabIndex] || vocabData[0];
+      app().innerHTML = `
+        <section>
+          <div class="section-head"><div><h2>Kelime Alıştırma</h2><p>PDF örneklerinin sınav mantığındaki sık temalara göre ÖSD A1 düzeyinde 200+ kelime: aile, randevu, ulaşım, sağlık, alışveriş, form ve e-mail dili.</p></div><span class="badge">${list.length} kelime</span></div>
+          <div class="card">
+            <div class="pillbar">${categories.map(cat => `<button class="pill ${selected.vocabCategory === cat ? "active" : ""}" onclick="selected.vocabCategory='${cat}';selected.vocabIndex=0;renderVocab()">${cat}</button>`).join("")}</div>
+            <div class="btn-row">
+              <button class="btn ${selected.vocabMode === "flashcard" ? "" : "secondary"}" onclick="selected.vocabMode='flashcard';renderVocab()">Flashcard</button>
+              <button class="btn ${selected.vocabMode === "de-tr" ? "" : "secondary"}" onclick="selected.vocabMode='de-tr';renderVocab()">Almanca → Türkçe</button>
+              <button class="btn ${selected.vocabMode === "tr-de" ? "" : "secondary"}" onclick="selected.vocabMode='tr-de';renderVocab()">Türkçe → Almanca</button>
+              <button class="btn ${selected.vocabMode === "blank" ? "" : "secondary"}" onclick="selected.vocabMode='blank';renderVocab()">Boşluk Doldur</button>
+              <button class="btn secondary" onclick="selected.vocabOnlyHard=!selected.vocabOnlyHard;selected.vocabIndex=0;renderVocab()">${selected.vocabOnlyHard ? "Tüm kelimeler" : "Sadece bilmediklerim"}</button>
+            </div>
+          </div>
+          <div style="margin-top:14px">${renderVocabMode(word, list)}</div>
+        </section>
+      `;
+    }
+    function vocabList() {
+      return vocabData.filter(v => {
+        const catOk = selected.vocabCategory === "Tümü" || v.category === selected.vocabCategory;
+        const hardOk = !selected.vocabOnlyHard || progress.vocabHard[v.id];
+        const searchOk = matchesSearch(`${v.de} ${v.tr} ${v.category}`);
+        return catOk && hardOk && searchOk;
+      });
+    }
+    function renderVocabMode(word, list) {
+      if (!list.length) return `<div class="card"><h3>Bu filtrede kelime yok.</h3><p class="muted">Bilmediklerimi çalış listesi boşsa önce bazı kelimeleri “Bilemedim” olarak işaretle.</p></div>`;
+      if (selected.vocabMode === "flashcard") {
+        return `<div class="card">
+          <div class="flashcard" onclick="selected.flashBack=!selected.flashBack;renderVocab()" role="button" tabindex="0" aria-label="Kartı çevir">
+            ${selected.flashBack ? `<div><strong>${word.tr}</strong><p>${word.example}</p><span class="badge">${word.category}</span></div>` : `<div><strong>${word.de}</strong><p class="muted">Çevirmek için dokun</p><span class="badge">${word.category}</span></div>`}
+          </div>
+          ${vocabControls(word, list)}
+        </div>`;
+      }
+      if (selected.vocabMode === "blank") {
+        const blank = word.example.replace(word.de.replace(/^(der|die|das) /, ""), "_____").replace(word.de, "_____");
+        return `<div class="card"><h3>Boşluk doldur</h3><p>${blank}</p><input id="blankAnswer" placeholder="Almanca kelimeyi yaz"><div class="btn-row"><button class="btn" onclick="checkBlank('${word.id}')">Kontrol Et</button></div><div class="result" id="blankResult"></div>${vocabControls(word, list)}</div>`;
+      }
+      return renderChoice(word, list, selected.vocabMode);
+    }
+    function renderChoice(word, list, mode) {
+      const correctText = mode === "de-tr" ? word.tr : word.de;
+      const question = mode === "de-tr" ? word.de : word.tr;
+      const pool = rotate(vocabData, Number(word.id.replace("v","")) + 7).filter(v => v.id !== word.id).slice(0, 3).map(v => mode === "de-tr" ? v.tr : v.de);
+      const options = rotate([correctText, ...pool], Number(word.id.replace("v","")) % 4);
+      return `<div class="card"><h3>${mode === "de-tr" ? "Almanca → Türkçe" : "Türkçe → Almanca"}</h3><p class="flashcard"><strong>${question}</strong></p>
+        <div class="option-list">${options.map(opt => `<button class="option" onclick="checkVocabChoice(this, '${escapeHtml(correctText)}', '${word.id}')">${opt}</button>`).join("")}</div>
+        <div class="result" id="choiceResult">Doğru cevabı seç.</div>${vocabControls(word, list)}</div>`;
+    }
+    function vocabControls(word, list) {
+      return `<div class="btn-row">
+        <button class="btn secondary" onclick="selected.vocabIndex=Math.max(0, selected.vocabIndex-1);selected.flashBack=false;renderVocab()">Önceki</button>
+        <button class="btn secondary" onclick="selected.vocabIndex=(selected.vocabIndex+1)%${list.length};selected.flashBack=false;renderVocab()">Sonraki</button>
+        <button class="btn good" onclick="markVocab('${word.id}', true)">Bildim</button>
+        <button class="btn warn" onclick="markVocab('${word.id}', false)">Bilemedim</button>
+      </div><p class="small muted">${selected.vocabIndex + 1}/${list.length} • ${word.de} = ${word.tr} • ${word.example}</p>`;
+    }
+    function markVocab(id, known) {
+      progress.vocabKnown[id] = known;
+      progress.vocabHard[id] = !known;
+      saveProgress();
+      selected.vocabIndex++;
+      selected.flashBack = false;
+      renderVocab();
+    }
+    function checkVocabChoice(btn, correct, id) {
+      const ok = normalize(btn.textContent) === normalize(correct);
+      btn.classList.add(ok ? "correct" : "wrong");
+      document.getElementById("choiceResult").innerHTML = ok ? "<strong>Doğru.</strong>" : `<strong>Yanlış.</strong> Doğru cevap: ${correct}`;
+      progress.vocabKnown[id] = ok;
+      progress.vocabHard[id] = !ok;
+      saveProgress();
+    }
+    function checkBlank(id) {
+      const word = vocabData.find(v => v.id === id);
+      const val = document.getElementById("blankAnswer").value;
+      const base = word.de.replace(/^(der|die|das) /, "");
+      const ok = [word.de, base].some(ans => normalize(ans) === normalize(val));
+      document.getElementById("blankResult").innerHTML = ok ? "<strong>Doğru.</strong>" : `<strong>Yanlış.</strong> Doğru cevap: ${word.de}`;
+      progress.vocabKnown[id] = ok;
+      progress.vocabHard[id] = !ok;
+      saveProgress();
+    }
+
+    function renderMocks() {
+      const filtered = examData.mocks.filter(m => matchesSearch(m.title + " " + m.theme));
+      const mock = filtered[selected.mock] || filtered[0] || examData.mocks[0];
+      selected.mock = examData.mocks.indexOf(mock);
+      app().innerHTML = `
+        <section>
+          <div class="section-head"><div><h2>Deneme Sınavları</h2><p>Her deneme ÖSD A1 mantığıyla Hören, Lesen, Schreiben ve Sprechen bölümlerine ayrılmıştır. Hören için ses üretilmez; playlistten dinleyip cevaplarını burada işaretleyebilirsin.</p></div></div>
+          <div class="split">
+            <aside class="card list-scroll">${examData.mocks.filter(m => matchesSearch(m.title + " " + m.theme)).map(m => {
+              const i = examData.mocks.indexOf(m);
+              return `<button class="item-btn ${i === selected.mock ? "active" : ""}" onclick="selected.mock=${i};selected.mockSection='hoeren';renderMocks()"><strong>${m.title}</strong><br><span class="small muted">${m.theme} • ${progress.completed[m.id] ? "tamamlandı" : "devam ediyor"}</span></button>`;
+            }).join("")}</aside>
+            <div class="grid">
+              <div class="card">
+                <span class="badge">Tam deneme</span>
+                <h3>${mock.title}: ${mock.theme}</h3>
+                <p class="muted">Sıra: Hören yaklaşık 10 dk / 30 puan, Lesen 25 dk / 30 puan, Schreiben 20 dk / 15 puan, Sprechen hazırlık 10 dk + sınav yaklaşık 10 dk / 25 puan.</p>
+                <div class="tabs" style="margin-top:12px">
+                  ${mockTabs().map(tab => `<button class="btn tab ${selected.mockSection === tab.id ? "" : "secondary"}" onclick="selected.mockSection='${tab.id}';renderMocks()">${tab.label}</button>`).join("")}
+                </div>
+              </div>
+              ${renderMockSection(selected.mock, selected.mockSection)}
+              <div class="result" id="mock-${selected.mock}-summary">${mockSummaryHtml(selected.mock)}</div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+    function mockTabs() {
+      return [
+        { id:"hoeren", label:"Hören" },
+        { id:"lesen", label:"Lesen" },
+        { id:"schreiben", label:"Schreiben" },
+        { id:"sprechen", label:"Sprechen" }
+      ];
+    }
+    function renderMockSection(index, section) {
+      const mock = examData.mocks[index];
+      if (section === "lesen") return renderReadingTest(examData.readingTests[mock.reading], `mock-${index}-read`);
+      if (section === "schreiben") return renderMockWriting(index);
+      if (section === "sprechen") return renderMockSpeaking(index);
+      return renderMockListening(index);
+    }
+    function renderMockListening(index) {
+      const sheet = examData.listeningSheets[index];
+      return `<div class="card">
+        <div class="section-head"><div><h3>Hören • yaklaşık 10 dakika • 30 puan</h3><p>${sheet.instruction}</p></div><span class="timer">10 dk</span></div>
+        <div class="btn-row"><a class="btn" href="${YOUTUBE_URL}" target="_blank" rel="noopener">YouTube playlisti aç</a><button class="btn secondary" onclick="markDone('mock-${index + 1}-hoeren-practice')">Videoyu dinledim</button></div>
+        <div class="iframe-box" style="margin-top:14px"><iframe src="${YOUTUBE_EMBED}" title="ÖSD A1 Hören playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="grid two" style="margin-top:14px">
+          ${sheet.tasks.slice(0,2).map((task, ti) => `<div class="panel"><h3>${task.title}</h3><p class="small muted">${task.note}</p>${Array.from({length:task.count}, (_, qi) => `<div class="question"><strong>Soru ${qi + 1}</strong><div class="pillbar">${task.options.map(opt => `<label class="pill"><input type="radio" name="mock-${index}-h-${ti}-${qi}" style="width:auto;min-height:auto"> ${opt}</label>`).join("")}</div></div>`).join("")}</div>`).join("")}
+        </div>
+        <div class="panel" style="margin-top:14px"><h3>Not alma</h3><p class="small muted">${sheet.tasks[2].note}</p>${sheet.tasks[2].prompts.map((prompt, i) => `<div class="field"><label>${prompt}</label><input placeholder="Videodan duyduğun bilgiyi yaz"></div>`).join("")}</div>
+        <div class="field"><label>Videonun cevap anahtarına göre doğru sayın kaç? (0-10)</label><input id="mock-${index}-hoeren-correct" type="number" min="0" max="10" value="${progress.scores[`mock-${index}-hoeren-raw`] ?? ""}"></div>
+        <div class="btn-row"><button class="btn" onclick="saveMockListening(${index})">Hören puanını kaydet</button></div>
+        <div class="result" id="mock-${index}-hoeren-result">Hören puanı videodaki cevap anahtarına göre manuel kaydedilir.</div>
+      </div>`;
+    }
+    function saveMockListening(index) {
+      const input = document.getElementById(`mock-${index}-hoeren-correct`);
+      const raw = Math.max(0, Math.min(10, Number(input.value || 0)));
+      const score = scaleScore(raw, 10, 30);
+      progress.scores[`mock-${index}-hoeren-raw`] = raw;
+      progress.scores[`mock-${index}-hoeren-score`] = score;
+      if (score >= 6) markDone(`mock-${index + 1}-hoeren`);
+      saveProgress();
+      document.getElementById(`mock-${index}-hoeren-result`).innerHTML = `<strong>Hören puanı: ${score}/30</strong><br>${raw}/10 doğru kaydedildi. Minimum hedef 6/30 üstüdür.`;
+      updateMockSummary(`mock-${index}-hoeren`);
+    }
+    function renderMockWriting(index) {
+      const mock = examData.mocks[index];
+      return `<div class="grid">
+        <div class="card"><h3>Schreiben • 20 dakika • 15 puan</h3><p class="muted">Aufgabe 1 form doldurma 5 puan, Aufgabe 2 kısa e-mail 10 puandır. E-mail için otomatik kontrol sadece basit checklist desteğidir.</p></div>
+        <div class="card"><h3>Aufgabe 1: Form doldurma</h3>${renderMockForm(mock.form, `mock-${index}-form`)}</div>
+        <div class="card"><h3>Aufgabe 2: Kısa e-mail / mesaj</h3>${renderEmailBox(emailTasks[mock.email], `mock-${index}-email`)}</div>
+      </div>`;
+    }
+    function renderMockSpeaking(index) {
+      const set = examData.speakingSets[examData.mocks[index].speaking];
+      return `<div class="card">
+        <div class="section-head"><div><h3>Sprechen • hazırlık 10 dk + sınav yaklaşık 10 dk • 25 puan</h3><p>Sınav provası gibi çalış: kendini tanıt, kartı anlat, kısa rica/soru rolünü yap.</p></div><span class="timer">25 puan</span></div>
+        <div class="panel"><h3>Aufgabe 1: Kendini tanıtma</h3><p>6 konudan 4 tanesini seç ve kısa cümlelerle konuş.</p><div class="pillbar">${set.introTopics.map(t => `<label class="pill"><input type="checkbox" style="width:auto;min-height:auto"> ${t}</label>`).join("")}</div></div>
+        <div class="panel" style="margin-top:12px"><h3>Aufgabe 2: Kart / sahne anlatma</h3>${set.scenes.map((scene, i) => `<label class="option"><input type="radio" name="mock-${index}-scene" style="width:auto;min-height:auto"> <strong>Kart ${i + 1}:</strong> ${scene}</label>`).join("")}</div>
+        <div class="panel" style="margin-top:12px"><h3>Aufgabe 3: Rica / soru sorma</h3><p>${set.role}</p></div>
+        <div class="grid two" style="margin-top:12px"><div class="panel"><h3>Kalıplar</h3>${set.starts.concat(set.patterns).map(s => `<div class="option">${s}</div>`).join("")}</div><div class="panel"><h3>A1 örnek cevap</h3><p>${set.sample}</p></div></div>
+        <div class="panel" style="margin-top:12px"><h3>Self-check</h3>${["4 tanıtma konusu söyledim","Kartta gördüğüm kişileri/yerleri anlattım","En az 1 soru veya rica cümlesi kurdum","Takıldığımda tekrar istedim","Kısa ama anlaşılır konuştum"].map((item, i) => `<label class="option"><input type="checkbox" id="mock-${index}-speak-check-${i}" style="width:auto;min-height:auto"> ${item}</label>`).join("")}</div>
+        <div class="btn-row"><button class="btn" onclick="saveMockSpeaking(${index})">Sprechen self-check kaydet</button><button class="btn secondary" onclick="startRecording()">Ses kaydı dene</button><button class="btn secondary" onclick="stopRecording()">Kaydı durdur</button></div>
+        <div class="result" id="recordResult">Tarayıcı destekliyorsa kayıt durumu burada görünür.</div>
+      </div>`;
+    }
+    function saveMockSpeaking(index) {
+      const checked = Array.from({length:5}, (_, i) => document.getElementById(`mock-${index}-speak-check-${i}`)?.checked).filter(Boolean).length;
+      const score = scaleScore(checked, 5, 25);
+      progress.scores[`mock-${index}-sprechen-score`] = score;
+      if (score >= 12) markDone(`mock-${index + 1}-sprechen`);
+      saveProgress();
+      updateMockSummary(`mock-${index}-sprechen`);
+    }
+    function renderMockForm(index, prefix) {
+      const task = formTasks[index];
+      return `<p>${task.scenario}</p><div class="hint"><strong>Bilgiler:</strong> ${task.info}</div>
+        ${task.fields.map((field, i) => `<div class="field" id="${prefix}-field-${i}"><label>${field[0]}</label><input id="${prefix}-input-${i}"><div class="small muted" id="${prefix}-exp-${i}"></div></div>`).join("")}
+        <button class="btn" onclick="checkForm(${index}, '${prefix}')">Formu Kontrol Et</button><div class="result" id="${prefix}-result"></div>`;
+    }
+    function mockSummaryHtml(index) {
+      const listeningScore = progress.scores[`mock-${index}-hoeren-score`] || 0;
+      const readingScore = progress.scores[`mock-${index}-read-score`] || 0;
+      const formScore = progress.scores[`mock-${index}-form-score`] || 0;
+      const emailChecklist = progress.scores[`mock-${index}-email-score`] || 0;
+      const emailScore = scaleScore(emailChecklist, 6, 10);
+      const writingScore = Math.min(15, formScore + emailScore);
+      const speakingScore = progress.scores[`mock-${index}-sprechen-score`] || 0;
+      const strengths = [];
+      const weak = [];
+      if (listeningScore >= 18) strengths.push("Hören"); else weak.push("Hören");
+      if (readingScore >= 18) strengths.push("Lesen"); else weak.push("Lesen");
+      if (writingScore >= 10) strengths.push("Schreiben"); else weak.push("Schreiben");
+      if (speakingScore >= 12) strengths.push("Sprechen"); else weak.push("Sprechen");
+      const tomorrow = weak[0] || "Zor kelimeler ve kısa tekrar";
+      return `<h3>Genel sonuç ekranı</h3>
+        <p><strong>Hören:</strong> ${listeningScore}/30 • <strong>Lesen:</strong> ${readingScore}/30 • <strong>Schreiben:</strong> ${writingScore}/15 • <strong>Sprechen:</strong> ${speakingScore}/25</p>
+        <p class="small muted">Schreiben detayı: Form ${formScore}/5, E-mail checklist ${emailChecklist}/6 yaklaşık ${emailScore}/10.</p>
+        <p><strong>Güçlü alanlar:</strong> ${strengths.join(", ") || "Henüz net değil"}</p>
+        <p><strong>Zayıf alanlar:</strong> ${weak.join(", ") || "İyi gidiyorsun"}</p>
+        <p><strong>Yarın şunu çalış:</strong> ${tomorrow}</p>
+        <div class="btn-row">
+          <button class="btn" onclick="markDone('mock-${index + 1}')">Bu denemeyi tamamlandı işaretle</button>
+          <button class="btn secondary" onclick="showMockWrongs(${index})">Yanlışları göster</button>
+          <button class="btn secondary" onclick="resetMock(${index})">Tekrar çöz</button>
+        </div>`;
+    }
+    function updateMockSummary(prefix) {
+      const match = prefix.match(/mock-(\d+)/);
+      if (!match) return;
+      const index = Number(match[1]);
+      const el = document.getElementById(`mock-${index}-summary`);
+      if (el) el.innerHTML = mockSummaryHtml(index);
+    }
+    function showMockWrongs(index) {
+      const wrong = document.querySelector(".wrong");
+      if (wrong) {
+        wrong.scrollIntoView({ behavior:"smooth", block:"center" });
+        return;
+      }
+      selected.mock = index;
+      selected.mockSection = "lesen";
+      renderMocks();
+      setTimeout(() => {
+        const result = document.getElementById(`mock-${index}-read-reading-result`);
+        if (result) result.innerHTML = "<strong>Yanlışları görmek için Lesen cevaplarını işaretleyip Kontrol Et'e bas.</strong>";
+      }, 0);
+    }
+    function resetMock(index) {
+      Object.keys(progress.scores).filter(key => key.startsWith(`mock-${index}-`)).forEach(key => delete progress.scores[key]);
+      progress.completed[`mock-${index + 1}`] = false;
+      progress.completed[`mock-${index + 1}-hoeren`] = false;
+      progress.completed[`mock-${index + 1}-sprechen`] = false;
+      saveProgress();
+      selected.mock = index;
+      selected.mockSection = "hoeren";
+      renderMocks();
+    }
+
+    function renderPlan() {
+      app().innerHTML = `
+        <section>
+          <div class="section-head"><div><h2>Çalışma Planı</h2><p>Bu alan kayıtlı öğrenciler için takip panelidir. Tamamladıklarını işaretle; ilerleme cihazında localStorage ile saklanır.</p></div><span class="badge">İlerleme: <span data-progress-text>${overallProgress()}%</span></span></div>
+          <div class="card">
+            <div class="progress-shell" aria-label="Genel ilerleme"><div class="progress-fill" data-progress-fill></div></div>
+          </div>
+          <div class="grid two" style="margin-top:14px">
+            <div class="card">
+              <h3>7 günlük hızlı tekrar planı</h3>
+              ${plan.map(day => `
+                <label class="option">
+                  <input type="checkbox" ${progress.completed[`plan-${day[0]}`] ? "checked" : ""} onchange="markDone('plan-${day[0]}', this.checked)" style="width:auto;min-height:auto">
+                  <strong>${day[0]}:</strong> ${day[1]}<br><span class="small muted">${day[2]}</span>
+                </label>`).join("")}
+            </div>
+            <div class="card">
+              <h3>14 günlük sınav hazırlık planı</h3>
+              ${plan14.map(day => `
+                <label class="option">
+                  <input type="checkbox" ${progress.completed[`plan14-${day[0]}`] ? "checked" : ""} onchange="markDone('plan14-${day[0]}', this.checked)" style="width:auto;min-height:auto">
+                  <strong>${day[0]}:</strong> ${day[1]}<br><a class="small muted" href="#${day[2]}">İlgili bölüme git</a>
+                </label>`).join("")}
+            </div>
+          </div>
+          <div class="card" style="margin-top:14px">
+            <h3>İpuçları ve sınav taktikleri</h3>
+            <div class="grid two">
+              <div><h3>Son 24 saat planı</h3><ul><li>1 tam deneme çöz; yeni konu öğrenme.</li><li>Schreiben kalıplarını 15 dakika tekrar et.</li><li>Sprechen için 4 tanıtma cümlesi kaydet.</li><li>Erken uyu; sınav sabahı belgelerini kontrol et.</li></ul></div>
+              <div><h3>Sınav sabahı</h3><ul><li>Kimlik ve sınav belgesini hazırla.</li><li>Sözlük veya elektronik yardımcı götürme; kullanılmaz.</li><li>Saati ve sınav adresini tekrar kontrol et.</li><li>Bilmediğin kelime görünce panik yapma.</li></ul></div>
+            </div>
+            <h3>En sık yapılan 30 hata</h3>
+            <div class="grid three">${commonMistakes.map((m, i) => `<div class="option"><strong>${i + 1}.</strong> ${m}</div>`).join("")}</div>
+          </div>
+        </section>
+      `;
+    }
+    const commonMistakes = [
+      "İlanlarda sadece tek kelimeye bakmak.", "nicht ve kein gibi olumsuzlukları kaçırmak.", "Saat düzeltmesini duymamak.", "Formda isim ve soyadı yerini karıştırmak.", "Telefon numarasına boşluk veya rakam eksik yazmak.", "Tarihte gün ve ayı ters yazmak.", "E-mailde selamlama yazmamak.", "E-mailde kapanış yazmamak.", "3 Leitfrage’den birini unutmak.", "A1’de çok uzun cümle kurmaya çalışmak.", "Sprechen’de susup beklemek.", "Tekrar istemekten çekinmek.", "Richtig/Falsch’ta birebir kelime aramak.", "Metindeki fiyatı eski bilgiyle karıştırmak.", "Aufgabe 1’de altıncı seçeneği otomatik seçmek.", "Kişisel bilgide büyük küçük harfe çok takılmak.", "Sınav süresini plansız kullanmak.", "Schreiben’de 30 kelime hedefini aşırı geçmek.", "Ayrı yazılması gereken adresi tek satırda karıştırmak.", "Ja/Nein sorusunda metin dışı tahmin yapmak.", "Sprechen tanıtmasında 4 konu seçmemek.", "Resim kartında olmayan şeyi uydurmak.", "Rol yapmada soru sormayı unutmak.", "Hören’de bilinmeyen kelimede takılı kalmak.", "Aynı kelimeyi farklı bağlamda görünce panik yapmak.", "Örnek cevap ezberleyip kendi bilgiye uyarlamamak.", "Kurs, Termin, Anmeldung gibi sık kelimeleri bilmemek.", "Sınavda elektronik yardımcı kullanmaya çalışmak.", "Son gün çok yeni kelime yüklenmek.", "Yanlış analizini yapmadan yeni denemeye geçmek."
+    ];
+
+    document.getElementById("globalSearch").addEventListener("input", () => render());
+    window.addEventListener("hashchange", render);
+    render();
+  </script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Şifre hizmeti yüklenemedi.'"></script><script id="ayda-exam-authorization-sync">(function(){const p=document.getElementById('aydaProtectedContent');if(!p)return;function sync(){document.documentElement.classList.toggle('ayda-exam-authorized',p.style.display==='block')}new MutationObserver(sync).observe(p,{attributes:true,attributeFilter:['style']});sync()})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) body>#aydaProtectedContent{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#0b1b31,#214d75);position:relative;z-index:99999;font-family:system-ui,-apple-system,sans-serif}
+#aydaLoginBox .ayda-exam-login-card{background:#fff;color:#102541;padding:28px;width:min(440px,100%);border-radius:19px;box-shadow:0 20px 54px #0003}
+#aydaLoginBox h1{font-size:23px;line-height:1.3;margin:0 0 9px;color:#102541}
+#aydaLoginBox p{font-size:14px;line-height:1.55;color:#5e7287}
+#aydaLoginBox label{display:block;font-weight:800;font-size:13px;margin:20px 0 6px;color:#102541}
+#aydaLoginBox input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1px solid #a6b8c9;border-radius:10px;background:#fff;color:#102541;font:16px system-ui}
+#aydaLoginBox button{width:100%;min-height:49px;background:#102541;color:#fff;border:0;border-radius:10px;font:800 15px system-ui;margin-top:12px;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+#aydaLoginBox .ayda-exam-message{min-height:22px;margin-top:10px;font-size:13px;color:#9f3838}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#234078" />
+  <title>AYDA · TELC A2 Lesen Teil 3</title>
+  <style>
+    :root {
+      --primary:#234078; --primary-dark:#172b52; --soft:#e9eef8; --bg:#f5f7fb;
+      --card:#fff; --text:#172033; --muted:#6b7280; --border:#e5e7eb;
+      --ok:#16803c; --bad:#b91c1c; --warn:#b7791f;
+      --shadow:0 18px 45px rgba(35,64,120,.13); --radius:24px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top left,rgba(35,64,120,.18),transparent 34%),linear-gradient(180deg,#fff 0%,var(--bg) 42%);
+      color:var(--text); min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    .topbar{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:14px 0 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:950;color:var(--primary);letter-spacing:-.02em}
+    .logo{width:38px;height:38px;border-radius:13px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:950}
+    .nav{display:flex;gap:8px;flex-wrap:wrap}
+    .nav a,.smallBtn{background:#fff;border:1px solid var(--border);color:var(--primary);border-radius:999px;padding:10px 13px;font-weight:850;font-size:13px;box-shadow:0 8px 22px rgba(17,24,39,.05)}
+    .page{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:18px 0 42px}
+    .hero{background:linear-gradient(135deg,var(--primary),#315caa);border-radius:30px;color:#fff;padding:32px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-90px;top:-100px;background:rgba(255,255,255,.12)}
+    .badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);padding:8px 13px;border-radius:999px;font-size:13px;margin-bottom:18px;position:relative;z-index:2}
+    .dot{width:9px;height:9px;background:#a7f3d0;border-radius:50%;box-shadow:0 0 0 6px rgba(167,243,208,.17)}
+    h1{margin:0;font-size:clamp(30px,5vw,52px);line-height:1.05;letter-spacing:-.04em;position:relative;z-index:2}
+    .hero p{max-width:880px;margin:16px 0 0;color:rgba(255,255,255,.9);font-size:17px;line-height:1.65;position:relative;z-index:2}
+    .panel{margin:18px 0;background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 14px 35px rgba(17,24,39,.06);padding:16px}
+    .progressHead{display:flex;justify-content:space-between;gap:12px;align-items:center;font-weight:950;color:var(--primary);margin-bottom:8px}
+    .bar{height:12px;background:#e5ebf5;border-radius:999px;overflow:hidden}
+    .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--primary),#6ea8ff);transition:.2s;border-radius:999px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+    .stat{background:#f8fafc;border:1px solid var(--border);border-radius:16px;text-align:center;padding:10px}
+    .stat b{display:block;color:var(--primary);font-size:22px}
+    .stat small{color:var(--muted);font-weight:800}
+    .tabs{display:flex;gap:8px;overflow:auto;padding:0 0 8px;margin:0 0 12px}
+    button{border:0;cursor:pointer;transition:.18s ease;font-family:inherit}
+    button:hover{transform:translateY(-1px)}
+    .tab{white-space:nowrap;background:#fff;border:1px solid var(--border);color:var(--primary);border-radius:999px;padding:10px 14px;font-weight:900;box-shadow:0 8px 22px rgba(17,24,39,.05)}
+    .tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .exercise{display:none;background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
+    .exercise.active{display:block}
+    .exHead{padding:20px;background:linear-gradient(135deg,#fff,#eff5ff);border-bottom:1px solid var(--border)}
+    .exHead h2{margin:0;color:var(--primary);font-size:25px;letter-spacing:-.03em}
+    .exHead p{margin:7px 0 0;color:var(--muted);font-weight:750}
+    .grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr)}
+    .ads,.questions{padding:20px}
+    .ads{background:#fbfdff;border-right:1px solid var(--border)}
+    .sectionTitle{margin:0 0 10px;color:var(--primary);font-size:14px;text-transform:uppercase;letter-spacing:.5px;font-weight:950}
+    .ad{border:1px solid var(--border);background:#fff;border-radius:16px;padding:12px;margin:0 0 10px}
+    .adCode{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:12px;background:var(--primary);color:#fff;font-weight:950;margin-right:7px}
+    .ad b{color:var(--primary)}
+    .ad p{margin:8px 0 0;line-height:1.55}
+    .q{border:1px solid var(--border);border-radius:18px;padding:14px;margin:0 0 14px;background:#fff}
+    .qText{font-weight:900;margin-bottom:10px}
+    .options{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+    .opt{border:1px solid var(--border);border-radius:14px;background:#fbfcff;padding:10px 8px;text-align:center;font-weight:950;cursor:pointer;color:var(--primary)}
+    .opt input{display:none}
+    .opt.selected{background:var(--soft);border-color:#9fb4d6}
+    .opt.correct{background:#eaf8ef;border-color:rgba(22,128,60,.45);color:var(--ok)}
+    .opt.wrong{background:#fff0ed;border-color:rgba(185,28,28,.45);color:var(--bad)}
+    .fb{display:none;margin-top:10px;border-radius:14px;padding:10px;font-size:14px;border:1px solid var(--border)}
+    .fb.show{display:block}
+    .fb.ok{background:#effaf3;border-color:#bfe7ca;color:#0d6130}
+    .fb.bad{background:#fff4f2;border-color:#f0c3bc;color:#8d241a}
+    .why{display:block;color:#39475e;margin-top:5px}
+    .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .primary{background:var(--primary);color:#fff;border-radius:999px;padding:12px 16px;font-weight:950}
+    .ghost{background:#eef3fa;color:var(--primary);border:1px solid var(--border);border-radius:999px;padding:12px 16px;font-weight:950}
+    .key{display:none;margin-top:14px;background:#f8fbff;border:1px dashed #b7c8e3;border-radius:18px;padding:14px}
+    .key.show{display:block}
+    .key h3{margin:0 0 10px;color:var(--primary)}
+    .keyItem{padding:8px 0;border-bottom:1px solid #e5edf7}
+    .keyItem:last-child{border-bottom:0}
+    .note{color:var(--muted);font-size:13px;line-height:1.6}
+    .float{position:sticky;bottom:10px;z-index:5;margin-top:10px}
+    .floatInner{background:rgba(35,64,120,.96);color:#fff;border-radius:18px;padding:12px 14px;display:flex;justify-content:space-between;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.22);font-weight:950}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.ads{border-right:0;border-bottom:1px solid var(--border)}.stats{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.topbar,.page{width:min(100% - 18px,1180px)}.nav{width:100%}.nav a{flex:1;text-align:center}.hero{padding:24px;border-radius:22px}.ads,.questions{padding:14px}.options{grid-template-columns:repeat(3,1fr)}.exHead h2{font-size:21px}}
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="color:#b18c4f;font-weight:900;font-size:12px;letter-spacing:.11em;margin:0 0 8px">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Çalışmaya devam etmek için AYDA merkezi giriş kodunu kullanın.</p><label for="aydaPasswordInput">Sınıf giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" class="ayda-exam-message" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav hazırlık ana sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="logo">AY</span><span>AYDA Dil Akademisi</span></a>
+    <nav class="nav">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="https://www.aydadil.com" target="_blank" rel="noopener">Web Sitesi</a>
+      <a href="https://wa.me/905409122503" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="badge"><span class="dot"></span> TELC A2 Lesen · Teil 3</div>
+      <h1>Anzeige A–H eşleştirme alıştırmaları.</h1>
+      <p>Situationen kısmını okuyun, hangi ilanın uygun olduğunu seçin. Uygun ilan yoksa <b>X</b> seçin. Her soru için kontrol, doğru cevap ve kısa gerekçe bulunur.</p>
+    </section>
+
+    <section class="panel">
+      <div class="progressHead"><span>Genel İlerleme</span><span id="progressText">0 / 54</span></div>
+      <div class="bar"><span id="progressBar"></span></div>
+      <div class="stats">
+        <div class="stat"><b id="doneCount">0</b><small>İşaretli</small></div>
+        <div class="stat"><b id="correctCount">0</b><small>Doğru</small></div>
+        <div class="stat"><b id="wrongCount">0</b><small>Yanlış</small></div>
+        <div class="stat"><b id="setCount">9</b><small>Set</small></div>
+      </div>
+      <p class="note">Not: Metinde aynı mobilya/küchengeräte seti iki kez geçtiği için tekrar seti olarak ayrıca eklendi.</p>
+    </section>
+
+    <nav class="tabs" id="tabs"></nav>
+    <div id="app"></div>
+
+    <div class="float"><div class="floatInner"><span id="floatTitle">Set 1</span><span id="floatScore">0/6 doğru</span></div></div>
+  </main>
+
+<script>
+const exercises = [{"title": "Lesen Teil 3 · Deutschkurse & Möbel", "subtitle": "Anzeige A–H / X seçimi", "ads": [["A", "Einbauküche mit Herd, Kühlschrank, Gefrierschrank, Spülmaschine, neuwertig, dunkelrote Türen, Schränke mit Glastüren zu verkaufen. Preis € 3000,- Tel. 030-158 429"], ["B", "Deutschlandweiter Möbelversand! Günstige Kinderzimmermöbel: Kinderbetten, Kinderstühle, Spieltische – ohne Versandkosten."], ["C", "Deutschkurse in Berlin. Alle Kursstufen von A1–C2. Kurse ab 2 Wochen für € 500. Wohnen in Familien, Freizeitprogramm."], ["D", "Neues Kursangebot. Deutschkurse, Englischkurse und andere Sprachen – jetzt auch Wochenendkurse."], ["E", "Gebrauchte Möbel gesucht! Suche preiswerte gebrauchte Möbel für Wohn- und Schlafzimmer."], ["F", "Gebraucht & gut. Möbel zu guten Preisen: Küchentische, Stühle, Wohnzimmerschränke und Sofas. Auf Wunsch liefern wir auch."], ["G", "Neu im Herbstsemester: Küche von A bis Z. Nehmen Sie an einem unserer Kochkurse teil! Kleine Gruppen."], ["H", "Wochenende – und dann? Im Verein treffen wir uns am Wochenende zum Spielen, Sportmachen oder Backen."]], "questions": [["Sie möchten im Urlaub Deutsch lernen und auch viel Spaß haben.", "C", "Deutschkurse + Wohnen in Familien + Freizeitprogramm passt genau."], ["Sie möchten Ihre Einbauküche zusammen mit den Küchengeräten verkaufen.", "X", "Anzeige A verkauft eine Einbauküche; gesucht ist aber jemand, der Ihre Küche kauft. Keine Anzeige passt sicher."], ["Sie möchten kochen lernen.", "G", "Anzeige G bietet Kochkurse: „Küche von A bis Z“."], ["Sie möchten noch einen Deutschkurs machen. Sie haben nur am Wochenende Zeit.", "D", "Anzeige D nennt Deutschkurse und Wochenendkurse."], ["Sie brauchen für Ihre neue Wohnung günstige Wohnzimmermöbel.", "F", "Anzeige F verkauft Wohnzimmerschränke und Sofas zu guten Preisen."], ["Sie möchten Ihren Schlafzimmerschrank günstig verkaufen.", "E", "Anzeige E sucht gebrauchte Möbel für Wohn- und Schlafzimmer."]]}, {"title": "Lesen Teil 3 · Wohnungen in Leipzig", "subtitle": "Wohnungsanzeigen", "ads": [["A", "Waldstraße: 3 Zimmer, große Küche, Bad mit Fenster und großem Balkon. 90 m², 4. Etage, Miete 650 €."], ["B", "Leipzig Innenstadt: Ein-Zimmer-Wohnungen, kleine Preise. 25–30 m², Mieten 140–200 €. 10 Minuten bis zur Uni."], ["C", "Leipzig-Gohlis: Schöne Wohnung, zwei Zimmer, Küche, Bad. 290 Euro Miete."], ["D", "Warum mieten? Kaufen Sie! Schöne Wohnung mit Garten bei Leipzig. 102 m², 4 Zimmer, ohne Keller."], ["E", "Sehr schöne große Wohnung im Erdgeschoss. Fünf Zimmer, großes Bad, separate Dusche, 2 Gästetoiletten. 130 m². Miete 980 €."], ["F", "Dachwohnung im renovierten Altbau. 2 Zimmer, Bad, Küche und Balkon. Schöne Lage im Süden von Leipzig. 420 €."], ["G", "Selbst ist der Mann! Wohnung für Handwerker. 3 Zimmer, noch nicht renoviert. 105 m². 3 Monate ohne Miete."], ["H", "Kleine Wohnung. 3 Zimmer im Erdgeschoss. Bad mit Dusche. Kleine Küche. Gartenbenutzung möglich. Garage vorhanden. 340 €."]], "questions": [["Sie suchen eine Wohnung mit zwei Zimmern. Die Miete soll nicht mehr als 300 Euro kosten.", "C", "Anzeige C: zwei Zimmer und 290 Euro Miete."], ["Sie möchten eine Wohnung mit Balkon. Die Wohnung soll unter dem Dach sein.", "F", "Anzeige F: Dachwohnung und Balkon."], ["Der Sohn Ihrer Freunde will in Leipzig studieren. Er braucht eine kleine billige Wohnung.", "B", "Anzeige B: kleine Ein-Zimmer-Wohnungen, 140–200 €, 10 Minuten bis zur Uni."], ["Ihre Freundin sucht ein möbliertes Zimmer.", "X", "Keine Anzeige bietet ein möbliertes Zimmer."], ["Sie wollen eine große Wohnung mit mindestens vier Zimmern mieten. Die Höhe der Miete ist für Sie nicht wichtig.", "E", "Anzeige E: große Wohnung, fünf Zimmer, zur Miete."], ["Sie wohnen mit Ihrer Mutter zusammen. Sie wollen eine 3-Zimmer-Wohnung mit Garten mieten.", "H", "Anzeige H: 3 Zimmer, Erdgeschoss, Gartenbenutzung möglich."]]}, {"title": "Lesen Teil 3 · Fahrrad & Auto", "subtitle": "Kaufen, verkaufen, reparieren", "ads": [["A", "DER DRAHTESEL: gebrauchte Fahrräder zu Superpreisen, für Kinder und Erwachsene, guter Zustand und Garantie."], ["B", "Die Auto-Profis: günstige Gebrauchtwagen, große Auswahl, alle Autos mit Garantie. Keine Werkstatt, nur kaufen und verkaufen."], ["C", "Rotes Fahrrad gesucht! Günstiges Fahrrad für Jungen gesucht, muss rot und sicher sein, bis 100 Euro."], ["D", "Werkstatt Schmidt & Sohn: Wir reparieren Fahrräder aller Art seit 30 Jahren."], ["E", "NEUERÖFFNUNG! Neue Fahrräder für Erwachsene und Kinder, z. B. Fahrrad „Torpedo“ für Jungen, rot, 199 Euro."], ["F", "Günstige Gebrauchte: gebrauchte Geräte und Maschinen, Küchengeräte und Gartenmaschinen mit Garantie."], ["G", "Suche gebrauchtes Fahrrad für Erwachsene, maximal 5 Jahre alt. Farbe egal. Abholung möglich."], ["H", "DIE KLEINE WERKSTATT: Wir reparieren jedes Auto günstig, schnell und gut."]], "questions": [["Sie möchten ein gebrauchtes Fahrrad kaufen.", "A", "Anzeige A verkauft gebrauchte Fahrräder."], ["Ihr Fahrrad ist kaputt. Sie möchten es reparieren lassen.", "D", "Anzeige D ist eine Fahrradwerkstatt."], ["Sie möchten Ihr Fahrrad verkaufen. Es ist ein Fahrrad für Erwachsene und es ist 4 Jahre alt.", "G", "Anzeige G sucht ein gebrauchtes Erwachsenenfahrrad, maximal 5 Jahre alt."], ["Ihr Auto ist kaputt. Sie möchten es günstig reparieren lassen.", "H", "Anzeige H repariert Autos günstig."], ["Sie möchten für Ihren kleinen Sohn ein Fahrrad kaufen. Das Fahrrad muss neu sein. Er ist 8 Jahre alt und seine Lieblingsfarbe ist Rot.", "E", "Anzeige E verkauft neue Fahrräder für Kinder, Beispiel rotes Jungenfahrrad."], ["Sie möchten ein Auto kaufen. Es soll ganz neu sein.", "X", "Anzeige B verkauft Gebrauchtwagen, aber kein neues Auto."]]}, {"title": "Lesen Teil 3 · Möbel & Küchengeräte I", "subtitle": "Kaufen, verkaufen, suchen", "ads": [["A", "Rustikales Doppelbett, 3 Jahre alt, 2 x 2 m, guter Zustand, inkl. Lattenrost, 200 €."], ["B", "Wir kaufen Küchengeräte jeder Art: Kühlschränke, Spülmaschinen usw., auch mit kleinen Fehlern. Abholung."], ["C", "Küchenspüle, Kühlschrank, Elektroherd mit Backofen preiswert abzugeben, 8 Jahre alt."], ["D", "Suche gebrauchte Spülmaschine bis 150 €."], ["E", "Komplettes Schlafzimmer zu verkaufen: Doppelbett, Kleiderschrank, Spiegelkommode, 2 Nachttische, 600 €."], ["F", "Kleiderschrank 4-türig mit Spiegeltüren zu verkaufen."], ["G", "Gesucht: Antike Küchenschränke, Vollholz. Zustand egal."], ["H", "Über 500 Küchenmöbel: Schränke, Tische, Stühle im Küchenparadies Schwalbe."]], "questions": [["Sie möchten in einem Möbelgeschäft neue Küchenmöbel kaufen.", "H", "Anzeige H ist ein Küchenmöbelgeschäft mit großer Auswahl."], ["Sie brauchen für Ihre neue Wohnung Schlafzimmermöbel. Bis zu 700,- € möchten Sie dafür ausgeben.", "E", "Anzeige E verkauft ein komplettes Schlafzimmer für 600 €."], ["Sie möchten eine gebrauchte Waschmaschine kaufen.", "X", "Keine Anzeige verkauft eine gebrauchte Waschmaschine."], ["Sie wollen Ihren alten Kühlschrank verkaufen. Das Licht im Kühlschrank funktioniert aber nicht mehr.", "B", "Anzeige B kauft Küchengeräte, auch mit kleinen Fehlern."], ["Sie haben einen alten Schrank von Ihrer Großmutter, den Sie gerne verkaufen möchten. Er passt nicht zu den modernen Möbeln in Ihrer Küche.", "G", "Anzeige G sucht antike Küchenschränke, Zustand egal."], ["Ihr Herd ist kaputt. Sie suchen für wenig Geld einen gebrauchten Herd als Ersatz.", "C", "Anzeige C bietet einen Elektroherd mit Backofen preiswert an."]]}, {"title": "Lesen Teil 3 · Markt, Beruf, Reise & Tiere", "subtitle": "Verschiedene Anzeigen", "ads": [["A", "Großer Markt in der Riedlstraße: Kleidung, Haushaltswaren, Bücher, Fahrräder, Gebrauchtmöbel, Haustiere."], ["B", "Kurs „Deutsche Weine“: Farbe, Geschmack, Alter des Weins, Herstellung, Besuch in Weinkellern."], ["C", "Autoverleih Sander: Mietwagen in jeder Preisklasse, Kleinwagen ab 49 Euro/Tag."], ["D", "Berufsberatung für Migranten: in Deutschland arbeiten und informieren, Beratungsstelle Ludwigstr. 25."], ["E", "Reisebüro Koppemann: Inland und Ausland, Bahn-, Bus- und Flugreisen, Hotels, Ferienwohnungen, Last Minute."], ["F", "Gasthof Hamburger Hof: traditionelle norddeutsche Küche, Bier aus eigener Brauerei, deutsche und französische Weine."], ["G", "PKW-Haus Herzog: Verkauf neuer und gebrauchter PKWs, professionelle Beratung, Garantie für Gebrauchtwagen."], ["H", "Tierärztin Sabine Höfle: Praxis für Hunde, Katzen und andere Kleintiere."]], "questions": [["Sie möchten in Deutschland arbeiten und sich informieren.", "D", "Anzeige D ist Berufsberatung für Migranten."], ["Sie möchten ein preiswertes Auto kaufen. Es soll fünf bis sechs Jahre alt sein.", "G", "Anzeige G verkauft gebrauchte PKWs mit Garantie."], ["Sie möchten einen Verwandten zu einem schönen Abendessen einladen. Er trinkt auch gerne Wein.", "F", "Anzeige F ist ein Gasthof mit traditioneller Küche und Weinen."], ["Sie möchten Ihrer Tochter eine kleine Katze schenken.", "A", "Anzeige A nennt Verkauf von Haustieren."], ["Sie möchten einen Kochkurs besuchen und dort lernen, wie man typisch deutsche Gerichte kocht.", "X", "Es gibt Weinkurs und Gasthof, aber keinen Kochkurs für deutsche Gerichte."], ["Sie möchten Deutschland besser kennen lernen und planen einen Kurzurlaub in Norddeutschland. Sie möchten mit dem Zug fahren.", "E", "Anzeige E bietet Bahnreisen, Hotels und Ferienwohnungen im Inland."]]}, {"title": "Lesen Teil 3 · Arbeit, Kleidung & Hilfe", "subtitle": "Dienstleistung und Angebote", "ads": [["A", "Restaurant Enoteca sucht Kellner/Kellnerin mit Ausbildung und Berufserfahrung."], ["B", "Ich nehme alles mit kleinen Fehlern: Möbel, Teppiche, Küchengeräte, Waschmaschinen, Werkzeug, Bücher, CDs, Spielsachen. Abholung."], ["C", "Firma Weier: Hilfe beim Einrichten, Reparaturen von Haushaltsgeräten, auch am Wochenende und an Feiertagen."], ["D", "Feste feiern ohne Stress: Partyservice, Buffet mit Vor- und Nachspeise, bis 150 Personen, Getränkeservice, Aufräumen."], ["E", "Modehaus Nummer 1: Schmuck, Uhren, Kleidung für Damen und Herren, Qualität für elegante Kunden."], ["F", "Hotel Springer sucht Koch/Köchin und Aushilfen für die Küche."], ["G", "Billig abzugeben: Hochzeitskleider, Schuhe, Modeschmuck, Videos, CDs, DVDs, Bücher ab 1 Euro."], ["H", "Neu & günstig: Hosen, Jacken und Pullover mit kleinen Fehlern ab 5 Euro. Alle Größen für Kinder von 3 bis 12 Jahren."]], "questions": [["Sie feiern Ihren Geburtstag mit vielen Leuten und wollen dafür Essen bestellen.", "D", "Anzeige D bietet Partyservice und Buffet bis 150 Personen."], ["Sie hören gerne Musik und suchen CDs.", "G", "Anzeige G verkauft CDs und DVDs billig."], ["Sie wollen für Ihr Wohnzimmer moderne Möbel und Bilder kaufen.", "X", "Keine Anzeige verkauft moderne Möbel und Bilder passend fürs Wohnzimmer."], ["Eine Bekannte sucht günstige Kleidung für ihre 8-jährige Tochter.", "H", "Anzeige H verkauft günstige Kinderkleidung für 3 bis 12 Jahre."], ["Eine Freundin sucht eine neue Stelle. Sie hat Berufserfahrung als Köchin.", "F", "Anzeige F sucht Koch/Köchin."], ["Sie brauchen Hilfe. Ihre Waschmaschine ist kaputt.", "C", "Anzeige C repariert Haushaltsgeräte, also auch Waschmaschinen."]]}, {"title": "Lesen Teil 3 · Schule, Jobs & Kühlschrank", "subtitle": "Lernen, Arbeit, Reparatur", "ads": [["A", "Schülerin hilft bei Hausaufgaben und Lernen. Fächer: Deutsch, Englisch, Französisch."], ["B", "Freie Vollzeitstelle als Verkäuferin/Verkäufer mit Ausbildung."], ["C", "Studenten geben Kühlschrank kostenlos ab, aber nur an Studenten."], ["D", "Ausbildung als Kellner/in, Koch/Köchin sowie Verkäufer/in, Montag bis Freitag, sechs Stunden pro Tag."], ["E", "Sprachschule sucht Lehrer für Hausaufgabenhilfe in Deutsch, Englisch und Mathematik."], ["F", "Ihr Kühlschrank ist kaputt? Wir reparieren Ihren alten Kühlschrank schnell und preiswert."], ["G", "Verkäufer/in gesucht für Samstag und Sonntag, gern Studenten."], ["H", "Wir verkaufen unseren großen Kühlschrank, funktioniert ohne Probleme, 90 €."]], "questions": [["Ihr Kühlschrank ist kaputt. Sie wollen ihn aber behalten.", "F", "Anzeige F repariert alte Kühlschränke."], ["Ihr Freund studiert und sucht einen Nebenjob am Wochenende.", "G", "Anzeige G sucht Verkäufer/in samstags und sonntags, gern Studenten."], ["Ihre Tochter hat in der Schule Probleme mit Englisch. Sie suchen jemanden, der ihr beim Lernen hilft.", "A", "Anzeige A bietet Hilfe bei Englisch und Hausaufgaben."], ["Sie möchten gern Verkäufer werden.", "D", "Anzeige D bietet eine Ausbildung als Verkäufer/in."], ["Sie suchen einen neuen Job. Sie haben eine Ausbildung als Kellner. Sie können nur von Montag bis Freitag arbeiten.", "X", "Anzeige A sucht Kellner, aber Restaurantzeiten sind nicht Montag–Freitag garantiert; Anzeige D ist Ausbildung, kein Job."], ["Ihr Freund führt ein kleines Restaurant und braucht einen Kühlschrank.", "H", "Anzeige H verkauft einen großen funktionierenden Kühlschrank."]]}, {"title": "Lesen Teil 3 · Möbel & Küchengeräte II", "subtitle": "Wiederholungssatz", "ads": [["A", "Rustikales Doppelbett, 3 Jahre alt, 2 x 2 m, guter Zustand, inkl. Lattenrost, 200 €."], ["B", "Wir kaufen Küchengeräte jeder Art: Kühlschränke, Spülmaschinen usw., auch mit kleinen Fehlern. Abholung."], ["C", "Küchenspüle, Kühlschrank, Elektroherd mit Backofen preiswert abzugeben, 8 Jahre alt."], ["D", "Suche gebrauchte Spülmaschine bis 150 €."], ["E", "Komplettes Schlafzimmer zu verkaufen: Doppelbett, Kleiderschrank, Spiegelkommode, 2 Nachttische, 600 €."], ["F", "Kleiderschrank 4-türig mit Spiegeltüren zu verkaufen."], ["G", "Gesucht: Antike Küchenschränke, Vollholz. Zustand egal."], ["H", "Über 500 Küchenmöbel: Schränke, Tische, Stühle im Küchenparadies Schwalbe."]], "questions": [["Sie möchten in einem Möbelgeschäft neue Küchenmöbel kaufen.", "H", "Anzeige H ist ein Küchenmöbelgeschäft mit großer Auswahl."], ["Sie brauchen für Ihre neue Wohnung Schlafzimmermöbel. Bis zu 700,- € möchten Sie dafür ausgeben.", "E", "Anzeige E verkauft ein komplettes Schlafzimmer für 600 €."], ["Sie möchten eine gebrauchte Waschmaschine kaufen.", "X", "Keine Anzeige verkauft eine gebrauchte Waschmaschine."], ["Sie wollen Ihren alten Kühlschrank verkaufen. Das Licht im Kühlschrank funktioniert aber nicht mehr.", "B", "Anzeige B kauft Küchengeräte, auch mit kleinen Fehlern."], ["Sie haben einen alten Schrank von Ihrer Großmutter, den Sie gerne verkaufen möchten. Er passt nicht zu den modernen Möbeln in Ihrer Küche.", "G", "Anzeige G sucht antike Küchenschränke, Zustand egal."], ["Ihr Herd ist kaputt. Sie suchen für wenig Geld einen gebrauchten Herd als Ersatz.", "C", "Anzeige C bietet einen Elektroherd mit Backofen preiswert an."]]}, {"title": "Lesen Teil 3 · Bildung, Einrichtung & Urlaub", "subtitle": "TEIL 3 Anzeigen", "ads": [["A", "Bildung: Intensivkurse Englisch, Deutsch, Spanisch und andere Sprachen. Vormittags oder nachmittags, 20 Stunden pro Woche."], ["B", "Einrichtung: Büromöbel, immer günstig. Schreibtische, Stühle, Schränke und mehr. Nur Neuware."], ["C", "Übernachtungen: perfekte Unterkunft, Pension oder Hotel, in jeder deutschen Stadt, jede Preisklasse."], ["D", "Tiere: Kanarienvogel zu verschenken, schön, gelb und rot, singt wunderschön, nur an liebe Familie."], ["E", "Tiere: Hunde- und Katzen-Kosmetik Meier. Waschen und Pflegen von Hund und Katze."], ["F", "Bildung: Sprachkurse Englisch, Russisch, Japanisch, Chinesisch, Deutsch als Fremdsprache. Abendkurse zweimal pro Woche."], ["G", "Einrichtung: gebrauchte Möbel zu verkaufen: Bücherregale, Kleiderschränke, rotes Sofa, Teppich, Gardinen, ca. 3 Jahre alt."], ["H", "Hobby & Urlaub: Ferienwohnungen und Ferienhäuser am Meer, viele Angebote in vier Ländern, günstig und schön."]], "questions": [["Sie möchten mit Ihrer Familie Urlaub machen und suchen eine kleine Ferienwohnung am Meer.", "H", "Anzeige H bietet Ferienwohnungen und Ferienhäuser am Meer."], ["Sie möchten eine Ausbildung machen und suchen Informationen.", "X", "Es gibt Sprachkurse, aber keine Ausbildungsberatung oder Ausbildung."], ["Ihre Verwandten kommen zu Ihnen zu Besuch. Sie brauchen für sie ein günstiges Hotel.", "C", "Anzeige C sucht/findet Pension oder Hotel in jeder Preisklasse."], ["Ihre Tochter möchte ein Haustier haben.", "D", "Anzeige D verschenkt einen Kanarienvogel."], ["Sie möchten noch einen Deutschkurs besuchen. Sie haben erst ab 18 Uhr Zeit.", "F", "Anzeige F bietet Deutsch als Fremdsprache und Abendkurse."], ["Sie möchten gebrauchte Möbel kaufen, weil neue Möbel zu teuer sind.", "G", "Anzeige G verkauft gebrauchte Möbel, ca. 3 Jahre alt."]]}];
+
+let current = 0;
+const letters = ["A","B","C","D","E","F","G","H","X"];
+
+function renderTabs(){
+  document.getElementById("tabs").innerHTML = exercises.map((ex,i)=>
+    `<button class="tab ${i===current?'active':''}" onclick="goSet(${i})">Set ${i+1}</button>`
+  ).join("");
+}
+
+function render(){
+  document.getElementById("app").innerHTML = exercises.map((ex,i)=>`
+    <section class="exercise ${i===current?'active':''}" data-set="${i}">
+      <div class="exHead">
+        <h2>${ex.title}</h2>
+        <p>${ex.subtitle}</p>
+      </div>
+      <div class="grid">
+        <div class="ads">
+          <p class="sectionTitle">Anzeigen</p>
+          ${ex.ads.map(ad=>`
+            <div class="ad">
+              <div><span class="adCode">${ad[0]}</span><b>Anzeige ${ad[0]}</b></div>
+              <p>${ad[1]}</p>
+            </div>
+          `).join("")}
+        </div>
+        <div class="questions">
+          <p class="sectionTitle">Situationen</p>
+          ${ex.questions.map((q,qi)=>`
+            <div class="q" data-q="${qi}">
+              <div class="qText">${qi+1}. ${q[0]}</div>
+              <div class="options">
+                ${letters.map(l=>`
+                  <label class="opt">
+                    <input type="radio" name="set${i}q${qi}" value="${l}" onchange="selectOpt(this);updateProgress();">
+                    ${l}
+                  </label>
+                `).join("")}
+              </div>
+              <div class="fb" id="fb-${i}-${qi}"></div>
+            </div>
+          `).join("")}
+          <div class="actions">
+            <button class="primary" onclick="checkSet(${i})">Kontrol Et</button>
+            <button class="ghost" onclick="toggleKey(${i})">Cevap Anahtarı</button>
+            <button class="ghost" onclick="resetSet(${i})">Sıfırla</button>
+          </div>
+          <div class="key" id="key-${i}">
+            <h3>Cevap Anahtarı ve Gerekçe</h3>
+            ${ex.questions.map((q,qi)=>`
+              <div class="keyItem"><b>${qi+1}. ${q[1]}</b><br><span>${q[2]}</span></div>
+            `).join("")}
+          </div>
+        </div>
+      </div>
+    </section>
+  `).join("");
+  renderTabs();
+  updateProgress();
+}
+
+function goSet(i){ current=i; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+
+function selectOpt(input){
+  const box = input.closest(".options");
+  box.querySelectorAll(".opt").forEach(o=>o.classList.remove("selected"));
+  input.closest(".opt").classList.add("selected");
+}
+
+function selectedValue(set,q){
+  const el = document.querySelector(`input[name="set${set}q${q}"]:checked`);
+  return el ? el.value : null;
+}
+
+function checkSet(i){
+  const ex = exercises[i];
+  ex.questions.forEach((q,qi)=>{
+    const val = selectedValue(i,qi);
+    const correct = q[1];
+    const why = q[2];
+    const row = document.querySelector(`.exercise[data-set="${i}"] .q[data-q="${qi}"]`);
+    const fb = document.getElementById(`fb-${i}-${qi}`);
+    row.querySelectorAll(".opt").forEach(label=>{
+      const input = label.querySelector("input");
+      label.classList.remove("correct","wrong");
+      if(input.value === correct) label.classList.add("correct");
+      if(input.checked && input.value !== correct) label.classList.add("wrong");
+    });
+    fb.classList.add("show");
+    if(!val){
+      fb.className = "fb show bad";
+      fb.innerHTML = `Henüz cevap seçilmedi. <span class="why"><b>Doğru cevap:</b> ${correct}<br>${why}</span>`;
+    } else if(val === correct){
+      fb.className = "fb show ok";
+      fb.innerHTML = `Doğru. <span class="why"><b>Gerekçe:</b> ${why}</span>`;
+    } else {
+      fb.className = "fb show bad";
+      fb.innerHTML = `Yanlış. Senin cevabın: <b>${val}</b>. <span class="why"><b>Doğru cevap:</b> ${correct}<br><b>Gerekçe:</b> ${why}</span>`;
+    }
+  });
+  updateProgress();
+}
+
+function toggleKey(i){ document.getElementById(`key-${i}`).classList.toggle("show"); }
+
+function resetSet(i){
+  document.querySelectorAll(`input[name^="set${i}q"]`).forEach(inp=>inp.checked=false);
+  document.querySelectorAll(`.exercise[data-set="${i}"] .opt`).forEach(o=>o.classList.remove("selected","correct","wrong"));
+  document.querySelectorAll(`.exercise[data-set="${i}"] .fb`).forEach(f=>{f.className="fb";f.innerHTML="";});
+  document.getElementById(`key-${i}`).classList.remove("show");
+  updateProgress();
+}
+
+function updateProgress(){
+  let done=0, correct=0, wrong=0;
+  exercises.forEach((ex,i)=>ex.questions.forEach((q,qi)=>{
+    const val=selectedValue(i,qi);
+    if(val){ done++; if(val===q[1]) correct++; else wrong++; }
+  }));
+  const total = exercises.reduce((sum,e)=>sum+e.questions.length,0);
+  document.getElementById("doneCount").textContent=done;
+  document.getElementById("correctCount").textContent=correct;
+  document.getElementById("wrongCount").textContent=wrong;
+  document.getElementById("progressText").textContent=`${done} / ${total}`;
+  document.getElementById("progressBar").style.width=`${Math.round(done/total*100)}%`;
+
+  let setCorrect=0;
+  exercises[current].questions.forEach((q,qi)=>{const val=selectedValue(current,qi); if(val===q[1]) setCorrect++;});
+  document.getElementById("floatTitle").textContent=`Set ${current+1}: ${exercises[current].title}`;
+  document.getElementById("floatScore").textContent=`${setCorrect}/${exercises[current].questions.length} doğru`;
+}
+
+render();
+</script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Giriş hizmetine ulaşılamıyor.'"></script>
+<script id="ayda-exam-authorization-sync">(function(){
+ const content=document.getElementById('aydaProtectedContent');
+ if(!content)return;
+ function sync(){const allowed=content.style.display==='block';document.documentElement.classList.toggle('ayda-exam-authorized',allowed);}
+ new MutationObserver(sync).observe(content,{attributes:true,attributeFilter:['style']});sync();
+})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

@@ -1,0 +1,315 @@
+{
+  "repository": "onurqlp/osda1rehber",
+  "source_ref": "main",
+  "source_commit": "6e2b994c5d051a2aa7bfea1bd42577de37d64d65",
+  "destination": "sites/osda1rehber",
+  "file_count": 61,
+  "total_bytes": 5052326,
+  "files": [
+    {
+      "path": ".github/workflows/g7-qa.yml",
+      "sha256": "e45541c406da1930cad986bc1478302adec508181981c28105162af0b944f1c6",
+      "bytes": 1673
+    },
+    {
+      "path": ".github/workflows/osd-a1-model-images.yml",
+      "sha256": "5f9f0d9b6bfffbe815a71b47fee1a7fb2cc437c55605eb47060d742c64b848dc",
+      "bytes": 1062
+    },
+    {
+      "path": ".github/workflows/osd-a2-model-images.yml",
+      "sha256": "1335a25210270ea8b2338c5c5cc669a654951f7c99086817393bec66e5f2b3d9",
+      "bytes": 1272
+    },
+    {
+      "path": ".github/workflows/osd-a2-review.yml",
+      "sha256": "d576e5e660137e1b2d96e4eb54c83554b330eb6eaac1c9b3809748cd05d546e6",
+      "bytes": 486
+    },
+    {
+      "path": ".github/workflows/osd-live-verification.yml",
+      "sha256": "eb3e1d4d04ecc9c3c193dc3fee341c59145d501c29ce6aec4501f99430e88916",
+      "bytes": 1735
+    },
+    {
+      "path": ".github/workflows/osd-site-checks.yml",
+      "sha256": "aa1451364cd3285b558b069d0a7ba41347b8da36aea0eceaa2d950c2fa26e08f",
+      "bytes": 997
+    },
+    {
+      "path": "CNAME",
+      "sha256": "ef85367b44a1f3bc74ea7cd372f1c3c6d29780dd35f68ff242cba9e13803eb18",
+      "bytes": 15
+    },
+    {
+      "path": "KURULUM.md",
+      "sha256": "e083f706e6a7236967f3248520c62f08743e86fe09382958707b951415bec1d7",
+      "bytes": 3866
+    },
+    {
+      "path": "a1/app.js",
+      "sha256": "35c07aee65a17afc09536437416f1a717234db62286e93f6934fa3d022aa668f",
+      "bytes": 15926
+    },
+    {
+      "path": "a1/assets/model/za1-hoeren-2.jpg",
+      "sha256": "44d581f04347d47a88e3638538ac247995d8b9bddb2ab72ac9b3850c3da40ed6",
+      "bytes": 99359
+    },
+    {
+      "path": "a1/assets/model/za1-hoeren-3.jpg",
+      "sha256": "02ab439ae29582d34e75b09bc9a3aacbc408b3a3fa86cf812a9fa05b0d1912e9",
+      "bytes": 132795
+    },
+    {
+      "path": "a1/assets/model/za1-page-02.jpg",
+      "sha256": "bbc1ed1b15ba4cb581b5968973c649daba70c4a0ec8c7df0508889b6edf41625",
+      "bytes": 147127
+    },
+    {
+      "path": "a1/assets/model/za1-page-03.jpg",
+      "sha256": "3112329b9e03eef3f1c850899a19f926cbece44e99405e0f7145beb80b809406",
+      "bytes": 237238
+    },
+    {
+      "path": "a1/assets/model/za1-page-04.jpg",
+      "sha256": "f56f2f5bbe2530cbcc0ce31a1d2530bfd3610a76961bcf8be15009279b4efc61",
+      "bytes": 223466
+    },
+    {
+      "path": "a1/assets/model/za1-page-05.jpg",
+      "sha256": "5d7bf042f8f904bb8eb39abf99948191a4382e923b18c41d205a464aab56bb79",
+      "bytes": 189650
+    },
+    {
+      "path": "a1/assets/model/za1-page-06.jpg",
+      "sha256": "36d084826964eaad23a4aa3a1fbca8b386bb8364f576a75d2955011801608daa",
+      "bytes": 115910
+    },
+    {
+      "path": "a1/assets/model/za1-page-07.jpg",
+      "sha256": "499c3ff3b107d257ddea5ff9f1022c84fb996f902af39c6e3876cf35bdb93821",
+      "bytes": 270010
+    },
+    {
+      "path": "a1/assets/model/za1-page-08.jpg",
+      "sha256": "d38aab032f960a596d771fca7258dd057a6cd60935de3d9de72309c1ef0c254e",
+      "bytes": 204150
+    },
+    {
+      "path": "a1/assets/model/za1-page-09.jpg",
+      "sha256": "f00058e9e49a91b185f00221d084a4c034d3df0a55321b61a2210549ac82067e",
+      "bytes": 156093
+    },
+    {
+      "path": "a1/assets/model/za1-page-10.jpg",
+      "sha256": "4cb5acd1cfde2964a6cc185e861c404a645fb3afa558d65eb4d631dd60d42675",
+      "bytes": 161781
+    },
+    {
+      "path": "a1/assets/model/za1-page-11.jpg",
+      "sha256": "4aa6db9650e749379446234244bab45bae84869be0263299585a3daf1fcae35f",
+      "bytes": 118025
+    },
+    {
+      "path": "a1/assets/model/za1-page-12.jpg",
+      "sha256": "9d40c540ea49d68b8744d783591e088fbfefe1bc3ea081e54c0ee1885c252921",
+      "bytes": 235339
+    },
+    {
+      "path": "a1/content.js",
+      "sha256": "222faac8addb679f4ee7ac75a11589db07c6517173d428c88440e61fe8595208",
+      "bytes": 44806
+    },
+    {
+      "path": "a1/index.html",
+      "sha256": "943187b822e8f3f79d00aec29003904225fd2f77adbdd008ee16699aab653094",
+      "bytes": 9488
+    },
+    {
+      "path": "a1/style.css",
+      "sha256": "a28c9cb1faa62616d00003befb87990365b71ed02eea5a5569c07663c8ebb3bd",
+      "bytes": 22468
+    },
+    {
+      "path": "a1/tools/render_model_scans.py",
+      "sha256": "0a5420358d634aa27e6ee658e2ea53a9686e3a8781aa2772b5a33233f46fce82",
+      "bytes": 1960
+    },
+    {
+      "path": "a1/ux-review.css",
+      "sha256": "162f9f5f1fa5445e506cb20bf71191d9a556194318b8739dc4d2dd15009c97ac",
+      "bytes": 5546
+    },
+    {
+      "path": "a1/ux-review.js",
+      "sha256": "51637db857b41baf806e5e4f28d534bc3c30b3493c17b7e69cfcf7b010ef641d",
+      "bytes": 9612
+    },
+    {
+      "path": "a2/ONAY_NOTLARI.md",
+      "sha256": "ba717500463af12bdf03b5aff42af9e4119f14b0b5c6ae3d8a34c182aede1d49",
+      "bytes": 2021
+    },
+    {
+      "path": "a2/RESMI_MODEL_GORSELLERI.md",
+      "sha256": "62f48eebba8ff1aee303311f0314b89b368dfab9d32bb9610e75a093bc28e291",
+      "bytes": 1806
+    },
+    {
+      "path": "a2/app.js",
+      "sha256": "0d15810091a648cff48e2c9ddd8621a156db138b53a84e99c90cabc297fa85f6",
+      "bytes": 16645
+    },
+    {
+      "path": "a2/assets/model/za2-hoeren-1.jpg",
+      "sha256": "5c0023581f0f6b170354b5c11e52ae76a5575521b37676dd2386ee7e2d043be2",
+      "bytes": 75339
+    },
+    {
+      "path": "a2/assets/model/za2-hoeren-2.jpg",
+      "sha256": "1b79f2ac257da334eb97af9a2be943782c02e3dcfb77e3c98304517a342661ee",
+      "bytes": 75503
+    },
+    {
+      "path": "a2/assets/model/za2-hoeren-3.jpg",
+      "sha256": "822eef1170da5f7c0c1b9dc48b7898792c038e41b71a3d670e43cd1296b2bf5f",
+      "bytes": 109366
+    },
+    {
+      "path": "a2/assets/model/za2-page-02.jpg",
+      "sha256": "8a73f98984512e9b7672fa1dba820868e6acb5fad2d8f2cf4c42e2c01c35cf90",
+      "bytes": 179504
+    },
+    {
+      "path": "a2/assets/model/za2-page-03.jpg",
+      "sha256": "2a448099c5d46fa2cdefc2eff4d10e8d0c59a3bfa5206b9b988b62aaa6669e07",
+      "bytes": 302632
+    },
+    {
+      "path": "a2/assets/model/za2-page-04.jpg",
+      "sha256": "4202258f876e72d0c50d89abe7edc30ef3bfc17a77263d23c3f02744d6e88df9",
+      "bytes": 303531
+    },
+    {
+      "path": "a2/assets/model/za2-page-05.jpg",
+      "sha256": "da8f07046880f12ca0199ee26dc8186b7fb06ea49cf54208ff3c1893d0f6c921",
+      "bytes": 250844
+    },
+    {
+      "path": "a2/assets/model/za2-page-06.jpg",
+      "sha256": "d84a0cc0d20ba62f0f58115d26cf9c3ce5ff4abaefc866263820c7f93c73ba3d",
+      "bytes": 249978
+    },
+    {
+      "path": "a2/assets/model/za2-page-07.jpg",
+      "sha256": "475f9d084475ad3f7a8824fd0750b11b051a9e0e92ff7c967a594d9f1fdabbad",
+      "bytes": 162742
+    },
+    {
+      "path": "a2/assets/model/za2-page-08.jpg",
+      "sha256": "ff0d7bcff7318dcc101a23276e46ae2821dc330699d23828b3b2ae4182fdee70",
+      "bytes": 106974
+    },
+    {
+      "path": "a2/assets/model/za2-page-09.jpg",
+      "sha256": "f4e3ad5f992613afe8217b496da994f8e02f353c77a902702947736e94f6f51e",
+      "bytes": 280102
+    },
+    {
+      "path": "a2/assets/model/za2-page-10.jpg",
+      "sha256": "ee29dbabdacb8b804005d3659609e3b2ca954804747fa5c99450f17b768a746e",
+      "bytes": 123006
+    },
+    {
+      "path": "a2/content.js",
+      "sha256": "ddcd2ebbded4ab74575ac3e32a223c633781c56f3e6d54f3f9191ebee17fed4a",
+      "bytes": 21681
+    },
+    {
+      "path": "a2/index.html",
+      "sha256": "5e688dccf9f0f3198e8aefd21a69a816cba94f2e29d2e4e704e99c045495b924",
+      "bytes": 10114
+    },
+    {
+      "path": "a2/style.css",
+      "sha256": "e8c37fccdc3a562f0b86825d93502ef0c56c64981f8240f697470683865d73dc",
+      "bytes": 23062
+    },
+    {
+      "path": "a2/tests/smoke-test.js",
+      "sha256": "633c5d2423f83463c699f107aff32334ecc45d85ae07413bbb2463431e4109b1",
+      "bytes": 3334
+    },
+    {
+      "path": "a2/tools/render_model_scans.py",
+      "sha256": "0da85d548845043f607db71c6808a47da547dbe0d40592c778c17b1766941b58",
+      "bytes": 2654
+    },
+    {
+      "path": "a2/ux-review.css",
+      "sha256": "162f9f5f1fa5445e506cb20bf71191d9a556194318b8739dc4d2dd15009c97ac",
+      "bytes": 5546
+    },
+    {
+      "path": "a2/ux-review.js",
+      "sha256": "51637db857b41baf806e5e4f28d534bc3c30b3493c17b7e69cfcf7b010ef641d",
+      "bytes": 9612
+    },
+    {
+      "path": "app.js",
+      "sha256": "32d16ac25ce00b53db3c8719ce50ec968e110dfaab214e30ec9a95e8b4af92bd",
+      "bytes": 12554
+    },
+    {
+      "path": "assets/ayda-logo.png",
+      "sha256": "baa791945bb954a30bb415555e72f47b4425a861c7b7888999ee69f3d80642cd",
+      "bytes": 4489
+    },
+    {
+      "path": "assets/cafe.webp",
+      "sha256": "cdc4da2b44cf3ac71cb76699bdf44b12986b8b715278c481bec2943c33140196",
+      "bytes": 83648
+    },
+    {
+      "path": "assets/kitchen.webp",
+      "sha256": "4786d9bdb6558177d98094e0ce775216255f7576abaf2a04197d3d9f2127c8c1",
+      "bytes": 73024
+    },
+    {
+      "path": "assets/shop.webp",
+      "sha256": "a1aa47949ead5684c9adc4fffd017e6b049975a0f0d5521f136ecf089f987d7f",
+      "bytes": 70950
+    },
+    {
+      "path": "content.js",
+      "sha256": "d5b3707ac8fcb39de2f120c64cbf9745bc3c612ae425f1eb2631612bf5818ada",
+      "bytes": 44803
+    },
+    {
+      "path": "index.html",
+      "sha256": "f50b78ea05efd63306e153b47bee7a0c99d586f2c12112a78ba359a18d7a9409",
+      "bytes": 5816
+    },
+    {
+      "path": "landing.css",
+      "sha256": "3cacc5650fc3509f497d8e7ed15c25019f08074df74ec6c5e2d5e941af3ec29a",
+      "bytes": 4499
+    },
+    {
+      "path": "style.css",
+      "sha256": "c4fed30db206aaa1949df1bd8c375ac0d3bb39233ffb717c198f27394d66e8ae",
+      "bytes": 19798
+    },
+    {
+      "path": "tests/site-smoke.test.cjs",
+      "sha256": "a97636fd213fd3b3aa4d824e79d777ed5eccd62e86a4ad6ea2da8dfee18b4a6d",
+      "bytes": 3626
+    },
+    {
+      "path": "tests/ux-review.test.cjs",
+      "sha256": "f5423f6c849932caee822adbe746f85ab03b2d060fe7d41c799d2cd2147415e4",
+      "bytes": 1268
+    }
+  ]
+}

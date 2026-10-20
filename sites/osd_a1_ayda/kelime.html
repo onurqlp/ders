@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) #aydaProtectedContent{display:none!important}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(135deg,#0b1b31,#214d75);font:15px system-ui,-apple-system,sans-serif;z-index:99999;position:relative}
+#aydaLoginBox .ayda-exam-login-card{width:min(440px,100%);background:white;color:#102541;border-radius:18px;padding:28px;box-shadow:0 18px 44px #0003}
+#aydaLoginBox h1{font:900 24px/1.25 system-ui;color:#102541;margin:0 0 10px}
+#aydaLoginBox p{font:14px/1.5 system-ui;color:#52657c}
+#aydaLoginBox label{display:block;margin:17px 0 8px;font-weight:800;color:#102541}
+#aydaLoginBox input{display:block;width:100%;box-sizing:border-box;padding:12px;min-height:49px;border:1px solid #a9b9c9;border-radius:10px;font:16px system-ui;background:white;color:#102541}
+#aydaLoginBox button{display:block;width:100%;min-height:48px;border:0;border-radius:10px;margin:12px 0;background:#102541;color:white;font:bold 15px system-ui;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kelime Alıştırmaları | AYDA Dil ÖSD A1 Hazırlık</title>
+  <meta name="description" content="AYDA Dil kelime alıştırmaları: ÖSD A1 sınavında sık görülen aile, ev, okul, iş, sağlık, ulaşım, alışveriş, zaman ve günlük hayat temaları için örnek cümleli mini quizler.">
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --blue: #163a66;
+      --red: #d71920;
+      --ink: #1f2937;
+      --muted: #64748b;
+      --line: #e5e7eb;
+      --soft: #f7f9fc;
+      --white: #fff;
+      --ok: #16803a;
+      --bad: #b42318;
+      --radius: 8px;
+      --shadow: 0 14px 34px rgba(11, 31, 58, .08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    .container { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
+    a { color: inherit; }
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 900;
+    }
+    .mark {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--navy), var(--red));
+      color: var(--white);
+      font-size: 14px;
+    }
+    .score {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 14px;
+    }
+    .hero {
+      padding: 46px 0 28px;
+      background:
+        linear-gradient(110deg, rgba(11,31,58,.96), rgba(22,58,102,.92)),
+        radial-gradient(circle at top right, rgba(215,25,32,.26), transparent 34%);
+      color: var(--white);
+    }
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 9vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    .hero p { color: #e8eef7; max-width: 780px; margin: 0; font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn {
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--navy);
+      padding: 10px 14px;
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn.red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .btn.dark { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .btn.ghost { background: rgba(255,255,255,.1); color: var(--white); border-color: rgba(255,255,255,.28); }
+    main section { padding: 36px 0; }
+    h2, h3 { color: var(--navy); line-height: 1.2; margin: 0; letter-spacing: 0; }
+    .section-head { display: grid; gap: 8px; margin-bottom: 18px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .themes {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+    }
+    .theme-link {
+      white-space: nowrap;
+      min-height: 38px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .theme {
+      border-top: 1px solid var(--line);
+      padding-top: 30px;
+    }
+    .word-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    .word-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(11,31,58,.04);
+      padding: 18px;
+    }
+    .word-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .word {
+      font-size: 1.2rem;
+      color: var(--navy);
+      font-weight: 950;
+    }
+    .meaning {
+      display: none;
+      color: var(--red);
+      font-weight: 900;
+    }
+    .meaning.visible { display: inline; }
+    .example {
+      margin: 10px 0;
+      color: var(--muted);
+      border-left: 3px solid var(--red);
+      padding-left: 10px;
+    }
+    .exercise {
+      background: var(--soft);
+      border-radius: var(--radius);
+      padding: 12px;
+      margin-top: 12px;
+    }
+    .choices {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .choice {
+      width: 100%;
+      text-align: left;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 10px;
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .choice.correct { border-color: var(--ok); background: #ecfdf3; color: var(--ok); }
+    .choice.wrong { border-color: var(--bad); background: #fff1f0; color: var(--bad); }
+    .feedback {
+      min-height: 24px;
+      margin-top: 8px;
+      font-weight: 900;
+      font-size: 14px;
+    }
+    .feedback.ok { color: var(--ok); }
+    .feedback.bad { color: var(--bad); }
+    .practice-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    .practice {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .blank-input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px;
+      font: inherit;
+      margin-top: 10px;
+    }
+    .ad {
+      margin: 20px 0;
+      border: 1px dashed #cbd5e1;
+      background: #fbfdff;
+      color: var(--muted);
+      border-radius: var(--radius);
+      padding: 14px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .cta {
+      background: var(--navy);
+      color: var(--white);
+      padding: 40px 0;
+    }
+    .cta h2 { color: var(--white); font-size: clamp(1.55rem, 5vw, 2.35rem); margin-bottom: 10px; }
+    .cta p { color: #dbeafe; margin: 0 0 20px; }
+    .contact {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+      color: #e8eef7;
+      font-size: 14px;
+    }
+    .contact a { color: var(--white); font-weight: 900; }
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 20px 0;
+      font-size: 13px;
+    }
+
+    @media (min-width: 720px) {
+      .hero { padding: 68px 0 42px; }
+      .word-grid { grid-template-columns: repeat(2, 1fr); }
+      .practice-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (min-width: 1040px) {
+      .word-grid { grid-template-columns: repeat(3, 1fr); }
+      .practice-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* AYDA SECTION NAVIGATION ADDITIONS */
+    .ayda-page-nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .ayda-page-nav-inner {
+      min-height: 68px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ayda-home-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border-radius: var(--radius);
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 900;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(11,31,58,.12);
+    }
+
+    .ayda-home-link:hover {
+      background: var(--red);
+    }
+
+    .ayda-page-links {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      padding: 8px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ayda-page-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ayda-page-links a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      background: var(--white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .ayda-page-links a:hover {
+      color: var(--red);
+      border-color: rgba(215,25,32,.35);
+      background: #fff1f2;
+    }
+
+    .ayda-page-links a.is-active {
+      color: var(--white);
+      border-color: var(--red);
+      background: var(--red);
+    }
+
+    .ayda-score-wrap {
+      display: flex;
+      justify-content: flex-end;
+      min-width: max-content;
+    }
+
+    .ayda-section-switch {
+      padding: 46px 0;
+      background: var(--soft);
+    }
+
+    .ayda-switch-box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .ayda-switch-head {
+      margin-bottom: 16px;
+    }
+
+    .ayda-switch-head h2 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: clamp(1.45rem, 5vw, 2.15rem);
+    }
+
+    .ayda-switch-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .ayda-switch-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .ayda-switch-card {
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 15px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(11,31,58,.04);
+    }
+
+    .ayda-switch-card:hover {
+      border-color: rgba(215,25,32,.38);
+      background: #fff1f2;
+      color: var(--red);
+    }
+
+    .ayda-switch-card.is-active {
+      color: var(--white);
+      border-color: var(--red);
+      background: var(--red);
+    }
+
+    .ayda-whatsapp-mini {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+    }
+
+    .ayda-whatsapp-mini strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .ayda-whatsapp-mini p {
+      margin: 4px 0 0;
+      color: #dbeafe;
+    }
+
+    .ayda-wa-button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: var(--radius);
+      background: var(--red);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .ayda-wa-button:hover {
+      background: #b9151b;
+    }
+
+    .ayda-mobile-bottom {
+      display: none;
+    }
+
+    @media (min-width: 760px) {
+      .ayda-switch-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .ayda-whatsapp-mini {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 1040px) {
+      .ayda-switch-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 759px) {
+      body {
+        padding-bottom: 78px;
+      }
+
+      .ayda-page-nav-inner {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        gap: 8px;
+        padding: 10px 0;
+      }
+
+      .ayda-home-link {
+        width: 100%;
+      }
+
+      .ayda-page-links {
+        width: 100%;
+      }
+
+      .ayda-score-wrap {
+        justify-content: flex-start;
+      }
+
+      .ayda-mobile-bottom {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 60;
+        height: 62px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+        padding: 7px;
+        border-radius: 18px;
+        background: rgba(11,31,58,.96);
+        box-shadow: 0 16px 34px rgba(0,0,0,.22);
+        backdrop-filter: blur(12px);
+      }
+
+      .ayda-mobile-bottom a {
+        display: grid;
+        place-items: center;
+        gap: 1px;
+        color: rgba(255,255,255,.86);
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 900;
+        border-radius: 13px;
+        line-height: 1.1;
+      }
+
+      .ayda-mobile-bottom a:hover,
+      .ayda-mobile-bottom a:focus {
+        color: var(--white);
+        background: rgba(255,255,255,.12);
+      }
+
+      .ayda-mobile-bottom span {
+        display: block;
+        font-size: 16px;
+      }
+    }
+
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="font-weight:900;letter-spacing:.1em;color:#a98442">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Devam etmek için merkezi AYDA sınıf kodunu girin.</p><label for="aydaPasswordInput">Giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav Hazırlık Ana Sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+  <header class="ayda-page-nav">
+    <div class="container ayda-page-nav-inner">
+      <a class="ayda-home-link" href="https://onurqlp.github.io/osd_a1_ayda/" aria-label="ÖSD A1 ana sayfaya dön">
+        ← Ana Sayfa
+      </a>
+
+      <nav class="ayda-page-links" aria-label="ÖSD A1 hazırlık sayfaları">
+        <a href="bilgi.html">Bilgi</a>
+        <a class="is-active" href="kelime.html">Kelime</a>
+        <a href="lesen.html">Lesen</a>
+        <a href="horen.html">Hören</a>
+        <a href="schreiben.html">Schreiben</a>
+        <a href="https://onurqlp.github.io/osda1sprehcen/">Sprechen</a>
+        <a href="https://onurqlp.github.io/osda1denemeler/">Deneme</a>
+      </nav>
+
+      <div class="ayda-score-wrap">
+        <div class="score" aria-live="polite">Puan: <span id="score">0</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Kelime Alıştırmaları</h1>
+      <p>ÖSD A1 sınavında sık karşılaşılan günlük temaları kartlarla çalış. Her kelimede Türkçe anlam, örnek cümle ve mini alıştırma var. Cevaplar sayfa yenilenmeden kontrol edilir.</p>
+      <div class="hero-actions">
+        <a class="btn red" href="#temalar">Temalara Başla</a>
+        <button class="btn ghost" type="button" id="resetScore">Puanı Sıfırla</button>
+      </div>
+    </div>
+  </section>
+
+  <main id="temalar">
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Temalar</h2>
+          <p>Örnek sınav mantığında anahtar kelime yakalamak çok önemlidir. Bu yüzden kelimeler aile, ev, okul, iş, sağlık, ulaşım, alışveriş, zaman ve günlük hayat başlıklarıyla düzenlendi.</p>
+        </div>
+        <nav class="themes" aria-label="Kelime temaları" id="themeNav"></nav>
+        <div class="ad">Reklam / duyuru alanı: AYDA Dil A1 kelime kampı, deneme çözümü veya canlı ders duyurusu için sade alan.</div>
+      </div>
+    </section>
+    <div id="themeSections"></div>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Karışık Mini Alıştırmalar</h2>
+          <p>Sınavda kelime tek başına değil, görev içinde gelir. Bu bölümde eşleştirme, boşluk doldurma, doğru/yanlış ve mini quiz mantığını birlikte çalışabilirsin.</p>
+        </div>
+        <div class="practice-grid">
+          <article class="practice">
+            <h3>Eşleştir</h3>
+            <p>“Apotheke” hangi anlama gelir?</p>
+            <div class="choices" data-answer="Eczane">
+              <button class="choice">Kütüphane</button>
+              <button class="choice">Eczane</button>
+              <button class="choice">İstasyon</button>
+            </div>
+            <div class="feedback"></div>
+          </article>
+          <article class="practice">
+            <h3>Boşluk Doldur</h3>
+            <p>Ich fahre mit dem ____ nach Wien.</p>
+            <input class="blank-input" data-answer="zug" placeholder="Cevabını yaz">
+            <button class="btn dark check-blank" type="button">Kontrol Et</button>
+            <div class="feedback"></div>
+          </article>
+          <article class="practice">
+            <h3>Doğru / Yanlış</h3>
+            <p>“Rechnung” kelimesi “hesap/fatura” anlamına gelir.</p>
+            <div class="choices" data-answer="Doğru">
+              <button class="choice">Doğru</button>
+              <button class="choice">Yanlış</button>
+            </div>
+            <div class="feedback"></div>
+          </article>
+          <article class="practice">
+            <h3>Mini Quiz</h3>
+            <p>“Termin” kelimesi sınavda en çok hangi bilgiyle ilişkilidir?</p>
+            <div class="choices" data-answer="Randevu">
+              <button class="choice">Randevu</button>
+              <button class="choice">Kahvaltı</button>
+              <button class="choice">Bavul</button>
+            </div>
+            <div class="feedback"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <section class="ayda-section-switch" aria-label="Diğer hazırlık bölümleri">
+    <div class="container">
+      <div class="ayda-switch-box">
+        <div class="ayda-switch-head">
+          <h2>Diğer Bölümlere Geç</h2>
+          <p>ÖSD A1 hazırlığında diğer çalışma alanlarına hızlıca geçebilirsiniz.</p>
+        </div>
+
+        <div class="ayda-switch-grid">
+          <a class="ayda-switch-card" href="bilgi.html">Sınav Bilgileri <span>→</span></a>
+          <a class="ayda-switch-card is-active" href="kelime.html">Kelime Alıştırmaları <span>→</span></a>
+          <a class="ayda-switch-card" href="lesen.html">Lesen <span>→</span></a>
+          <a class="ayda-switch-card" href="horen.html">Hören <span>→</span></a>
+          <a class="ayda-switch-card" href="schreiben.html">Schreiben <span>→</span></a>
+          <a class="ayda-switch-card" href="https://onurqlp.github.io/osda1sprehcen/">Sprechen <span>→</span></a>
+          <a class="ayda-switch-card" href="https://onurqlp.github.io/osda1denemeler/">Deneme Sınavları <span>→</span></a>
+        </div>
+
+        <div class="ayda-whatsapp-mini">
+          <div>
+            <strong>ÖSD A1/A2 hazırlık için AYDA Dil ile iletişime geçin.</strong>
+            <p>Kurs, deneme sınavı ve sınav hazırlık süreci hakkında bilgi alabilirsiniz.</p>
+          </div>
+          <a class="ayda-wa-button" href="https://wa.me/905409122503">WhatsApp’tan Yaz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="cta">
+    <div class="container">
+      <h2>AYDA Dil ile sınava hazırlanmak için bize ulaşın.</h2>
+      <p>Kelimeyi tema içinde, soru tipine uygun ve bol tekrar ederek çalışmak A1 sınavında hız kazandırır.</p>
+      <a class="btn red" href="https://wa.me/905409122503">WhatsApp: 0540 912 25 03</a>
+      <div class="contact">
+        <span>Web: <a href="https://www.aydadil.com">www.aydadil.com</a></span>
+        <span>Instagram: <a href="https://instagram.com/ayda.dil">instagram.com/ayda.dil</a></span>
+        <span>YouTube: <a href="https://www.youtube.com/@aydadil">@aydadil</a></span>
+        <span>WhatsApp: <a href="https://wa.me/905409122503">05409122503</a></span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© AYDA Dil. Alıştırmalar eğitim amaçlıdır ve sınavın resmi içeriğini birebir kopyalamaz.</div>
+  </footer>
+
+  <script>
+    const themes = [
+      { id: "aile", title: "Aile", words: [
+        ["die Familie", "aile", "Meine Familie wohnt in Ankara.", "Meine ____ wohnt in Ankara.", "Familie"],
+        ["der Bruder", "erkek kardeş", "Mein Bruder spielt Fußball.", "Mein ____ spielt Fußball.", "Bruder"],
+        ["die Schwester", "kız kardeş", "Ich bringe meine Schwester mit.", "Ich bringe meine ____ mit.", "Schwester"]
+      ]},
+      { id: "ev", title: "Ev", words: [
+        ["die Wohnung", "daire", "Die Wohnung ist hell und ruhig.", "Die ____ ist hell und ruhig.", "Wohnung"],
+        ["das Zimmer", "oda", "Ich suche ein Zimmer in Wien.", "Ich suche ein ____ in Wien.", "Zimmer"],
+        ["die Küche", "mutfak", "In der Küche kochen wir Suppe.", "In der ____ kochen wir Suppe.", "Küche"]
+      ]},
+      { id: "okul", title: "Okul", words: [
+        ["der Kurs", "kurs", "Der Deutschkurs beginnt am Montag.", "Der Deutsch____ beginnt am Montag.", "Kurs"],
+        ["die Prüfung", "sınav", "Die Prüfung ist um neun Uhr.", "Die ____ ist um neun Uhr.", "Prüfung"],
+        ["die Bibliothek", "kütüphane", "Ich lerne in der Bibliothek.", "Ich lerne in der ____.", "Bibliothek"]
+      ]},
+      { id: "is", title: "İş", words: [
+        ["die Firma", "şirket", "Die Firma sucht eine Sekretärin.", "Die ____ sucht eine Sekretärin.", "Firma"],
+        ["der Beruf", "meslek", "Mein Beruf ist Koch.", "Mein ____ ist Koch.", "Beruf"],
+        ["die Bewerbung", "başvuru", "Ich schreibe eine Bewerbung.", "Ich schreibe eine ____.", "Bewerbung"]
+      ]},
+      { id: "saglik", title: "Sağlık", words: [
+        ["die Apotheke", "eczane", "Ich kaufe Medikamente in der Apotheke.", "Ich kaufe Medikamente in der ____.", "Apotheke"],
+        ["der Arzt", "doktor", "Der Arzt hat heute Zeit.", "Der ____ hat heute Zeit.", "Arzt"],
+        ["krank", "hasta", "Ich bin krank und bleibe zu Hause.", "Ich bin ____ und bleibe zu Hause.", "krank"]
+      ]},
+      { id: "ulasim", title: "Ulaşım", words: [
+        ["der Zug", "tren", "Der Zug fährt um acht Uhr.", "Der ____ fährt um acht Uhr.", "Zug"],
+        ["der Flughafen", "havalimanı", "Der Bus fährt zum Flughafen.", "Der Bus fährt zum ____.", "Flughafen"],
+        ["die Haltestelle", "durak", "Die Haltestelle ist vor dem Bahnhof.", "Die ____ ist vor dem Bahnhof.", "Haltestelle"]
+      ]},
+      { id: "alisveris", title: "Alışveriş", words: [
+        ["der Preis", "fiyat", "Der Preis ist sehr günstig.", "Der ____ ist sehr günstig.", "Preis"],
+        ["kaufen", "satın almak", "Ich möchte ein Buch kaufen.", "Ich möchte ein Buch ____.", "kaufen"],
+        ["die Rechnung", "hesap/fatura", "Kann ich bitte die Rechnung haben?", "Kann ich bitte die ____ haben?", "Rechnung"]
+      ]},
+      { id: "zaman", title: "Zaman", words: [
+        ["der Termin", "randevu", "Mein Termin ist am Freitag.", "Mein ____ ist am Freitag.", "Termin"],
+        ["morgen", "yarın", "Morgen fahre ich nach Berlin.", "____ fahre ich nach Berlin.", "Morgen"],
+        ["um sieben Uhr", "saat yedide", "Der Kurs beginnt um sieben Uhr.", "Der Kurs beginnt ____.", "um sieben Uhr"]
+      ]},
+      { id: "gunluk", title: "Günlük Hayat", words: [
+        ["helfen", "yardım etmek", "Können Sie mir helfen?", "Können Sie mir ____?", "helfen"],
+        ["wiederholen", "tekrar etmek", "Können Sie das bitte wiederholen?", "Können Sie das bitte ____?", "wiederholen"],
+        ["verboten", "yasak", "Rauchen ist hier verboten.", "Rauchen ist hier ____.", "verboten"]
+      ]}
+    ];
+
+    let score = Number(localStorage.getItem("aydaScore") || 0);
+    const scoreEl = document.querySelector("#score");
+    const normalizeAnswer = (text) => text
+      .trim()
+      .toLowerCase()
+      .replaceAll("ü", "u")
+      .replaceAll("ö", "o")
+      .replaceAll("ä", "a")
+      .replaceAll("ß", "ss");
+
+    const updateScore = (points) => {
+      score += points;
+      if (score < 0) score = 0;
+      localStorage.setItem("aydaScore", String(score));
+      scoreEl.textContent = score;
+    };
+    scoreEl.textContent = score;
+
+    const themeNav = document.querySelector("#themeNav");
+    const themeSections = document.querySelector("#themeSections");
+
+    themes.forEach(theme => {
+      const link = document.createElement("a");
+      link.className = "theme-link";
+      link.href = "#" + theme.id;
+      link.textContent = theme.title;
+      themeNav.appendChild(link);
+
+      const section = document.createElement("section");
+      section.className = "theme";
+      section.id = theme.id;
+      section.innerHTML = `
+        <div class="container">
+          <div class="section-head">
+            <h2>${theme.title}</h2>
+            <p>Bu temadaki kelimeler kısa ilan, duyuru, form, e-posta ve konuşma görevlerinde işe yarar.</p>
+          </div>
+          <div class="word-grid">
+            ${theme.words.map(([word, meaning, example, prompt, answer]) => `
+              <article class="word-card">
+                <div class="word-top">
+                  <div>
+                    <div class="word">${word}</div>
+                    <div class="meaning">${meaning}</div>
+                  </div>
+                  <button class="btn show-answer" type="button">Cevabı Göster</button>
+                </div>
+                <div class="example">${example}</div>
+                <div class="exercise">
+                  <strong>Boşluk doldur:</strong>
+                  <div>${prompt}</div>
+                  <input class="blank-input" data-answer="${answer}" placeholder="Almanca kelimeyi yaz">
+                  <button class="btn dark check-blank" type="button">Kontrol Et</button>
+                  <div class="feedback"></div>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </div>`;
+      themeSections.appendChild(section);
+    });
+
+    document.addEventListener("click", (event) => {
+      const showBtn = event.target.closest(".show-answer");
+      if (showBtn) {
+        const card = showBtn.closest(".word-card");
+        const meaning = card.querySelector(".meaning");
+        meaning.classList.toggle("visible");
+        showBtn.textContent = meaning.classList.contains("visible") ? "Cevabı Gizle" : "Cevabı Göster";
+      }
+
+      const choice = event.target.closest(".choice");
+      if (choice) {
+        const group = choice.closest(".choices");
+        if (group.dataset.done === "true") return;
+        const correct = group.dataset.answer.trim().toLowerCase();
+        const selected = choice.textContent.trim().toLowerCase();
+        const feedback = group.parentElement.querySelector(".feedback");
+        group.dataset.done = "true";
+        [...group.querySelectorAll(".choice")].forEach(btn => {
+          if (btn.textContent.trim().toLowerCase() === correct) btn.classList.add("correct");
+        });
+        if (selected === correct) {
+          feedback.textContent = "Doğru. +1 puan";
+          feedback.className = "feedback ok";
+          updateScore(1);
+        } else {
+          choice.classList.add("wrong");
+          feedback.textContent = "Yanlış. Doğru cevabı yeşil olarak görebilirsin.";
+          feedback.className = "feedback bad";
+        }
+      }
+
+      const blankBtn = event.target.closest(".check-blank");
+      if (blankBtn) {
+        const box = blankBtn.closest(".exercise, .practice");
+        const input = box.querySelector(".blank-input");
+        const feedback = box.querySelector(".feedback");
+        const expected = normalizeAnswer(input.dataset.answer);
+        const value = normalizeAnswer(input.value);
+        if (!value) {
+          feedback.textContent = "Önce bir cevap yaz.";
+          feedback.className = "feedback bad";
+          return;
+        }
+        if (value === expected) {
+          feedback.textContent = "Doğru. +1 puan";
+          feedback.className = "feedback ok";
+          updateScore(1);
+          input.disabled = true;
+          blankBtn.disabled = true;
+        } else {
+          feedback.textContent = "Tekrar dene. Küçük/büyük harf önemli değil.";
+          feedback.className = "feedback bad";
+        }
+      }
+    });
+
+    document.querySelector("#resetScore").addEventListener("click", () => {
+      score = 0;
+      localStorage.setItem("aydaScore", "0");
+      scoreEl.textContent = "0";
+    });
+  </script>
+
+  <nav class="ayda-mobile-bottom" aria-label="Mobil hızlı menü">
+    <a href="https://onurqlp.github.io/osd_a1_ayda/"><span>🏠</span>Ana Sayfa</a>
+    <a href="lesen.html"><span>📖</span>Lesen</a>
+    <a href="horen.html"><span>🎧</span>Hören</a>
+    <a href="https://onurqlp.github.io/osda1sprehcen/"><span>🗣</span>Sprechen</a>
+    <a href="https://onurqlp.github.io/osda1denemeler/"><span>📝</span>Deneme</a>
+  </nav>
+
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Şifre hizmeti yüklenemedi.'"></script><script id="ayda-exam-authorization-sync">(function(){const p=document.getElementById('aydaProtectedContent');if(!p)return;function sync(){document.documentElement.classList.toggle('ayda-exam-authorized',p.style.display==='block')}new MutationObserver(sync).observe(p,{attributes:true,attributeFilter:['style']});sync()})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

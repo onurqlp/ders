@@ -1,0 +1,45 @@
+{
+  "repository": "onurqlp/a2kelime",
+  "source_ref": "main",
+  "source_commit": "b8f68f67766fb62bddeb07646e77cb62b6df3f24",
+  "destination": "sites/a2kelime",
+  "file_count": 7,
+  "total_bytes": 99561,
+  "files": [
+    {
+      "path": ".github/workflows/secure-exam-pages.yml",
+      "sha256": "c5e6d78e59d0df2a6a44e445aedf7c4cffbe31b34bab502761b9dff743a5514e",
+      "bytes": 1061
+    },
+    {
+      "path": "app.js",
+      "sha256": "909f7e33035e12858f6b3a9d45f642bad575a18ae103f1f66993b33a2df02339",
+      "bytes": 23605
+    },
+    {
+      "path": "ayda-exam-guard-report.json",
+      "sha256": "834f56807a71414eeae7fa260e2b0d090e7fe1e8f715e2d000a070aeede915f3",
+      "bytes": 124
+    },
+    {
+      "path": "data.js",
+      "sha256": "e0b9c9b8048c0f23115564c1fcfb95d4423f8600b2536649ceaffb92609dfda8",
+      "bytes": 51129
+    },
+    {
+      "path": "index.html",
+      "sha256": "3ce304ecf7193890e4a52a4286912dd673384621637d19cfec5afb7b3dacda45",
+      "bytes": 8438
+    },
+    {
+      "path": "scripts/secure_all_exam_pages.py",
+      "sha256": "601f398bdddaba40b9bdb4bc3879e3ed3116cc064a613082ae420f8ffb6c1e70",
+      "bytes": 4097
+    },
+    {
+      "path": "style.css",
+      "sha256": "3e7bce32e9c16698e899cc021be55f2d08629fc5a17b8bd21931b96bbf132d2a",
+      "bytes": 11107
+    }
+  ]
+}

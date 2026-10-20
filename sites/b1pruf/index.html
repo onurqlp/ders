@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#20242b">
+<title>ÖSD B1 Sprechen · Esra & Onur</title>
+<style>
+:root{
+  --bg:#f4f5f7;--card:#fff;--ink:#171a20;--muted:#68707d;--line:#dde1e6;
+  --accent:#20242b;--soft:#eef0f3;--sel:#fff0ec;--selline:#ce887b;--selink:#7d2f26;
+  --safe:env(safe-area-inset-bottom,0px)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.25;-webkit-text-size-adjust:100%}
+button,input{font:inherit} button{touch-action:manipulation}
+.app{max-width:980px;margin:auto;padding:0 7px calc(86px + var(--safe))}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(244,245,247,.97);backdrop-filter:blur(10px);padding:7px 0 6px;border-bottom:1px solid rgba(221,225,230,.9)}
+.brand{padding:0 2px 6px}.brand h1{font-size:1rem;margin:0}.brand .sub{font-size:.61rem;color:var(--muted);margin-top:2px}
+.nav{display:grid;grid-template-columns:1.08fr 1fr .86fr;gap:5px}.nav button{min-height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:4px 6px;font-size:.68rem;font-weight:900}.nav button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.page{display:none}.page.active{display:block}
+.names{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:7px 0}.namebox{background:#fff;border:1px solid var(--line);border-radius:10px;padding:5px}.namebox label{display:block;font-size:.52rem;color:var(--muted);font-weight:900;margin-bottom:2px}.namebox input{width:100%;border:0;outline:0;background:#f7f8fa;border-radius:7px;padding:7px 8px;font-size:.74rem;font-weight:850}
+.jumpbar{display:flex;gap:5px;overflow:auto;scrollbar-width:none;padding:1px 0 3px;margin:4px 0 3px}.jumpbar::-webkit-scrollbar{display:none}.jumpbar button{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px;font-size:.57rem;font-weight:900;color:#4e5662}
+.part{scroll-margin-top:130px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:7px;margin:7px 0}.part-title{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:3px}.part-title h2{font-size:.82rem;margin:0}.part-note{font-size:.52rem;color:var(--muted);text-align:right}
+.criterion{border-top:1px solid var(--line);padding:7px 0}.criterion:first-of-type{border-top:0}.ctop{display:flex;align-items:flex-start;justify-content:space-between;gap:7px;margin-bottom:5px}.ctitle{font-size:.73rem;font-weight:950}.focus{font-size:.49rem;color:var(--muted);font-weight:750;text-align:right;max-width:55%}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:5px}.cand{min-width:0;background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:5px}.candhead{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-bottom:4px}.cname{font-size:.56rem;font-weight:900;color:#505865;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.suggestbadge{flex:0 0 auto;display:inline-flex;align-items:center;gap:3px;min-height:22px;border-radius:999px;padding:3px 6px;background:#eef0f3;color:#343b45;font-size:.48rem;font-weight:900;white-space:nowrap}.suggestbadge b{font-size:.62rem}.suggestbadge.gA{background:#eef3ef}.suggestbadge.gB{background:#f3f3ed}.suggestbadge.gC{background:#f7f1e8}.suggestbadge.gD,.suggestbadge.gE{background:#f8e9e6;color:#7d2f26}
+.chips{display:flex;flex-wrap:wrap;gap:4px}.chip{border:1px solid var(--line);background:#fff;border-radius:9px;padding:5px 6px;min-height:29px;font-size:.56rem;font-weight:830;line-height:1.08;text-align:left;color:#262b33}.chip small{display:block;font-size:.47rem;font-weight:600;color:var(--muted);margin-top:2px}.chip.on{background:var(--sel);border-color:var(--selline);color:var(--selink);box-shadow:inset 0 0 0 1px rgba(206,136,123,.16)}.chip.on small{color:#8a554d}
+.quickclear{display:flex;justify-content:flex-end;margin-top:4px}.resetcrit{border:0;background:transparent;color:#7a818b;padding:2px 1px;font-size:.48rem;font-weight:850}
+.single-wrap{max-width:720px;margin:0 auto}.single-name{margin:7px 0}.single .cand{padding:7px}.single .chip{font-size:.65rem;min-height:34px;padding:7px 8px}.single .chip small{font-size:.53rem}.single .cname{font-size:.64rem}
+.actionbar{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(980px,100%);display:grid;grid-template-columns:1.35fr .72fr .72fr;gap:5px;padding:7px 7px calc(7px + var(--safe));background:rgba(255,255,255,.98);border-top:1px solid var(--line);z-index:45}.actionbar button{min-height:43px;border-radius:10px;border:1px solid var(--line);font-size:.66rem;font-weight:950;background:#fff}.actionbar .primary{background:var(--accent);color:#fff;border-color:var(--accent)}.hidden{display:none!important}
+.flash{position:fixed;left:50%;transform:translateX(-50%);bottom:72px;background:#20242b;color:#fff;padding:7px 10px;border-radius:999px;font-size:.64rem;display:none;z-index:120}
+.modal{position:fixed;inset:0;background:rgba(20,24,30,.42);display:none;align-items:flex-end;justify-content:center;z-index:100}.modal.show{display:flex}.sheet{width:min(840px,100%);max-height:89vh;overflow:auto;background:#fff;border-radius:18px 18px 0 0;padding:10px 8px calc(14px + var(--safe))}.sheethead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}.sheethead h3{font-size:.88rem;margin:0}.close{border:0;background:#eceef1;border-radius:8px;padding:7px 9px;font-weight:900}
+.summarygrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.sumcard{border:1px solid var(--line);border-radius:11px;padding:8px;min-width:0}.sumtitle{font-size:.7rem;font-weight:950;margin-bottom:6px}.variant{border-top:1px solid var(--line);padding-top:6px;margin-top:6px}.variant:first-of-type{border-top:0;padding-top:0;margin-top:0}.vhead{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:4px}.vhead b{font-size:.58rem}.copybtn{border:1px solid var(--line);background:#f5f6f8;border-radius:7px;padding:5px 6px;font-size:.52rem;font-weight:900}.preview{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.57rem;line-height:1.32;background:#f8f9fa;border-radius:8px;padding:7px;color:#454e59}.empty{font-size:.61rem;color:var(--muted);padding:7px;background:#f8f9fa;border-radius:8px}
+.kintro,.ksection{background:#fff;border:1px solid var(--line);border-radius:13px;padding:9px;margin:7px 0}.kintro{font-size:.66rem;color:#454d58;line-height:1.38}.kintro b,.ksection b{color:#20242b}.ksection h3{font-size:.77rem;margin:0 0 5px}.ksection ul{margin:5px 0 0;padding-left:17px}.ksection li{font-size:.63rem;color:#4e5662;margin:4px 0;line-height:1.34}.rule{font-size:.6rem;color:#4f5864;background:#f7f8fa;border-radius:8px;padding:7px;margin-top:6px}.miniheads{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}.miniheads span{background:#f1f2f4;border-radius:999px;padding:4px 7px;font-size:.52rem;font-weight:850;color:#515966}
+@media(max-width:460px){
+ .app{padding-left:5px;padding-right:5px}.part{padding:6px}.duo{gap:4px}.cand{padding:4px}.chip{padding:5px;font-size:.52rem;min-height:28px}.chip small{font-size:.44rem}.ctitle{font-size:.69rem}.focus{font-size:.45rem}.summarygrid{grid-template-columns:1fr}.nav button{font-size:.61rem}.single .chip{font-size:.62rem}.actionbar{grid-template-columns:1.25fr .7fr .7fr}.actionbar button{font-size:.61rem}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand"><h1>ÖSD B1 Sprechen · Esra & Onur</h1><div class="sub">Sadece gözlenen soruna dokun · puan kağıtta · ekranda yalnız otomatik A–E önerisi + 2 farklı Stichwort</div></div>
+    <div class="nav">
+      <button class="active" data-page="duo">1 · Duo Bewertung</button>
+      <button data-page="single">2 · Einzelbewertung</button>
+      <button data-page="criteria">3 · Kriterien</button>
+    </div>
+  </div>
+
+  <section class="page active" id="page-duo">
+    <div class="names">
+      <div class="namebox"><label>TEILNEHMER 1</label><input id="duoName1" value="Teilnehmer 1"></div>
+      <div class="namebox"><label>TEILNEHMER 2</label><input id="duoName2" value="Teilnehmer 2"></div>
+    </div>
+    <div class="jumpbar" data-jumps="duo"></div>
+    <div id="duoRoot"></div>
+  </section>
+
+  <section class="page" id="page-single">
+    <div class="single-wrap">
+      <div class="namebox single-name"><label>TEILNEHMER</label><input id="singleName" value="Teilnehmer"></div>
+      <div class="jumpbar" data-jumps="single"></div>
+      <div id="singleRoot" class="single"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-criteria">
+    <div class="kintro"><b>Hızlı referans:</b> Bu sayfa puan vermek için değil, sınav sırasında kriterin neye baktığını birkaç saniyede hatırlamak için. ÖSD mantığında tek tek hata saymaktan çok <b>Aufgabenerfüllung, Interaktion/Kohärenz, Spektrum, Beherrschung ve Verständlichkeit</b> önemlidir.</div>
+    <div id="criteriaRoot"></div>
+  </section>
+</div>
+
+<div class="actionbar" id="actionbar">
+  <button id="openSummary" class="primary">Kommentare</button>
+  <button id="undoLast">Geri al</button>
+  <button id="clearPage">Temizle</button>
+</div>
+<div class="flash" id="flash">Kopyalandı</div>
+<div class="modal" id="modal"><div class="sheet"><div class="sheethead"><h3>Kommentare · Esra / Onur</h3><button id="closeModal" class="close">Kapat</button></div><div id="summaryGrid" class="summarygrid"></div></div></div>
+
+<script>
+const D={
+ t1_erf:{part:'Teil 1 · Gemeinsam planen',short:'T1 · Planen',title:'Aufgabenerfüllung',focus:'Sprachfunktionen · Inhalt · Umfang',issues:[
+  ['Sprachfunktionen zu knapp','işlevler kısa','Sprachfunktionen zu knapp','Sprachhandlungen nur eingeschränkt ausgeführt'],
+  ['Inhalt/Umfang zu knapp','içerik/kapsam kısa','Inhalt und Umfang zu knapp','inhaltliche Ausführung zu begrenzt'],
+  ['Vorschlag/Meinung schwach','öneri/görüş zayıf','Vorschlag bzw. Meinungsäußerung wenig ausgeführt','Vorschlag oder eigene Position nur knapp entwickelt'],
+  ['Begründung zu knapp','gerekçe kısa','Begründungen zu knapp','Begründungen nur eingeschränkt ausgeführt'],
+  ['eigener Anteil gering','kişisel katkı az','geringer eigener Gesprächsanteil','zu wenig eigener sprachlicher Beitrag'],
+  ['kaum bewertbarer Anteil','neredeyse katkı yok','kaum bewertbarer Gesprächsanteil','praktisch kein ausreichend bewertbarer Eigenanteil']
+ ]},
+ t1_int:{part:'Teil 1 · Gemeinsam planen',short:'T1 · Planen',title:'Interaktion',focus:'Gespräch führen · reagieren · Partnerbezug',issues:[
+  ['Gesprächsbeginn unsicher','başlangıç zayıf','unsicherer Gesprächsbeginn','Gespräch nur zögerlich eröffnet'],
+  ['Gespräch nicht in Gang gehalten','sürdürme zayıf','Gespräch nicht ausreichend in Gang gehalten','Gesprächsführung nur eingeschränkt aufrechterhalten'],
+  ['Reaktionen eingeschränkt','tepki sınırlı','eingeschränkte Reaktionsfähigkeit','Reaktionen auf Beiträge des Partners nur begrenzt'],
+  ['Partnerbezug gering','partner bağı az','geringer Partnerbezug','zu wenig Eingehen auf die Gesprächspartnerin / den Gesprächspartner'],
+  ['Sprecherwechsel schwierig','sıra değişimi zor','Sprecherwechsel teilweise schwierig','Turn-Taking nicht durchgehend gelungen'],
+  ['Gesprächsabschluss fehlt','kapanış yok','Gesprächsabschluss fehlt','Gespräch nicht erkennbar abgeschlossen']
+ ]},
+ t1_w:{part:'Teil 1 · Gemeinsam planen',short:'T1 · Planen',title:'Wortschatz / Register',focus:'Register · Spektrum · Beherrschung',issues:[
+  ['Spektrum begrenzt','kelime alanı sınırlı','begrenztes Wortschatzspektrum','eingeschränkte lexikalische Bandbreite'],
+  ['Ausdrucksarmut','ifade çeşitliliği az','Ausdrucksarmut','wenig abwechslungsreicher Ausdruck'],
+  ['unnötige Wiederholungen','gereksiz tekrar','unnötige Wiederholungen','auffällig häufige Wiederholungen'],
+  ['mehrere Fehlgriffe','birkaç yanlış seçim','mehrere lexikalische Fehlgriffe','wiederholte Unsicherheiten bei der Wortwahl'],
+  ['Register unpassend','register uygun değil','teilweise unpassendes Register','Register nicht durchgehend situationsangemessen'],
+  ['Verständlichkeit beeinträchtigt','anlama etkileniyor','lexikalische Probleme beeinträchtigen die Verständlichkeit','Wortwahl erschwert das Verständnis stellenweise']
+ ]},
+ t1_s:{part:'Teil 1 · Gemeinsam planen',short:'T1 · Planen',title:'Strukturen',focus:'Spektrum · Beherrschung · Verständlichkeit',issues:[
+  ['Spektrum begrenzt','yapı çeşitliliği az','begrenztes Strukturspektrum','eingeschränkte grammatische Bandbreite'],
+  ['wenig differenziert','az farklı yapı','wenig differenzierte Strukturen','geringe strukturelle Flexibilität'],
+  ['mehrere Regelverstöße','birkaç gramer hatası','mehrere grammatische Regelverstöße','wiederholte grammatische Unsicherheiten'],
+  ['Morphologie/Syntax unsicher','morfoloji/sentaks zayıf','Unsicherheiten in Morphologie/Syntax','Formenbildung bzw. Satzbau nicht durchgehend sicher'],
+  ['Verständlichkeit beeinträchtigt','anlama etkileniyor','Regelverstöße beeinträchtigen die Verständlichkeit','grammatische Fehler erschweren das Verständnis stellenweise']
+ ]},
+ t2_erf:{part:'Teil 2 · Präsentation',short:'T2 · Präsent.',title:'Aufgabenerfüllung',focus:'5 Folien · Inhalt · Umfang · Struktur',issues:[
+  ['Folie zu knapp','folie kısa','mindestens eine Folie zu knapp behandelt','ein Folienpunkt inhaltlich nicht ausreichend ausgeführt'],
+  ['Folie nur erwähnt / unklar','sadece değindi/belirsiz','Folie nur erwähnt bzw. Aussage nicht nachvollziehbar','Folieninhalt angesprochen, aber inhaltlich nicht klar ausgeführt'],
+  ['mehrere Folien zu knapp','birkaç folie kısa','mehrere Folien zu knapp behandelt','mehrere Folieninhalte in Umfang zu begrenzt'],
+  ['Einleitung/Struktur schwach','giriş/yapı zayıf','Einleitung bzw. erkennbare Struktur schwach','Präsentationsaufbau nur eingeschränkt erkennbar'],
+  ['inhaltlicher Aspekt fehlt','içerik unsuru eksik','wesentlicher inhaltlicher Aspekt fehlt','ein geforderter Präsentationsaspekt nicht ausreichend behandelt'],
+  ['Schluss/Dank fehlt','kapanış/teşekkür yok','Schluss bzw. Dank fehlt','Präsentation ohne erkennbaren Abschluss']
+ ]},
+ t2_k:{part:'Teil 2 · Präsentation',short:'T2 · Präsent.',title:'Kohärenz',focus:'Verknüpfung · Gedankengang · Redefluss',issues:[
+  ['Verknüpfung schwach','bağlantı zayıf','schwache Verknüpfung von Sätzen/Satzteilen','Aussagen nur wenig miteinander verbunden'],
+  ['Gedankengang teilweise unklar','akış yer yer belirsiz','Gedankengang teilweise schwer nachvollziehbar','inhaltlicher Verlauf stellenweise schwer zu verfolgen'],
+  ['gleiche Satzanfänge','aynı başlangıçlar','häufig gleiche Satzanfänge','wenig Variation bei Satzanfängen'],
+  ['wenige Nebensatzstrukturen','yan cümle az','wenige Nebensatzstrukturen','geringe Variation bei Satzverknüpfungen'],
+  ['Redefluss stockend','akış takılıyor','stockender Redefluss','Präsentationsfluss nicht durchgehend flüssig'],
+  ['kaum nachvollziehbar','takip çok zor','Gedankengang kaum nachvollziehbar','Präsentationsverlauf nur sehr schwer zu verfolgen']
+ ]},
+ t2_w:{part:'Teil 2 · Präsentation',short:'T2 · Präsent.',title:'Wortschatz / Register',focus:'Register · Spektrum · Beherrschung',issues:[
+  ['Spektrum begrenzt','kelime alanı sınırlı','begrenztes Wortschatzspektrum','eingeschränkte lexikalische Bandbreite'],
+  ['Ausdrucksarmut','ifade çeşitliliği az','Ausdrucksarmut','wenig abwechslungsreicher Ausdruck'],
+  ['unnötige Wiederholungen','gereksiz tekrar','unnötige Wiederholungen','auffällig häufige Wiederholungen'],
+  ['mehrere Fehlgriffe','birkaç yanlış seçim','mehrere lexikalische Fehlgriffe','wiederholte Unsicherheiten bei der Wortwahl'],
+  ['zu umgangssprachlich','fazla günlük','für eine Präsentation zu umgangssprachlich','Register für die Präsentationssituation teilweise zu informell'],
+  ['Verständlichkeit beeinträchtigt','anlama etkileniyor','lexikalische Probleme beeinträchtigen die Verständlichkeit','Wortwahl erschwert das Verständnis stellenweise']
+ ]},
+ t2_s:{part:'Teil 2 · Präsentation',short:'T2 · Präsent.',title:'Strukturen',focus:'Spektrum · Beherrschung · Verständlichkeit',issues:[
+  ['Spektrum begrenzt','yapı çeşitliliği az','begrenztes Strukturspektrum','eingeschränkte grammatische Bandbreite'],
+  ['wenig differenziert','az farklı yapı','wenig differenzierte Strukturen','geringe strukturelle Flexibilität'],
+  ['mehrere Regelverstöße','birkaç gramer hatası','mehrere grammatische Regelverstöße','wiederholte grammatische Unsicherheiten'],
+  ['Morphologie/Syntax unsicher','morfoloji/sentaks zayıf','Unsicherheiten in Morphologie/Syntax','Formenbildung bzw. Satzbau nicht durchgehend sicher'],
+  ['Verständlichkeit beeinträchtigt','anlama etkileniyor','Regelverstöße beeinträchtigen die Verständlichkeit','grammatische Fehler erschweren das Verständnis stellenweise']
+ ]},
+ t3_erf:{part:'Teil 3 · Gespräch',short:'T3 · Gespräch',title:'Aufgabenerfüllung',focus:'Rückmeldung · Frage · Antwort · Umfang',issues:[
+  ['Rückmeldung zu knapp','geri bildirim kısa','Rückmeldung zu knapp','Reaktion auf die Präsentation nur knapp'],
+  ['Frage fehlt','soru yok','interessierte Frage fehlt','keine eigene interessierte Frage gestellt'],
+  ['Frage unpassend/oberflächlich','soru zayıf','Frage wenig passend bzw. oberflächlich','Frage inhaltlich nur begrenzt passend'],
+  ['Antwort zu knapp','cevap kısa','Antwort zu knapp','Antwort in Inhalt und Umfang zu begrenzt'],
+  ['Begründung fehlt','gerekçe yok','Begründung fehlt','Antwort bzw. Position nicht ausreichend begründet'],
+  ['Meinungsänderung unbegründet','görüş değişimi gerekçesiz','Meinungsänderung nicht begründet','abweichende Position ohne nachvollziehbare Begründung'],
+  ['Einzelprüfung: <2 Antworten','tek sınavda 2 cevap yok','in der Einzelprüfung weniger als zwei Fragen beantwortet','Mindestumfang der Antworten in der Einzelprüfung nicht erreicht']
+ ]},
+ aus:{part:'Teil 1–3 · Aussprache',short:'Aussprache',title:'Aussprache',focus:'Satzmelodie · Wortakzent · Laute · Verständlichkeit',issues:[
+  ['Satzmelodie/Intonation auffällig','melodi/tonlama','auffällige Satzmelodie bzw. Intonation','deutliche Abweichungen bei Satzakzent oder Intonation'],
+  ['Wortakzent auffällig','kelime vurgusu','mehrfach auffälliger Wortakzent','wiederholt unpassende Wortbetonung'],
+  ['Laute systematisch abweichend','seslerde sistematik sapma','einzelne Laute systematisch abweichend','wiederkehrende lautliche Abweichungen'],
+  ['Endungen undeutlich','son ekler belirsiz','mehrfach undeutliche Endungen','Endungen wiederholt nicht klar realisiert'],
+  ['Verständlichkeit stellenweise gestört','anlama yer yer zor','Verständlichkeit stellenweise beeinträchtigt','Aussprache erschwert das Verstehen punktuell'],
+  ['Verständlichkeit deutlich gestört','anlama belirgin zor','Verständlichkeit deutlich beeinträchtigt','Aussprache behindert das Verstehen deutlich'],
+  ['größtenteils unverständlich','çoğunlukla anlaşılmaz','Äußerungen größtenteils unverständlich','Verständlichkeit über weite Strecken nicht mehr gegeben']
+ ]}
+};
+
+const PARTS=[...new Set(Object.values(D).map(x=>x.part))];
+function blank(){const o={};Object.keys(D).forEach(k=>o[k]=[]);return o}
+let duoState={p1:blank(),p2:blank()},singleState=blank(),currentPage='duo',history=[];
+try{const x=JSON.parse(localStorage.getItem('osdB1NotesFinal')||'null');if(x?.duoState&&x?.singleState){duoState=x.duoState;singleState=x.singleState}}catch(e){}
+function esc(s){return String(s).replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[m]))}
+function getIssue(k,label){return D[k].issues.find(x=>x[0]===label)}
+function suggestGrade(k,tags){
+ if(!tags || !tags.length)return 'A';
+ const has=(x)=>tags.includes(x), n=tags.length;
+ if(k==='t1_erf'){
+   if(has('kaum bewertbarer Anteil'))return 'E';
+   if(has('eigener Anteil gering') && n>=2)return 'D';
+   if(has('eigener Anteil gering'))return 'C';
+   if(n>=3)return 'D';
+   if(n>=2)return 'C';
+   return 'B';
+ }
+ if(k==='t1_int'){
+   if(n>=4)return 'D';
+   if(has('Gespräch nicht in Gang gehalten') && (has('Partnerbezug gering')||has('Reaktionen eingeschränkt')))return 'C';
+   if(n>=2)return 'C';
+   return 'B';
+ }
+ if(k==='t1_w'||k==='t2_w'){
+   if(has('Verständlichkeit beeinträchtigt') && n>=3)return 'D';
+   if(has('Verständlichkeit beeinträchtigt'))return 'C';
+   if(n>=3)return 'C';
+   return 'B';
+ }
+ if(k==='t1_s'||k==='t2_s'){
+   if(has('Verständlichkeit beeinträchtigt') && n>=3)return 'D';
+   if(has('Verständlichkeit beeinträchtigt'))return 'C';
+   if(n>=3)return 'C';
+   return 'B';
+ }
+ if(k==='t2_erf'){
+   if(has('mehrere Folien zu knapp') && (has('inhaltlicher Aspekt fehlt')||has('Folie nur erwähnt / unklar')))return 'D';
+   if(has('mehrere Folien zu knapp'))return 'C';
+   if((has('Folie zu knapp')||has('Folie nur erwähnt / unklar')) && n>=2)return 'C';
+   if(n>=3)return 'C';
+   return 'B';
+ }
+ if(k==='t2_k'){
+   if(has('kaum nachvollziehbar'))return n>=2?'D':'D';
+   if(n>=4)return 'D';
+   if(n>=2)return 'C';
+   return 'B';
+ }
+ if(k==='t3_erf'){
+   const core=['Frage fehlt','Einzelprüfung: <2 Antworten'];
+   if(has('Einzelprüfung: <2 Antworten') && n>=2)return 'D';
+   if(has('Einzelprüfung: <2 Antworten'))return 'C';
+   if(has('Frage fehlt') && n>=2)return 'C';
+   if(core.some(x=>has(x)))return 'C';
+   if(n>=3)return 'C';
+   return 'B';
+ }
+ if(k==='aus'){
+   if(has('größtenteils unverständlich'))return 'E';
+   if(has('Verständlichkeit deutlich gestört'))return 'D';
+   if(has('Verständlichkeit stellenweise gestört'))return 'C';
+   if(n>=3)return 'C';
+   return 'B';
+ }
+ return n>=3?'C':'B';
+}
+function stateFor(mode,who,k){return mode==='duo'?duoState[who][k]:singleState[k]}
+function save(){localStorage.setItem('osdB1NotesFinal',JSON.stringify({duoState,singleState}));localStorage.setItem('osdB1NotesNames',JSON.stringify({d1:duoName1.value,d2:duoName2.value,s:singleName.value}))}
+function remember(mode,who,k,tag,added){history.push({mode,who,k,tag,added});if(history.length>30)history.shift()}
+function toggle(mode,who,k,tag){const a=stateFor(mode,who,k),i=a.indexOf(tag);if(i>=0){a.splice(i,1);remember(mode,who,k,tag,false)}else{a.push(tag);remember(mode,who,k,tag,true)}save();sync()}
+function undo(){const h=history.pop();if(!h)return flash('Geri alınacak seçim yok');const a=stateFor(h.mode,h.who,h.k),i=a.indexOf(h.tag);if(h.added&&i>=0)a.splice(i,1);if(!h.added&&i<0)a.push(h.tag);save();sync();flash('Son seçim geri alındı')}
+function resetCriterion(mode,who,k){const a=stateFor(mode,who,k);if(!a.length)return;a.splice(0,a.length);history=[];save();sync()}
+function chipHtml(k,who,x,mode){return `<button class="chip" data-mode="${mode}" data-k="${k}" data-who="${who}" data-tag="${esc(x[0])}">${x[0]}<small>${x[1]}</small></button>`}
+function candidateHtml(k,who,mode){const d=D[k],label=who==='p1'?'Teilnehmer 1':who==='p2'?'Teilnehmer 2':'Teilnehmer';const issues=d.issues.filter(x=>!(mode==='duo'&&x[0]==='Einzelprüfung: <2 Antworten'));return `<div class="cand"><div class="candhead"><span class="cname" data-label="${who}" data-mode-label="${mode}">${label}</span><span class="suggestbadge gA" id="sg_${mode}_${who}_${k}">Öneri <b>A</b></span></div><div class="chips">${issues.map(x=>chipHtml(k,who,x,mode)).join('')}</div><div class="quickclear"><button class="resetcrit" data-reset="1" data-mode="${mode}" data-k="${k}" data-who="${who}">kriteri temizle</button></div></div>`}
+function renderAssessment(rootId,mode){const root=document.getElementById(rootId);root.innerHTML=PARTS.map((p,idx)=>`<section class="part" id="${mode}_part_${idx}"><div class="part-title"><h2>${p}</h2><span class="part-note">yalnız gözlenen sorunu işaretle</span></div>${Object.entries(D).filter(([k,v])=>v.part===p).map(([k,v])=>`<div class="criterion"><div class="ctop"><div class="ctitle">${v.title}</div><div class="focus">${v.focus}</div></div>${mode==='duo'?`<div class="duo">${candidateHtml(k,'p1','duo')}${candidateHtml(k,'p2','duo')}</div>`:candidateHtml(k,'single','single')}</div>`).join('')}</section>`).join('')}
+function renderJumps(){document.querySelectorAll('[data-jumps]').forEach(el=>{const mode=el.dataset.jumps;el.innerHTML=PARTS.map((p,i)=>`<button data-jump="${mode}_part_${i}">${D[Object.keys(D).find(k=>D[k].part===p)].short}</button>`).join('')});document.querySelectorAll('[data-jump]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.jump)?.scrollIntoView({behavior:'smooth',block:'start'}))}
+function bindAssessment(){document.querySelectorAll('[data-tag]').forEach(b=>b.onclick=()=>toggle(b.dataset.mode,b.dataset.who,b.dataset.k,b.dataset.tag));document.querySelectorAll('[data-reset]').forEach(b=>b.onclick=()=>resetCriterion(b.dataset.mode,b.dataset.who,b.dataset.k))}
+function sync(){document.querySelectorAll('[data-tag]').forEach(b=>{const a=stateFor(b.dataset.mode,b.dataset.who,b.dataset.k);b.classList.toggle('on',a.includes(b.dataset.tag))});[['duo','p1'],['duo','p2'],['single','single']].forEach(([mode,who])=>Object.keys(D).forEach(k=>{const a=stateFor(mode,who,k),g=suggestGrade(k,a),sg=document.getElementById(`sg_${mode}_${who}_${k}`);if(sg){sg.className=`suggestbadge g${g}`;sg.innerHTML=`Öneri <b>${g}</b>`}}));const n1=duoName1.value||'Teilnehmer 1',n2=duoName2.value||'Teilnehmer 2',sn=singleName.value||'Teilnehmer';document.querySelectorAll('[data-mode-label="duo"][data-label="p1"]').forEach(x=>x.textContent=n1);document.querySelectorAll('[data-mode-label="duo"][data-label="p2"]').forEach(x=>x.textContent=n2);document.querySelectorAll('[data-mode-label="single"]').forEach(x=>x.textContent=sn);save()}
+function commentLines(state,variant){const lines=[];let last='';Object.entries(D).forEach(([k,d])=>{const tags=state[k];if(!tags.length)return;if(d.part!==last){lines.push(d.part);last=d.part}let arr=tags.map(t=>getIssue(k,t)).filter(Boolean);if(variant===2)arr=[...arr].reverse();const phrases=arr.map(x=>x[variant===1?2:3]);lines.push(`${d.title}: ${phrases.join(' · ')}`)});return lines}
+function summaryFor(state,name,variant){const lines=commentLines(state,variant),pr=variant===1?'Esra':'Onur';return lines.length?`${pr} · ${name}\n${lines.join('\n')}`:`${pr} · ${name}\nAuffälligkeiten: —`}
+function copy(t){if(navigator.clipboard?.writeText)navigator.clipboard.writeText(t);else{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}flash('Kopyalandı')}
+function flash(t){const f=document.getElementById('flash');f.textContent=t;f.style.display='block';clearTimeout(window.__flash);window.__flash=setTimeout(()=>f.style.display='none',900)}
+function cardHtml(state,name,id){const s1=summaryFor(state,name,1),s2=summaryFor(state,name,2),empty=commentLines(state,1).length===0;return `<div class="sumcard"><div class="sumtitle">${esc(name)}</div>${empty?'<div class="empty">Henüz bir Auffälligkeit işaretlenmedi.</div>':`<div class="variant"><div class="vhead"><b>Esra · Stichwörter</b><button class="copybtn" data-copy-id="${id}" data-v="1">Kopyala</button></div><div class="preview">${esc(s1)}</div></div><div class="variant"><div class="vhead"><b>Onur · alternative Formulierung</b><button class="copybtn" data-copy-id="${id}" data-v="2">Kopyala</button></div><div class="preview">${esc(s2)}</div></div>`}</div>`}
+function openSummary(){const grid=document.getElementById('summaryGrid');if(currentPage==='duo'){const n1=duoName1.value||'Teilnehmer 1',n2=duoName2.value||'Teilnehmer 2';grid.innerHTML=cardHtml(duoState.p1,n1,'p1')+cardHtml(duoState.p2,n2,'p2');grid.querySelectorAll('[data-copy-id]').forEach(b=>{b.onclick=()=>{const p=b.dataset.copyId,n=p==='p1'?n1:n2;copy(summaryFor(duoState[p],n,Number(b.dataset.v)))}})}else{const n=singleName.value||'Teilnehmer';grid.innerHTML=cardHtml(singleState,n,'single');grid.querySelectorAll('[data-copy-id]').forEach(b=>b.onclick=()=>copy(summaryFor(singleState,n,Number(b.dataset.v))))}document.getElementById('modal').classList.add('show')}
+function renderCriteria(){document.getElementById('criteriaRoot').innerHTML=`
+<div class="ksection"><h3>Teil 1 · Gemeinsam planen</h3><div class="miniheads"><span>Aufgabenerfüllung</span><span>Interaktion</span><span>Wortschatz/Register</span><span>Strukturen</span></div><ul><li><b>Aufgabenerfüllung:</b> Sprachfunktionen, Inhalt ve Umfang birlikte düşünülür. Vorschlag, Meinungsäußerung, Zustimmung/Ablehnung, Begründung gibi işlevlerden yeterli değerlendirilebilir Sprachmaterial çıkması önemlidir.</li><li>Aufgabenblatt bir <b>impuls</b>tur; bütün Stichwörter tek tek işlenmek zorunda değildir. Aday yeni Aspekte de ekleyebilir.</li><li>Her adayın dengeli ölçüde konuşmaya katılması beklenir; fakat Gesprächsführung'ü mutlaka üstlenmesi gerekmez.</li><li><b>Interaktion:</b> Gespräch beginnen, in Gang halten, passend reagieren, Partnerbezug ve Sprecherwechsel. Hızlı uzlaşma tek başına eksiklik değildir.</li></ul></div>
+<div class="ksection"><h3>Teil 2 · Präsentation</h3><div class="miniheads"><span>Aufgabenerfüllung</span><span>Kohärenz</span><span>Wortschatz/Register</span><span>Strukturen</span></div><ul><li>Sunumda tanınabilir bir yapı beklenir: <b>Einleitung → thematische Aspekte → Schluss/Dank</b>.</li><li>Adayın <b>beş Folie'nin tamamına</b> değinmesi beklenir; Folien aynı uzunlukta olmak zorunda değildir.</li><li>Bir Folie yalnızca adlandırılırsa, içerik takip edilemiyorsa veya belirgin şekilde çok kısa kalırsa bu eksiklik olarak dikkate alınır.</li><li><b>Kohärenz:</b> mantıklı Aufbau, Sätze/Satzteile arasında Verknüpfung, nachvollziehbarer Gedankengang, farklı Satzanfänge/Nebensatzstrukturen ve takip edilebilir Redefluss.</li><li>Präsentation'da register daha kontrollü olmalı; aşırı umgangssprachlich kullanım uygun değildir.</li></ul></div>
+<div class="ksection"><h3>Teil 3 · Gespräch</h3><div class="miniheads"><span>Rückmeldung</span><span>Frage</span><span>Antwort</span><span>Inhalt/Umfang</span></div><ul><li>Beklenen Sprachfunktionen: sunuma <b>Rückmeldung</b>, ilgili bir <b>Frage</b>, soruya yeterli <b>Antwort</b>.</li><li>Einzelprüfung'da adayın en az <b>iki soruya cevap vermesi</b> beklenir.</li><li>Aday önceki Präsentation'daki görüşünden farklı bir görüş söyleyebilir; sorun olan, Meinungsänderung'un gerekçesiz kalmasıdır.</li></ul></div>
+<div class="ksection"><h3>Wortschatz / Strukturen</h3><ul><li><b>Wortschatz:</b> Register, Spektrum ve Beherrschung birlikte değerlendirilir. Ausdrucksarmut, gereksiz tekrar ve Fehlgriffe gözlenir.</li><li><b>Strukturen:</b> Spektrum + Beherrschung (Morphologie/Syntax). B1 düzeyine uygun bir miktar Flexibilität ve Differenziertheit beklenir.</li><li>Kusursuz dilbilgisi beklenmez. Tek tek hataları saymaktan çok, hataların <b>Verständlichkeit</b> üzerindeki etkisine bakılır.</li><li>Passiv gibi karmaşık yapıların kullanımı olumlu olabilir ama iyi değerlendirme için zorunlu değildir.</li></ul></div>
+<div class="ksection"><h3>Aussprache</h3><ul><li>Odak: <b>Satzmelodie, Wortakzent, einzelne Laute</b>.</li><li>Akzentsizlik beklenmez. Esas soru, DaF geçmişi olmayan deutschsprachige Zuhörer için ifadenin anlaşılır olup olmadığıdır.</li><li>Satzakzent/Intonation belirgin şekilde standarttan sapıyorsa veya belirli Laute sistematik yanlış söyleniyorsa not edilmelidir.</li></ul><div class="rule"><b>Pratik kullanım:</b> Değerlendirme sayfalarında yalnız gerçekten gözlediğin soruna dokun. “Sorun yok” için ekstra işaretleme yapma. Karttaki A–E sadece otomatik fikir verir; nihai puanı kağıtta ver.</div></div>`}
+function setPage(p){currentPage=p;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+p));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===p));document.getElementById('actionbar').classList.toggle('hidden',p==='criteria');window.scrollTo({top:0,behavior:'instant'})}
+function clearCurrent(){if(!confirm('Bu sayfadaki tüm işaretler temizlensin mi?'))return;if(currentPage==='duo')duoState={p1:blank(),p2:blank()};else if(currentPage==='single')singleState=blank();history=[];save();sync()}
+
+renderAssessment('duoRoot','duo');renderAssessment('singleRoot','single');renderJumps();renderCriteria();bindAssessment();
+try{const n=JSON.parse(localStorage.getItem('osdB1NotesNames')||'null');if(n){duoName1.value=n.d1||'Teilnehmer 1';duoName2.value=n.d2||'Teilnehmer 2';singleName.value=n.s||'Teilnehmer'}}catch(e){}
+[duoName1,duoName2,singleName].forEach(x=>x.addEventListener('input',sync));
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>setPage(b.dataset.page));
+document.getElementById('openSummary').onclick=openSummary;document.getElementById('undoLast').onclick=undo;document.getElementById('clearPage').onclick=clearCurrent;document.getElementById('closeModal').onclick=()=>modal.classList.remove('show');document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')modal.classList.remove('show')};
+sync();
+</script>
+</body>
+</html>

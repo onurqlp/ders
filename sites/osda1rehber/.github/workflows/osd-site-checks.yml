@@ -1,0 +1,27 @@
+name: Unified ÖSD A1/A2 site checks
+on:
+  push:
+    branches: [release-osd-a1-a2-20261019,main]
+    paths: ['index.html','landing.css','a1/**','a2/**','assets/**','CNAME','tests/**','.github/workflows/osd-site-checks.yml']
+  pull_request:
+    paths: ['index.html','landing.css','a1/**','a2/**','assets/**','CNAME','tests/**','.github/workflows/osd-site-checks.yml']
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JavaScript syntax
+        run: |
+          node --check a1/app.js
+          node --check a1/ux-review.js
+          node --check a1/content.js
+          node --check a2/app.js
+          node --check a2/ux-review.js
+          node --check a2/content.js
+          node --check tests/site-smoke.test.cjs
+          node --check tests/ux-review.test.cjs
+      - name: Structure, images, scoring, progression and links
+        run: |
+          node tests/site-smoke.test.cjs
+          node tests/ux-review.test.cjs

@@ -1,0 +1,35 @@
+{
+  "repository": "onurqlp/a2telcmektup",
+  "source_ref": "main",
+  "source_commit": "7516b991b39940c78bd3f6abbd9cc2e92a2122ec",
+  "destination": "sites/a2telcmektup",
+  "file_count": 5,
+  "total_bytes": 1447471,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "21866646eca38ff48ef54e573062d5ca5b8c05f04972c0a8bff7baea6f2ddccd",
+      "bytes": 2597
+    },
+    {
+      "path": "index.html",
+      "sha256": "0c7d0f37cefddd67772c45b0e5bb06de9f120fb771561678f384925bd6512a83",
+      "bytes": 13656
+    },
+    {
+      "path": "og.png",
+      "sha256": "82603b5bfa9f6dda089c224b016fe5315c33e516cf7ae5e69132f4b71a6d7f63",
+      "bytes": 1238159
+    },
+    {
+      "path": "script.js",
+      "sha256": "bac6075094a1cf43fe3357163623a0c2cd2ee2f6ad3eba771d86b411ada4e23d",
+      "bytes": 149893
+    },
+    {
+      "path": "style.css",
+      "sha256": "a259ad098f5717306e4cffc2be7581257ae1faee4b9176e558cd7e314fb6092d",
+      "bytes": 43166
+    }
+  ]
+}

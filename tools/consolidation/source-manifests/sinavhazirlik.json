@@ -1,0 +1,25 @@
+{
+  "repository": "onurqlp/sinavhazirlik",
+  "source_ref": "main",
+  "source_commit": "55687d1887ba0cc215a7071704e1c4ea98915ca2",
+  "destination": "sites/sinavhazirlik",
+  "file_count": 3,
+  "total_bytes": 177391,
+  "files": [
+    {
+      "path": "g5-preview/index.html",
+      "sha256": "ef281d4187aa2cecb3be74be13420569c413153feb7eb5a536767a7aed01742e",
+      "bytes": 57091
+    },
+    {
+      "path": "g5-production/index.html",
+      "sha256": "9d65d53ea81537c5ba69d9bb94847877c02d95c1682ace262b7b0be4cdb7884f",
+      "bytes": 60150
+    },
+    {
+      "path": "index.html",
+      "sha256": "9d65d53ea81537c5ba69d9bb94847877c02d95c1682ace262b7b0be4cdb7884f",
+      "bytes": 60150
+    }
+  ]
+}

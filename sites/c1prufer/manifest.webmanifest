@@ -1,0 +1,16 @@
+{
+  "name": "telc C1–C2 Prüfer Schulung",
+  "short_name": "telc Prüfer",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f7fb",
+  "theme_color": "#6546b5",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "repository": "onurqlp/b1ayda",
+  "source_ref": "main",
+  "source_commit": "397d5aee3ad922ec1ca2bd04454ef362b65b9be6",
+  "destination": "sites/b1ayda",
+  "file_count": 24,
+  "total_bytes": 1449006,
+  "files": [
+    {
+      "path": ".github/workflows/ayda-b1-preview-tests.yml",
+      "sha256": "84374a142e28c779cdc8cc32ffddcafece240ac19d9b459ac632069412c65c8c",
+      "bytes": 1646
+    },
+    {
+      "path": ".github/workflows/build-b1-express.yml",
+      "sha256": "46b18a4e7f6eee54b7acd8d8e26b5fec32fb6c15e1904ab11ef4c400a7bde845",
+      "bytes": 1563
+    },
+    {
+      "path": ".github/workflows/g5-login-functional-qa.yml",
+      "sha256": "e05e6691be2eda695543690bc6436b0c4de0e529f53bd7fbf4403ee368dd81f8",
+      "bytes": 3239
+    },
+    {
+      "path": ".github/workflows/g5-preview-qa.yml",
+      "sha256": "91ca5b816871d0a1656de319ff0941ac069053f6b64ecbc1b65ab87812c66988",
+      "bytes": 1839
+    },
+    {
+      "path": "b1-express-shortcut.js",
+      "sha256": "68da2b8f7a66d1e38731e1417cc153cb979cb1b57276b3a9e0d5f35692bf468f",
+      "bytes": 6988
+    },
+    {
+      "path": "express/course-data.js",
+      "sha256": "9ff29fb9980080324b17cfd9a70493526e5d5e9bfe30f17957e9f9662e19e8a2",
+      "bytes": 242320
+    },
+    {
+      "path": "express/express.css",
+      "sha256": "53c2ab7900da291db5c0f49d71e768b14ab83ce8ba52c7cc067ef9ae80d4bbde",
+      "bytes": 15462
+    },
+    {
+      "path": "express/express.js",
+      "sha256": "0a7154efb4c630b2271d41548774b29a720c0b3bef646af04d33cff05276fd5a",
+      "bytes": 19783
+    },
+    {
+      "path": "express/index.html",
+      "sha256": "6055cd00950e647d1f08738b3b95e75cea2a28f54e25eccc883e724172d7c291",
+      "bytes": 3000
+    },
+    {
+      "path": "favicon.svg",
+      "sha256": "3e8863288c2d43dd33d2a71de317dcf9198f09932ea8d61e0def1b846a865435",
+      "bytes": 718
+    },
+    {
+      "path": "g5-onizleme/index.html",
+      "sha256": "a4409f4bcad4387a2625e9638b42365c791efc14796f16b5ef4714b11d7ab80e",
+      "bytes": 357184
+    },
+    {
+      "path": "index.html",
+      "sha256": "01f8627c5ea2552bb54b1e1f05515c9456cf659798fad6ce88e6d15220301e91",
+      "bytes": 348866
+    },
+    {
+      "path": "preview/ayda-brand.js",
+      "sha256": "763265338037c80dd45b9b08286346be426adf8c0ad7a548c9830e1b11e669a8",
+      "bytes": 6117
+    },
+    {
+      "path": "preview/ayda-compact.css",
+      "sha256": "ea9b5de2b6b0306e077f280032e479d6d7603ef96cd68572d89a211f51465e34",
+      "bytes": 12669
+    },
+    {
+      "path": "preview/ayda-compact.js",
+      "sha256": "08eaa86294984a060578e2aa73a031a27c59fac7b5e3b094a68bd1db3f771e6e",
+      "bytes": 16650
+    },
+    {
+      "path": "preview/ayda-learning.css",
+      "sha256": "46b3773ddd57b3c55d5382682d03b403f4e1bf264b24fe4e4aa666b105015b80",
+      "bytes": 16999
+    },
+    {
+      "path": "preview/ayda-learning.js",
+      "sha256": "710201fee508c81cbb774bc24c3df8d46506ac2d06c92cfd8e509fe9a62e65d5",
+      "bytes": 20060
+    },
+    {
+      "path": "preview/favicon.svg",
+      "sha256": "3e8863288c2d43dd33d2a71de317dcf9198f09932ea8d61e0def1b846a865435",
+      "bytes": 718
+    },
+    {
+      "path": "preview/index.html",
+      "sha256": "2d527ec735a92cf403bbf5f6066a5f104847af9a40ceca35ccd14ed1d8640fd0",
+      "bytes": 349387
+    },
+    {
+      "path": "progress-transfer.html",
+      "sha256": "ce33a7301f455523ef816a0dea42e1a4ba0d9b7611aa6d40769c5f77e6865cef",
+      "bytes": 2178
+    },
+    {
+      "path": "scripts/build-b1-express-data.mjs",
+      "sha256": "398a9be6fd1812c74a7b104c3d66224e14151dad07434c47b34f739fdad7aaa2",
+      "bytes": 2536
+    },
+    {
+      "path": "scripts/check-b1-integrity.mjs",
+      "sha256": "ec83f4a9702c66f538ece828f32b47ba81bd4432907a4cb35b50cd2d98022375",
+      "bytes": 2453
+    },
+    {
+      "path": "scripts/smoke-b1-express.cjs",
+      "sha256": "420ffd2becd8941bbf207b8ab63da2a0b417b1809ab6472887e2c058c1355a76",
+      "bytes": 5223
+    },
+    {
+      "path": "scripts/smoke-b1.cjs",
+      "sha256": "f215d3a424f080b941eef51a763e037e77cad890f7eff12760f9209d9ead2af2",
+      "bytes": 11408
+    }
+  ]
+}

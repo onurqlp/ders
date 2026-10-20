@@ -1,0 +1,15 @@
+{
+  "repository": "onurqlp/b1pruf",
+  "source_ref": "main",
+  "source_commit": "f6ee75620088ba0ff1e42f57b7d8a03d45dd487c",
+  "destination": "sites/b1pruf",
+  "file_count": 1,
+  "total_bytes": 33535,
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "439983ba09b751a02b6a07930781d9511b4beb2acbe19ef5247bbdf8c52bbc17",
+      "bytes": 33535
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+const root=path.resolve(import.meta.dirname,'..');
+for(const file of ['public/assets/app.js','public/assets/selector-core.js','scripts/build.mjs','scripts/serve.mjs'])execFileSync(process.execPath,['--check',path.join(root,file)]);
+const config=JSON.parse(await fs.readFile(path.join(root,'site.config.json'),'utf8'));
+const html=await fs.readFile(path.join(root,'dist',config.path,'index.html'),'utf8');
+assert.equal((html.match(/<h1\b/g)||[]).length,1);assert.equal((html.match(/class="task"/g)||[]).length,11);assert.equal((html.match(/class="exam-card /g)||[]).length,22);
+assert(!html.includes('data:image'));assert(!/\{\{\w+\}\}/.test(html));assert(html.includes('<html lang="tr">'));
+const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size,'duplicate IDs');
+for(const m of html.matchAll(/href="#([^"]+)"/g))assert(ids.includes(m[1]),'Missing anchor '+m[1]);
+for(const m of html.matchAll(/(?:src|href)="(\.\.\/assets\/[^"#]+)"/g))await fs.access(path.resolve(root,'dist',config.path.replace(/^\//,''),m[1]));
+for(const m of html.matchAll(/<img\b[^>]*>/g))assert(/alt="[^"]*"/.test(m[0]),'Missing alt');
+JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+for(const url of Object.values(config.links).filter(Boolean))assert.equal(new URL(url).protocol,'https:');
+assert(html.includes('name="robots" content="'+(config.indexable?'index,follow,max-image-preview:large':'noindex,nofollow')+'"'));
+console.log('PASS: JavaScript syntax, 11 tasks / 22 cards, unique IDs, internal anchors/assets, alt text, JSON-LD, HTTPS CTAs, configured robots.');

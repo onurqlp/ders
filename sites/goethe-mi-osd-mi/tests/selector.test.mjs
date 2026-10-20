@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+createRequire(import.meta.url)('../public/assets/selector-core.js');
+const {evaluate,questions}=globalThis.AYDASelector;
+test('visual choices produce concrete ÖSD guidance',()=>{const r=evaluate(['visual','neutral','choice','neutral','visual']);assert.equal(r.key,'visual');assert(r.reasons.length===3);});
+test('repeat and structure produce concrete Goethe guidance',()=>{assert.equal(evaluate(['neutral','repeat','structure','structure','structure']).key,'structured');});
+test('equal preferences produce balanced guidance',()=>{assert.equal(evaluate(['visual','repeat','choice','structure','visual']).key,'visual');assert.equal(evaluate(['visual','repeat','choice','neutral','structure']).key,'balanced');});
+test('missing and forged answers rejected',()=>{assert.throws(()=>evaluate([]));assert.throws(()=>evaluate(['visual','fake','choice','neutral','visual']));});
+test('all 32 possible paths yield evidence and no success percentage',()=>{for(let n=0;n<32;n++){const a=questions.map((q,i)=>q.options[(n>>i)&1][0]);const r=evaluate(a);assert(r.reasons.length);assert(!/\d+\s*%/.test(JSON.stringify(r)));assert(r.caution.includes('başarı olasılığını ölçmez'));}});

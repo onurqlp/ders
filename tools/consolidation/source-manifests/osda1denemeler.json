@@ -1,0 +1,45 @@
+{
+  "repository": "onurqlp/osda1denemeler",
+  "source_ref": "main",
+  "source_commit": "5cb491dad9ad1c5e6dd0bfb08e3c10e12033c126",
+  "destination": "sites/osda1denemeler",
+  "file_count": 7,
+  "total_bytes": 56967,
+  "files": [
+    {
+      "path": ".github/workflows/secure-exam-pages.yml",
+      "sha256": "c5e6d78e59d0df2a6a44e445aedf7c4cffbe31b34bab502761b9dff743a5514e",
+      "bytes": 1061
+    },
+    {
+      "path": "app.js",
+      "sha256": "f4eeafd8bce0293461d4ab5586e8d3e40fce769234eabce80c1e6fd6a1dea8db",
+      "bytes": 13096
+    },
+    {
+      "path": "ayda-exam-guard-report.json",
+      "sha256": "1f1e8fa772975b0e4be2e00bf56fcd5c159d7b1c06ea3e8587c0e243c7a97dfc",
+      "bytes": 104
+    },
+    {
+      "path": "exam-data.js",
+      "sha256": "4c14380b2b4ead981bee9d53b2a1ec120b648ef3371736411ed941b271c793e6",
+      "bytes": 17899
+    },
+    {
+      "path": "index.html",
+      "sha256": "7eed5213388868980baa683780753827ff5926804bda6fe4c818b4d58ccf8599",
+      "bytes": 13728
+    },
+    {
+      "path": "scripts/secure_all_exam_pages.py",
+      "sha256": "601f398bdddaba40b9bdb4bc3879e3ed3116cc064a613082ae420f8ffb6c1e70",
+      "bytes": 4097
+    },
+    {
+      "path": "styles.css",
+      "sha256": "f46519b25c08a325e35cc9d9b54867b69976dd2c17a7a5d37613ba255fb9b346",
+      "bytes": 6982
+    }
+  ]
+}

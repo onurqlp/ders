@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) #aydaProtectedContent{display:none!important}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(135deg,#0b1b31,#214d75);font:15px system-ui,-apple-system,sans-serif;z-index:99999;position:relative}
+#aydaLoginBox .ayda-exam-login-card{width:min(440px,100%);background:white;color:#102541;border-radius:18px;padding:28px;box-shadow:0 18px 44px #0003}
+#aydaLoginBox h1{font:900 24px/1.25 system-ui;color:#102541;margin:0 0 10px}
+#aydaLoginBox p{font:14px/1.5 system-ui;color:#52657c}
+#aydaLoginBox label{display:block;margin:17px 0 8px;font-weight:800;color:#102541}
+#aydaLoginBox input{display:block;width:100%;box-sizing:border-box;padding:12px;min-height:49px;border:1px solid #a9b9c9;border-radius:10px;font:16px system-ui;background:white;color:#102541}
+#aydaLoginBox button{display:block;width:100%;min-height:48px;border:0;border-radius:10px;margin:12px 0;background:#102541;color:white;font:bold 15px system-ui;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ÖSD A2 Sprechen Hazırlık Merkezi | AYDA Dil</title>
+  <meta name="description" content="ÖSD A2 konuşma sınavı için Bildbeschreibung, Rollenspiel, örnek sorular, kalıplar ve pratik görevler.">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* AYDA CROSS PAGE NAVIGATION - mevcut styles.css ve script.js yapısını bozmaz */
+    :root {
+      --ayda-cross-navy: #0b1f3a;
+      --ayda-cross-red: #d71920;
+      --ayda-cross-brand: #0f766e;
+      --ayda-cross-line: #d8e0ec;
+      --ayda-cross-soft: #e6f5f3;
+      --ayda-cross-white: #ffffff;
+      --ayda-cross-muted: #667085;
+      --ayda-cross-radius: 14px;
+      --ayda-cross-shadow: 0 14px 34px rgba(11, 31, 58, .10);
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .ayda-cross-topnav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--ayda-cross-line);
+      backdrop-filter: blur(12px);
+    }
+
+    .ayda-cross-topnav-inner {
+      width: min(1120px, calc(100% - 28px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .ayda-cross-home {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--ayda-cross-navy);
+      color: var(--ayda-cross-white);
+      text-decoration: none;
+      font-weight: 900;
+      white-space: nowrap;
+      box-shadow: 0 10px 22px rgba(11,31,58,.16);
+    }
+
+    .ayda-cross-home:hover {
+      background: var(--ayda-cross-red);
+    }
+
+    .ayda-cross-links {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ayda-cross-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ayda-cross-links a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--ayda-cross-line);
+      background: var(--ayda-cross-white);
+      color: var(--ayda-cross-navy);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .ayda-cross-links a:hover {
+      color: var(--ayda-cross-brand);
+      border-color: rgba(15, 118, 110, .35);
+      background: var(--ayda-cross-soft);
+    }
+
+    .ayda-cross-links a.is-active {
+      background: var(--ayda-cross-brand);
+      border-color: var(--ayda-cross-brand);
+      color: var(--ayda-cross-white);
+    }
+
+    .ayda-cross-switch {
+      width: min(1120px, calc(100% - 32px));
+      margin: 34px auto 0;
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid var(--ayda-cross-line);
+      background: var(--ayda-cross-white);
+      box-shadow: var(--ayda-cross-shadow);
+    }
+
+    .ayda-cross-switch h2 {
+      margin: 0 0 8px;
+      color: var(--ayda-cross-navy);
+      font-size: clamp(1.45rem, 4vw, 2rem);
+      line-height: 1.15;
+    }
+
+    .ayda-cross-switch p {
+      margin: 0 0 16px;
+      color: var(--ayda-cross-muted);
+    }
+
+    .ayda-cross-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .ayda-cross-card {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--ayda-cross-line);
+      background: var(--ayda-cross-white);
+      color: var(--ayda-cross-navy);
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .ayda-cross-card:hover {
+      color: var(--ayda-cross-brand);
+      border-color: rgba(15, 118, 110, .35);
+      background: var(--ayda-cross-soft);
+    }
+
+    .ayda-cross-card.is-active {
+      color: var(--ayda-cross-white);
+      border-color: var(--ayda-cross-brand);
+      background: var(--ayda-cross-brand);
+    }
+
+    .ayda-cross-wa {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--ayda-cross-navy), var(--ayda-cross-brand));
+      color: var(--ayda-cross-white);
+    }
+
+    .ayda-cross-wa strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .ayda-cross-wa span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.82);
+      font-weight: 600;
+    }
+
+    .ayda-cross-wa-btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .ayda-cross-mobile-bottom {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .ayda-cross-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding-bottom: 78px;
+      }
+
+      .ayda-cross-topnav-inner {
+        min-height: auto;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 0;
+      }
+
+      .ayda-cross-home {
+        width: 100%;
+      }
+
+      .ayda-cross-links {
+        width: 100%;
+        padding: 4px 0 6px;
+      }
+
+      .ayda-cross-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ayda-cross-wa {
+        grid-template-columns: 1fr;
+      }
+
+      .ayda-cross-wa-btn {
+        width: 100%;
+      }
+
+      .ayda-cross-mobile-bottom {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 120;
+        height: 62px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+        padding: 7px;
+        border-radius: 18px;
+        background: rgba(11,31,58,.96);
+        box-shadow: 0 16px 34px rgba(0,0,0,.22);
+        backdrop-filter: blur(12px);
+      }
+
+      .ayda-cross-mobile-bottom a {
+        display: grid;
+        place-items: center;
+        gap: 1px;
+        color: rgba(255,255,255,.86);
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 900;
+        border-radius: 13px;
+        line-height: 1.1;
+      }
+
+      .ayda-cross-mobile-bottom a:hover,
+      .ayda-cross-mobile-bottom a:focus,
+      .ayda-cross-mobile-bottom a.is-active {
+        color: #fff;
+        background: rgba(255,255,255,.14);
+      }
+
+      .ayda-cross-mobile-bottom span {
+        display: block;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="font-weight:900;letter-spacing:.1em;color:#a98442">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Devam etmek için merkezi AYDA sınıf kodunu girin.</p><label for="aydaPasswordInput">Giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav Hazırlık Ana Sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none">
+  <nav class="ayda-cross-topnav" aria-label="ÖSD hazırlık sayfaları">
+    <div class="ayda-cross-topnav-inner">
+      <a class="ayda-cross-home" href="https://onurqlp.github.io/osd_a1_ayda/" aria-label="Ana sayfaya dön">
+        ← Ana Sayfa
+      </a>
+
+      <div class="ayda-cross-links">
+        <a href="https://onurqlp.github.io/osd_a1_ayda/bilgi.html">Bilgi</a>
+        <a href="https://onurqlp.github.io/osd_a1_ayda/kelime.html">Kelime</a>
+        <a href="https://onurqlp.github.io/osd_a1_ayda/lesen.html">Lesen</a>
+        <a href="https://onurqlp.github.io/osd_a1_ayda/horen.html">Hören</a>
+        <a href="https://onurqlp.github.io/osd_a1_ayda/schreiben.html">Schreiben</a>
+        <a class="is-active" href="https://onurqlp.github.io/osda1sprehcen/" aria-current="page">Sprechen</a>
+        <a href="https://onurqlp.github.io/osda1denemeler/">Deneme</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <nav class="topbar" aria-label="Sayfa içi menü">
+      <a class="brand" href="#top" aria-label="AYDA Dil ana sayfa">
+        <span class="brand-mark">A</span>
+        <span>AYDA Dil</span>
+      </a>
+      <div class="navlinks">
+        <a href="#teil1">Teil 1</a>
+        <a href="#teil2">Teil 2</a>
+        <a href="#teil3">Teil 3</a>
+      </div>
+    </nav>
+
+    <section id="top" class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Nur ÖSD A2 Sprechen</p>
+        <h1>ÖSD A2 Sprechen Hazırlık Merkezi</h1>
+        <p>ÖSD A2 konuşma sınavı mantığına uygun: sich vorstellen, Bildbeschreibung ve Rollenspiel pratikleri.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#teil1">Çalışmaya başla</a>
+          <a class="secondary-btn" href="#contact">İletişim</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="desk">
+          <div class="card-mini one">ÖSD A2</div>
+          <div class="bubble">Ich sehe zwei Personen.</div>
+          <div class="people">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section intro-band">
+      <div class="section-head">
+        <p class="eyebrow">Format</p>
+        <h2>Bu sayfada sadece ÖSD A2 formatı vardır</h2>
+        <p>TELC, Goethe veya farklı sınav yapıları kullanılmaz. Sorular, cevaplar ve diyaloglar Almanca ve A2 seviyesine uygundur.</p>
+      </div>
+    </section>
+
+    <section id="teil1" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Teil 1</p>
+        <h2>Sich vorstellen</h2>
+        <p>Aday kendini kısa ve anlaşılır cümlelerle tanıtır. Kartları açarak örnek cevapları çalış.</p>
+      </div>
+      <div class="grid" id="introGrid"></div>
+    </section>
+
+    <section id="teil2" class="section tinted">
+      <div class="section-head">
+        <p class="eyebrow">Teil 2</p>
+        <h2>Bildbeschreibung</h2>
+        <p>ÖSD A2 seviyesinde resim anlatımı. Her görselde iki veya daha fazla kişi bulunur.</p>
+      </div>
+      <div class="formula-strip">
+        <span>Auf dem Bild sehe ich ...</span>
+        <span>Ich sehe zwei Personen.</span>
+        <span>Sie sprechen miteinander.</span>
+        <span>Vielleicht sind sie Freunde.</span>
+        <span>Ich denke, ...</span>
+      </div>
+      <div class="scene-list" id="sceneList"></div>
+    </section>
+
+    <section id="teil3" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Teil 3</p>
+        <h2>Rollenspiel</h2>
+        <p>İki aday görev kartına göre kısa bir diyalog kurar. Her görevde en az dört konuşma maddesi vardır.</p>
+      </div>
+      <div class="role-grid" id="roleGrid"></div>
+    </section>
+
+    <section class="ayda-cross-switch" aria-label="Diğer hazırlık bölümleri">
+      <h2>Diğer Bölümlere Geç</h2>
+      <p>ÖSD hazırlığında diğer çalışma alanlarına hızlıca geçebilirsiniz.</p>
+
+      <div class="ayda-cross-grid">
+        <a class="ayda-cross-card" href="https://onurqlp.github.io/osd_a1_ayda/bilgi.html">Sınav Bilgileri <span>→</span></a>
+        <a class="ayda-cross-card" href="https://onurqlp.github.io/osd_a1_ayda/kelime.html">Kelime Alıştırmaları <span>→</span></a>
+        <a class="ayda-cross-card" href="https://onurqlp.github.io/osd_a1_ayda/lesen.html">Lesen <span>→</span></a>
+        <a class="ayda-cross-card" href="https://onurqlp.github.io/osd_a1_ayda/horen.html">Hören <span>→</span></a>
+        <a class="ayda-cross-card" href="https://onurqlp.github.io/osd_a1_ayda/schreiben.html">Schreiben <span>→</span></a>
+        <a class="ayda-cross-card is-active" href="https://onurqlp.github.io/osda1sprehcen/">Sprechen <span>→</span></a>
+        <a class="ayda-cross-card" href="https://onurqlp.github.io/osda1denemeler/">Deneme Sınavları <span>→</span></a>
+      </div>
+
+      <div class="ayda-cross-wa">
+        <div>
+          <strong>ÖSD A1/A2 hazırlık için AYDA Dil ile iletişime geçin.</strong>
+          <span>Kurs, konuşma pratiği ve sınav hazırlık süreci hakkında bilgi alabilirsiniz.</span>
+        </div>
+        <a class="ayda-cross-wa-btn" href="https://wa.me/905409122503">WhatsApp’tan Yaz</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="footer">
+    <div>
+      <p class="eyebrow">AYDA Dil</p>
+      <h2>İletişim</h2>
+    </div>
+    <div class="contact-links">
+      <a href="http://www.aydadil.com/">www.aydadil.com</a>
+      <a href="https://instagram.com/ayda.dil">instagram.com/ayda.dil</a>
+      <a href="https://www.youtube.com/@aydadil">youtube.com/@aydadil</a>
+      <a href="https://wa.me/905409122503">WhatsApp: 05409122503</a>
+    </div>
+  </footer>
+
+  <nav class="ayda-cross-mobile-bottom" aria-label="Mobil hızlı menü">
+    <a href="https://onurqlp.github.io/osd_a1_ayda/"><span>🏠</span>Ana Sayfa</a>
+    <a href="https://onurqlp.github.io/osd_a1_ayda/lesen.html"><span>📖</span>Lesen</a>
+    <a href="https://onurqlp.github.io/osd_a1_ayda/horen.html"><span>🎧</span>Hören</a>
+    <a class="is-active" href="https://onurqlp.github.io/osda1sprehcen/"><span>🗣</span>Sprechen</a>
+    <a href="https://onurqlp.github.io/osda1denemeler/"><span>📝</span>Deneme</a>
+  </nav>
+
+  <script src="script.js"></script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Şifre hizmeti yüklenemedi.'"></script><script id="ayda-exam-authorization-sync">(function(){const p=document.getElementById('aydaProtectedContent');if(!p)return;function sync(){document.documentElement.classList.toggle('ayda-exam-authorized',p.style.display==='block')}new MutationObserver(sync).observe(p,{attributes:true,attributeFilter:['style']});sync()})();</script></body>
+</html>

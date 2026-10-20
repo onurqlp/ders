@@ -1,0 +1,46 @@
+name: AYDA B1 Express Veri Hazırlama
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'scripts/build-b1-express-data.mjs'
+      - '.github/workflows/build-b1-express.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ayda-b1-express-generator
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Mevcut B1 veri kaynağından 24 ünite ve 576 soruyu hazırla
+        run: node scripts/build-b1-express-data.mjs
+      - name: Kodu denetle
+        run: |
+          node --check express/express.js
+          node --check express/course-data.js
+          node --check b1-express-shortcut.js
+          node scripts/check-b1-integrity.mjs
+      - name: İçeriği sadece değişmişse kaydet
+        shell: bash
+        run: |
+          if git diff --quiet -- express/course-data.js && test -z "$(git ls-files --others --exclude-standard express/course-data.js)"; then
+            echo "B1 Express soru bankası zaten güncel."
+            exit 0
+          fi
+          git config user.name "AYDA Course Automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add express/course-data.js
+          git commit -m "Publish 24 B1 units and 576 original exercises for Express"
+          git pull --rebase origin main
+          git push origin HEAD:main

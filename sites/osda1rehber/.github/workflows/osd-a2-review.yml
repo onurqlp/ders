@@ -1,0 +1,19 @@
+name: ÖSD A2 review checks
+on:
+  pull_request:
+    paths:
+      - 'a2/**'
+      - '.github/workflows/osd-a2-review.yml'
+  workflow_dispatch:
+jobs:
+  a2-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check a2/content.js
+          node --check a2/app.js
+          node --check a2/tests/smoke-test.js
+      - name: Check exam, links and assets
+        run: node a2/tests/smoke-test.js

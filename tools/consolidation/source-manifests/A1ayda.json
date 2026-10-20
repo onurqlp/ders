@@ -1,0 +1,245 @@
+{
+  "repository": "onurqlp/A1ayda",
+  "source_ref": "main",
+  "source_commit": "b20e0138fe6fd269ff70222021301bd422aac66e",
+  "destination": "sites/A1ayda",
+  "file_count": 47,
+  "total_bytes": 7462066,
+  "files": [
+    {
+      "path": ".github/workflows/ayda-a1-preview-tests.yml",
+      "sha256": "aadbd1401790ecc02fdf8a8b50d0eacaf8dbf9817f42dce4c1c88506ba53ea78",
+      "bytes": 1383
+    },
+    {
+      "path": ".github/workflows/ayda-express-refine.yml",
+      "sha256": "6c2a839aa5f584550c155016c33718a34c441d9d2fd0d5c345d2b923f3699762",
+      "bytes": 1087
+    },
+    {
+      "path": ".github/workflows/g3-preview-check.yml",
+      "sha256": "8d18f5b49126627a52ba38d671df294f39c8de8ba2f13498881f6e592f27ce6d",
+      "bytes": 2071
+    },
+    {
+      "path": "assets/index-BWBvcN9p.css",
+      "sha256": "cdf211f6c9921a4ff793f759343b6778a68e0457b8b245167bdc78657c472477",
+      "bytes": 18038
+    },
+    {
+      "path": "assets/index-By5EwxlJ.css",
+      "sha256": "bac1942dd5b099bd0262158f69c2368066185262e9f1c6bab1a60bef4367fde8",
+      "bytes": 20102
+    },
+    {
+      "path": "assets/index-C7-srDCQ.js",
+      "sha256": "3a33b200d104293218e1402f7df997f0021fd3ca16e024b11a23ee07068376e2",
+      "bytes": 296871
+    },
+    {
+      "path": "assets/index-DRCE9iGL.js",
+      "sha256": "ac35abbd026482eebbdba4945abc94a389490525ffb20c0a40a87cc3d2ce51d3",
+      "bytes": 298963
+    },
+    {
+      "path": "assets/index-DeDROqWP.css",
+      "sha256": "2a51bb7cccbda872e4e4cbdb4eadb3432394e76840978a558b611fd1a53c5468",
+      "bytes": 17516
+    },
+    {
+      "path": "assets/index-OVjCbFV6.css",
+      "sha256": "417f58cf02904704c07edc8a5537dfc930c38b8e8da3fda4bd00c4a08064c8ae",
+      "bytes": 22870
+    },
+    {
+      "path": "assets/index-PP9Us36G.js",
+      "sha256": "91e48eac2627ed88c403ae4b95c36251dda1f14df2f6742c5615dd0b95d01c64",
+      "bytes": 299460
+    },
+    {
+      "path": "assets/index-j2DaMiJM.js",
+      "sha256": "8cd30a476fee12ed014b5b8bf5aa788876e98f345b3e09d3246c795a7d4b4765",
+      "bytes": 296871
+    },
+    {
+      "path": "ayda-a1-b1-parity.css",
+      "sha256": "dc1fba070309ea33826af879200b308421d72ca7399c474d17b7d89474266a3f",
+      "bytes": 23548
+    },
+    {
+      "path": "ayda-a1-b1-parity.js",
+      "sha256": "9a3885637036326f8333272e066197a525a8e53dfdc59e442a7b138d9ed1847a",
+      "bytes": 18293
+    },
+    {
+      "path": "ayda-a1-hybrid.css",
+      "sha256": "408713268b7558499a70c5a981f2495a53f34d6a152f4a79fb7e109d9913ba24",
+      "bytes": 10476
+    },
+    {
+      "path": "ayda-a1-hybrid.js",
+      "sha256": "4ceb60c4cd1a29a2e21cccd1f9b624eb08cf0d6f909aa2b36e98586bef692b5d",
+      "bytes": 19854
+    },
+    {
+      "path": "ayda-a1-unified.css",
+      "sha256": "75ba0b9db6dcdc01d5db95c9068e52773732081be982a73b9105686c43d9ba83",
+      "bytes": 20380
+    },
+    {
+      "path": "ayda-a1-unified.js",
+      "sha256": "b90e651ab175cfab04c9bfca9b65b4816f9057ea8adf31b7d5752f34d19fb669",
+      "bytes": 5527
+    },
+    {
+      "path": "ayda-brand.js",
+      "sha256": "0c9a211324c2106a878673ebe56e20c52195971f5e53d08960969d579bd9b5ea",
+      "bytes": 180
+    },
+    {
+      "path": "ayda-express-shortcut.js",
+      "sha256": "4186e2d0c3fd77029dd3010cfc61e1ae0077ae3625f38d16af8469c038a0d729",
+      "bytes": 2529
+    },
+    {
+      "path": "backups/a1-index-before-b1-parity-20261016.html",
+      "sha256": "628dbe8f1f057cfd856247fe9ffd959b979ecab555f81e3b4055541e0a9b82a7",
+      "bytes": 5437
+    },
+    {
+      "path": "backups/a1-index-before-unified-20261016.html",
+      "sha256": "b418478a405121a5416680db7fb60df9d959b6b67424ab203a0c051c2532a6a5",
+      "bytes": 5165
+    },
+    {
+      "path": "express/ayda-2026-refine.css",
+      "sha256": "978ad4783472e9d5b84a13b93147a7267386e7adab3bd5469e37a273f820604a",
+      "bytes": 1695
+    },
+    {
+      "path": "express/ayda-2026-refine.js",
+      "sha256": "64028de71e49c9bb197dad4329c045a6e13d6b6a17275403f796f7372c61bd4e",
+      "bytes": 927
+    },
+    {
+      "path": "express/index.html",
+      "sha256": "31a80c6eea4a482d4824a27553dc07ca3007ed911031e69ca7d7d47b4a60955a",
+      "bytes": 2813504
+    },
+    {
+      "path": "express/manifest.webmanifest",
+      "sha256": "761b50acc491c7ff6792a0c08a18478c4937785649fbd8a4fe81c76ef6bc2b3f",
+      "bytes": 377
+    },
+    {
+      "path": "express/sw.js",
+      "sha256": "fcdfaf1c2f4cff0da378bf73698b84491318e73f547c66738993b71805520a7d",
+      "bytes": 728
+    },
+    {
+      "path": "g3-onizleme/index.html",
+      "sha256": "bcd49e240e2a9a8d0ff6b99c73dccb6a1983d0c94291ec8082fc540f6a12cbe2",
+      "bytes": 10627
+    },
+    {
+      "path": "index.html",
+      "sha256": "f791a924a66615a7204c10f0d2844031b189f4f1acb8a9d3866a6f6d47bfc138",
+      "bytes": 6951
+    },
+    {
+      "path": "logo-test/brand-test.js",
+      "sha256": "c18d95bd5efddbe99ed61edf1b1b931ffb53a32d3d505d11103adf5d235cc2f0",
+      "bytes": 604
+    },
+    {
+      "path": "logo-test/index.html",
+      "sha256": "e15ad806470ecfc4c52325b10f991a62d6455de0ed152921762c7dfef248d8d4",
+      "bytes": 14351
+    },
+    {
+      "path": "og.png",
+      "sha256": "59e884037274f65f58d4c1a50e27645458ff7e48866be37c070f6f889d2e7945",
+      "bytes": 1372175
+    },
+    {
+      "path": "preview/assets/index-DRCE9iGL.js",
+      "sha256": "ac35abbd026482eebbdba4945abc94a389490525ffb20c0a40a87cc3d2ce51d3",
+      "bytes": 298963
+    },
+    {
+      "path": "preview/assets/index-OVjCbFV6.css",
+      "sha256": "417f58cf02904704c07edc8a5537dfc930c38b8e8da3fda4bd00c4a08064c8ae",
+      "bytes": 22870
+    },
+    {
+      "path": "preview/ayda-a1-b1-parity.css",
+      "sha256": "63c9b7fd622a49bb1c6f165017b7fede98dea8e00c5785feacc204f9727342d9",
+      "bytes": 20352
+    },
+    {
+      "path": "preview/ayda-a1-b1-parity.js",
+      "sha256": "9a3885637036326f8333272e066197a525a8e53dfdc59e442a7b138d9ed1847a",
+      "bytes": 18293
+    },
+    {
+      "path": "preview/ayda-a1-hybrid.css",
+      "sha256": "408713268b7558499a70c5a981f2495a53f34d6a152f4a79fb7e109d9913ba24",
+      "bytes": 10476
+    },
+    {
+      "path": "preview/ayda-a1-hybrid.js",
+      "sha256": "4ceb60c4cd1a29a2e21cccd1f9b624eb08cf0d6f909aa2b36e98586bef692b5d",
+      "bytes": 19854
+    },
+    {
+      "path": "preview/ayda-a1-unified.css",
+      "sha256": "75ba0b9db6dcdc01d5db95c9068e52773732081be982a73b9105686c43d9ba83",
+      "bytes": 20380
+    },
+    {
+      "path": "preview/ayda-a1-unified.js",
+      "sha256": "2c08ccfd1ebab96eeb837b90a76d34c4b10678704b799c715d0ef7c8ee31459f",
+      "bytes": 5470
+    },
+    {
+      "path": "preview/ayda-brand.js",
+      "sha256": "763265338037c80dd45b9b08286346be426adf8c0ad7a548c9830e1b11e669a8",
+      "bytes": 6117
+    },
+    {
+      "path": "preview/index.html",
+      "sha256": "de6e990ab405f310e32aa41c8adc283154002b064bcffa9f64dbe0813d96ca80",
+      "bytes": 5607
+    },
+    {
+      "path": "preview/og.png",
+      "sha256": "59e884037274f65f58d4c1a50e27645458ff7e48866be37c070f6f889d2e7945",
+      "bytes": 1372175
+    },
+    {
+      "path": "progress-transfer.html",
+      "sha256": "6ab2f100bda9ed652f9a3638410d3ac4e32a40139abe3b18ab0f05ed9b302cf4",
+      "bytes": 1961
+    },
+    {
+      "path": "scripts/ayda_express_refine.py",
+      "sha256": "7e0dc433bf6225dabbbf7855d3d5ea836530a11f4fe285308b314b60d0ebb1db",
+      "bytes": 986
+    },
+    {
+      "path": "scripts/check-a1-integrity.mjs",
+      "sha256": "c9ff47c4433680dd85d155742001b0aee88959631e18e1c79cd8ae69dda3c8fd",
+      "bytes": 6741
+    },
+    {
+      "path": "scripts/smoke-a1.cjs",
+      "sha256": "61891a1314ad92ec2b7235a49b1637f3fc87e558cb02f6fd690e776b08ce5725",
+      "bytes": 17938
+    },
+    {
+      "path": "t/index.html",
+      "sha256": "a59c300bf94bfb52be6c3fb22c1f638c99939d187e5ec78de4dc1b1ce7e0b8b8",
+      "bytes": 25323
+    }
+  ]
+}

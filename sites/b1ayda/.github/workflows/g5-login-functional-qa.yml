@@ -1,0 +1,53 @@
+name: G5 B1 Login Functional QA
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/g5-login-functional-qa.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - run: python -m pip install selenium
+      - name: Check logo and login transition without real passwords
+        run: |
+          mkdir -p /tmp/g5login
+          python - <<'PY'
+          import time,json
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          o=Options()
+          for x in ['--headless=new','--no-sandbox','--disable-dev-shm-usage']:o.add_argument(x)
+          d=webdriver.Chrome(options=o)
+          try:
+            for name,w,h in [('desktop',1440,900),('mobile',390,844)]:
+              d.set_window_size(w,h)
+              d.get('https://onurqlp.github.io/b1ayda/g5-onizleme/?qa='+str(time.time()))
+              time.sleep(7)
+              x=d.execute_script("""const a=document.querySelector('.loginBrand .brandMark img');return {logo:!!a&&a.complete&&a.naturalWidth>50,logoWidth:a?.getBoundingClientRect().width,passwordFn:typeof window.aydaCheckPassword,login:!!document.querySelector('#aydaPasswordInput'),overflow:document.documentElement.scrollWidth-innerWidth}""")
+              print(json.dumps({'screen':name,'initial':x},ensure_ascii=False),flush=True)
+              assert x['logo'] and x['login'] and x['passwordFn']=='function' and x['overflow']<=4
+              d.execute_script("""document.querySelector('#aydaPasswordInput').value='';document.querySelector('.loginCard button').click();""")
+              time.sleep(1)
+              err=d.execute_script("return document.querySelector('#aydaLoginMessage')?.textContent")
+              print(json.dumps({'screen':name,'emptyPasswordMessage':err},ensure_ascii=False),flush=True)
+              assert err and 'Şifre' in err
+              d.execute_script("""aydaLoadPasswords=async()=>[{code:'G5_QA_FAKE',active:true,permanent:true,durationDays:0,expires:''}];document.querySelector('#aydaPasswordInput').value='G5_QA_FAKE';document.querySelector('.loginCard button').click();""")
+              time.sleep(2)
+              result=d.execute_script("""return {loginDisplay:getComputedStyle(document.querySelector('#aydaLoginBox')).display,protectedDisplay:getComputedStyle(document.querySelector('#aydaProtectedContent')).display,hasHero:!!document.querySelector('#aydaProtectedContent .hero'),logoCount:document.querySelectorAll('.loginBrand img').length}""")
+              print(json.dumps({'screen':name,'successTransition':result},ensure_ascii=False),flush=True)
+              d.save_screenshot('/tmp/g5login/'+name+'.png')
+              assert result['loginDisplay']=='none' and result['protectedDisplay']!='none' and result['hasHero']
+              d.execute_script("localStorage.removeItem('ayda_access');localStorage.removeItem('ayda_code')")
+            print('G5_LOGIN_DESKTOP_MOBILE_VERIFIED',flush=True)
+          finally:d.quit()
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g5-login-test-images
+          path: /tmp/g5login/*.png
+          retention-days: 7

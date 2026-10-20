@@ -1,0 +1,165 @@
+{
+  "test_branch": "consolidation/test-stage-01-20261020",
+  "production_untouched": true,
+  "expected_sources": 22,
+  "imported_sources": 22,
+  "total_source_files": 756,
+  "total_source_bytes": 195288349,
+  "repositories": [
+    {
+      "repository": "onurqlp/A1ayda",
+      "source_commit": "b20e0138fe6fd269ff70222021301bd422aac66e",
+      "files": 47,
+      "bytes": 7462066,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/a2ayda",
+      "source_commit": "080b59e75d8d76155a451b7718837762d7658fa7",
+      "files": 31,
+      "bytes": 1173284,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/b1ayda",
+      "source_commit": "397d5aee3ad922ec1ca2bd04454ef362b65b9be6",
+      "files": 24,
+      "bytes": 1449006,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/sinavhazirlik",
+      "source_commit": "55687d1887ba0cc215a7071704e1c4ea98915ca2",
+      "files": 3,
+      "bytes": 177391,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/bibliothek",
+      "source_commit": "47b330d09884ab73ebf44edc915d586e4904af00",
+      "files": 7,
+      "bytes": 226745,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/derskitaplari",
+      "source_commit": "b28d7133779c1756e0d19c11ccb12e20bdd443e2",
+      "files": 3,
+      "bytes": 116026,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/A1hazirlik",
+      "source_commit": "cdd326a3d5e24b88b8ac4e6b530440bb118db87a",
+      "files": 10,
+      "bytes": 231064,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/telca2kelimelerr",
+      "source_commit": "533aae72333b9cfbeafdeb1811b74dd140329b8f",
+      "files": 16,
+      "bytes": 318544,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/telchazirlik",
+      "source_commit": "f56f6b662b9e4478808cd892f97accbfd8ec2acf",
+      "files": 331,
+      "bytes": 172584610,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/osda1rehber",
+      "source_commit": "6e2b994c5d051a2aa7bfea1bd42577de37d64d65",
+      "files": 61,
+      "bytes": 5052326,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/osd_a1_ayda",
+      "source_commit": "64b6d71851d420b8dda0891f3dcb7c6bd0376a91",
+      "files": 14,
+      "bytes": 205128,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/osda1denemeler",
+      "source_commit": "5cb491dad9ad1c5e6dd0bfb08e3c10e12033c126",
+      "files": 7,
+      "bytes": 56967,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/osda1sprehcen",
+      "source_commit": "2e28710c88c642d04ca0c556f19dfc4216ca47e7",
+      "files": 6,
+      "bytes": 45160,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/a2kelime",
+      "source_commit": "b8f68f67766fb62bddeb07646e77cb62b6df3f24",
+      "files": 7,
+      "bytes": 99561,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/A2telc",
+      "source_commit": "9480ab9883b9ad8287a8e32090ba895ca6a2140f",
+      "files": 4,
+      "bytes": 74986,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/a2telcmektup",
+      "source_commit": "7516b991b39940c78bd3f6abbd9cc2e92a2122ec",
+      "files": 5,
+      "bytes": 1447471,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/b1pruf",
+      "source_commit": "f6ee75620088ba0ff1e42f57b7d8a03d45dd487c",
+      "files": 1,
+      "bytes": 33535,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/c1prufer",
+      "source_commit": "e3694f757b49bad04f521915b4020435fe596418",
+      "files": 5,
+      "bytes": 123124,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/goethe-mi-osd-mi",
+      "source_commit": "fdfca0eb5dff505083355428536cfda1ec0ebee6",
+      "files": 164,
+      "bytes": 4267210,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/GENEL_SEVIYE_BELIRLEME",
+      "source_commit": "7acbb591b8c8961b2d8dcca2646ee22779427aab",
+      "files": 1,
+      "bytes": 11676,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/SEVIYEBELIRLEME",
+      "source_commit": "5ed714923e124b8b449aab94da573b5f345fb328",
+      "files": 6,
+      "bytes": 60421,
+      "parity": true
+    },
+    {
+      "repository": "onurqlp/TEKRARLAR",
+      "source_commit": "3f2cd13a408396a370bb7313ba5cec4b57e3edb8",
+      "files": 3,
+      "bytes": 72048,
+      "parity": true
+    }
+  ],
+  "issues": []
+}

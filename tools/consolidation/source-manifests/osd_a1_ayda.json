@@ -1,0 +1,80 @@
+{
+  "repository": "onurqlp/osd_a1_ayda",
+  "source_ref": "main",
+  "source_commit": "64b6d71851d420b8dda0891f3dcb7c6bd0376a91",
+  "destination": "sites/osd_a1_ayda",
+  "file_count": 14,
+  "total_bytes": 205128,
+  "files": [
+    {
+      "path": ".github/workflows/ayda-exam-subpage-gate.yml",
+      "sha256": "83768efe71ca8ede6c7f0da42f33c49d380ae267036bad64c68deaa57c9f6c31",
+      "bytes": 1013
+    },
+    {
+      "path": ".github/workflows/ayda-unified-logo.yml",
+      "sha256": "9e6e3a51993c3a2e03a17609501c32902ed9e9c125c6f934086b622a87bb7dfb",
+      "bytes": 864
+    },
+    {
+      "path": ".github/workflows/secure-exam-pages.yml",
+      "sha256": "c5e6d78e59d0df2a6a44e445aedf7c4cffbe31b34bab502761b9dff743a5514e",
+      "bytes": 1061
+    },
+    {
+      "path": "ayda-exam-guard-report.json",
+      "sha256": "28921e9a6d21d903c67088cfab366cd2017fb0d9329418ed31bc3036b9c7fdec",
+      "bytes": 222
+    },
+    {
+      "path": "bilgi.html",
+      "sha256": "cf87aaf327069e46d7383c2d72df625762907150200d3c10ef9537f37ba8323f",
+      "bytes": 29947
+    },
+    {
+      "path": "horen.html",
+      "sha256": "aebfaca64adbd0410e87cf5c5398682cb5dc721ed720a834c28cb45eac19aca1",
+      "bytes": 35725
+    },
+    {
+      "path": "index.html",
+      "sha256": "189ab4543bfdee17385c7da720099c04f497ab8b7fc970afe371d5bed3fd708e",
+      "bytes": 34568
+    },
+    {
+      "path": "kelime.html",
+      "sha256": "850590ccb499ea4620350aa515b770aeb8a2591d080b31812ea63db8cbd86472",
+      "bytes": 33863
+    },
+    {
+      "path": "lesen.html",
+      "sha256": "cb66312d0fac07b3e5aa732b4ed595a8a6c5d36b5cb980e795dfbe655b95be34",
+      "bytes": 23985
+    },
+    {
+      "path": "schreiben.html",
+      "sha256": "5682bb90424a103515fd3a035ceccb2c551d308025db196ddd375e1ca2b70940",
+      "bytes": 32501
+    },
+    {
+      "path": "scripts/apply_ayda_unified_logo.py",
+      "sha256": "4dbe0ba43cea02e8da188e76c28ee7611bbd13241047c668eeae38455c1f643a",
+      "bytes": 2685
+    },
+    {
+      "path": "scripts/apply_central_exam_gate.py",
+      "sha256": "0d2f3e2c130edd4e987ec8b2a6daa3d8c6d7d0eb7c4c41bfb7b73d9614d41b15",
+      "bytes": 3614
+    },
+    {
+      "path": "scripts/secure_all_exam_pages.py",
+      "sha256": "601f398bdddaba40b9bdb4bc3879e3ed3116cc064a613082ae420f8ffb6c1e70",
+      "bytes": 4097
+    },
+    {
+      "path": "sprechen.html",
+      "sha256": "92377256ee3d11d6eca8e9c3e72e49907cd8c4684acda70ecd789c93c2c52049",
+      "bytes": 983
+    }
+  ]
+}

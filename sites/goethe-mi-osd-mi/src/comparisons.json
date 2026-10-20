@@ -1,0 +1,266 @@
+[
+  {
+    "section": "LESEN",
+    "number": 1,
+    "title": "Metni doğrulamak mı, aranan ilanı bulmak mı?",
+    "goethe": {
+      "headline": "2 metin, 5 doğru/yanlış",
+      "desc": "Yazışmaları okuyup ifadenin doğru olup olmadığını kontrol et.",
+      "excerpt": "„Herr Beck übernachtet im Hotel.“",
+      "focus": "Cümle metinle uyuşuyor mu?",
+      "img": "g_read1",
+      "src": "Goethe PDF s. 16–17",
+      "metric": "5 karar"
+    },
+    "osd": {
+      "headline": "5 durum, 6 ilan",
+      "desc": "Bir ihtiyaca uygun ilanı seç; 1 ilan fazladır.",
+      "excerpt": "„Sie suchen einen Job. Sie wollen in einem Büro arbeiten.“",
+      "focus": "İhtiyaç → uygun ilan eşleşmesi",
+      "img": "o_read1",
+      "src": "ÖSD PDF s. 2–3",
+      "metric": "5 eşleşme"
+    },
+    "insight": "Goethe’de ifadeyi metindeki bilgiyle doğrularsın; ÖSD’de ihtiyaç ile ilan arasında bağlantı kurarsın. Anahtar sözcükler ÖSD’de yardımcı olabilir; altı ilanı taramak da dikkat ister. Aynı görev numarası, aynı alt beceri anlamına gelmez."
+  },
+  {
+    "section": "LESEN",
+    "number": 2,
+    "title": "Burada ÖSD otomatik avantajlı değil.",
+    "goethe": {
+      "headline": "5 durum × 2 seçenek",
+      "desc": "Her durumda iki kaynağın hangisi uygun?",
+      "excerpt": "„Sie möchten am Samstagabend mit Freunden tanzen gehen.“",
+      "focus": "İki alternatif arasından seç.",
+      "img": "g_read2",
+      "src": "Goethe PDF s. 18–20",
+      "metric": "2 seçenek"
+    },
+    "osd": {
+      "headline": "3 ilan, 6 JA / NEIN",
+      "desc": "Aynı ilan hakkında iki ayrı soruya karar ver.",
+      "excerpt": "„Kann man am Freitagabend mit dem Ticket fahren?“",
+      "focus": "Ayrıntı / zaman bilgisi belirleyici.",
+      "img": "o_read2",
+      "src": "ÖSD PDF s. 4",
+      "metric": "6 karar"
+    },
+    "insight": "Goethe’nin iki seçenekli yapısı kimi öğrenciler için daha rahat olabilir. ÖSD Aufgabe 2’de ise üç ilanın ayrıntılarını altı JA/NEIN sorusu için kontrol edersin. Özellikle gün ve saat ifadelerini gözden kaçırma."
+  },
+  {
+    "section": "LESEN",
+    "number": 3,
+    "title": "ÖSD’nin en güçlü görsel avantajlarından biri.",
+    "goethe": {
+      "headline": "Duyuru → doğru / yanlış",
+      "desc": "Kısa duyuruyu okuyup çıkarılan sonucu denetle.",
+      "excerpt": "„Am Sonntagvormittag bekommen Sie hier Blumen.“",
+      "focus": "Saat / gün ayrıntısını doğru yorumla.",
+      "img": "g_read3",
+      "src": "Goethe PDF s. 21–23",
+      "metric": "5 ifade"
+    },
+    "osd": {
+      "headline": "Kısa metin → resim",
+      "desc": "Beş metni altı sembolle eşleştir.",
+      "excerpt": "„Im Krankenhaus ist das Telefonieren mit Handy verboten.“",
+      "focus": "“Handy verboten” → telefon yasak işareti.",
+      "img": "o_read3",
+      "src": "ÖSD PDF s. 5–6",
+      "metric": "5 + 6 resim"
+    },
+    "insight": "ÖSD’de anahtar anlam ile görsel arasında bağ kurmak, kelime kelime çeviri ihtiyacını azaltabilir. Yine de olumsuzluğu ve temel anlamı kontrol et: yalnızca resme bakmak doğru cevabı garanti etmez."
+  },
+  {
+    "section": "HÖREN",
+    "number": 1,
+    "title": "Resimler destek olur; tekrar sayısı kritik.",
+    "goethe": {
+      "headline": "6 soru, 3 seçenek",
+      "desc": "Kısa konuşma dinle; doğru resmi veya cevabı işaretle.",
+      "excerpt": "„Wo wollen die Freundinnen die Party machen?“",
+      "focus": "Her kayıt 2 kez dinlenir.",
+      "img": "g_listen1",
+      "src": "Goethe PDF s. 8–10",
+      "metric": "2 × dinleme"
+    },
+    "osd": {
+      "headline": "5 ses → 6 fotoğraf",
+      "desc": "Duyduğun konuşmayı ilgili fotoğrafla eşleştir.",
+      "excerpt": "Eczane · alışveriş · ofis · yemek · yürüyüş…",
+      "focus": "Her kayıt 1 kez dinlenir.",
+      "img": "o_listen1",
+      "src": "ÖSD PDF s. 7",
+      "metric": "1 × dinleme"
+    },
+    "insight": "İkisi de görsel kullanır. ÖSD’de 30 saniyelik ön inceleme süresinde mekânı, kişileri ve eylemleri belirle. Buna karşılık Goethe’deki ikinci dinleme, ayrıntıları yeniden kontrol etme fırsatı verir."
+  },
+  {
+    "section": "HÖREN",
+    "number": 2,
+    "title": "Doğru/yanlış mı, duyduğunu not etmek mi?",
+    "goethe": {
+      "headline": "4 anons, doğru / yanlış",
+      "desc": "Duyuruyu duy ve önündeki ifadeyi değerlendir.",
+      "excerpt": "„Die Fahrgäste sollen den Bus nehmen.“",
+      "focus": "Her kayıt 1 kez dinlenir.",
+      "img": "g_listen2",
+      "src": "Goethe PDF s. 11",
+      "metric": "4 karar"
+    },
+    "osd": {
+      "headline": "1 mesaj → kısa not",
+      "desc": "Tarih, saat, adres ve telefon gibi bilgileri yaz.",
+      "excerpt": "Wann? · Wo? · Telefonnummer?",
+      "focus": "Mesaj 2 kez dinlenir.",
+      "img": "o_listen2",
+      "src": "ÖSD PDF s. 8, 14",
+      "metric": "2 × dinleme"
+    },
+    "insight": "ÖSD’de mesajı ikinci kez duymak yardımcı olabilir; fakat gün, saat, adres ve telefon bilgisini yazmak ayrı bir yük getirir. Goethe’de yazılı bilgi üretmeden doğru/yanlış kararı verirsin, ancak kaydı yalnızca bir kez duyarsın."
+  },
+  {
+    "section": "HÖREN",
+    "number": 3,
+    "title": "Dikkat: Bu kez Goethe’nin avantajı var.",
+    "goethe": {
+      "headline": "5 soru, 3 seçenek",
+      "desc": "Kısa mesaj dinle; üç seçenekten birini seç.",
+      "excerpt": "„Wann möchte Eva Schmitz … kommen?“",
+      "focus": "Her kayıt 2 kez dinlenir.",
+      "img": "g_listen3",
+      "src": "Goethe PDF s. 12–13",
+      "metric": "2 × dinleme"
+    },
+    "osd": {
+      "headline": "5 kişi, 4 başlık",
+      "desc": "Her kişiyi bir kıta tercihiyle eşleştir.",
+      "excerpt": "Afrika · Amerika · Asien · Europa",
+      "focus": "Her konuşmacı 1 kez dinlenir.",
+      "img": "o_listen3",
+      "src": "ÖSD PDF s. 8",
+      "metric": "1 × dinleme"
+    },
+    "insight": "ÖSD’nin kıta tablosu kısa görünür; tek dinleme sırasında odağı korumak gerekir. Goethe’nin iki kez dinletmesi bazı adaylar için daha yönetilebilir olabilir. Bölümün kısa sürmesi, tek başına kolaylık ölçütü değildir."
+  },
+  {
+    "section": "SCHREIBEN",
+    "number": 1,
+    "title": "Form doldurma: Az alan mı, işaretleyerek ilerlemek mi?",
+    "goethe": {
+      "headline": "5 boş bilgi",
+      "desc": "Hasta bilgi formundaki beş veriyi tamamla.",
+      "excerpt": "Wohnort · Alter · Beruf · seit wann krank",
+      "focus": "Beş kısa cevap, çoğu bilgi direkt metinde.",
+      "img": "g_write1",
+      "src": "Goethe PDF s. 24",
+      "metric": "5 alan"
+    },
+    "osd": {
+      "headline": "10 cevaplık form",
+      "desc": "Tatil rezervasyon formunda alanları doldur / kutu işaretle.",
+      "excerpt": "Doppelzimmer ✓ · Frühstück ✓ · Zug",
+      "focus": "Kutucuklar çok; kısmi bilgi kolayca işaretlenebilir.",
+      "img": "o_write1",
+      "src": "ÖSD PDF s. 9, 15",
+      "metric": "10 yanıt → 5 puan"
+    },
+    "insight": "ÖSD formunda yazı alanları ile kutucuklar birlikte kullanılır; 10 değerlendirme birimi toplam 5 puandır. Goethe’de beş eksik bilgi tamamlanır. Daha çok kutucuk olması, bütün formun daha kolay olduğu anlamına gelmez."
+  },
+  {
+    "section": "SCHREIBEN",
+    "number": 2,
+    "title": "E-postada ÖSD neden rahat hissettirebilir?",
+    "goethe": {
+      "headline": "Yeni meslektaşa e-posta",
+      "desc": "3 iletişim amacı: neden yazıyorsun, geç geleceğini söyle, yardım sor.",
+      "excerpt": "„Ihr neuer Kollege, Herr Jensch …“",
+      "focus": "Hitap + uygun üslup da sana kalıyor.",
+      "img": "g_write2",
+      "src": "Goethe PDF s. 25",
+      "metric": "Yaklaşık 30 kelime"
+    },
+    "osd": {
+      "headline": "Arkadaşa yanıt e-postası",
+      "desc": "3 soruya yanıt ver; yaklaşık 30 kelime.",
+      "excerpt": "„Liebe Rafaela, vielen Dank für dein E-Mail …“",
+      "focus": "Başlangıç cümleleri modelde hazır verilmiş.",
+      "img": "o_write2",
+      "src": "ÖSD PDF s. 10",
+      "metric": "≈30 kelime"
+    },
+    "insight": "ÖSD’de verilen hitap ve giriş, ilk cümleyi kurma yükünü azaltabilir. İki modelde de yaklaşık 30 kelimelik metin ve üç içerik noktası var. ÖSD’de geliş günü ve saati, kalış süresi ve beraberindeki kişi; Goethe’de yazma nedeni, geç geliş ve yardım konusu karşılanmalı."
+  },
+  {
+    "section": "SPRECHEN",
+    "number": 1,
+    "title": "ÖSD’de aday kendini ifade edeceği konuyu seçiyor.",
+    "goethe": {
+      "headline": "Kendini tanıt + harfle",
+      "desc": "Grupta kendini tanıt; gerektiğinde adını hecele, sayı söyle.",
+      "excerpt": "Name · Herkunft · Wohnung · Sprachen",
+      "focus": "Sunum sonrası harfleme/sayı sorulabilir.",
+      "img": "g_speak1",
+      "src": "Goethe PDF s. 27–28, 41–42",
+      "metric": "Tanıtım"
+    },
+    "osd": {
+      "headline": "6 konudan 4 tanesini seç",
+      "desc": "Sevdiğin dört alan hakkında birkaç cümle kur.",
+      "excerpt": "Beruf · Sport · Hobbys · Familie …",
+      "focus": "Konu seçimi adayın kontrolünde.",
+      "img": "o_speak1",
+      "src": "ÖSD PDF s. 11",
+      "metric": "4 konu seç"
+    },
+    "insight": "ÖSD’de 6 konudan 4’ünü seçebilmek, hazırlandığın alanlarla başlamanı sağlayabilir. Her konuda birkaç cümle ve devam sorularına yanıt gerekir. Goethe’de tanıtımın yanında harfleme ve sayı söyleme de çalışılmalı."
+  },
+  {
+    "section": "SPRECHEN",
+    "number": 2,
+    "title": "Kartla soru-cevap mı, seçtiğin fotoğrafı anlatmak mı?",
+    "goethe": {
+      "headline": "Kartla soru sor ve yanıtla",
+      "desc": "Karttaki tema ve sözcükle bilgi iste; partnerinin sorusuna cevap ver.",
+      "excerpt": "Beruf → Arbeitszeit / Kollegen",
+      "focus": "Soru-cevap etkileşimi",
+      "img": "g_speak23",
+      "src": "Goethe PDF s. 29–30, 42",
+      "metric": "Kart temelli"
+    },
+    "osd": {
+      "headline": "3 görselden 1 tanesini seç",
+      "desc": "Üç fotoğraftan birini seç. Kişileri, mekânı ve eylemleri anlat.",
+      "excerpt": "Fotoğrafta kim var? Neredeler? Ne yapıyorlar?",
+      "focus": "Kişi → mekân → eylem",
+      "img": "o_speak23",
+      "src": "ÖSD PDF s. 12",
+      "metric": "3 fotoğraf → 1 seçim"
+    },
+    "insight": "Görsel seçimi adayın kontrolünü artırabilir. Ancak fotoğrafı anlatmak bazı öğrenciler için daha fazla serbest sözlü üretim ister. Goethe’nin kartla soru-cevap akışı, kısa ve yapılandırılmış konuşmayı sevenlere uygun gelebilir."
+  },
+  {
+    "section": "SPRECHEN",
+    "number": 3,
+    "title": "Rica etme ve durum konuşması",
+    "goethe": {
+      "headline": "Rica et, karşılık ver",
+      "desc": "Bir kart üzerinden ricada bulun ve partnerinin ricasına uygun karşılık ver.",
+      "excerpt": "Bir şey isteme → yanıt verme",
+      "focus": "Kısa karşılıklı etkileşim",
+      "img": null,
+      "src": "Goethe PDF s. 31–32, 43",
+      "metric": "Teil 3"
+    },
+    "osd": {
+      "headline": "Seçtiğin sahnede rol yap",
+      "desc": "Aufgabe 2’de seçtiğin fotoğrafın durumunu konuşma partnerinle canlandır.",
+      "excerpt": "Aynı görsel bağlamı → yeni diyalog",
+      "focus": "Duruma uygun tepki üretme",
+      "img": null,
+      "src": "ÖSD PDF s. 12",
+      "metric": "Aufgabe 3"
+    },
+    "insight": "ÖSD’de aynı bağlamın sürmesi ne konuşacağını planlamayı kolaylaştırabilir. Yine de doğaçlama diyalog gerekir. Önceden ezberlenmiş bir fotoğraf betimlemesi, rol oyununun tamamını karşılamaz."
+  }
+]

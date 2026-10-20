@@ -1,0 +1,90 @@
+{
+  "repository": "onurqlp/telca2kelimelerr",
+  "source_ref": "main",
+  "source_commit": "533aae72333b9cfbeafdeb1811b74dd140329b8f",
+  "destination": "sites/telca2kelimelerr",
+  "file_count": 16,
+  "total_bytes": 318544,
+  "files": [
+    {
+      "path": ".github/workflows/ayda-exam-subpage-gate.yml",
+      "sha256": "83768efe71ca8ede6c7f0da42f33c49d380ae267036bad64c68deaa57c9f6c31",
+      "bytes": 1013
+    },
+    {
+      "path": ".github/workflows/ayda-unified-logo.yml",
+      "sha256": "9e6e3a51993c3a2e03a17609501c32902ed9e9c125c6f934086b622a87bb7dfb",
+      "bytes": 864
+    },
+    {
+      "path": ".github/workflows/secure-exam-pages.yml",
+      "sha256": "c5e6d78e59d0df2a6a44e445aedf7c4cffbe31b34bab502761b9dff743a5514e",
+      "bytes": 1061
+    },
+    {
+      "path": "a2form.html",
+      "sha256": "f6bc884efab5b4fb92939c9aa06be98a27d7eb31ca67eab16775b69e22e2ea60",
+      "bytes": 35976
+    },
+    {
+      "path": "a2kelimeler.html",
+      "sha256": "7d1530fd1f62cc5561607f96d294668e9dabea463e772ff35f9a61a766b4dfc8",
+      "bytes": 38545
+    },
+    {
+      "path": "a2lesenteil1.html",
+      "sha256": "ea742a96c1af5a8a6f200c7df70b68def903925458e5b9331f35d1ce23fa599a",
+      "bytes": 36630
+    },
+    {
+      "path": "a2lesenteil2.html",
+      "sha256": "e58e91f001b08d2f1f87ccd95b3dd6064f11d7ff85b47d0106b67e1bcb00e129",
+      "bytes": 39194
+    },
+    {
+      "path": "a2lesenteil3.html",
+      "sha256": "6fbbaed87e185d665c1abd94f0d5bc3caa60332a7bad75ae6375ca73dcd5354f",
+      "bytes": 36605
+    },
+    {
+      "path": "a2schreiben1.html",
+      "sha256": "8afbaacb19a7f935e07b05554d2c732e42d89f15f11b48fc53f69541e416e59f",
+      "bytes": 36983
+    },
+    {
+      "path": "a2sprechenteil3.html",
+      "sha256": "3cb2bdc222240f6e3ada8141c5d26eafa5cca2544e41edb06e61e132a95ba0fe",
+      "bytes": 32119
+    },
+    {
+      "path": "ayda-exam-guard-report.json",
+      "sha256": "6c58af30c7baff780df6c75fab13e4f2ab9fbac443e651b20688d6c3654a479b",
+      "bytes": 130
+    },
+    {
+      "path": "index.html",
+      "sha256": "06cb60857c23a10cda8bf739e4357d4d2890bb3148e4c5cbbf341c2439098927",
+      "bytes": 17106
+    },
+    {
+      "path": "scripts/apply_ayda_unified_logo.py",
+      "sha256": "4dbe0ba43cea02e8da188e76c28ee7611bbd13241047c668eeae38455c1f643a",
+      "bytes": 2685
+    },
+    {
+      "path": "scripts/apply_central_exam_gate.py",
+      "sha256": "1c9efc35f9be934c4b08203d915f2f09ccb23b2750c4722b508ef696aaf5e03a",
+      "bytes": 3614
+    },
+    {
+      "path": "scripts/secure_all_exam_pages.py",
+      "sha256": "601f398bdddaba40b9bdb4bc3879e3ed3116cc064a613082ae420f8ffb6c1e70",
+      "bytes": 4097
+    },
+    {
+      "path": "sprechenteil2.html",
+      "sha256": "12a00e148e7ddc2bfd3449b91df6e60507e501c37e26d3e9053277e8f7e3c060",
+      "bytes": 31922
+    }
+  ]
+}

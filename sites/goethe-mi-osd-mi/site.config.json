@@ -1,0 +1,31 @@
+{
+  "brand": "AYDA Dil Akademisi",
+  "origin": "http://127.0.0.1:4173",
+  "path": "/goethe-osd-a1-karsilastirma/",
+  "indexable": false,
+  "updated": "2026-10-15",
+  "links": {
+    "home": "https://www.aydadil.com/",
+    "course": "https://www.aydadil.com/#kurs-a1",
+    "whatsapp": "https://wa.me/905409122503",
+    "materials": "https://www.aydadil.com/bibliothek/",
+    "preparation": "https://www.aydadil.com/sinavhazirlik/",
+    "levelTest": "https://forms.gle/TFFzbHqzX1NsZkxz6",
+    "mockExam": "",
+    "privacy": "https://www.aydadil.com/gizlilik-politikasi/"
+  },
+  "analytics": {
+    "ga4Id": "",
+    "enabled": false
+  },
+  "ads": {
+    "enabled": false,
+    "publisherId": "",
+    "cmpReady": false,
+    "slots": {
+      "afterQuick": "",
+      "beforeFaq": ""
+    }
+  },
+  "searchConsoleVerification": ""
+}

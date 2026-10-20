@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) body>#aydaProtectedContent{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#0b1b31,#214d75);position:relative;z-index:99999;font-family:system-ui,-apple-system,sans-serif}
+#aydaLoginBox .ayda-exam-login-card{background:#fff;color:#102541;padding:28px;width:min(440px,100%);border-radius:19px;box-shadow:0 20px 54px #0003}
+#aydaLoginBox h1{font-size:23px;line-height:1.3;margin:0 0 9px;color:#102541}
+#aydaLoginBox p{font-size:14px;line-height:1.55;color:#5e7287}
+#aydaLoginBox label{display:block;font-weight:800;font-size:13px;margin:20px 0 6px;color:#102541}
+#aydaLoginBox input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1px solid #a6b8c9;border-radius:10px;background:#fff;color:#102541;font:16px system-ui}
+#aydaLoginBox button{width:100%;min-height:49px;background:#102541;color:#fff;border:0;border-radius:10px;font:800 15px system-ui;margin-top:12px;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+#aydaLoginBox .ayda-exam-message{min-height:22px;margin-top:10px;font-size:13px;color:#9f3838}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#234078" />
+  <title>AYDA · A2 Sprechen Teil 3</title>
+  <style>
+    :root{
+      --primary:#234078;--dark:#172b52;--soft:#e9eef8;--bg:#f5f7fb;--card:#fff;
+      --text:#172033;--muted:#6b7280;--border:#e5e7eb;--success:#15803d;
+      --danger:#b91c1c;--warning:#b45309;--shadow:0 18px 45px rgba(35,64,120,.13);
+      --radius:22px
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,rgba(35,64,120,.18),transparent 32%),linear-gradient(180deg,#fff 0%,var(--bg) 42%);color:var(--text);min-height:100vh}
+    a{text-decoration:none;color:inherit}.hidden{display:none!important}
+    .topbar,.page{width:min(1180px,calc(100% - 28px));margin:0 auto}
+    .topbar{padding:14px 0 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .top-brand{display:flex;align-items:center;gap:10px;font-weight:950;color:var(--primary)}
+    .mini-logo{width:38px;height:38px;border-radius:13px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:950}
+    .links{display:flex;gap:8px;flex-wrap:wrap}
+    .link{background:#fff;border:1px solid var(--border);color:var(--primary);border-radius:999px;padding:10px 13px;font-weight:850;font-size:13px;box-shadow:0 8px 22px rgba(17,24,39,.05)}
+    .page{padding:18px 0 42px}
+    .hero{background:linear-gradient(135deg,var(--primary),#315caa);border-radius:30px;color:#fff;padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-90px;background:rgba(255,255,255,.12)}
+    .brand{display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);padding:8px 13px;border-radius:999px;font-size:13px;margin-bottom:18px;position:relative;z-index:2}
+    .dot{width:9px;height:9px;background:#a7f3d0;border-radius:50%;box-shadow:0 0 0 6px rgba(167,243,208,.17)}
+    .hero h1{margin:0;font-size:clamp(28px,5vw,48px);line-height:1.05;letter-spacing:-.04em;max-width:960px;position:relative;z-index:2}
+    .hero p{max-width:960px;margin:16px 0 0;color:rgba(255,255,255,.9);font-size:17px;line-height:1.6;position:relative;z-index:2}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+    .stat,.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 14px 35px rgba(17,24,39,.07)}
+    .stat{padding:18px}.stat span{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}.stat strong{font-size:28px;color:var(--primary)}
+    .layout{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}.card{padding:22px}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    button{border:0;background:var(--primary);color:#fff;padding:13px 16px;border-radius:14px;font-weight:900;cursor:pointer;font-size:14px}
+    button:hover{background:var(--dark)}.secondary{background:#eef2ff;color:var(--primary)}.tab{background:var(--soft);color:var(--primary)}.tab.active{background:var(--primary);color:#fff}
+    .game-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}
+    .game-head h2,.side-title{margin:0 0 8px;font-size:22px;letter-spacing:-.03em}.muted{color:var(--muted);line-height:1.5;font-size:14px}
+    .badge{display:inline-flex;align-items:center;gap:7px;background:var(--soft);color:var(--primary);border-radius:999px;padding:7px 10px;font-weight:850;font-size:12px}
+    .prompt{background:linear-gradient(180deg,#f8fbff,#fff);border:1px solid var(--border);border-radius:20px;padding:20px;margin-bottom:16px}
+    .prompt h3{margin:0 0 10px;font-size:clamp(23px,4.2vw,34px);color:var(--primary);letter-spacing:-.04em}
+    .prompt p{margin:0;line-height:1.7}
+    .options{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .option-pill{background:#f3f6fb;border:1px solid #d6deea;border-radius:999px;padding:10px 13px;font-weight:900;color:#1f3f7a}
+    .qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+    .qa-box{background:#f8fafc;border:1px solid var(--border);border-radius:18px;padding:16px}
+    .qa-box h4{margin:0 0 10px;color:var(--primary);font-size:16px}.qa-box ul{margin:0;padding-left:20px;line-height:1.75}
+    .words,.answer{display:flex;gap:8px;flex-wrap:wrap;min-height:64px;border:1px dashed #cbd5e1;background:#f8fafc;border-radius:18px;padding:12px;margin-top:12px}
+    .answer{background:#fff}.word{border:1px solid var(--border);background:#fff;color:var(--text);border-radius:999px;padding:10px 13px;font-weight:850;cursor:pointer;box-shadow:0 6px 15px rgba(17,24,39,.05)}
+    .word:hover{background:var(--soft);color:var(--primary)}.word.used{opacity:.35;pointer-events:none}.answer .word{background:var(--primary);color:#fff}
+    .actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+    .feedback{margin-top:14px;min-height:48px;border-radius:16px;padding:13px 15px;font-weight:800;display:none;line-height:1.5}
+    .feedback.show{display:block}.good{background:#dcfce7;color:var(--success)}.bad{background:#fee2e2;color:var(--danger)}.info{background:#fef3c7;color:var(--warning)}
+    .choice-box{display:grid;gap:10px;margin-top:14px}.choice{background:#f3f6fb;border:1px solid #d6deea;border-radius:14px;padding:12px;cursor:pointer;font-weight:900;color:#1f3f7a;text-align:left}
+    .choice:hover{background:#e8eef9;color:#234078;border-color:#b9c9e6}.choice.selected{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .dialogue{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;line-height:1.8;margin-top:12px;white-space:pre-line;font-weight:750}
+    .list{display:grid;gap:8px;max-height:620px;overflow:auto;padding-right:4px}.list-item{text-align:left;background:#f8fafc;color:var(--text);border:1px solid var(--border);border-radius:14px;padding:12px;display:grid;gap:3px}
+    .list-item.active,.list-item:hover{background:var(--soft);color:var(--primary)}.list-item small{color:var(--muted);font-weight:700}
+    .bar{height:12px;background:#eef2f7;border-radius:999px;overflow:hidden}.bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#60a5fa);border-radius:999px;transition:.25s}
+    .progress-top{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:7px}.notice{margin-top:16px;color:var(--muted);font-size:14px;line-height:1.55}
+    .footer{margin-top:20px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;color:var(--muted);font-size:14px}.footer strong{color:var(--primary)}
+    @media(max-width:920px){.stats,.layout,.footer,.qa-grid{grid-template-columns:1fr}.hero{padding:24px}.game-head{display:grid}}
+    @media(max-width:620px){.page,.topbar{width:min(100% - 18px,1180px)}.hero{border-radius:22px}.stats{grid-template-columns:repeat(2,1fr);gap:10px}.stat{padding:14px}.stat strong{font-size:24px}.card{padding:16px}.actions{grid-template-columns:1fr}.links{width:100%}.link{flex:1;text-align:center}}
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="color:#b18c4f;font-weight:900;font-size:12px;letter-spacing:.11em;margin:0 0 8px">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Çalışmaya devam etmek için AYDA merkezi giriş kodunu kullanın.</p><label for="aydaPasswordInput">Sınıf giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" class="ayda-exam-message" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav hazırlık ana sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+<header class="topbar">
+  <a class="top-brand" href="https://www.aydadil.com" target="_blank"><span class="mini-logo">AY</span><span>AYDA Dil Akademisi</span></a>
+  <nav class="links">
+    <a class="link" href="index.html">Ana Sayfa</a>
+    <a class="link" href="https://www.aydadil.com" target="_blank">Web Sitesi</a>
+    <a class="link" href="https://wa.me/905409122503" target="_blank">WhatsApp</a>
+    <a class="link" href="https://www.instagram.com/ayda.dil/" target="_blank">Instagram</a>
+  </nav>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <div class="brand"><span class="dot"></span> AYDA · TELC A2 Sprechen Teil 3</div>
+    <h1>Etwas planen: öneri yapma ve birlikte karar verme.</h1>
+    <p>Göreve bakın, iki uygun seçenek seçin, öneri yapın, neden söyleyin ve sonunda ortak karar verin. Kalıplar kısa ve A1–A2.1 seviyesinde tutulmuştur.</p>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><span>Toplam Görev</span><strong id="totalTasks">0</strong></div>
+    <div class="stat"><span>Doğru</span><strong id="correctCount">0</strong></div>
+    <div class="stat"><span>Yanlış</span><strong id="wrongCount">0</strong></div>
+    <div class="stat"><span>Başarı</span><strong id="successRateTop">0%</strong></div>
+  </section>
+
+  <section class="layout">
+    <div class="card">
+      <div class="tabs">
+        <button class="tab active" data-mode="card">Kart Çalış</button>
+        <button class="tab" data-mode="build">Öneri Kur</button>
+        <button class="tab" data-mode="react">Cevap Ver</button>
+        <button class="tab" data-mode="dialogue">Mini Diyalog</button>
+      </div>
+
+      <div id="cardMode">
+        <div class="game-head">
+          <div>
+            <h2>Kart Çalış</h2>
+            <div class="muted">Seçenekleri inceleyin; öneri, sebep ve karşı görüş cümlelerini görün.</div>
+          </div>
+          <div class="badge" id="cardCounter">1 / 1</div>
+        </div>
+        <div class="prompt">
+          <span class="badge" id="taskTopic">Thema</span>
+          <h3 id="taskTitle">Aufgabe</h3>
+          <p id="taskSentence"></p>
+          <div class="options" id="optionPills"></div>
+        </div>
+        <div class="qa-grid">
+          <div class="qa-box">
+            <h4>Öneri Cümleleri</h4>
+            <ul id="suggestionList"></ul>
+          </div>
+          <div class="qa-box">
+            <h4>Neden / Neden değil?</h4>
+            <ul id="reasonList"></ul>
+          </div>
+        </div>
+        <div class="actions">
+          <button onclick="showSuggestions()">Önerileri Göster</button>
+          <button class="secondary" onclick="showReasons()">Nedenleri Göster</button>
+          <button class="secondary" onclick="nextTask()">Sonraki Görev</button>
+        </div>
+      </div>
+
+      <div id="buildMode" class="hidden">
+        <div class="game-head">
+          <div>
+            <h2>Öneri Kur</h2>
+            <div class="muted">Karışık kelimelerden sınavda kullanabileceğiniz öneri cümlesi kurun.</div>
+          </div>
+          <div class="badge" id="buildCounter">1 / 1</div>
+        </div>
+        <div class="prompt">
+          <span class="badge" id="buildTopic">Thema</span>
+          <h3 id="buildMeaning">Türkçe anlam</h3>
+          <p id="buildHint"></p>
+        </div>
+        <div class="muted"><b>Karışık kelimeler:</b></div>
+        <div class="words" id="wordPool"></div>
+        <div class="muted" style="margin-top:12px"><b>Senin cümlen:</b></div>
+        <div class="answer" id="answerArea"></div>
+        <div class="actions">
+          <button onclick="checkBuild()">Kontrol Et</button>
+          <button class="secondary" onclick="showBuildAnswer()">Cevabı Göster</button>
+          <button class="secondary" onclick="nextBuildSentence()">Sonraki Cümle</button>
+        </div>
+      </div>
+
+      <div id="reactMode" class="hidden">
+        <div class="game-head">
+          <div>
+            <h2>Cevap Ver</h2>
+            <div class="muted">Karşı tarafın önerisine uygun tepkiyi seçin.</div>
+          </div>
+          <div class="badge" id="reactCounter">1 / 1</div>
+        </div>
+        <div class="prompt">
+          <span class="badge" id="reactTopic">Thema</span>
+          <h3 id="reactPrompt">Vorschlag</h3>
+          <p>Uygun cevabı seçin.</p>
+        </div>
+        <div class="choice-box" id="reactionOptions"></div>
+        <div class="actions">
+          <button onclick="showReactionAnswer()">Cevabı Göster</button>
+          <button class="secondary" onclick="nextTask()">Sonraki</button>
+          <button class="secondary" onclick="shuffleTasks()">Karıştır</button>
+        </div>
+      </div>
+
+      <div id="dialogueMode" class="hidden">
+        <div class="game-head">
+          <div>
+            <h2>Mini Diyalog</h2>
+            <div class="muted">Sınavdaki gibi kısa planlama diyaloğu çalışın.</div>
+          </div>
+          <div class="badge" id="dialogueCounter">1 / 1</div>
+        </div>
+        <div class="prompt">
+          <span class="badge" id="dialogueTopic">Thema</span>
+          <h3 id="dialogueTitle">Dialog</h3>
+          <p>Bir öğrenci öneri yapar, diğeri cevap verir. Sonunda karar verilir.</p>
+        </div>
+        <div class="dialogue" id="dialogueText"></div>
+        <div class="actions">
+          <button onclick="nextTask()">Sonraki Diyalog</button>
+          <button class="secondary" onclick="shuffleTasks()">Karıştır</button>
+          <button class="secondary" onclick="renderCurrent()">Tekrar Göster</button>
+        </div>
+      </div>
+
+      <div id="feedback" class="feedback"></div>
+    </div>
+
+    <aside class="card">
+      <h2 class="side-title">Çalışma Durumu</h2>
+      <div class="progress-top"><span>Başarı oranı</span><strong id="successRate">0%</strong></div>
+      <div class="bar"><div id="barFill" class="bar-fill"></div></div>
+      <div class="actions" style="grid-template-columns:1fr;margin-top:16px">
+        <button onclick="resetCurrent()">Bu Görevi Temizle</button>
+        <button class="secondary" onclick="restartAll()">Tüm Çalışmayı Sıfırla</button>
+      </div>
+      <p class="notice">
+        Kullanılacak ana kalıplar: <b>Wir können ...</b>, <b>Vielleicht können wir ...</b>, <b>Das ist eine gute Idee.</b>, <b>Das finde ich nicht so gut.</b>, <b>Dann machen wir das so.</b>
+      </p>
+      <h2 class="side-title" style="margin-top:20px">Görevler</h2>
+      <div class="list" id="taskList"></div>
+    </aside>
+  </section>
+
+  <section class="card footer">
+    <div><strong>AYDA Dil Akademisi</strong><br>Online Almanca eğitimleri, TELC sınav hazırlığı ve süreç danışmanlığı.</div>
+    <div class="links"><a class="link" href="https://www.aydadil.com" target="_blank">Web</a><a class="link" href="https://wa.me/905409122503" target="_blank">WhatsApp</a><a class="link" href="https://www.instagram.com/ayda.dil/" target="_blank">Instagram</a></div>
+  </section>
+</main>
+
+<script>
+const tasks=[
+{
+  topic:"Sport treiben",
+  title:"Sie möchten zusammen Sport treiben.",
+  sentence:"Machen Sie Vorschläge. Finden Sie zwei passende Aktivitäten.",
+  options:["Minigolf","Joggen","Fahrrad fahren","Fitness-Studio","Fußball spielen","Tischtennis","Schwimmen","Tennis"],
+  good:["Joggen","Fahrrad fahren"],
+  suggestions:["Wir können joggen gehen.","Vielleicht können wir Fahrrad fahren.","Wir können auch schwimmen gehen.","Ich habe eine Idee: Wir spielen Tischtennis."],
+  reasons:["Joggen ist gesund und kostet nichts.","Fahrrad fahren macht Spaß.","Schwimmen ist gut, aber wir brauchen ein Schwimmbad.","Fußball ist gut, aber wir brauchen viele Personen."],
+  dialogue:["Was machen wir zusammen?","Wir können joggen gehen.","Wann machen wir das?","Am Samstag um 10 Uhr.","Warum Joggen?","Das ist gesund und kostet nichts.","Gut, dann gehen wir joggen."]
+},
+{
+  topic:"Samstag etwas unternehmen",
+  title:"Sie wollen am Samstag zusammen etwas unternehmen.",
+  sentence:"Machen Sie Vorschläge. Finden Sie zwei passende Aktivitäten.",
+  options:["Gemeinsam kochen","Einkaufen","Schach spielen","Eine Radtour machen","Freunde treffen","Eine Ausstellung besuchen","Ins Café gehen","In den Park gehen"],
+  good:["In den Park gehen","Ins Café gehen"],
+  suggestions:["Wir können in den Park gehen.","Vielleicht können wir ins Café gehen.","Wir können auch gemeinsam kochen.","Ich habe eine Idee: Wir machen eine Radtour."],
+  reasons:["Der Park ist schön und kostenlos.","Ins Café gehen ist gemütlich.","Einkaufen ist vielleicht teuer.","Schach spielen ist gut, aber nicht für alle interessant."],
+  dialogue:["Was machen wir am Samstag?","Wir können in den Park gehen.","Wann treffen wir uns?","Um 14 Uhr.","Warum in den Park?","Das ist schön und kostenlos.","Gut, dann gehen wir in den Park."]
+},
+{
+  topic:"Geschenk für einen Freund",
+  title:"Ein gemeinsamer Freund hat Geburtstag.",
+  sentence:"Sie wollen ihm etwas schenken. Machen Sie Vorschläge. Finden Sie zwei passende Geschenke.",
+  options:["Reisetasche","Computerspiel","Fotoapparat","Einladung ins Kino","Reiseführer","Theaterkarte","Roman","Gutschein"],
+  good:["Gutschein","Einladung ins Kino"],
+  suggestions:["Wir können einen Gutschein kaufen.","Vielleicht können wir ihn ins Kino einladen.","Wir können auch einen Roman kaufen.","Ich habe eine Idee: Wir kaufen eine Reisetasche."],
+  reasons:["Ein Gutschein ist praktisch.","Eine Einladung ins Kino ist schön.","Ein Fotoapparat ist vielleicht zu teuer.","Ein Roman ist gut, aber vielleicht liest er nicht gern."],
+  dialogue:["Was schenken wir ihm?","Wir können einen Gutschein kaufen.","Warum einen Gutschein?","Das ist praktisch.","Können wir auch ins Kino gehen?","Ja, das ist eine gute Idee.","Gut, dann kaufen wir einen Gutschein und gehen ins Kino."]
+},
+{
+  topic:"Freizeit planen",
+  title:"Sie möchten zusammen etwas in der Freizeit machen.",
+  sentence:"Machen Sie Vorschläge. Finden Sie zwei passende Aktivitäten.",
+  options:["Ins Theater gehen","Deutsch lernen","In den Zoo gehen","Ins Museum gehen","Ein Fußballspiel schauen","Ins Konzert gehen","Ins Kino gehen","Einen Ausflug machen"],
+  good:["Ins Kino gehen","Einen Ausflug machen"],
+  suggestions:["Wir können ins Kino gehen.","Vielleicht können wir einen Ausflug machen.","Wir können auch ins Museum gehen.","Ich habe eine Idee: Wir gehen ins Konzert."],
+  reasons:["Ins Kino gehen ist einfach und macht Spaß.","Ein Ausflug ist schön bei gutem Wetter.","Deutsch lernen ist nützlich, aber nicht sehr lustig.","Ein Konzert ist schön, aber vielleicht teuer."],
+  dialogue:["Was machen wir in der Freizeit?","Wir können ins Kino gehen.","Warum ins Kino?","Das macht Spaß.","Oder machen wir einen Ausflug?","Ja, das ist auch gut.","Dann gehen wir ins Kino oder machen einen Ausflug."]
+},
+{
+  topic:"Party vorbereiten",
+  title:"Sie möchten zusammen eine Party vorbereiten.",
+  sentence:"Machen Sie Vorschläge. Finden Sie zwei passende Aufgaben.",
+  options:["Musik aussuchen","Aufräumen","Kuchen backen","Getränke kaufen","Einladungen schreiben","Einkaufen","Geschirr abwaschen","Spiele besorgen"],
+  good:["Getränke kaufen","Musik aussuchen"],
+  suggestions:["Wir können Getränke kaufen.","Vielleicht können wir Musik aussuchen.","Wir können auch einen Kuchen backen.","Ich habe eine Idee: Wir schreiben Einladungen."],
+  reasons:["Getränke sind für die Party wichtig.","Musik macht die Party schön.","Aufräumen ist wichtig, aber nicht lustig.","Kuchen backen ist gut, aber es dauert lange."],
+  dialogue:["Was müssen wir für die Party machen?","Wir können Getränke kaufen.","Wann machen wir das?","Am Freitag nach der Schule.","Warum Getränke?","Das ist wichtig für die Gäste.","Gut, dann kaufen wir Getränke und suchen Musik aus."]
+},
+{
+  topic:"Geschenk für die Kursleiterin",
+  title:"Sie möchten Ihrer Kursleiterin etwas schenken.",
+  sentence:"Machen Sie Vorschläge. Finden Sie zwei passende Geschenke.",
+  options:["Gruppenfoto","Blumen","Buch","Etwas aus Ihrem Land","Geschenkgutschein","Pralinen","Blumenvase","Hörbuch"],
+  good:["Gruppenfoto","Blumen"],
+  suggestions:["Wir können Blumen kaufen.","Vielleicht können wir ein Gruppenfoto schenken.","Wir können auch Pralinen kaufen.","Ich habe eine Idee: Wir kaufen einen Geschenkgutschein."],
+  reasons:["Blumen sind schön und nicht teuer.","Ein Gruppenfoto ist persönlich.","Ein Buch ist gut, aber vielleicht liest sie nicht gern.","Ein Geschenkgutschein ist praktisch, aber nicht sehr persönlich."],
+  dialogue:["Was schenken wir unserer Kursleiterin?","Wir können Blumen kaufen.","Warum Blumen?","Blumen sind schön und nicht teuer.","Können wir auch ein Gruppenfoto schenken?","Ja, das ist persönlich.","Gut, dann schenken wir Blumen und ein Gruppenfoto."]
+}
+];
+
+let order=[...Array(tasks.length).keys()],current=0,correct=0,wrong=0,mode="card",buildIndex=0,selectedWords=[];
+const $=id=>document.getElementById(id);
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function currentTask(){return tasks[order[current]]}
+function norm(s){return String(s).toLowerCase().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ').trim()}
+function wordsOf(sentence){return sentence.replace(/[.,!?]/g,m=>' '+m).split(/\s+/).filter(Boolean)}
+function renderCurrent(){
+  buildIndex=0;
+  renderCard();
+  renderBuild();
+  renderReaction();
+  renderDialogue();
+  renderList();
+  clearFeedback();
+}
+function renderCard(){
+  const t=currentTask();
+  $('cardCounter').textContent=`${current+1} / ${tasks.length}`;
+  $('taskTopic').textContent=t.topic;
+  $('taskTitle').textContent=t.title;
+  $('taskSentence').textContent=t.sentence;
+  $('optionPills').innerHTML=t.options.map(o=>`<span class="option-pill">${o}</span>`).join('');
+  $('suggestionList').innerHTML='';
+  $('reasonList').innerHTML='';
+}
+function showSuggestions(){
+  const t=currentTask();
+  $('suggestionList').innerHTML=t.suggestions.map(s=>`<li>${s}</li>`).join('');
+  msg('info','Öneriler gösterildi. Sınavda bu cümlelerden birini kullanabilirsiniz.');
+}
+function showReasons(){
+  const t=currentTask();
+  $('reasonList').innerHTML=t.reasons.map(s=>`<li>${s}</li>`).join('');
+  msg('info','Neden / neden değil cümleleri gösterildi.');
+}
+function renderBuild(){
+  const t=currentTask();
+  const target=t.suggestions[buildIndex % t.suggestions.length];
+  $('buildCounter').textContent=`${current+1} / ${tasks.length}`;
+  $('buildTopic').textContent=t.topic;
+  $('buildMeaning').textContent='Öneri cümlesi kur';
+  $('buildHint').textContent='Bu göreve uygun öneri cümlesini karışık kelimelerden oluşturun.';
+  selectedWords=[];
+  $('wordPool').innerHTML='';
+  $('answerArea').innerHTML='';
+  shuffle(wordsOf(target)).forEach(w=>{
+    const b=document.createElement('button');
+    b.className='word';
+    b.textContent=w;
+    b.onclick=()=>selectWord(b,w);
+    $('wordPool').appendChild(b);
+  });
+}
+function selectWord(btn,w){
+  btn.classList.add('used');
+  selectedWords.push({w,btn});
+  const a=document.createElement('button');
+  a.className='word';
+  a.textContent=w;
+  a.onclick=()=>{
+    btn.classList.remove('used');
+    selectedWords=selectedWords.filter(x=>x.btn!==btn);
+    a.remove();
+  };
+  $('answerArea').appendChild(a);
+}
+function sentenceFromSelected(){return selectedWords.map(x=>x.w).join(' ').replace(/\s+([.,!?])/g,'$1')}
+function checkBuild(){
+  const target=currentTask().suggestions[buildIndex % currentTask().suggestions.length];
+  const answer=sentenceFromSelected();
+  if(norm(answer)===norm(target)){correct++;msg('good','Doğru! '+target);setTimeout(nextBuildSentence,700)}
+  else{wrong++;msg('bad','Yanlış. Doğru cevap: '+target)}
+  updateStats();
+}
+function showBuildAnswer(){
+  const target=currentTask().suggestions[buildIndex % currentTask().suggestions.length];
+  msg('info','Doğru cevap: '+target);
+}
+function nextBuildSentence(){buildIndex=(buildIndex+1)%currentTask().suggestions.length;renderBuild();clearFeedback()}
+function renderReaction(){
+  const t=currentTask();
+  const suggestion=t.suggestions[0];
+  $('reactCounter').textContent=`${current+1} / ${tasks.length}`;
+  $('reactTopic').textContent=t.topic;
+  $('reactPrompt').textContent=suggestion;
+  const correctAnswer="Ja, das ist eine gute Idee.";
+  const options=shuffle([
+    correctAnswer,
+    "Das finde ich nicht so gut.",
+    "Ich wohne in Ankara.",
+    "Ich bin 25 Jahre alt."
+  ]);
+  $('reactionOptions').innerHTML='';
+  options.forEach(opt=>{
+    const b=document.createElement('button');
+    b.className='choice';
+    b.textContent=opt;
+    b.onclick=()=>checkReaction(b,opt,correctAnswer);
+    $('reactionOptions').appendChild(b);
+  });
+}
+function checkReaction(btn,opt,correctAnswer){
+  document.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));
+  btn.classList.add('selected');
+  if(opt===correctAnswer){correct++;msg('good','Doğru tepki! '+correctAnswer)}
+  else{wrong++;msg('bad','Yanlış. Uygun cevap: '+correctAnswer)}
+  updateStats();
+}
+function showReactionAnswer(){
+  const correctAnswer="Ja, das ist eine gute Idee.";
+  document.querySelectorAll('.choice').forEach(btn=>{
+    if(btn.textContent===correctAnswer) btn.classList.add('selected');
+    else btn.classList.remove('selected');
+  });
+  msg('info','Uygun cevap: '+correctAnswer);
+}
+function renderDialogue(){
+  const t=currentTask();
+  $('dialogueCounter').textContent=`${current+1} / ${tasks.length}`;
+  $('dialogueTopic').textContent=t.topic;
+  $('dialogueTitle').textContent=t.title;
+  const d=t.dialogue;
+  $('dialogueText').textContent =
+`A: ${d[0]}
+B: ${d[1]}
+
+A: ${d[2]}
+B: ${d[3]}
+
+A: ${d[4]}
+B: ${d[5]}
+
+A: ${d[6]}`;
+}
+function nextTask(){current=(current+1)%order.length;renderCurrent()}
+function shuffleTasks(){order=shuffle(order);current=0;renderCurrent()}
+function resetCurrent(){renderCurrent()}
+function restartAll(){correct=0;wrong=0;current=0;buildIndex=0;updateStats();renderCurrent()}
+function renderList(){
+  $('taskList').innerHTML='';
+  order.forEach((idx,pos)=>{
+    const t=tasks[idx];
+    const b=document.createElement('button');
+    b.className='list-item '+(pos===current?'active':'');
+    b.innerHTML=`<strong>${pos+1}. ${t.topic}</strong><small>${t.title}</small>`;
+    b.onclick=()=>{current=pos;renderCurrent()};
+    $('taskList').appendChild(b);
+  });
+}
+function updateStats(){
+  $('totalTasks').textContent=tasks.length;
+  $('correctCount').textContent=correct;
+  $('wrongCount').textContent=wrong;
+  const total=correct+wrong,rate=total?Math.round(correct/total*100):0;
+  $('successRate').textContent=rate+'%';
+  $('successRateTop').textContent=rate+'%';
+  $('barFill').style.width=rate+'%';
+}
+function clearFeedback(){$('feedback').className='feedback';$('feedback').textContent=''}
+function msg(type,text){$('feedback').className='feedback show '+type;$('feedback').textContent=text}
+document.querySelectorAll('.tab').forEach(tab=>tab.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  mode=tab.dataset.mode;
+  $('cardMode').classList.toggle('hidden',mode!=='card');
+  $('buildMode').classList.toggle('hidden',mode!=='build');
+  $('reactMode').classList.toggle('hidden',mode!=='react');
+  $('dialogueMode').classList.toggle('hidden',mode!=='dialogue');
+  clearFeedback();
+});
+updateStats();
+renderCurrent();
+</script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Giriş hizmetine ulaşılamıyor.'"></script>
+<script id="ayda-exam-authorization-sync">(function(){
+ const content=document.getElementById('aydaProtectedContent');
+ if(!content)return;
+ function sync(){const allowed=content.style.display==='block';document.documentElement.classList.toggle('ayda-exam-authorized',allowed);}
+ new MutationObserver(sync).observe(content,{attributes:true,attributeFilter:['style']});sync();
+})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

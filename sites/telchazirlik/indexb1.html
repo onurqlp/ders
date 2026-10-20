@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="de">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GXN9L87ZF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2GXN9L87ZF');
+</script>
+
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) body>#aydaProtectedContent{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#0b1b31,#214d75);position:relative;z-index:99999;font-family:system-ui,-apple-system,sans-serif}
+#aydaLoginBox .ayda-exam-login-card{background:#fff;color:#102541;padding:28px;width:min(440px,100%);border-radius:19px;box-shadow:0 20px 54px #0003}
+#aydaLoginBox h1{font-size:23px;line-height:1.3;margin:0 0 9px;color:#102541}
+#aydaLoginBox p{font-size:14px;line-height:1.55;color:#5e7287}
+#aydaLoginBox label{display:block;font-weight:800;font-size:13px;margin:20px 0 6px;color:#102541}
+#aydaLoginBox input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1px solid #a6b8c9;border-radius:10px;background:#fff;color:#102541;font:16px system-ui}
+#aydaLoginBox button{width:100%;min-height:49px;background:#102541;color:#fff;border:0;border-radius:10px;font:800 15px system-ui;margin-top:12px;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+#aydaLoginBox .ayda-exam-message{min-height:22px;margin-top:10px;font-size:13px;color:#9f3838}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#234078">
+<title>Telc - Prüfung B1</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ayda-blue: #234078;
+  --ayda-blue-dark: #172b52;
+  --ayda-blue-light: #315992;
+  --ayda-gold: #d8a84f;
+  --white: #ffffff;
+  --text-main: #14213d;
+  --text-muted: #667085;
+  --soft-bg: #f6f8fc;
+  --border: rgba(35, 64, 120, 0.14);
+  --shadow-card: 0 18px 45px rgba(21, 42, 84, 0.16);
+  --shadow-button: 0 10px 24px rgba(35, 64, 120, 0.20);
+  --shadow-soft: 0 20px 55px rgba(21, 42, 84, 0.16);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(216, 168, 79, 0.22) 0, transparent 26%),
+    radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.14) 0, transparent 28%),
+    linear-gradient(135deg, var(--ayda-blue-dark) 0%, var(--ayda-blue) 58%, var(--ayda-blue-light) 100%);
+  overflow-x: hidden;
+  position: relative;
+  padding: 24px 0 50px;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 85%);
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  width: 430px;
+  height: 430px;
+  right: -190px;
+  bottom: -210px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* Üst Menü */
+.header-buttons {
+  width: min(1400px, calc(100% - 32px));
+  margin: 0 auto 26px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: rgba(255,255,255,0.13);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.24);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.13);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+}
+
+/* Ana Alan */
+.main-content {
+  width: min(1400px, calc(100% - 32px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero {
+  text-align: center;
+  color: var(--white);
+  margin: 18px auto 24px;
+  max-width: 850px;
+  animation: fadeInDown 0.75s ease-out both;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.94);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  backdrop-filter: blur(14px);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.brand-badge span:first-child {
+  color: var(--ayda-gold);
+}
+
+.page-hero h1 {
+  font-size: clamp(2.25rem, 5.2vw, 4.2rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -1.4px;
+  margin-bottom: 14px;
+  text-shadow: 0 12px 38px rgba(0,0,0,0.24);
+}
+
+.page-hero p {
+  color: rgba(255,255,255,0.86);
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  line-height: 1.65;
+}
+
+/* AYDA üst tanıtım */
+.ayda-promo-strip {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 30px;
+  padding: 15px 20px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.88);
+  text-align: center;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+  animation: fadeInUp 0.8s ease-out 0.12s both;
+}
+
+.ayda-promo-strip strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.ayda-promo-strip span {
+  color: rgba(255,255,255,0.78);
+  font-size: 13px;
+}
+
+/* Bölüm Kartları */
+.container {
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(255,255,255,0.72);
+  border-radius: 28px;
+  padding: 34px;
+  margin-bottom: 26px;
+  box-shadow: var(--shadow-card);
+  animation: fadeInUp 0.65s ease-out both;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(216,168,79,0.15), transparent 30%),
+    linear-gradient(90deg, rgba(35,64,120,0.035), transparent);
+  pointer-events: none;
+}
+
+.container h1 {
+  position: relative;
+  color: var(--ayda-blue);
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 28px;
+  text-align: center;
+  padding-bottom: 14px;
+}
+
+.container h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 78px;
+  height: 4px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--ayda-blue), var(--ayda-gold));
+  border-radius: 99px;
+}
+
+.quiz-buttons {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 15px;
+}
+
+a.button {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--ayda-blue) 0%, var(--ayda-blue-light) 100%);
+  padding: 15px 18px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  box-shadow: var(--shadow-button);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+a.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.30), transparent);
+  transition: left 0.55s ease;
+}
+
+a.button:hover::before {
+  left: 120%;
+}
+
+a.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(35,64,120,0.30);
+  background: linear-gradient(135deg, var(--ayda-blue-dark) 0%, var(--ayda-blue) 100%);
+}
+
+/* AYDA iletişim kartı */
+.ayda-contact-card {
+  width: 100%;
+  max-width: 860px;
+  margin: 34px auto 0;
+  padding: 24px;
+  border-radius: 26px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.74);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out 0.28s both;
+}
+
+.ayda-contact-card h3 {
+  color: var(--text-main);
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.ayda-contact-card p {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.ayda-contact-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ayda-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  color: var(--ayda-blue);
+  background: rgba(35,64,120,0.07);
+  border: 1px solid rgba(35,64,120,0.10);
+  padding: 9px 13px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.ayda-contact-link:hover {
+  background: rgba(216,168,79,0.18);
+  border-color: rgba(216,168,79,0.32);
+  transform: translateY(-1px);
+}
+
+.ayda-whatsapp-main {
+  color: #fff;
+  background: #25D366;
+  border-color: rgba(37,211,102,0.40);
+}
+
+.ayda-whatsapp-main:hover {
+  color: #fff;
+  background: #1fb95a;
+  border-color: rgba(37,211,102,0.55);
+}
+
+/* Sabit WhatsApp butonu */
+.floating-whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 17px;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px);
+  background: #1fb95a;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+}
+
+/* Footer */
+.footer {
+  width: min(1400px, calc(100% - 32px));
+  margin: 32px auto 0;
+  position: relative;
+  z-index: 2;
+  padding: 24px 20px 0;
+  text-align: center;
+  color: rgba(255,255,255,0.72);
+  border-top: 1px solid rgba(255,255,255,0.16);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.86);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.copyright {
+  font-size: 13px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 16px;
+  }
+
+  .header-buttons {
+    width: calc(100% - 24px);
+    margin-bottom: 22px;
+  }
+
+  .nav-button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .main-content {
+    width: calc(100% - 24px);
+  }
+
+  .page-hero {
+    margin-bottom: 20px;
+  }
+
+  .ayda-promo-strip {
+    margin-bottom: 24px;
+    padding: 13px 15px;
+  }
+
+  .container {
+    padding: 26px 18px;
+    border-radius: 22px;
+    margin-bottom: 20px;
+  }
+
+  .quiz-buttons {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  a.button {
+    min-height: 58px;
+    font-size: 13.5px;
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .floating-whatsapp {
+    right: 16px;
+    bottom: 16px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .footer {
+    width: calc(100% - 24px);
+  }
+}
+
+@media (max-width: 480px) {
+  .header-buttons {
+    justify-content: center;
+  }
+
+  .quiz-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-badge {
+    font-size: 12px;
+  }
+
+  .ayda-contact-card {
+    padding: 20px 16px;
+  }
+
+  .ayda-contact-actions {
+    flex-direction: column;
+  }
+
+  .ayda-contact-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .floating-whatsapp {
+    left: 16px;
+    right: 16px;
+    justify-content: center;
+  }
+}
+</style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="color:#b18c4f;font-weight:900;font-size:12px;letter-spacing:.11em;margin:0 0 8px">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Çalışmaya devam etmek için AYDA merkezi giriş kodunu kullanın.</p><label for="aydaPasswordInput">Sınıf giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" class="ayda-exam-message" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav hazırlık ana sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+
+<div class="header-buttons">
+  <a href="index.html" class="nav-button">🏠 Homepage</a>
+</div>
+
+<div class="main-content">
+
+  <section class="page-hero">
+    <div class="brand-badge">
+      <span>●</span>
+      <span>AYDA Dil Akademisi</span>
+    </div>
+    <h1>Telc Prüfung B1</h1>
+    <p>Lesen, Sprachbausteine und Hören bölümleri için hazırlanmış B1 çalışma alanı.</p>
+  </section>
+
+  <div class="ayda-promo-strip">
+    <strong>AYDA Dil Akademisi</strong> ile TELC B1 sınavına yönelik sistemli hazırlık.
+    <br>
+    <span>Online Almanca eğitimleri, sınav stratejileri ve öğrenci odaklı çalışma içerikleri.</span>
+  </div>
+
+  <div class="container" style="animation-delay: 0.1s">
+    <h1>Lesen Teil 1</h1>
+    <div class="quiz-buttons">
+      <a href="quiz/206.html" class="button">EVA/IRIS</a>
+      <a href="quiz/215.html" class="button">SOPHIE/ANDREAS2</a>
+      <a href="quiz/219.html" class="button">NADJA/CLAUDIA</a>
+      <a href="quiz/221.html" class="button">NICOLE</a>
+      <a href="quiz/223.html" class="button">ANDREAS</a>
+      <a href="quiz/226.html" class="button">ANNIKA1</a>
+      <a href="quiz/227.html" class="button">ANNIKA2/SONJA<br>CORINA</a>
+      <a href="quiz/228.html" class="button">CAROLINA/ALICIA</a>
+      <a href="quiz/230.html" class="button">VERA</a>
+      <a href="quiz/232.html" class="button">THOMAS</a>
+      <a href="quiz/234.html" class="button">TAMARA/JAKOB<br>PAUL</a>
+      <a href="quiz/235.html" class="button">JAN</a>
+      <a href="quiz/237.html" class="button">VIKTOR</a>
+      <a href="quiz/240.html" class="button">ALEX &amp; CORA</a>
+      <a href="quiz/242.html" class="button">RITA</a>
+      <a href="quiz/244.html" class="button">MIROSLAV</a>
+      <a href="quiz/246.html" class="button">KARLA</a>
+      <a href="quiz/247.html" class="button">MORITZ</a>
+    </div>
+  </div>
+
+  <div class="container" style="animation-delay: 0.1s">
+    <h1>Lesen Teil 2</h1>
+    <div class="quiz-buttons">
+      <a href="quiz/205.html" class="button">Petra &amp; ALICIA</a>
+      <a href="quiz/207.html" class="button">EVA1</a>
+      <a href="quiz/208.html" class="button">IRIS</a>
+      <a href="quiz/216.html" class="button">SOPHIE</a>
+      <a href="quiz/220.html" class="button">NADJA &amp; CLAUDIA</a>
+      <a href="quiz/222.html" class="button">NICOLE</a>
+      <a href="quiz/224.html" class="button">ANDREAS</a>
+      <a href="quiz/225.html" class="button">ANDREAS2 &amp; CORINA<br>ANNIKA(1&amp;2)</a>
+      <a href="quiz/229.html" class="button">CAROLINA/VERA</a>
+      <a href="quiz/231.html" class="button">JENNIFER &amp; TAMARA<br>JAKOB/PAUL</a>
+      <a href="quiz/233.html" class="button">THOMAS</a>
+      <a href="quiz/236.html" class="button">JAN</a>
+      <a href="quiz/238.html" class="button">VIKTOR</a>
+      <a href="quiz/239.html" class="button">SONJA</a>
+      <a href="quiz/241.html" class="button">ALEX &amp; CORA</a>
+      <a href="quiz/243.html" class="button">RITA</a>
+      <a href="quiz/245.html" class="button">MIROSLAV &amp; KARLA</a>
+      <a href="quiz/248.html" class="button">MORITZ</a>
+      <a href="quiz/249.html" class="button">MARA</a>
+    </div>
+  </div>
+
+  <div class="container" style="animation-delay: 0.1s">
+    <h1>Lesen Teil 3</h1>
+    <div class="quiz-buttons">
+      <a href="quiz/201.html" class="button">Petra</a>
+      <a href="quiz/203.html" class="button">EVA1</a>
+      <a href="quiz/202.html" class="button">IRIS</a>
+      <a href="quiz/217.html" class="button">SOPHIE</a>
+      <a href="quiz/218.html" class="button">NADJA &amp; CLAUDIA</a>
+      <a href="quiz/286.html" class="button">ANDREAS1</a>
+      <a href="quiz/287.html" class="button">ANDREAS2</a>
+      <a href="quiz/288.html" class="button">CAROLINA</a>
+    </div>
+  </div>
+
+  <div class="container" style="animation-delay: 0.1s">
+    <h1>Sprachbausteine Teil 1</h1>
+    <div class="quiz-buttons">
+      <a href="quiz/209.html" class="button">PETRA/NADJA2<br>CLAUDIA</a>
+      <a href="quiz/211.html" class="button">EVA</a>
+      <a href="quiz/213.html" class="button">IRIS</a>
+      <a href="quiz/250.html" class="button">SOPHIE</a>
+      <a href="quiz/251.html" class="button">NICOLE</a>
+      <a href="quiz/254.html" class="button">ANDREAS</a>
+      <a href="quiz/257.html" class="button">ANDREAS2/VIKTOR<br>SONJA</a>
+      <a href="quiz/259.html" class="button">ANNIKA1</a>
+      <a href="quiz/261.html" class="button">ANNIKA2/JAN<br>CORINA</a>
+      <a href="quiz/262.html" class="button">CAROLINA/RITA</a>
+      <a href="quiz/264.html" class="button">VERA/PAUL</a>
+      <a href="quiz/266.html" class="button">THOMAS/ANNA</a>
+      <a href="quiz/268.html" class="button">JENNIFER</a>
+      <a href="quiz/269.html" class="button">TAMARA/JAKOB</a>
+      <a href="quiz/273.html" class="button">ALEX &amp; CORA</a>
+      <a href="quiz/278.html" class="button">MIROSLAV</a>
+      <a href="quiz/280.html" class="button">KARLA</a>
+      <a href="quiz/282.html" class="button">MORITZ</a>
+      <a href="quiz/283.html" class="button">ALICIA</a>
+    </div>
+  </div>
+
+  <div class="container" style="animation-delay: 0.1s">
+    <h1>Sprachbausteine Teil 2</h1>
+    <div class="quiz-buttons">
+      <a href="quiz/210.html" class="button">PETRA/ALICIA</a>
+      <a href="quiz/212.html" class="button">EVA</a>
+      <a href="quiz/214.html" class="button">IRIS</a>
+      <a href="quiz/253.html" class="button">SOPHIE</a>
+      <a href="quiz/252.html" class="button">NICOLE</a>
+      <a href="quiz/255.html" class="button">NADJA/CLAUDIA</a>
+      <a href="quiz/256.html" class="button">ANDREAS</a>
+      <a href="quiz/258.html" class="button">ANDREAS2/JAN</a>
+      <a href="quiz/260.html" class="button">ANNIKA1&amp;2</a>
+      <a href="quiz/263.html" class="button">CAROLINA/CORINA</a>
+      <a href="quiz/265.html" class="button">VERA</a>
+      <a href="quiz/267.html" class="button">THOMAS/ANNA<br>JENNIFER</a>
+      <a href="quiz/270.html" class="button">TAMARA/JAKOB<br>SONJA</a>
+      <a href="quiz/272.html" class="button">VIKTOR</a>
+      <a href="quiz/274.html" class="button">ALEX &amp; CORA</a>
+      <a href="quiz/276.html" class="button">PAUL</a>
+      <a href="quiz/277.html" class="button">RITA</a>
+      <a href="quiz/279.html" class="button">MIROSLAV</a>
+      <a href="quiz/281.html" class="button">KARLA/MORITZ</a>
+      <a href="quiz/284.html" class="button">JAKOB2</a>
+    </div>
+  </div>
+
+  <div class="container" style="animation-delay: 0.1s">
+    <h1>Hören</h1>
+    <div class="quiz-buttons">
+      <a href="quiz/271.html" class="button">Teil 1</a>
+      <a href="quiz/285.html" class="button">Teil 2</a>
+      <a href="quiz/275.html" class="button">Teil 3</a>
+    </div>
+  </div>
+
+  <div class="ayda-contact-card">
+    <h3>Sorunuz mu var?</h3>
+    <p>
+      TELC B1 hazırlık süreci, online Almanca kursları veya sınav organizasyonu hakkında bilgi almak için AYDA ekibiyle iletişime geçebilirsiniz.
+    </p>
+
+    <div class="ayda-contact-actions">
+      <a class="ayda-contact-link ayda-whatsapp-main" href="https://wa.me/905409122503" target="_blank" rel="noopener">
+        WhatsApp ile Ulaş
+      </a>
+
+      <a class="ayda-contact-link" href="https://www.aydadil.com" target="_blank" rel="noopener">
+        www.aydadil.com
+      </a>
+
+      <a class="ayda-contact-link" href="https://www.instagram.com/ayda.dil/" target="_blank" rel="noopener">
+        Instagram
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<a class="floating-whatsapp" href="https://wa.me/905409122503" target="_blank" rel="noopener">
+  Sorunuz varsa bize ulaşın
+</a>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://www.aydadil.com" target="_blank" rel="noopener">www.aydadil.com</a>
+    <a href="https://www.instagram.com/ayda.dil/" target="_blank" rel="noopener">@ayda.dil</a>
+    <a href="https://wa.me/905409122503" target="_blank" rel="noopener">0540 912 25 03</a>
+  </div>
+
+  <div class="copyright">© 2026 AYDA Dil Akademisi</div>
+</footer>
+
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Giriş hizmetine ulaşılamıyor.'"></script>
+<script id="ayda-exam-authorization-sync">(function(){
+ const content=document.getElementById('aydaProtectedContent');
+ if(!content)return;
+ function sync(){const allowed=content.style.display==='block';document.documentElement.classList.toggle('ayda-exam-authorized',allowed);}
+ new MutationObserver(sync).observe(content,{attributes:true,attributeFilter:['style']});sync();
+})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

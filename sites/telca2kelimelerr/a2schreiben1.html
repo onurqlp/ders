@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><style id="ayda-exam-access-guard">
+html:not(.ayda-exam-authorized) body>#aydaProtectedContent{display:none!important}
+#aydaLoginBox{min-height:100dvh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#0b1b31,#214d75);position:relative;z-index:99999;font-family:system-ui,-apple-system,sans-serif}
+#aydaLoginBox .ayda-exam-login-card{background:#fff;color:#102541;padding:28px;width:min(440px,100%);border-radius:19px;box-shadow:0 20px 54px #0003}
+#aydaLoginBox h1{font-size:23px;line-height:1.3;margin:0 0 9px;color:#102541}
+#aydaLoginBox p{font-size:14px;line-height:1.55;color:#5e7287}
+#aydaLoginBox label{display:block;font-weight:800;font-size:13px;margin:20px 0 6px;color:#102541}
+#aydaLoginBox input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1px solid #a6b8c9;border-radius:10px;background:#fff;color:#102541;font:16px system-ui}
+#aydaLoginBox button{width:100%;min-height:49px;background:#102541;color:#fff;border:0;border-radius:10px;font:800 15px system-ui;margin-top:12px;cursor:pointer}
+#aydaLoginBox a{color:#214d75}
+#aydaLoginBox .ayda-exam-message{min-height:22px;margin-top:10px;font-size:13px;color:#9f3838}
+html.ayda-exam-authorized #aydaLoginBox{display:none!important}
+</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#234078" />
+  <title>AYDA · A2 Schreiben Teil 2 Cümle Kurma</title>
+  <style>
+    :root{--primary:#234078;--dark:#172b52;--soft:#e9eef8;--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#6b7280;--border:#e5e7eb;--success:#15803d;--danger:#b91c1c;--warning:#b45309;--shadow:0 18px 45px rgba(35,64,120,.13);--radius:22px}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,rgba(35,64,120,.18),transparent 32%),linear-gradient(180deg,#fff 0%,var(--bg) 42%);color:var(--text);min-height:100vh}a{text-decoration:none;color:inherit}.hidden{display:none!important}.topbar,.page{width:min(1180px,calc(100% - 28px));margin:0 auto}.topbar{padding:14px 0 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.top-brand{display:flex;align-items:center;gap:10px;font-weight:950;color:var(--primary)}.mini-logo{width:38px;height:38px;border-radius:13px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:950}.links{display:flex;gap:8px;flex-wrap:wrap}.link{background:#fff;border:1px solid var(--border);color:var(--primary);border-radius:999px;padding:10px 13px;font-weight:850;font-size:13px;box-shadow:0 8px 22px rgba(17,24,39,.05)}.page{padding:18px 0 42px}.hero{background:linear-gradient(135deg,var(--primary),#315caa);border-radius:30px;color:#fff;padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-90px;background:rgba(255,255,255,.12)}.brand{display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);padding:8px 13px;border-radius:999px;font-size:13px;margin-bottom:18px;position:relative;z-index:2}.dot{width:9px;height:9px;background:#a7f3d0;border-radius:50%;box-shadow:0 0 0 6px rgba(167,243,208,.17)}.hero h1{margin:0;font-size:clamp(28px,5vw,48px);line-height:1.05;letter-spacing:-.04em;max-width:900px;position:relative;z-index:2}.hero p{max-width:920px;margin:16px 0 0;color:rgba(255,255,255,.9);font-size:17px;line-height:1.6;position:relative;z-index:2}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}.stat,.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 14px 35px rgba(17,24,39,.07)}.stat{padding:18px}.stat span{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}.stat strong{font-size:28px;color:var(--primary)}.layout{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}.card{padding:22px}.game-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}.game-head h2,.side-title{margin:0 0 8px;font-size:22px;letter-spacing:-.03em}.muted{color:var(--muted);line-height:1.5;font-size:14px}.badge{display:inline-flex;align-items:center;gap:7px;background:var(--soft);color:var(--primary);border-radius:999px;padding:7px 10px;font-weight:850;font-size:12px}.prompt{background:linear-gradient(180deg,#f8fbff,#fff);border:1px solid var(--border);border-radius:20px;padding:20px;margin-bottom:16px}.prompt h3{margin:0 0 10px;font-size:clamp(22px,4vw,32px);color:var(--primary);letter-spacing:-.04em}.prompt p{margin:0;line-height:1.7}.words,.answer{display:flex;gap:8px;flex-wrap:wrap;min-height:64px;border:1px dashed #cbd5e1;background:#f8fafc;border-radius:18px;padding:12px;margin-top:12px}.answer{background:#fff}.word{border:1px solid var(--border);background:#fff;color:var(--text);border-radius:999px;padding:10px 13px;font-weight:850;cursor:pointer;box-shadow:0 6px 15px rgba(17,24,39,.05)}.word:hover{background:var(--soft);color:var(--primary)}.word.used{opacity:.35;pointer-events:none}.answer .word{background:var(--primary);color:#fff}.solution{font-size:20px;font-weight:950;color:var(--primary);line-height:1.45;margin:8px 0}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}button{border:0;background:var(--primary);color:#fff;padding:13px 16px;border-radius:14px;font-weight:900;cursor:pointer;font-size:14px}button:hover{background:var(--dark)}.secondary{background:#eef2ff;color:var(--primary)}.small-btn{padding:10px 12px;font-size:13px}.feedback{margin-top:14px;min-height:48px;border-radius:16px;padding:13px 15px;font-weight:800;display:none;line-height:1.5}.feedback.show{display:block}.good{background:#dcfce7;color:var(--success)}.bad{background:#fee2e2;color:var(--danger)}.info{background:#fef3c7;color:var(--warning)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tab{background:var(--soft);color:var(--primary)}.tab.active{background:var(--primary);color:#fff}.task-list{display:grid;gap:8px;max-height:560px;overflow:auto;padding-right:4px}.task-item{text-align:left;background:#f8fafc;color:var(--text);border:1px solid var(--border);border-radius:14px;padding:12px;display:grid;gap:3px}.task-item.active,.task-item:hover{background:var(--soft);color:var(--primary)}.task-item small{color:var(--muted);font-weight:700}.bar{height:12px;background:#eef2f7;border-radius:999px;overflow:hidden}.bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#60a5fa);border-radius:999px;transition:.25s}.progress-top{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:7px}.notice{margin-top:16px;color:var(--muted);font-size:14px;line-height:1.55}.mail-box{display:grid;gap:10px;margin-top:14px}.mail-line{background:#f3f6fb;border:1px solid #d6deea;border-radius:14px;padding:12px;cursor:pointer;font-weight:900;color:#1f3f7a;text-align:left}.mail-line:hover{background:#e8eef9;color:#234078;border-color:#b9c9e6}.mail-line.selected{background:var(--primary);color:#fff;border-color:var(--primary)}.mail-preview{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;line-height:1.75;margin-top:12px;white-space:pre-line}.footer{margin-top:20px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;color:var(--muted);font-size:14px}.footer strong{color:var(--primary)}@media(max-width:920px){.stats,.layout,.footer{grid-template-columns:1fr}.hero{padding:24px}.game-head{display:grid}}@media(max-width:620px){.page,.topbar{width:min(100% - 18px,1180px)}.hero{border-radius:22px}.stats{grid-template-columns:repeat(2,1fr);gap:10px}.stat{padding:14px}.stat strong{font-size:24px}.card{padding:16px}.actions{grid-template-columns:1fr}.links{width:100%}.link{flex:1;text-align:center}.solution{font-size:18px}}
+  </style>
+<style id="ayda-unified-logo-css">.ayda-shared-logo{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:#102541!important;max-width:100%}.ayda-shared-logo img{width:134px!important;max-width:min(134px,48vw)!important;height:auto!important;object-fit:contain!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}.ayda-shared-logo-bar{padding:9px 14px;background:#fff;border-bottom:1px solid #e4eaf0;display:flex;align-items:center;min-height:66px}@media(max-width:600px){.ayda-shared-logo img{width:112px!important}}</style></head>
+<body><section id="aydaLoginBox" aria-label="AYDA sınav öğrenci girişi"><div class="ayda-exam-login-card"><p style="color:#b18c4f;font-weight:900;font-size:12px;letter-spacing:.11em;margin:0 0 8px">AYDA DİL AKADEMİSİ</p><h1>Sınav Hazırlık · Öğrenci Girişi</h1><p>Çalışmaya devam etmek için AYDA merkezi giriş kodunu kullanın.</p><label for="aydaPasswordInput">Sınıf giriş kodu</label><input id="aydaPasswordInput" type="password" autocomplete="off" placeholder="AYDA giriş kodunuz"><button type="button" onclick="aydaCheckPassword()">Giriş Yap</button><p id="aydaLoginMessage" class="ayda-exam-message" role="status" aria-live="polite"></p><p><a href="https://www.aydadil.com/sinavhazirlik/">← Sınav hazırlık ana sayfası</a></p></div></section><div id="aydaProtectedContent" style="display:none"><div data-ayda-brand="official-2026" role="banner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;background:#102541;border-radius:13px;padding:10px 16px;margin:10px auto 18px;box-sizing:border-box;width:min(100%,1200px)"><a href="https://www.aydadil.com/" aria-label="AYDA Dil Akademisi ana sayfa" style="display:inline-flex;align-items:center;min-width:0"><img src="https://www.aydadil.com/wp-content/uploads/2024/03/aydankdilwhite-1.png" alt="AYDA Dil Akademisi" width="160" height="48" loading="eager" decoding="async" style="display:block;max-width:min(160px,44vw);height:auto;max-height:48px;object-fit:contain;object-position:left center"></a><a href="https://www.aydadil.com/sinavhazirlik/" style="color:#f4e6c8;font:600 12px system-ui;text-decoration:none;white-space:nowrap">Sınav merkezi ↗</a></div>
+<header class="topbar">
+  <a class="top-brand" href="https://www.aydadil.com" target="_blank"><span class="mini-logo">AY</span><span>AYDA Dil Akademisi</span></a>
+  <nav class="links">
+    <a class="link" href="index.html">Ana Sayfaya Dön</a>
+    <a class="link" href="https://www.aydadil.com" target="_blank">Web Sitesi</a>
+    <a class="link" href="https://wa.me/905409122503" target="_blank">WhatsApp</a>
+    <a class="link" href="https://www.instagram.com/ayda.dil/" target="_blank">Instagram</a>
+  </nav>
+</header>
+<main class="page">
+  <section class="hero">
+    <div class="brand"><span class="dot"></span> AYDA · TELC A2 Schreiben Teil 2</div>
+    <h1>Cümle kurma ve Redemittel oyunu.</h1>
+    <p>Çıkmış Schreiben Teil 2 konularına uygun A1–A2.1 seviyesinde kalıp cümleleri çalışın. Karışık kelimeleri doğru sıraya koyun, sonra aynı kalıplarla mini e-posta oluşturun.</p>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><span>Toplam Cümle</span><strong id="totalTasks">0</strong></div>
+    <div class="stat"><span>Doğru</span><strong id="correctCount">0</strong></div>
+    <div class="stat"><span>Yanlış</span><strong id="wrongCount">0</strong></div>
+    <div class="stat"><span>Başarı</span><strong id="successRateTop">0%</strong></div>
+  </section>
+
+  <section class="layout">
+    <div class="card">
+      <div class="tabs">
+        <button class="tab active" data-mode="sentence">Cümle Kur</button>
+        <button class="tab" data-mode="mail">Mini Mail</button>
+        <button class="tab" data-mode="cards">Redemittel Kartı</button>
+      </div>
+
+      <div id="sentenceMode">
+        <div class="game-head">
+          <div>
+            <h2 id="taskTitle">Cümle Kur</h2>
+            <div class="muted" id="taskMeta">Kelimeleri doğru sıraya koyun.</div>
+          </div>
+          <div class="badge" id="taskCounter">1 / 1</div>
+        </div>
+        <div class="prompt">
+          <span class="badge" id="taskTopic">Konu</span>
+          <h3 id="taskMeaning">Türkçe anlam</h3>
+          <p id="taskUse"></p>
+        </div>
+        <div class="muted"><b>Karışık kelimeler:</b></div>
+        <div class="words" id="wordPool"></div>
+        <div class="muted" style="margin-top:12px"><b>Senin cümlen:</b></div>
+        <div class="answer" id="answerArea"></div>
+        <div class="actions">
+          <button onclick="checkSentence()">Kontrol Et</button>
+          <button class="secondary" onclick="showSentenceAnswer()">Cevabı Göster</button>
+          <button class="secondary" onclick="nextTask()">Sonraki</button>
+        </div>
+      </div>
+
+      <div id="mailMode" class="hidden">
+        <div class="game-head">
+          <div>
+            <h2 id="mailTitle">Mini Mail Kur</h2>
+            <div class="muted">Konuya uygun 4 cümleyi seçip kısa mail oluşturun.</div>
+          </div>
+          <div class="badge" id="mailCounter">1 / 1</div>
+        </div>
+        <div class="prompt">
+          <span class="badge" id="mailTopic">Konu</span>
+          <h3 id="mailSituation">Durum</h3>
+          <p id="mailInstruction"></p>
+        </div>
+        <div class="mail-box" id="mailOptions"></div>
+        <div class="mail-preview" id="mailPreview">Seçtiğiniz cümleler burada görünecek.</div>
+        <div class="actions">
+          <button onclick="checkMail()">Maili Kontrol Et</button>
+          <button class="secondary" onclick="resetMailSelection()">Seçimi Temizle</button>
+          <button class="secondary" onclick="nextMail()">Sonraki Mail</button>
+        </div>
+      </div>
+
+      <div id="cardsMode" class="hidden">
+        <div class="game-head">
+          <div>
+            <h2>Redemittel Kartı</h2>
+            <div class="muted">Kalıbı ezberleyin, hangi durumda kullanılacağını görün.</div>
+          </div>
+          <div class="badge" id="cardCounter">1 / 1</div>
+        </div>
+        <div class="prompt">
+          <span class="badge" id="cardTopic">Konu</span>
+          <h3 id="cardMeaning">Anlam</h3>
+          <div class="solution" id="cardSentence"></div>
+          <p id="cardUse"></p>
+        </div>
+        <div class="actions">
+          <button onclick="nextTask()">Sonraki Kart</button>
+          <button class="secondary" onclick="shuffleTasks()">Karıştır</button>
+          <button class="secondary" onclick="showSentenceAnswer()">Cümleyi Göster</button>
+        </div>
+      </div>
+
+      <div id="feedback" class="feedback"></div>
+    </div>
+
+    <aside class="card">
+      <h2 class="side-title">Çalışma Durumu</h2>
+      <div class="progress-top"><span>Başarı oranı</span><strong id="successRate">0%</strong></div>
+      <div class="bar"><div id="barFill" class="bar-fill"></div></div>
+      <div class="actions" style="grid-template-columns:1fr;margin-top:16px">
+        <button onclick="resetCurrent()">Bu Cümleyi Temizle</button>
+        <button class="secondary" onclick="restartAll()">Tüm Çalışmayı Sıfırla</button>
+      </div>
+      <p class="notice">Cümleler özellikle kolay seviyede tutulmuştur. Amaç uzun ve karmaşık cümle değil; sınavda güvenli, doğru ve kullanılabilir cümle yazmaktır.</p>
+      <h2 class="side-title" style="margin-top:20px">Cümleler</h2>
+      <div class="task-list" id="taskList"></div>
+    </aside>
+  </section>
+
+  <section class="card footer"><div><strong>AYDA Dil Akademisi</strong><br>Online Almanca eğitimleri, TELC sınav hazırlığı ve süreç danışmanlığı.</div><div class="links"><a class="link" href="https://www.aydadil.com" target="_blank">Web</a><a class="link" href="https://wa.me/905409122503" target="_blank">WhatsApp</a><a class="link" href="https://www.instagram.com/ayda.dil/" target="_blank">Instagram</a></div></section>
+</main>
+
+<script>
+const tasks=[
+{topic:"Anfang",meaning:"Samimi başlangıç",sentence:"Lieber Christian,",use:"Arkadaşa veya tanıdığa yazarken kullanılır."},
+{topic:"Anfang",meaning:"Kadın arkadaşa başlangıç",sentence:"Liebe Anastasia,",use:"Kadın arkadaş veya tanıdığa yazarken kullanılır."},
+{topic:"Anfang",meaning:"Resmi başlangıç",sentence:"Sehr geehrte Damen und Herren,",use:"Kurs okulu, kurum veya bilmediğiniz kişiye yazarken kullanılır."},
+{topic:"Schluss",meaning:"Samimi kapanış",sentence:"Viele Grüße",use:"Arkadaşa yazarken güvenli kapanıştır."},
+{topic:"Schluss",meaning:"Resmi kapanış",sentence:"Mit freundlichen Grüßen",use:"Kurumlara ve resmi kişilere yazarken kullanılır."},
+{topic:"Dank",meaning:"E-postan için teşekkürler",sentence:"Vielen Dank für deine E-Mail.",use:"Cevap yazarken başlangıçtan sonra kullanılabilir."},
+{topic:"Dank",meaning:"Davetin için teşekkürler",sentence:"Vielen Dank für deine Einladung.",use:"Doğum günü, parti, gezi davetlerinde kullanılır."},
+{topic:"Antwort",meaning:"Sana cevap yazıyorum",sentence:"Ich schreibe dir, weil ich eine Frage habe.",use:"Kısa ve kolay sebep cümlesidir."},
+{topic:"Wochenende",meaning:"Hafta sonu buluşmak isterim",sentence:"Ich möchte am Wochenende gern etwas machen.",use:"Christian ile hafta sonu planı için."},
+{topic:"Tag/Uhrzeit",meaning:"Cumartesi saat 14 uygun",sentence:"Am Samstag um 14 Uhr habe ich Zeit.",use:"Tag/Uhrzeit maddesine direkt cevap."},
+{topic:"Treffen",meaning:"Nerede buluşalım?",sentence:"Wo wollen wir uns treffen?",use:"wo treffen? maddesi için."},
+{topic:"Treffen",meaning:"İstasyonda buluşabiliriz",sentence:"Wir können uns am Bahnhof treffen.",use:"Buluşma yeri önerisi."},
+{topic:"Programm",meaning:"Parkta yürüyüş yapabiliriz",sentence:"Wir können im Park spazieren gehen.",use:"Ideen und Programm maddesi için."},
+{topic:"Programm",meaning:"Sonra kahve içebiliriz",sentence:"Danach können wir einen Kaffee trinken.",use:"Programı genişletmek için kolay cümle."},
+{topic:"Freunde",meaning:"Arkadaşları da sorabiliriz",sentence:"Wir können auch andere Freunde fragen.",use:"andere Bekannte oder Freunde maddesi için."},
+{topic:"Reise",meaning:"Tebrik ederim",sentence:"Herzlichen Glückwunsch zur Reise!",use:"Rolf'un kazandığı seyahat için."},
+{topic:"Reise",meaning:"Seninle gelmek isterim",sentence:"Ich möchte gern mitkommen.",use:"Seyahat davetine olumlu cevap."},
+{topic:"Reise",meaning:"Nereye gidiyoruz?",sentence:"Wohin fahren wir?",use:"Reise wohin? maddesi için."},
+{topic:"Reise",meaning:"Ne zaman gidiyoruz?",sentence:"Wann ist der Reisetermin?",use:"Reisetermin maddesi için."},
+{topic:"Verkehrsmittel",meaning:"Hangi araçla gidiyoruz?",sentence:"Mit welchem Verkehrsmittel fahren wir?",use:"Verkehrsmittel maddesi için."},
+{topic:"Auto kaufen",meaning:"Araban hakkında bilgi istiyorum",sentence:"Ich möchte Informationen über dein Auto bekommen.",use:"Thomas'ın arabası için."},
+{topic:"Auto kaufen",meaning:"Araba kaç yaşında?",sentence:"Wie alt ist das Auto?",use:"Alter maddesi için."},
+{topic:"Auto kaufen",meaning:"Fiyatı ne kadar?",sentence:"Wie viel kostet das Auto?",use:"Preis maddesi için."},
+{topic:"Auto kaufen",meaning:"Arabada sorun var mı?",sentence:"Hat das Auto Probleme?",use:"Probleme maddesi için."},
+{topic:"Auto kaufen",meaning:"Arabayı görmek istiyorum",sentence:"Ich möchte das Auto gern ansehen.",use:"Auto ansehen maddesi için."},
+{topic:"Krankheit",meaning:"Hastayım",sentence:"Ich bin leider krank.",use:"Hastalık konulu mektup için."},
+{topic:"Krankheit",meaning:"Doktora gitmem gerekiyor",sentence:"Ich muss zum Arzt gehen.",use:"Doktor randevusu için."},
+{topic:"Krankheit",meaning:"Başım ağrıyor",sentence:"Ich habe starke Kopfschmerzen.",use:"Ihre Krankheit maddesi için kolay sebep."},
+{topic:"Hilfe",meaning:"Bana yardım eder misin?",sentence:"Kannst du mir bitte helfen?",use:"Max'tan yardım isteme."},
+{topic:"Arzt",meaning:"Beni doktora götürür müsün?",sentence:"Kannst du mich zum Arzt bringen?",use:"Was Max tun soll maddesi için."},
+{topic:"Arzt",meaning:"Muayenehane merkezde",sentence:"Die Praxis ist im Zentrum.",use:"Praxis wo? maddesi için."},
+{topic:"Geburtstag",meaning:"Partiye gelmek istiyorum",sentence:"Ich komme gern zu deiner Party.",use:"Doğum günü davetine cevap."},
+{topic:"Geburtstag",meaning:"Ne getireyim?",sentence:"Soll ich etwas zu essen mitbringen?",use:"Essen mitbringen? maddesi için."},
+{topic:"Geburtstag",meaning:"Bir arkadaşımı getirebilir miyim?",sentence:"Kann ich einen Freund mitbringen?",use:"jemanden mitbringen? maddesi için."},
+{topic:"Geburtstag",meaning:"Parti saat kaçta başlıyor?",sentence:"Um wie viel Uhr beginnt die Party?",use:"Uhrzeit maddesi için."},
+{topic:"Geburtstag",meaning:"Ne hediye istiyorsun?",sentence:"Was wünschst du dir zum Geburtstag?",use:"Geschenk maddesi için."},
+{topic:"Transport",meaning:"Arabana ihtiyacım var",sentence:"Ich brauche deine Hilfe mit dem Auto.",use:"Dolap/herd alma konusu için."},
+{topic:"Transport",meaning:"Dolabı almam gerekiyor",sentence:"Ich muss einen Schrank abholen.",use:"Schrank abholen konusu için."},
+{topic:"Transport",meaning:"Oraya beraber gidebilir miyiz?",sentence:"Können wir zusammen dorthin fahren?",use:"wohin fahren? maddesi için."},
+{topic:"Antwort",meaning:"Lütfen bana cevap yaz",sentence:"Bitte antworte mir schnell.",use:"Bitte um Antwort maddesi için."},
+{topic:"Dank",meaning:"Yardımın için teşekkürler",sentence:"Vielen Dank für deine Hilfe.",use:"Dank maddesi için."},
+{topic:"Einladung",meaning:"Sizi partimize davet ediyoruz",sentence:"Wir möchten Sie zu unserer Abschlussparty einladen.",use:"Öğretmeni davet ederken."},
+{topic:"Einladung",meaning:"Parti cuma saat 18'de",sentence:"Die Party ist am Freitag um 18 Uhr.",use:"Datum/Uhrzeit maddesi için."},
+{topic:"Einladung",meaning:"Parti okulda",sentence:"Die Party ist in unserer Schule.",use:"Party wo? maddesi için."},
+{topic:"Deutschkenntnisse",meaning:"Almancamız daha iyi oldu",sentence:"Unsere Deutschkenntnisse sind jetzt besser.",use:"Ihre Deutschkenntnisse maddesi için."},
+{topic:"Kursanmeldung",meaning:"Dil kursuna kayıt olmak istiyorum",sentence:"Ich möchte mich für einen Sprachkurs anmelden.",use:"Sprachschule konulu mektup."},
+{topic:"Sprache",meaning:"İspanyolca öğrenmek istiyorum",sentence:"Ich möchte Spanisch lernen.",use:"welche neue Sprache maddesi için örnek."},
+{topic:"Kursbeginn",meaning:"Mart ayında başlamak istiyorum",sentence:"Ich möchte ab März beginnen.",use:"ab März maddesi için."},
+{topic:"Kurs",meaning:"Kurs saat kaçta başlıyor?",sentence:"Um wie viel Uhr beginnt der Kurs?",use:"Uhrzeit Kurs? maddesi için."},
+{topic:"Preis",meaning:"Kurs ücreti ne kadar?",sentence:"Wie viel kostet der Kurs?",use:"Preis maddesi için."},
+{topic:"Verkaufen",meaning:"Dolabı satmak istiyorum",sentence:"Ich möchte meinen Wohnzimmerschrank verkaufen.",use:"Schrank satma konusu için."},
+{topic:"Preis",meaning:"Dolap 80 Euro",sentence:"Der Schrank kostet 80 Euro.",use:"Preis maddesi için."},
+{topic:"Alter",meaning:"Dolap üç yaşında",sentence:"Der Schrank ist drei Jahre alt.",use:"Alter maddesi için."},
+{topic:"Größe",meaning:"Dolap büyük ama iyi durumda",sentence:"Der Schrank ist groß und in gutem Zustand.",use:"Größe maddesi için."},
+{topic:"Transport",meaning:"Nakliyeyi sen yapabilir misin?",sentence:"Kannst du den Transport selbst machen?",use:"Transport maddesi için."},
+{topic:"Kochkurs",meaning:"Kursa birlikte katılmak istiyorum",sentence:"Ich möchte den Kochkurs gern mit dir machen.",use:"Kochkurs konusu için."},
+{topic:"Rezept",meaning:"Tarifi bana gönderir misin?",sentence:"Kannst du mir bitte das Rezept schicken?",use:"Bitte um Rezept maddesi için."},
+{topic:"Kosten",meaning:"Kurs kaç para?",sentence:"Wie viel kostet der Kurs?",use:"Kosten des Kurses maddesi için."},
+{topic:"Lieblingsessen",meaning:"En sevdiğim yemek makarna",sentence:"Mein Lieblingsessen ist Pasta.",use:"Lieblingsessen maddesi için."},
+{topic:"Kochen",meaning:"Hafta sonu birlikte yemek yapabiliriz",sentence:"Wir können am Wochenende zusammen kochen.",use:"Vorschlag zusammen kochen maddesi için."},
+{topic:"Ausflug",meaning:"Bisiklet gezisi yapmak istiyorum",sentence:"Ich möchte gern einen Ausflug mit dem Fahrrad machen.",use:"Fahrrad-Ausflug konusu için."},
+{topic:"Tag/Uhrzeit",meaning:"Pazar saat 10 uygun",sentence:"Am Sonntag um 10 Uhr habe ich Zeit.",use:"Tag Uhrzeit maddesi için."},
+{topic:"Treffen",meaning:"Parkın önünde buluşalım",sentence:"Wir können uns vor dem Park treffen.",use:"Wo treffen maddesi için."},
+{topic:"Wohin",meaning:"Göl kenarına gidebiliriz",sentence:"Wir können zum See fahren.",use:"Wohin fahren maddesi için."},
+{topic:"Freunde",meaning:"Arkadaşlara da soralım",sentence:"Wir können auch unsere Freunde fragen.",use:"Freunde fragen maddesi için."},
+{topic:"Absage",meaning:"Maalesef gelemem",sentence:"Leider kann ich nicht kommen.",use:"Bir davete olumsuz cevap."},
+{topic:"Grund",meaning:"Önemli bir randevum var",sentence:"Ich habe einen wichtigen Termin.",use:"Neden gelemiyorum açıklaması."},
+{topic:"Termin",meaning:"Yeni bir tarih yapabilir miyiz?",sentence:"Können wir einen neuen Termin machen?",use:"Randevu değiştirme için."},
+{topic:"Bitte",meaning:"Bana bilgi verebilir misiniz?",sentence:"Können Sie mir bitte Informationen geben?",use:"Kurumlara yazarken bilgi isteme."},
+{topic:"Wunsch",meaning:"Sizin cevabınızı bekliyorum",sentence:"Ich warte auf Ihre Antwort.",use:"Resmi kapanıştan önce kullanılabilir."},
+{topic:"Wunsch",meaning:"Cevabını bekliyorum",sentence:"Ich warte auf deine Antwort.",use:"Arkadaşa yazarken kullanılabilir."}
+];
+const mails=[
+{topic:"Wochenende mit Christian",situation:"Christian möchte am Wochenende etwas mit Ihnen unternehmen.",instruction:"Wählen Sie passende Sätze für Tag/Uhrzeit, Programm und Treffpunkt.",correct:["Lieber Christian,","vielen Dank für deine E-Mail.","Am Samstag um 14 Uhr habe ich Zeit.","Wir können im Park spazieren gehen.","Wir können uns am Bahnhof treffen.","Viele Grüße"],distractors:["Wie viel kostet der Kurs?","Ich muss zum Arzt gehen.","Der Schrank ist drei Jahre alt."]},
+{topic:"Reise mit Rolf",situation:"Rolf hat eine Reise gewonnen und fragt, ob Sie mitkommen möchten.",instruction:"Wählen Sie passende Sätze für Gratulation, Reisetermin und Verkehrsmittel.",correct:["Lieber Rolf,","herzlichen Glückwunsch zur Reise!","Ich möchte gern mitkommen.","Wann ist der Reisetermin?","Mit welchem Verkehrsmittel fahren wir?","Viele Grüße"],distractors:["Ich habe starke Kopfschmerzen.","Der Schrank kostet 80 Euro.","Ich möchte Spanisch lernen."]},
+{topic:"Auto kaufen",situation:"Thomas möchte sein Auto verkaufen. Sie bitten um Informationen.",instruction:"Wählen Sie passende Sätze für Preis, Alter, Probleme und Auto ansehen.",correct:["Lieber Thomas,","ich möchte Informationen über dein Auto bekommen.","Wie viel kostet das Auto?","Wie alt ist das Auto?","Hat das Auto Probleme?","Ich möchte das Auto gern ansehen.","Viele Grüße"],distractors:["Wir können zum See fahren.","Vielen Dank für deine Einladung.","Ich möchte ab März beginnen."]},
+{topic:"Krank und Hilfe",situation:"Sie sind krank und bitten Max um Hilfe.",instruction:"Wählen Sie passende Sätze für Krankheit, Arzt und Hilfe.",correct:["Lieber Max,","ich bin leider krank.","Ich muss zum Arzt gehen.","Die Praxis ist im Zentrum.","Kannst du mich zum Arzt bringen?","Vielen Dank für deine Hilfe.","Viele Grüße"],distractors:["Herzlichen Glückwunsch zur Reise!","Der Schrank ist groß und in gutem Zustand.","Mein Lieblingsessen ist Pasta."]},
+{topic:"Geburtstagsparty",situation:"Anastasia hat Sie zur Geburtstagsparty eingeladen.",instruction:"Wählen Sie passende Sätze für Zusage, Uhrzeit, Essen und Geschenk.",correct:["Liebe Anastasia,","vielen Dank für deine Einladung.","Ich komme gern zu deiner Party.","Um wie viel Uhr beginnt die Party?","Soll ich etwas zu essen mitbringen?","Was wünschst du dir zum Geburtstag?","Viele Grüße"],distractors:["Ich möchte mich für einen Sprachkurs anmelden.","Hat das Auto Probleme?","Ich bin leider krank."]},
+{topic:"Sprachschule",situation:"Sie möchten sich bei einer Sprachenschule anmelden.",instruction:"Wählen Sie passende Sätze für Sprache, Kursbeginn, Uhrzeit und Preis.",correct:["Sehr geehrte Damen und Herren,","ich möchte mich für einen Sprachkurs anmelden.","Ich möchte Spanisch lernen.","Ich möchte ab März beginnen.","Um wie viel Uhr beginnt der Kurs?","Wie viel kostet der Kurs?","Mit freundlichen Grüßen"],distractors:["Kann ich einen Freund mitbringen?","Ich muss einen Schrank abholen.","Wir können im Park spazieren gehen."]},
+{topic:"Kochkurs",situation:"Ihr Freund möchte einen Kochkurs machen. Sie möchten zusammen teilnehmen.",instruction:"Wählen Sie passende Sätze für Kurs, Kosten, Rezept und zusammen kochen.",correct:["Lieber Freund,","ich möchte den Kochkurs gern mit dir machen.","Wie viel kostet der Kurs?","Kannst du mir bitte das Rezept schicken?","Wir können am Wochenende zusammen kochen.","Viele Grüße"],distractors:["Ich brauche deine Hilfe mit dem Auto.","Wann ist der Reisetermin?","Die Praxis ist im Zentrum."]},
+{topic:"Fahrrad-Ausflug",situation:"Sie möchten mit Antonia einen Ausflug mit dem Fahrrad machen.",instruction:"Wählen Sie passende Sätze für Tag/Uhrzeit, Treffpunkt, Ziel und Freunde.",correct:["Liebe Antonia,","ich möchte gern einen Ausflug mit dem Fahrrad machen.","Am Sonntag um 10 Uhr habe ich Zeit.","Wir können uns vor dem Park treffen.","Wir können zum See fahren.","Wir können auch unsere Freunde fragen.","Viele Grüße"],distractors:["Der Schrank kostet 80 Euro.","Ich möchte ab März beginnen.","Hat das Auto Probleme?"]}
+];
+let order=[...Array(tasks.length).keys()],current=0,correct=0,wrong=0,mode='sentence',selectedWords=[],mailIndex=0,selectedMail=[];
+const $=id=>document.getElementById(id);
+function norm(s){return String(s).toLowerCase().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ').trim()}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function wordsOf(sentence){return sentence.replace(/[.,!?]/g,m=>' '+m).split(/\s+/).filter(Boolean)}
+function currentTask(){return tasks[order[current]]}
+function renderTask(){const t=currentTask();$('taskTitle').textContent='Cümle Kur';$('taskMeta').textContent='Kelimeleri doğru sıraya koyun.';$('taskCounter').textContent=`${current+1} / ${tasks.length}`;$('taskTopic').textContent=t.topic;$('taskMeaning').textContent=t.meaning;$('taskUse').textContent=t.use;selectedWords=[];$('wordPool').innerHTML='';$('answerArea').innerHTML='';shuffle(wordsOf(t.sentence)).forEach((w,i)=>{const b=document.createElement('button');b.className='word';b.textContent=w;b.onclick=()=>selectWord(b,w);$('wordPool').appendChild(b)});renderList();renderCard();clearFeedback()}
+function selectWord(btn,w){btn.classList.add('used');selectedWords.push({w,btn});const a=document.createElement('button');a.className='word';a.textContent=w;a.onclick=()=>{btn.classList.remove('used');selectedWords=selectedWords.filter(x=>x.btn!==btn);a.remove()};$('answerArea').appendChild(a)}
+function sentenceFromSelected(){return selectedWords.map(x=>x.w).join(' ').replace(/\s+([.,!?])/g,'$1')}
+function checkSentence(){const answer=sentenceFromSelected(),target=currentTask().sentence;if(norm(answer)===norm(target)){correct++;msg('good','Doğru! '+target);setTimeout(nextTask,700)}else{wrong++;msg('bad','Yanlış. Doğru cevap: '+target)}updateStats()}
+function showSentenceAnswer(){msg('info','Doğru cevap: '+currentTask().sentence)}
+function nextTask(){current=(current+1)%order.length;renderTask()}
+function shuffleTasks(){order=shuffle(order);current=0;renderTask()}
+function resetCurrent(){renderTask()}
+function restartAll(){correct=0;wrong=0;current=0;mailIndex=0;selectedMail=[];updateStats();renderTask();renderMail()}
+function renderList(){$('taskList').innerHTML='';order.forEach((idx,pos)=>{const t=tasks[idx];const b=document.createElement('button');b.className='task-item '+(pos===current?'active':'');b.innerHTML=`<strong>${pos+1}. ${t.meaning}</strong><small>${t.topic}</small>`;b.onclick=()=>{current=pos;renderTask()};$('taskList').appendChild(b)})}
+function updateStats(){$('totalTasks').textContent=tasks.length;$('correctCount').textContent=correct;$('wrongCount').textContent=wrong;const total=correct+wrong,rate=total?Math.round(correct/total*100):0;$('successRate').textContent=rate+'%';$('successRateTop').textContent=rate+'%';$('barFill').style.width=rate+'%'}
+function clearFeedback(){$('feedback').className='feedback';$('feedback').textContent=''}
+function msg(type,text){$('feedback').className='feedback show '+type;$('feedback').textContent=text}
+function renderCard(){const t=currentTask();$('cardCounter').textContent=`${current+1} / ${tasks.length}`;$('cardTopic').textContent=t.topic;$('cardMeaning').textContent=t.meaning;$('cardSentence').textContent=t.sentence;$('cardUse').textContent=t.use}
+function renderMail(){const m=mails[mailIndex];selectedMail=[];$('mailCounter').textContent=`${mailIndex+1} / ${mails.length}`;$('mailTopic').textContent=m.topic;$('mailSituation').textContent=m.situation;$('mailInstruction').textContent=m.instruction;$('mailOptions').innerHTML='';$('mailPreview').textContent='Seçtiğiniz cümleler burada görünecek.';shuffle([...m.correct,...m.distractors]).forEach(line=>{const b=document.createElement('button');b.className='mail-line';b.textContent=line;b.onclick=()=>toggleMailLine(b,line);$('mailOptions').appendChild(b)});clearFeedback()}
+function toggleMailLine(btn,line){btn.classList.toggle('selected');if(btn.classList.contains('selected'))selectedMail.push(line);else selectedMail=selectedMail.filter(x=>x!==line);$('mailPreview').textContent=selectedMail.length?selectedMail.join('\n'):'Seçtiğiniz cümleler burada görünecek.'}
+function checkMail(){const m=mails[mailIndex];const needed=m.correct.filter(x=>!selectedMail.includes(x));const extra=selectedMail.filter(x=>!m.correct.includes(x));if(needed.length===0&&extra.length===0){correct++;msg('good','Sehr gut! Mail için doğru cümleleri seçtiniz.')}else{wrong++;msg('bad','Eksik veya gereksiz cümle var. Cevapları gösterip kalıpları inceleyin.')}updateStats()}
+function resetMailSelection(){renderMail()}
+function nextMail(){mailIndex=(mailIndex+1)%mails.length;renderMail()}
+document.querySelectorAll('.tab').forEach(tab=>tab.onclick=()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');mode=tab.dataset.mode;$('sentenceMode').classList.toggle('hidden',mode!=='sentence');$('mailMode').classList.toggle('hidden',mode!=='mail');$('cardsMode').classList.toggle('hidden',mode!=='cards');clearFeedback();if(mode==='mail')renderMail();if(mode==='cards')renderCard()});
+updateStats();renderTask();renderMail();
+</script>
+</div><script src="https://onurqlp.github.io/ayda-pass/access-control.js" onerror="document.getElementById('aydaLoginMessage').textContent='Giriş hizmetine ulaşılamıyor.'"></script>
+<script id="ayda-exam-authorization-sync">(function(){
+ const content=document.getElementById('aydaProtectedContent');
+ if(!content)return;
+ function sync(){const allowed=content.style.display==='block';document.documentElement.classList.toggle('ayda-exam-authorized',allowed);}
+ new MutationObserver(sync).observe(content,{attributes:true,attributeFilter:['style']});sync();
+})();</script><script id="ayda-unified-logo-js">(function(){let logo='https://www.aydadil.com/wp-content/uploads/2026/10/ayda-home-v89-baa791945bb954a30b.png';let target=document.querySelector('header .brand,header .logo,header .top-brand,header .brand-mark,.topbar .brand,.site-header .brand,.navbar .brand,.brand-badge');if(target){if(target.tagName==='A'){target.classList.add('ayda-shared-logo');target.href='https://www.aydadil.com/';target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else if(target.closest('a')){let a=target.closest('a');a.classList.add('ayda-shared-logo');a.href='https://www.aydadil.com/';a.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">'}else{target.innerHTML='<img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'">';target.classList.add('ayda-shared-logo')}}else{let top=document.querySelector('header,main,.page,body');if(!top)return;let bar=document.createElement('div');bar.className='ayda-shared-logo-bar';bar.innerHTML='<a class="ayda-shared-logo" href="https://www.aydadil.com/" aria-label="AYDA Ana Sayfa"><img width="134" height="49" alt="AYDA Dil Akademisi" src="'+logo+'"></a>';top.prepend(bar)}})();</script></body>
+</html>

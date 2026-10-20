@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AYDA · A2ekim25</title>
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#234078">
+  <style>
+    :root{
+      --ayda:#234078; --bg:#f7f9fc; --ink:#1d2433; --muted:#5b667a; --card:#ffffff; --border:rgba(35,64,120,.10);
+      --radius:18px; --shadow:0 10px 28px rgba(0,0,0,.06); --ring:rgba(35,64,120,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif}
+    .container{max-width:1140px;margin-inline:auto;padding:18px}
+
+    header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);z-index:20}
+    .nav{display:flex;align-items:center;gap:12px;padding:12px 18px}
+    .logo{width:36px;height:36px;display:grid;place-items:center;border-radius:12px;background:var(--ayda);color:#fff;font-weight:800;box-shadow:var(--shadow)}
+    .title{font-weight:800}
+    .subtitle{font-size:.92rem;color:var(--muted)}
+
+    .actions{display:flex;gap:10px;flex-wrap:wrap;padding:10px 18px;border-top:1px solid var(--border)}
+    .btn{appearance:none;border:1px solid var(--ayda);background:var(--ayda);color:#fff;padding:10px 12px;border-radius:12px;font-weight:700;cursor:pointer}
+    .btn.secondary{background:#fff;color:var(--ayda)}
+    .btn.small{font-size:.9rem;padding:8px 10px;border-radius:10px}
+    .btn:focus{outline:none;box-shadow:0 0 0 6px var(--ring)}
+    .btn[aria-expanded="true"]{outline:3px solid var(--ring)}
+
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border)}
+    .head{padding:18px 18px 6px 18px}
+    .body{padding:0 18px 18px 18px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(35,64,120,.06);color:var(--ayda);font-weight:700;font-size:.93rem}
+
+    .player{position:relative;display:block;width:100%;aspect-ratio:16/9;border-bottom-left-radius:var(--radius);border-bottom-right-radius:var(--radius);overflow:hidden}
+    .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+    @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+
+    .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .titleRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .btns{display:flex;gap:8px;flex-wrap:wrap}
+
+    footer{color:var(--muted);font-size:.9rem;padding:26px 18px;text-align:center}
+
+    .is-hidden{display:none}
+    main{padding-top:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="logo" aria-hidden="true">A</div>
+      <div>
+        <div class="title">AYDA Online Eğitim Platformu</div>
+        <div class="subtitle">Grup: A2ekim25</div>
+      </div>
+    </div>
+    <div class="actions container" role="toolbar" aria-label="Hızlı Erişim">
+      <button class="btn" id="btnReplay" aria-controls="dersListesi" aria-expanded="false">Canlı Ders Tekrarları</button>
+      <button class="btn secondary" id="btnExtras" aria-controls="ekVideolar" aria-expanded="false">Ek Videolar & Materyaller</button>
+      <button class="btn secondary" id="btnOther" aria-controls="digerBaglantilar" aria-expanded="false">Diğer Bağlantılar</button>
+      <button class="btn small secondary" id="btnCloseAll" title="Açık bölümleri kapat">Tümünü Kapat</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card is-hidden" id="dersListesi">
+      <div class="head"><span class="badge">A2ekim25 — Online Dersler</span></div>
+      <div class="player">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLAYLIST_ID&rel=0&modestbranding=1" allowfullscreen></iframe>
+      </div>
+      <div class="body">
+        <p class="subtitle">Playlist bağlantısını buraya ekleyin (PLAYLIST_ID değiştirin).</p>
+        <a class="btn secondary" href="https://www.youtube.com/playlist?list=PLAYLIST_ID" target="_blank">Tüm Canlı Dersler (YouTube)</a>
+      </div>
+    </section>
+
+    <section class="card is-hidden" id="ekVideolar">
+      <div class="head"><span class="badge">Ek Videolar & Materyaller — A2</span></div>
+      <div class="body">
+        <div class="grid">
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">Ders Materyalleri (Drive)</span></div><a class="btn" href="https://drive.google.com/drive/folders/1eRkHhSQ0cVnbMVOtvR-nDcOZRUFJOEKH" target="_blank">Git</a></div></div></article>
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">A2 Yararlı Materyaller (Drive)</span></div><a class="btn" href="https://drive.google.com/drive/folders/1eRkHhSQ0cVnbMVOtvR-nDcOZRUFJOEKH?usp=drive_link" target="_blank">Git</a></div></div></article>
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">A2 Menschen Ders Videoları (Drive)</span></div><a class="btn" href="https://drive.google.com/drive/folders/10KGAPnOKlfd3trMtY4paFsJDCbGNok9k?usp=drive_link" target="_blank">Git</a></div></div></article>
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">A2 Konu Anlatım Videoları (Drive)</span></div><a class="btn" href="https://drive.google.com/drive/folders/1dkvJRQmwMAy4-xima2GhujCnFhRwq63B?usp=drive_link" target="_blank">Git</a></div></div></article>
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">A2 Konuşma Kalıpları (Drive)</span></div><a class="btn" href="https://drive.google.com/drive/folders/1v1KnsUELnxaqwKEhN_8ruqGDOkHbrYFG?usp=sharing" target="_blank">Git</a></div></div></article>
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">Arbeitsbuch Dinlemeleri — Nasıl İndiririm?</span></div><a class="btn" href="https://youtu.be/GHf6eOr6MU0" target="_blank">Git</a></div></div><div class="body"><div class="player"><iframe src="https://www.youtube.com/embed/GHf6eOr6MU0" allowfullscreen></iframe></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="card is-hidden" id="digerBaglantilar">
+      <div class="head"><span class="badge">Diğer Bağlantılar</span></div>
+      <div class="body">
+        <div class="grid">
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">YouTube Almanca Müzikler</span></div><a class="btn" href="https://youtube.com/playlist?list=PLlPnminIi7ZGaC8tkVghThkGQ_L-QkYY0" target="_blank">Git</a></div></div><div class="body"><div class="player"><iframe src="https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZGaC8tkVghThkGQ_L-QkYY0" allowfullscreen></iframe></div></div></article>
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">Quizlet A2 Menschen Kelime</span></div><a class="btn" href="https://quizlet.com/Saalihyilmazz/folders/menschen-a2?i=195vch&x=1xqY" target="_blank">Git</a></div></div></article>
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">Menschen Online Alıştırmalar — Kursbuch</span></div><a class="btn" href="https://www.hueber.de/menschen/lernen/uebungen?bestandteil=kursbuch" target="_blank">Git</a></div></div></article>
+          <article class="card"><div class="head"><div class="row"><div class="titleRow"><span class="badge">Menschen Online Alıştırmalar — Arbeitsbuch</span></div><a class="btn" href="https://www.hueber.de/menschen/lernen/uebungen?bestandteil=arbeitsbuch" target="_blank">Git</a></div></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="y"></span> AYDA Ankara Yabancı Dil Akademisi</footer>
+
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+    const sections=[{btn:'btnReplay',id:'dersListesi'},{btn:'btnExtras',id:'ekVideolar'},{btn:'btnOther',id:'digerBaglantilar'}];
+    const KEY='a2ekim25_openSections';
+    function saveState(){const open=sections.filter(s=>!document.getElementById(s.id).classList.contains('is-hidden')).map(s=>s.id);localStorage.setItem(KEY,JSON.stringify(open));}
+    function restoreState(){const raw=localStorage.getItem(KEY);if(!raw)return;try{const openIds=JSON.parse(raw);sections.forEach(s=>{const el=document.getElementById(s.id);const btn=document.getElementById(s.btn);const willOpen=openIds.includes(s.id);el.classList.toggle('is-hidden',!willOpen);btn.setAttribute('aria-expanded',willOpen?'true':'false');});}catch{}}
+    function toggleSection(btnId,sectionId){const btn=document.getElementById(btnId);const el=document.getElementById(sectionId);const willOpen=el.classList.contains('is-hidden');el.classList.toggle('is-hidden');btn.setAttribute('aria-expanded',willOpen?'true':'false');if(willOpen)el.scrollIntoView({behavior:'smooth',block:'start'});saveState();}
+    sections.forEach(s=>{document.getElementById(s.btn).addEventListener('click',()=>toggleSection(s.btn,s.id));});
+    document.getElementById('btnCloseAll').addEventListener('click',()=>{sections.forEach(s=>{document.getElementById(s.id).classList.add('is-hidden');document.getElementById(s.btn).setAttribute('aria-expanded','false');});saveState();});
+    restoreState();
+  </script>
+</body>
+</html>

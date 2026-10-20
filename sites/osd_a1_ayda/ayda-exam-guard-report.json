@@ -1,0 +1,13 @@
+{
+  "changed_count": 6,
+  "skipped_already_protected": 1,
+  "unhandled": [],
+  "changed_examples": [
+    "bilgi.html",
+    "horen.html",
+    "kelime.html",
+    "lesen.html",
+    "schreiben.html",
+    "sprechen.html"
+  ]
+}

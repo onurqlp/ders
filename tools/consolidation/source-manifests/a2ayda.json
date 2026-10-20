@@ -1,0 +1,165 @@
+{
+  "repository": "onurqlp/a2ayda",
+  "source_ref": "main",
+  "source_commit": "080b59e75d8d76155a451b7718837762d7658fa7",
+  "destination": "sites/a2ayda",
+  "file_count": 31,
+  "total_bytes": 1173284,
+  "files": [
+    {
+      "path": ".github/workflows/a2-preview-smoke.yml",
+      "sha256": "90b7cd8d915fbc5315f1a1c4c651454f8d9566d28aadf9bdc5f7975d702514d2",
+      "bytes": 1725
+    },
+    {
+      "path": ".github/workflows/g4-preview-check.yml",
+      "sha256": "498ccf1d217ca1e19dc2a169a3da65c2daa75dd80ae0b208b765d5a7a4b44aab",
+      "bytes": 2201
+    },
+    {
+      "path": "a2-express-shortcut.js",
+      "sha256": "4631a211d7fec64bd306a5a402a6b2bdc7ca7d85aadea650b439c14aefa7b837",
+      "bytes": 2731
+    },
+    {
+      "path": "app.js",
+      "sha256": "065a24c266794ac3f19f5d44be56c9734be121b37a0f3adcef55a52e2bc9a3bd",
+      "bytes": 62087
+    },
+    {
+      "path": "ayda-brand.js",
+      "sha256": "2e827542835d93065ca034d9df55b6b7d259363c4741d7d4d0af6d9cad1b247b",
+      "bytes": 163
+    },
+    {
+      "path": "backups/index-before-shared-ui-20261016.html",
+      "sha256": "d73fc517fe24c2c617accbe4bcf5c21d5dce28100db90ad7262aa9c0532df2ea",
+      "bytes": 5423
+    },
+    {
+      "path": "data.js",
+      "sha256": "ab3eae6645fad04800c9365a2854252558a47f85a5aec18ce5e086e34dd80414",
+      "bytes": 45160
+    },
+    {
+      "path": "express/express.css",
+      "sha256": "fa5a00380c6259bcdb9ca49abbc2f00395bbae6ad33069fa7795df9370fbee37",
+      "bytes": 13129
+    },
+    {
+      "path": "express/express.js",
+      "sha256": "f1dd6a2052d20fc3ecbf86df201bd6e763bb80f8f6d82b13b2d855a271019524",
+      "bytes": 17649
+    },
+    {
+      "path": "express/index.html",
+      "sha256": "2d9f56ffd3a001c2c4accc407e302b0b446284c7600740f892d50314e92dd88b",
+      "bytes": 3722
+    },
+    {
+      "path": "g4-onizleme/index.html",
+      "sha256": "b6cf89b4799058ac05adb87252417bdb0182cf84734f584e645adb0206dcba22",
+      "bytes": 15261
+    },
+    {
+      "path": "index.html",
+      "sha256": "b46e136c98dd5077e344d20005b2ce9c7cd1c5c2ebc03c0116eb9754041f51fc",
+      "bytes": 6898
+    },
+    {
+      "path": "learning.css",
+      "sha256": "e9d1ff668e30f93db0cd3d70b100f58b582652e69b51dc1d3411960cd9e9ed67",
+      "bytes": 17139
+    },
+    {
+      "path": "learning.js",
+      "sha256": "87606186d8881a563ef3ce69c4ce504fca04179b1dda6314f71dc387940b87e5",
+      "bytes": 16031
+    },
+    {
+      "path": "logo-test/index.html",
+      "sha256": "0da58dbb630b9a6e0370dcd0ed08432ab9e589ddc7fae74f6e28fbd5f8d96ddc",
+      "bytes": 7503
+    },
+    {
+      "path": "og.png",
+      "sha256": "8da045556739d53486c4ab963e06e5676dd8149e77d78ed00d6554dc59e94f6f",
+      "bytes": 716019
+    },
+    {
+      "path": "onizleme.html",
+      "sha256": "c829278154a0feb79a93eeaf12f19f49c65b5278fae9220f3f00c565a9611c25",
+      "bytes": 5651
+    },
+    {
+      "path": "parity.css",
+      "sha256": "703f6d1f350c36825b539ee4908e79ae8fca7890d39efd8e96e6f2588e290011",
+      "bytes": 18384
+    },
+    {
+      "path": "parity.js",
+      "sha256": "ecbb5c2aeae9224255ae13f72d15a8e29816c4f51bb1802067ebf66258332579",
+      "bytes": 10112
+    },
+    {
+      "path": "practice-data.js",
+      "sha256": "889d97c1e02cc0087a79efd1556da10859c4b2217ba0b5c3ab6dd876c7a57bd6",
+      "bytes": 59462
+    },
+    {
+      "path": "preview/ayda-brand.js",
+      "sha256": "763265338037c80dd45b9b08286346be426adf8c0ad7a548c9830e1b11e669a8",
+      "bytes": 6117
+    },
+    {
+      "path": "preview/index.html",
+      "sha256": "698ff3205759863159f97c6ac5ee34de37daa92fec533e629f6cfafe0354849e",
+      "bytes": 5822
+    },
+    {
+      "path": "preview/learning.css",
+      "sha256": "e9d1ff668e30f93db0cd3d70b100f58b582652e69b51dc1d3411960cd9e9ed67",
+      "bytes": 17139
+    },
+    {
+      "path": "preview/learning.js",
+      "sha256": "87606186d8881a563ef3ce69c4ce504fca04179b1dda6314f71dc387940b87e5",
+      "bytes": 16031
+    },
+    {
+      "path": "preview/parity.css",
+      "sha256": "703f6d1f350c36825b539ee4908e79ae8fca7890d39efd8e96e6f2588e290011",
+      "bytes": 18384
+    },
+    {
+      "path": "preview/parity.js",
+      "sha256": "ecbb5c2aeae9224255ae13f72d15a8e29816c4f51bb1802067ebf66258332579",
+      "bytes": 10112
+    },
+    {
+      "path": "preview/smoke-test.mjs",
+      "sha256": "1ceafb201e8f5962e71da8d51ac87246906ab1e1349132470e936d029f63e485",
+      "bytes": 9535
+    },
+    {
+      "path": "progress-transfer.html",
+      "sha256": "eb1771758bdd058122369fd45814228c58294da588e7a7eb4471b1dc8e33c7d8",
+      "bytes": 2147
+    },
+    {
+      "path": "scripts/check-a2-integrity.mjs",
+      "sha256": "45f4f055b5a368fffd26328ac5a3b5dadd8f29549e9052700dd4b8da2b4d5987",
+      "bytes": 5556
+    },
+    {
+      "path": "scripts/test-a2-express.mjs",
+      "sha256": "7379051537aba62b76d6a4932ead603d9157609e6b44b0233d26a6e0bb6fde4e",
+      "bytes": 1880
+    },
+    {
+      "path": "styles.css",
+      "sha256": "f3d2f9d3b661945d5762ad4edf5f0a9b40610ee19aea049be50d635debb29272",
+      "bytes": 54111
+    }
+  ]
+}

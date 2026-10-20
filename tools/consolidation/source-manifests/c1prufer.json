@@ -1,0 +1,35 @@
+{
+  "repository": "onurqlp/c1prufer",
+  "source_ref": "main",
+  "source_commit": "e3694f757b49bad04f521915b4020435fe596418",
+  "destination": "sites/c1prufer",
+  "file_count": 5,
+  "total_bytes": 123124,
+  "files": [
+    {
+      "path": "README.txt",
+      "sha256": "a64ac076b060518eebbb38a1beaf9e874325940d0c1a8d1826c51ab86958abd8",
+      "bytes": 1284
+    },
+    {
+      "path": "icon.svg",
+      "sha256": "bbebc0b93426fc7eeef95ef287f140513db975c3f47b0d0bc4d3748eff70b6e5",
+      "bytes": 389
+    },
+    {
+      "path": "index.html",
+      "sha256": "b6866bbc5e6074b853cbdf38f5fe5472e1a559b703ab1c95781aade7c60e210f",
+      "bytes": 120671
+    },
+    {
+      "path": "manifest.webmanifest",
+      "sha256": "eacec8f89d6f09fdcac22f23a09588198431715170339ed9ba4d166d93dc1c3e",
+      "bytes": 336
+    },
+    {
+      "path": "sw.js",
+      "sha256": "1ddb75a8df1ec2aeadf5b78918477d9d8300f74a829205218b29140a63362e80",
+      "bytes": 444
+    }
+  ]
+}

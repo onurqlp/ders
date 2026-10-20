@@ -1,0 +1,15 @@
+{
+  "repository": "onurqlp/GENEL_SEVIYE_BELIRLEME",
+  "source_ref": "main",
+  "source_commit": "7acbb591b8c8961b2d8dcca2646ee22779427aab",
+  "destination": "sites/GENEL_SEVIYE_BELIRLEME",
+  "file_count": 1,
+  "total_bytes": 11676,
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "0df48f6ebcdef2f030c4b60da473e53ae704ad51b5fa1d7fec1d2e27839160ca",
+      "bytes": 11676
+    }
+  ]
+}

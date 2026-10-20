@@ -1,0 +1,40 @@
+{
+  "repository": "onurqlp/SEVIYEBELIRLEME",
+  "source_ref": "main",
+  "source_commit": "5ed714923e124b8b449aab94da573b5f345fb328",
+  "destination": "sites/SEVIYEBELIRLEME",
+  "file_count": 6,
+  "total_bytes": 60421,
+  "files": [
+    {
+      "path": "A1seviye.html",
+      "sha256": "62dea4f56c70b69c1c94137a4be555c003a4158eaf3daad8151a77cb0e953158",
+      "bytes": 9981
+    },
+    {
+      "path": "A2seviye.html",
+      "sha256": "8fb437089b3cf75084680117d1b5defd1b8a7d886446727b252f1a11497bd7ca",
+      "bytes": 9819
+    },
+    {
+      "path": "B1seviye.html",
+      "sha256": "e3474bcbb25e9273db7bad68786603df3f498a0bf89dfb4da8b12f334abe223e",
+      "bytes": 9502
+    },
+    {
+      "path": "B2seviye.html",
+      "sha256": "c9932f9fd601f3aa2d3df4aace2ad443fe8d938ac62ca059ba8cca3630e20b69",
+      "bytes": 9820
+    },
+    {
+      "path": "C1seviye.html",
+      "sha256": "948f5add6b97d811208de146a66c32606f65505e59bb071f9c55ee0b93248ed5",
+      "bytes": 11246
+    },
+    {
+      "path": "index.html",
+      "sha256": "2cdbdde0ee390cf8219a2d18e4f29715c69d1d864fc004246147e103a5f20c04",
+      "bytes": 10053
+    }
+  ]
+}

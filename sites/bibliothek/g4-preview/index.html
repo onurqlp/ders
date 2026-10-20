@@ -1,0 +1,2068 @@
+<!doctype html>
+<html lang="tr" class="g4-preview-mode">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#122850" />
+  <meta name="color-scheme" content="light" />
+  <title>AYDA Dijital Kütüphane — G4 Tasarım Önizlemesi</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="AYDA Dijital Kütüphane G4 tasarım önizlemesi. Canlı WordPress sayfası etkilenmez." />
+  <style>
+    :root {
+      --bg: #f6f8f5;
+      --surface: #ffffff;
+      --surface-soft: #f0f5f2;
+      --ink: #17201d;
+      --muted: #65736c;
+      --line: #d9e1dd;
+      --brand: #24416f;
+      --brand-2: #2f6f73;
+      --accent: #d66f32;
+      --green: #27835d;
+      --red: #ba3b3b;
+      --amber: #a66f12;
+      --shadow: 0 18px 45px rgba(29, 43, 38, .12);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        linear-gradient(120deg, rgba(47, 111, 115, .10), transparent 32%),
+        linear-gradient(240deg, rgba(214, 111, 50, .10), transparent 30%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    button, input, a { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+
+    .page {
+      width: min(1480px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 14px;
+    }
+
+    .app-shell {
+      max-width: 100%;
+      min-width: 0;
+      min-height: calc(100vh - 28px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .82);
+      border: 1px solid rgba(217, 225, 221, .9);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .92);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-radius: var(--radius);
+      font-weight: 900;
+    }
+
+    .brand-title {
+      min-width: 0;
+    }
+
+    .brand-title h1 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.15;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .brand-title p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      overflow-wrap: anywhere;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .status {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      color: var(--brand);
+      background: #eef4f3;
+      border: 1px solid #d7e6e3;
+      border-radius: var(--radius);
+      font-size: 12px;
+      font-weight: 760;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: #91a19a;
+      box-shadow: 0 0 0 4px rgba(145, 161, 154, .18);
+    }
+
+    .status.is-ok .status-dot {
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(39, 131, 93, .15);
+    }
+
+    .status.is-warn .status-dot {
+      background: var(--amber);
+      box-shadow: 0 0 0 4px rgba(166, 111, 18, .15);
+    }
+
+    .status.is-bad .status-dot {
+      background: var(--red);
+      box-shadow: 0 0 0 4px rgba(186, 59, 59, .14);
+    }
+
+    .button {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 760;
+      line-height: 1;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
+    }
+
+    .button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      border-color: #b8c6c0;
+      background: #f9fbfa;
+    }
+
+    .button:disabled {
+      opacity: .52;
+      cursor: not-allowed;
+    }
+
+    .button.is-disabled {
+      opacity: .52;
+      pointer-events: none;
+    }
+
+    .button.primary {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    }
+
+    .button.danger {
+      color: #8b2626;
+      background: #fff4f2;
+      border-color: #efd3cc;
+    }
+
+    .icon {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
+      stroke-width: 2.2;
+    }
+
+    #aydaLoginBox {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
+      gap: 0;
+      min-width: 0;
+    }
+
+    .login-visual {
+      min-width: 0;
+      min-height: 620px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 28px;
+      color: #fff;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(23, 32, 29, .86), rgba(23, 32, 29, .28)),
+        url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80") center / cover;
+    }
+
+    .login-copy {
+      width: 100%;
+      min-width: 0;
+      max-width: 780px;
+      align-self: end;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 7px 10px;
+      color: #f8fff9;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .10);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .login-copy h2 {
+      margin: 0;
+      max-width: 760px;
+      font-size: 48px;
+      line-height: 1.05;
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+
+    .login-copy p {
+      margin: 14px 0 0;
+      max-width: 650px;
+      color: rgba(255, 255, 255, .86);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .metric {
+      min-height: 90px;
+      padding: 13px;
+      border: 1px solid rgba(255, 255, 255, .20);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .12);
+      backdrop-filter: blur(10px);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, .82);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .login-panel {
+      display: grid;
+      align-content: center;
+      padding: 28px;
+      background: var(--surface);
+      border-left: 1px solid var(--line);
+    }
+
+    .form-box {
+      width: min(100%, 470px);
+      justify-self: center;
+    }
+
+    .form-box h3 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 870;
+    }
+
+    .form-box .sub {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .login-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .field label {
+      display: block;
+      margin: 0 0 7px;
+      color: #50615a;
+      font-size: 12px;
+      font-weight: 820;
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+      gap: 8px;
+      padding: 0 10px;
+      border: 1px solid #cbd8d2;
+      border-radius: var(--radius);
+      background: #fff;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+
+    .input-row:focus-within {
+      border-color: var(--brand-2);
+      box-shadow: 0 0 0 4px rgba(47, 111, 115, .12);
+    }
+
+    .input-row input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      padding: 13px 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .icon-button {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      background: #edf3f0;
+      color: #43534d;
+    }
+
+    .icon-button:hover {
+      border-color: #c7d4ce;
+      background: #fff;
+    }
+
+    .message {
+      min-height: 46px;
+      margin-top: 14px;
+      padding: 11px 12px;
+      border: 1px solid #d6e2dd;
+      border-radius: var(--radius);
+      background: #f4f8f6;
+      color: #40524b;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .message.is-error {
+      color: #8b2626;
+      border-color: #efc9c2;
+      background: #fff4f2;
+    }
+
+    .message.is-success {
+      color: #246246;
+      border-color: #c8e6d7;
+      background: #f1fbf5;
+    }
+
+    .message.is-info {
+      color: #24416f;
+      border-color: #d1dde9;
+      background: #f2f6fb;
+    }
+
+    .login-note {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    code {
+      padding: 1px 4px;
+      color: #24416f;
+      background: #edf3f0;
+      border: 1px solid #d8e5de;
+      border-radius: 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: .92em;
+    }
+
+    #aydaProtectedContent {
+      display: none;
+      flex: 1;
+      grid-template-columns: 292px minmax(0, 1fr);
+      min-height: 0;
+    }
+
+    #aydaProtectedContent[style*="display: block"],
+    #aydaProtectedContent[style*="display: grid"] {
+      display: grid !important;
+    }
+
+    .sidebar {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px;
+      background: #fbfcfb;
+      border-right: 1px solid var(--line);
+      overflow: auto;
+    }
+
+    .sidebar-head h2,
+    .content-head h2 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 870;
+    }
+
+    .sidebar-head p,
+    .content-head p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .filter-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .label {
+      color: #53645d;
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .level-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .level-button,
+    .chip {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px 10px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 780;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+    }
+
+    .level-button:hover,
+    .chip:hover {
+      transform: translateY(-1px);
+      border-color: #b9c8c1;
+    }
+
+    .level-button.is-active,
+    .chip.is-active {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    }
+
+    .chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 10px;
+      background: #fff;
+      border: 1px solid #cbd8d2;
+      border-radius: var(--radius);
+    }
+
+    .search:focus-within {
+      border-color: var(--brand-2);
+      box-shadow: 0 0 0 4px rgba(47, 111, 115, .12);
+    }
+
+    .search input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      padding: 11px 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .stat-box {
+      min-height: 74px;
+      padding: 11px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .stat-box strong {
+      display: block;
+      color: var(--brand);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .stat-box span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .library-main {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      background: var(--surface);
+    }
+
+    .content-toolbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .content-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .library-workspace {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(310px, 420px) minmax(0, 1fr);
+      gap: 0;
+    }
+
+    .resources-pane {
+      min-height: 0;
+      border-right: 1px solid var(--line);
+      overflow: auto;
+      background: #fbfcfb;
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .resource-card {
+      width: 100%;
+      min-height: 92px;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      padding: 12px;
+      text-align: left;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-1px);
+      border-color: #b9c8c1;
+      box-shadow: 0 10px 22px rgba(29, 43, 38, .08);
+    }
+
+    .resource-card.is-active {
+      border-color: rgba(47, 111, 115, .45);
+      box-shadow: 0 0 0 3px rgba(47, 111, 115, .12);
+    }
+
+    .resource-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: var(--brand-2);
+      background: #eef6f3;
+      border-radius: var(--radius);
+    }
+
+    .resource-name {
+      display: block;
+      overflow-wrap: anywhere;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 820;
+    }
+
+    .resource-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 23px;
+      padding: 3px 7px;
+      color: #56675f;
+      background: #edf3f0;
+      border: 1px solid #dae6e0;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 740;
+    }
+
+    .viewer {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      background: #f7f9f8;
+    }
+
+    .viewer-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 57px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .viewer-title {
+      min-width: 0;
+    }
+
+    .viewer-title strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .viewer-title span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .frame-wrap {
+      position: relative;
+      min-height: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      display: block;
+      border: 0;
+      background: #fff;
+    }
+
+    iframe.is-loading {
+      opacity: .42;
+    }
+
+    .empty-state {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background:
+        linear-gradient(45deg, rgba(39, 131, 93, .05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(36, 65, 111, .05) 25%, transparent 25%),
+        #f7f9f8;
+      background-size: 24px 24px;
+    }
+
+    .empty-state.is-hidden {
+      display: none;
+    }
+
+    .empty-box {
+      width: min(420px, 100%);
+      padding: 18px;
+      color: #40524b;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 34px rgba(29, 43, 38, .10);
+    }
+
+    .empty-box strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .empty-box p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1120px) {
+      #aydaLoginBox {
+        grid-template-columns: 1fr;
+      }
+
+      .login-panel {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      #aydaProtectedContent {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .library-workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .resources-pane {
+        max-height: 340px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 8px;
+      }
+
+      .app-shell {
+        min-height: calc(100vh - 16px);
+        border-radius: 10px;
+      }
+
+      .topbar,
+      .content-toolbar,
+      .viewer-bar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .brand-title p {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+      }
+
+      .top-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .top-actions,
+      .content-actions {
+        justify-content: stretch;
+      }
+
+      .top-actions .button,
+      .content-actions .button,
+      .status {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .top-actions .status {
+        grid-column: 1 / -1;
+      }
+
+      .login-visual {
+        min-height: 520px;
+        padding: 20px;
+      }
+
+      .login-copy h2 {
+        max-width: 330px;
+        font-size: 30px;
+      }
+
+      .login-copy p {
+        max-width: 330px;
+        font-size: 15px;
+      }
+
+      .login-copy,
+      .metric-strip {
+        max-width: 330px;
+      }
+
+      .metric-strip,
+      .quick-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .login-panel,
+      .sidebar,
+      .content-toolbar {
+        padding: 14px;
+      }
+
+      .form-box {
+        width: 100%;
+      }
+
+      .level-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      iframe {
+        min-height: 460px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .metric-strip,
+      .level-grid,
+      .quick-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+/* AYDA compact resource viewer; existing code-login and iframe behavior untouched */
+:root{--bg:#fbf9f5;--surface:#fff;--surface-soft:#f3f5f6;--ink:#172a42;--muted:#657185;--line:#e3e6e7;--brand:#102541;--brand-2:#244864;--accent:#c69e54;--shadow:0 12px 32px rgba(16,37,65,.075)}
+.page{max-width:1450px}
+.app-shell{border-color:#e6e6e0;box-shadow:0 10px 32px rgba(16,37,65,.045)}
+.brand-mark{background:#102541}
+.button{min-height:42px}
+.level-button,.chip{min-height:40px}
+.resource-card{border-radius:11px;min-height:55px}
+.resources-pane{scrollbar-width:thin}
+.resource-list{gap:7px}
+.viewer{background:#fff}
+.empty-box{border-radius:13px;box-shadow:0 8px 20px rgba(16,37,65,.05)}
+:focus-visible{outline:3px solid #e8c37b;outline-offset:3px}
+@media(max-width:1120px){
+ .login-panel{order:-1}
+ .login-visual{min-height:0;padding:19px}
+ .login-copy h2{font-size:25px;line-height:1.2}
+}
+@media(max-width:720px){
+ .topbar{padding:11px 12px;gap:8px}
+ .brand-title h1{font-size:17px}
+ .brand-title p{font-size:11px}
+ .login-panel{padding:15px 13px}
+ .login-visual{min-height:0;padding:14px}
+ .login-copy h2{max-width:none;font-size:20px}
+ .login-copy p{max-width:none;font-size:12px;line-height:1.4}
+ .login-visual .metric-strip{display:none}
+ .form-box{padding:14px}
+ .login-form .button.primary{min-height:48px;width:100%}
+ .sidebar{padding:12px}
+ .sidebar-head{margin-bottom:8px}
+ .level-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .level-button{font-size:12px;padding:8px 5px;min-height:43px}
+ .chip-wrap{gap:6px}
+ .content-toolbar{padding:12px;gap:9px}
+ .content-actions .button{min-height:44px}
+ .resources-pane{max-height:290px}
+ .resource-card{grid-template-columns:auto minmax(0,1fr);padding:10px;gap:9px}
+ .viewer-bar{flex-direction:row;align-items:center}
+ .viewer-title{flex:1}
+ .viewer-bar>.button{flex:none;min-height:40px}
+ iframe{min-height:360px}
+}
+@media(max-width:440px){
+ .level-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .resource-card{grid-template-columns:auto minmax(0,1fr)}
+ .quick-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .login-visual{padding:12px}
+ .top-actions{gap:6px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+
+/* AYDA B1-inspired 2026 library UI: no changes to the central access script */
+.library-main{grid-template-rows:auto auto minmax(0,1fr)}
+.library-notice{line-height:0}
+.library-notice.visible{line-height:1.45}
+:root{--bg:#f8f7f2;--surface:#fff;--surface-soft:#eef2f7;--ink:#14213d;--muted:#60708d;--line:#dde5f0;--brand:#122850;--brand-2:#244269;--accent:#ffcf4a;--green:#159a74;--shadow:0 15px 42px #12285014}
+body{background:var(--bg);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
+.app-shell{box-shadow:0 20px 58px #12285014;border-radius:19px}
+.topbar{background:#fff}
+.brand-mark{background:#122850;color:#ffcf4a;border-radius:11px}
+.login-visual{background:linear-gradient(135deg,#122850,#214665)}
+.login-copy h2{font-weight:900;letter-spacing:-.035em}
+.form-box{border-color:#dde5f0;box-shadow:0 9px 25px #12285010}
+.button.primary{background:#ffcf4a;color:#29220a;border-color:#ffcf4a;font-weight:900}
+.button.primary:hover{background:#f4c13b}
+.level-button.is-active,.chip.is-active{background:#122850;color:#fff;border-color:#122850}
+.resource-card{background:#fff;border-radius:12px;min-height:65px;padding:10px}
+.resource-card.is-active{border-color:#122850;background:#fff8e6}
+.resource-list{gap:7px}
+.library-workspace{grid-template-columns:minmax(280px,360px) minmax(0,1fr)}
+.resources-pane{background:#fbfcfe}
+.viewer{scroll-margin-top:12px}
+.library-favorites-filter{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff8e6;color:#122850;border-color:#ead79b;font-weight:850}
+.library-favorites-filter.is-active{background:#ffcf4a;border-color:#ffcf4a}
+.favorite-count{display:inline-grid;place-items:center;background:#122850;color:#fff;border-radius:999px;min-width:23px;height:23px;padding:0 6px;font-size:11px}
+.library-save[aria-pressed=true]{background:#fff0bf;border-color:#deb95f;color:#122850}
+.library-notice{height:0;overflow:hidden;text-align:center;font-weight:850;font-size:12px;transition:height .2s;opacity:0}
+.library-notice.visible{height:auto;min-height:31px;padding:8px;background:#e8f8f0;color:#14654e;opacity:1}
+:focus-visible{outline:3px solid #ffcf4a;outline-offset:3px}
+@media(max-width:1120px){.library-workspace{grid-template-columns:1fr}.resources-pane{max-height:350px}}
+@media(max-width:720px){
+ .page{padding:8px}
+ .app-shell{border-radius:12px}
+ .login-visual{padding:15px}
+ .login-copy h2{font-size:22px}
+ .login-copy p{font-size:12px}
+ .level-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .sidebar{padding:12px}
+ .content-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ .content-actions .library-save{grid-column:1/-1}
+ .content-actions .button{font-size:12px;min-height:44px}
+ .resources-pane{max-height:290px}
+ .resource-card{min-height:58px;grid-template-columns:30px minmax(0,1fr)}
+ .viewer{scroll-margin-top:8px}
+ iframe{min-height:390px}
+}
+@media(max-width:420px){.level-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.library-notice{transition:none}}
+</style>
+<style id="ayda-g4-design-system">
+/* AYDA UI / G4 Design Preview v1 — scope: preview only, never WP production */
+:root{
+  --bg:#f8f7f2;--surface:#fff;--surface-soft:#f2f5f8;
+  --ink:#172b46;--muted:#65758b;--line:#dfe5ed;
+  --brand:#102541;--brand-2:#214d75;--accent:#e8c37b;
+  --green:#217a61;--amber:#98722b;--radius:15px;
+  --shadow:0 15px 48px rgba(11,27,49,.09);
+  --ayda-navy:#102541;--ayda-gold:#e8c37b;--ayda-cream:#fbf9f5;
+}
+html{scroll-padding-top:80px}
+body{
+  background:var(--ayda-cream);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+.g4-preview-banner{
+  min-height:43px;max-width:1480px;margin:0 auto;
+  padding:9px 22px;background:var(--ayda-navy);color:#f4f5f6;
+  display:flex;gap:12px;align-items:center;justify-content:space-between;
+  font-size:12px;line-height:1.4
+}
+.g4-preview-banner .g4-banner-left{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.g4-banner-label{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;letter-spacing:.085em;font-weight:900;color:var(--ayda-gold);font-size:10px}
+.g4-banner-label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ayda-gold)}
+.g4-preview-banner p{margin:0;color:#d9e3ee}
+.g4-switch{
+  border:1px solid #5f7288;color:#fff;background:#213c5c;
+  padding:6px 11px;border-radius:9px;font-weight:750;min-height:32px;white-space:nowrap
+}
+.g4-switch:hover{background:#335579}
+.page{padding:0 16px 16px;max-width:1480px}
+.app-shell{min-height:calc(100dvh - 58px);background:var(--surface);border:1px solid #e4e8ee;border-radius:0 0 18px 18px;box-shadow:var(--shadow);overflow:visible}
+.topbar{
+  position:sticky;top:0;z-index:24;min-height:75px;padding:12px 24px;
+  background:#fff;box-shadow:0 3px 14px #10254109;border-bottom:1px solid var(--line)
+}
+.brand-mark{
+  width:47px;height:47px;display:grid;place-items:center;
+  border-radius:14px;background:var(--ayda-navy);color:var(--ayda-gold);
+  font-size:23px;font-weight:900;letter-spacing:-.07em
+}
+.brand-title h1{font-size:19px;line-height:1.18;letter-spacing:-.035em;color:var(--ayda-navy);font-weight:900}
+.brand-title p{font-size:11px;line-height:1.4;color:var(--muted)}
+.top-actions{gap:9px}
+.top-actions .status{background:#f1f7f4;border:1px solid #d6e9df;border-radius:12px;min-height:40px}
+.top-actions .button{min-height:42px;padding:9px 12px;border-radius:11px;background:#fff}
+.button{border-radius:11px;min-height:43px}
+.button:hover:not(:disabled){border-color:#b5c4d3}
+.button.primary{background:var(--ayda-navy);color:#fff;border-color:var(--ayda-navy)}
+.button.primary:hover{background:#214d75;border-color:#214d75}
+.button.danger{color:#9e4340;background:#fff8f7}
+:focus-visible{outline:3px solid var(--ayda-gold)!important;outline-offset:2px}
+#aydaLoginBox{grid-template-columns:minmax(0,1.03fr) minmax(350px,.97fr)}
+.login-visual{
+  background:radial-gradient(circle at 90% 5%,#e8c37b3d,transparent 31%),
+             radial-gradient(circle at 8% 76%,#4c829c50,transparent 37%),
+             linear-gradient(145deg,#0b1b31,#183c60 72%,#214d75);
+  min-height:520px;padding:40px;
+  position:relative;isolation:isolate
+}
+.login-visual::before,.login-visual::after{content:"";position:absolute;border:1px solid #ffffff25;border-radius:50%;z-index:-1}
+.login-visual::before{width:360px;height:360px;right:-180px;top:-155px}
+.login-visual::after{width:220px;height:220px;left:-110px;bottom:-125px}
+.login-copy h2{font-size:clamp(34px,3.8vw,55px);letter-spacing:-.055em;line-height:1.08}
+.login-copy p{font-size:15px;line-height:1.7}
+.kicker{border-radius:99px;padding:9px 14px;color:#f5e3be;background:#ffffff12}
+.metric{border-radius:13px;background:#ffffff11}
+.metric strong{color:#fff}
+.login-panel{padding:45px;min-height:500px;background:#fff}
+.form-box{padding:0}
+.form-box h3{font-size:25px;letter-spacing:-.035em}
+.input-row{border-radius:12px;min-height:54px;background:#fafbfd}
+.login-form .primary{width:100%;min-height:52px;font-size:15px}
+.login-note{color:var(--muted)}
+html.g4-preview-mode:not(.g4-show-login) #aydaLoginBox{display:none!important}
+html.g4-preview-mode:not(.g4-show-login) #aydaProtectedContent{display:grid!important}
+html.g4-preview-mode.g4-show-login #aydaLoginBox{display:grid!important}
+html.g4-preview-mode.g4-show-login #aydaProtectedContent{display:none!important}
+#aydaProtectedContent{
+  display:grid;grid-template-columns:254px minmax(0,1fr);align-items:start;
+  min-height:calc(100dvh - 155px);background:#fff
+}
+.sidebar{
+  align-self:start;position:sticky;top:75px;
+  max-height:calc(100dvh - 78px);overflow:auto;
+  padding:22px 16px 24px;gap:17px;
+  background:#f9fafc;border-right:1px solid var(--line)
+}
+.sidebar-head h2{font-size:21px;font-weight:900;letter-spacing:-.04em;color:var(--ayda-navy)}
+.sidebar-head p{font-size:11px;color:var(--muted)}
+.filter-group{gap:9px}
+.filter-group>.label{color:#66768a;font-size:10px;letter-spacing:.09em;font-weight:850}
+.level-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.level-button{
+  min-height:49px;flex-direction:column;gap:3px;
+  padding:8px 4px;border-radius:11px;font-size:13px;font-weight:900;
+  border:1px solid #dfe7ef;background:#fff;color:#26415e
+}
+.level-button .icon{width:15px;height:15px}
+.level-button.is-active,.chip.is-active{
+  background:var(--ayda-navy);color:#fff;border-color:var(--ayda-navy);box-shadow:none
+}
+.chip-wrap{gap:6px}
+.chip{min-height:34px;padding:6px 9px;border-radius:8px;font-size:11px;font-weight:750}
+.search{
+  min-height:48px;border:1px solid #cbd7e5;background:white;
+  padding:0 12px;border-radius:12px
+}
+.search:focus-within{border-color:#214d75;box-shadow:0 0 0 3px #214d751c}
+.search input{font-size:13px;min-height:44px}
+.quick-stats{gap:9px}
+.stat-box{min-height:65px;border-radius:11px;background:#fff}
+.stat-box strong{font-size:23px;font-weight:900}
+.stat-box span{font-size:10px;margin-top:6px}
+.library-favorites-filter{border-radius:10px;background:#fff8e8;border-color:#ead8a8;min-height:44px}
+.library-favorites-filter.is-active{background:#f3d594;border-color:#d5b66b}
+#clearFiltersBtn,#logoutBtn{min-height:43px}
+.g4-filter-toggle{display:none}
+.library-main{display:flex;flex-direction:column;min-width:0;min-height:0;background:#fff}
+.g4-intro{
+  padding:23px 24px 18px;background:#fff;
+  border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:18px
+}
+.g4-eyebrow{font-size:10px;letter-spacing:.16em;font-weight:900;color:#ae8443}
+.g4-intro h2{font-size:25px;color:var(--ayda-navy);letter-spacing:-.055em;line-height:1.15;margin:5px 0 4px;font-weight:900}
+.g4-intro p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+.g4-intro-emblem{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;
+  padding:10px 12px;border:1px solid #e9dfcb;
+  border-radius:999px;background:#fffbf3;color:#695336;
+  font-size:11px;font-weight:850
+}
+.g4-intro-emblem::before{content:"✦";font-size:13px;color:#b38d4e}
+.content-toolbar{padding:17px 22px;border-bottom:1px solid var(--line);align-items:center}
+.content-head h2{font-size:18px;letter-spacing:-.03em;font-weight:880}
+.content-head p{font-size:12px}
+.content-actions{gap:7px}
+.content-actions .button{font-size:12px;min-height:42px}
+.library-workspace{
+  grid-template-columns:minmax(275px,330px) minmax(0,1fr);
+  height:calc(100dvh - 272px);min-height:560px;
+  overflow:hidden
+}
+.resources-pane{max-height:none;background:#fbfcfd;overflow:auto;overscroll-behavior:contain}
+.resource-list{padding:14px;gap:9px}
+.resource-card{
+  min-height:79px;padding:13px;grid-template-columns:40px minmax(0,1fr);
+  border-radius:12px;border:1px solid #e1e8f0;box-shadow:none
+}
+.resource-card:hover{border-color:#a2b5ca;background:#fff}
+.resource-card.is-active{background:#fff9ed;border:1px solid #d9be86;box-shadow:0 0 0 2px #e8c37b26}
+.resource-icon{width:40px;height:40px;border-radius:11px;background:#edf3fb;color:#214d75}
+.resource-name{font-size:13px;font-weight:820;line-height:1.4}
+.resource-meta{margin-top:8px;gap:4px}
+.tag{border:0;background:#edf2f8;color:#61738b;font-size:10px;border-radius:6px;min-height:20px;padding:3px 5px}
+.viewer{min-height:0;background:#fff;grid-template-rows:auto minmax(0,1fr)}
+.viewer-bar{padding:12px 17px;min-height:63px;background:#fff}
+.viewer-title strong{font-size:14px;font-weight:850}
+.viewer-title span{font-size:11px}
+.frame-wrap{min-height:0;overflow:hidden}
+iframe{min-height:0;height:100%;background:#fff}
+.empty-state{background:#f7f9fc;padding:20px}
+.empty-box{padding:30px;max-width:410px;border-radius:17px;border:1px solid #e1e7ee;box-shadow:0 9px 32px #1025410a}
+.empty-box strong{font-size:18px;font-weight:900;color:var(--ayda-navy)}
+.empty-box p{font-size:13px;line-height:1.65;color:var(--muted)}
+.g4-preview-notice{margin-bottom:12px;display:inline-flex;gap:6px;color:#926b2c;font-size:11px;font-weight:900;letter-spacing:.09em}
+.g4-viewer-close,.g4-viewer-fav,.g4-viewer-copy{display:none}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1180px) and (min-width:901px){
+  #aydaProtectedContent{grid-template-columns:224px minmax(0,1fr)}
+  .sidebar{padding:15px 11px}
+  .library-workspace{grid-template-columns:minmax(238px,290px) minmax(0,1fr)}
+  .content-actions .button{padding:7px;font-size:11px}
+  .g4-intro{padding:18px}
+  .g4-intro h2{font-size:21px}
+}
+@media(max-width:900px){
+  .g4-preview-banner{padding:10px 13px;gap:9px}
+  .g4-preview-banner p{font-size:11px}
+  .page{padding:0;max-width:none}
+  .app-shell{min-height:calc(100dvh - 43px);border:0;border-radius:0;box-shadow:none}
+  .topbar{
+    padding:11px 15px;gap:8px;flex-direction:row;align-items:center;min-height:64px;top:0
+  }
+  .brand{gap:9px;min-width:0}
+  .brand-mark{width:39px;height:39px;border-radius:11px;font-size:20px;flex:0 0 39px}
+  .brand-title h1{font-size:15px;line-height:1.2}
+  .brand-title p{display:none}
+  .top-actions{
+    display:flex;gap:6px;width:auto;justify-content:flex-end;align-items:center;flex:0 0 auto
+  }
+  .top-actions .status{display:none}
+  .top-actions .button{min-width:0;width:auto;min-height:37px;font-size:11px;padding:8px 9px;gap:5px}
+  .top-actions .button .icon{width:14px;height:14px}
+  #aydaProtectedContent{grid-template-columns:minmax(0,1fr);display:grid;min-height:0}
+  .sidebar{
+    position:static;max-height:none;overflow:visible;
+    display:flex;flex-direction:column;gap:11px;
+    padding:17px 14px 15px;background:#fff;border-right:0;border-bottom:1px solid var(--line)
+  }
+  .sidebar-head{order:0}
+  .sidebar-head h2{font-size:19px}
+  .sidebar-head p{display:none}
+  .g4-search-group{order:1}
+  .g4-level-group{order:2}
+  .g4-types{order:3}
+  .sidebar>.quick-stats{display:none}
+  #libraryFavoritesFilter{order:4;min-height:42px}
+  #clearFiltersBtn{order:5;margin-top:0}
+  #logoutBtn{display:none}
+  .search{min-height:53px;border-radius:12px;background:#fafcfe}
+  .search input{min-height:49px;font-size:14px}
+  .filter-group>.label{font-size:10px}
+  .level-grid{
+    display:flex;gap:7px;white-space:nowrap;overflow-x:auto;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding:1px 1px 5px
+  }
+  .level-grid::-webkit-scrollbar{display:none}
+  .level-button{
+    flex:0 0 66px;min-width:66px;min-height:52px;gap:4px;
+    font-size:12px;line-height:1.15;padding:7px 5px
+  }
+  .level-button .icon{height:16px;width:16px}
+  .g4-filter-toggle{
+    display:flex;align-items:center;justify-content:space-between;
+    width:100%;min-height:39px;border:1px solid #e0e7ee;background:#f8fafc;
+    border-radius:10px;padding:9px 13px;color:#21415f;font-size:12px;font-weight:800
+  }
+  .g4-types>.label{display:none}
+  .g4-types #tagWrap{display:none}
+  .g4-types.g4-expanded #tagWrap{display:flex;padding-top:5px}
+  .g4-types.g4-expanded .g4-filter-toggle{background:#edf3f9;border-color:#bfd0df}
+  .chip{font-size:12px;min-height:37px;padding:6px 10px}
+  #libraryFavoritesFilter{border:1px solid #e3e8ee}
+  #clearFiltersBtn{margin-top:0}
+  .library-main{display:flex}
+  .g4-intro{
+    padding:17px 15px 13px;align-items:flex-start;
+    background:linear-gradient(108deg,#102541,#214d75);color:#fff;border:0
+  }
+  .g4-intro h2{font-size:21px;color:white}
+  .g4-intro p{color:#d6e2ef;font-size:11px}
+  .g4-eyebrow{color:#e8c37b;font-size:9px}
+  .g4-intro-emblem{display:none}
+  .content-toolbar{
+    padding:14px 15px 10px;flex-direction:row;gap:10px;align-items:center
+  }
+  .content-head h2{font-size:16px}
+  .content-head p{font-size:11px}
+  .content-actions{display:none}
+  .library-workspace{display:block;height:auto;min-height:0;overflow:visible}
+  .resources-pane{max-height:none;border:0;overflow:visible}
+  .resource-list{padding:10px 13px 30px;gap:9px}
+  .resource-card{
+    min-height:79px;padding:13px;grid-template-columns:39px minmax(0,1fr);
+    border-radius:12px;box-shadow:0 4px 11px #10254105
+  }
+  .resource-icon{width:39px;height:39px}
+  .resource-name{font-size:13px}
+  .tag{font-size:10px}
+  .viewer{display:none}
+  body.g4-viewer-open{overflow:hidden}
+  body.g4-viewer-open .viewer{
+    display:grid;position:fixed;inset:0;z-index:130;
+    grid-template-rows:auto minmax(0,1fr);background:#fff;
+    height:100dvh;width:100vw;box-shadow:0 0 0 999vmax #10254155
+  }
+  .viewer-bar{
+    flex-direction:row;align-items:center;gap:7px;
+    padding:9px 11px;min-height:66px;
+    padding-top:max(9px,env(safe-area-inset-top));
+    border-bottom:1px solid var(--line)
+  }
+  .viewer-title{flex:1;min-width:0}
+  .viewer-title strong{font-size:12px;line-height:1.25}
+  .viewer-title span{font-size:10px}
+  .g4-viewer-close,.g4-viewer-fav,.g4-viewer-copy{
+    display:inline-grid;place-items:center;flex:0 0 auto;
+    height:38px;min-width:37px;border:1px solid #dfe5ed;border-radius:10px;
+    background:#fff;color:var(--ayda-navy);font-size:17px;font-weight:800
+  }
+  .g4-viewer-close{min-width:43px}
+  .g4-viewer-fav[aria-pressed=true]{background:#f9ebc5;border-color:#dcb960;color:#70551f}
+  .viewer-bar>.button{width:auto;min-width:44px;min-height:38px;flex:0 0 auto;padding:8px 9px;font-size:11px}
+  .viewer .frame-wrap{min-height:0;height:100%;overflow:auto}
+  iframe{width:100%;height:100%;min-height:0}
+  .empty-state{padding:14px}
+  .empty-box{padding:22px}
+  #aydaLoginBox{grid-template-columns:1fr}
+  .login-panel{order:-1;padding:23px 18px;min-height:auto}
+  .form-box{width:100%}
+  .form-box h3{font-size:22px}
+  .login-form{margin-top:16px}
+  .login-visual{min-height:260px;padding:22px}
+  .login-copy h2{font-size:24px;max-width:520px}
+  .login-copy p{font-size:12px;line-height:1.6}
+  .metric-strip{display:none}
+}
+@media(max-width:390px){
+  .g4-preview-banner p{display:none}
+  .topbar{padding:10px 11px}
+  .brand-title h1{font-size:14px}
+  .top-actions .button{padding:7px 8px;font-size:10px}
+  .g4-viewer-copy{display:none}
+  .viewer-bar{gap:5px;padding-left:8px;padding-right:8px}
+  .viewer-bar>.button{padding:6px 7px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+<body data-auth="false">
+  <div class="g4-preview-banner"><div class="g4-banner-left"><span class="g4-banner-label">G4 · AYDA UI 2026</span><p>Tasarım önizlemesi · Canlı kütüphane değiştirilmedi.</p></div><button id="g4ModeToggle" type="button" class="g4-switch">Giriş ekranını gör</button></div>
+  <main class="page">
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">A</div>
+          <div class="brand-title">
+            <h1>AYDA Dijital Kütüphane</h1>
+            <p>Almanca öğrenmenin kaynak merkezi</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <div id="accessStatus" class="status is-warn" role="status" aria-live="polite">
+            <span class="status-dot"></span>
+            <span id="accessStatusText">Şifre sistemi bağlanıyor</span>
+          </div>
+          <a id="waLink" class="button" href="#" target="_blank" rel="noopener">
+            <i data-lucide="message-circle" class="icon"></i>
+            WhatsApp
+          </a>
+          <a id="smsLink" class="button" href="#">
+            <i data-lucide="message-square" class="icon"></i>
+            SMS
+          </a>
+        </div>
+      </header>
+
+      <section id="aydaLoginBox" aria-label="AYDA giriş">
+        <section class="login-visual">
+          <div></div>
+          <div class="login-copy">
+            <div class="kicker">
+              <i data-lucide="shield-check" class="icon"></i>
+              Merkezi erişim
+            </div>
+            <h2>AYDA ders kaynakları tek ekranda.</h2>
+            <p>A1 seviyesinden B2 hazırlığa kadar Drive klasörleri, YouTube listeleri, Quizlet ve online egzersizler aynı çalışma alanında toplanır.</p>
+            <div class="metric-strip" aria-label="Kütüphane özeti">
+              <div class="metric"><strong>5</strong><span>Kaynak bölümü</span></div>
+              <div class="metric"><strong>52</strong><span>Bağlantı</span></div>
+              <div class="metric"><strong>A1-B2</strong><span>Seviye aralığı</span></div>
+              <div class="metric"><strong>AYDA</strong><span>Kaynak merkezi</span></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="login-panel">
+          <div class="form-box">
+            <h3>Sınıf kodu ile giriş</h3>
+            <p class="sub">Şifre kontrolü merkezi AYDA erişim dosyasından yapılır.</p>
+
+            <form id="loginForm" class="login-form" autocomplete="off">
+              <div class="field">
+                <label for="aydaPasswordInput">Sınıf kodu</label>
+                <div class="input-row">
+                  <i data-lucide="key-round" class="icon" aria-hidden="true"></i>
+                  <input id="aydaPasswordInput" type="password" inputmode="text" placeholder="Kodunuzu yazın" autocomplete="off" />
+                  <button id="togglePasswordBtn" class="icon-button" type="button" aria-label="Şifreyi göster veya gizle" title="Şifreyi göster veya gizle">
+                    <i data-lucide="eye" class="icon"></i>
+                  </button>
+                </div>
+              </div>
+              <button id="loginBtn" class="button primary" type="button" onclick="aydaCheckPassword()">
+                <i data-lucide="log-in" class="icon"></i>
+                Giriş yap
+              </button>
+            </form>
+
+            <div id="aydaLoginMessage" class="message is-info" role="status" aria-live="polite">Sınıf kodunuzu girerek kütüphaneye erişebilirsiniz.</div>
+            <p class="login-note">Kodlar AYDA merkezi şifre sistemi üzerinden doğrulanır; bu sayfa şifre listesini kendi içinde saklamaz.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="aydaProtectedContent" aria-label="AYDA kütüphanesi">
+        <aside class="sidebar">
+          <div class="sidebar-head">
+            <h2>Kaynakları Bul</h2>
+            <p id="activeCodeLabel">Kod: aktif</p>
+          </div>
+
+          <div class="filter-group g4-level-group">
+            <div class="label">Seviyeni seç</div>
+            <div id="levelGrid" class="level-grid"></div>
+          </div>
+
+          <div class="filter-group g4-types">
+            <div class="label">Kaynak türü</div>
+            <button id="g4FilterToggle" type="button" aria-expanded="false" class="g4-filter-toggle"><span>Kaynak türlerini göster</span><span aria-hidden="true">⌄</span></button>
+            <div id="tagWrap" class="chip-wrap"></div>
+          </div>
+
+          <div class="filter-group g4-search-group">
+            <div class="label">Ne arıyorsun?</div>
+            <div class="search">
+              <i data-lucide="search" class="icon" aria-hidden="true"></i>
+              <input id="searchInput" type="search" aria-label="Kütüphanede kaynak ara" placeholder="Kitap, PDF, ses, video veya sınav ara…" autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="quick-stats" aria-label="Filtre özeti">
+            <div class="stat-box"><strong id="visibleCount">0</strong><span>Görünen kaynak</span></div>
+            <div class="stat-box"><strong id="totalCount">0</strong><span>Toplam kaynak</span></div>
+          </div>
+
+          <button id="libraryFavoritesFilter" class="button library-favorites-filter" type="button" aria-pressed="false">
+<i data-lucide="star" class="icon"></i> Favori Kaynaklarım <span id="libraryFavoritesCount" class="favorite-count">0</span>
+</button>
+          <button id="clearFiltersBtn" class="button" type="button">
+            <i data-lucide="rotate-ccw" class="icon"></i>
+            Filtreleri sıfırla
+          </button>
+          <button id="logoutBtn" class="button danger" type="button">
+            <i data-lucide="log-out" class="icon"></i>
+            Çıkış yap
+          </button>
+        </aside>
+
+        <section class="library-main">
+          <div class="g4-intro"><div><span class="g4-eyebrow">AYDA DİL AKADEMİSİ · ÖĞRENME MERKEZİ</span><h2>Kaynağını bul, öğrenmeye başla.</h2><p>Ders dosyaları, videolar, alıştırmalar ve sınav kaynakları tek yerde.</p></div><span class="g4-intro-emblem">52 eğitim bağlantısı</span></div>
+          <div id="libraryNotice" class="library-notice" aria-live="polite" role="status"></div>
+          <div class="content-toolbar">
+            <div class="content-head">
+              <h2 id="viewerTitle">A1 Online Kütüphane</h2>
+              <p id="viewerMeta">Kaynaklar hazırlanıyor.</p>
+            </div>
+            <div class="content-actions">
+              <button id="librarySaveFavorite" class="button library-save" type="button" disabled aria-pressed="false"><i data-lucide="star" class="icon"></i> Favoriye Ekle</button>
+              <button id="copyLinkBtn" class="button" type="button" disabled>
+                <i data-lucide="copy" class="icon"></i>
+                Linki kopyala
+              </button>
+              <a id="directLinkTop" class="button" href="#" target="_blank" rel="noopener" aria-disabled="true">
+                <i data-lucide="external-link" class="icon"></i>
+                Dosyayı Aç ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="library-workspace">
+            <div class="resources-pane">
+              <div id="resourceList" class="resource-list"></div>
+            </div>
+
+            <section class="viewer" aria-label="Kaynak görüntüleyici">
+              <div class="viewer-bar">
+                <button id="g4ViewerClose" class="g4-viewer-close" type="button" aria-label="Kaynak listesine dön">←</button>
+                <div class="viewer-title">
+                  <strong id="currentResourceTitle">Kaynak seçilmedi</strong>
+                  <span id="currentResourceMeta">Önizleme alanı hazır.</span>
+                </div>
+                <button id="g4ViewerFav" class="g4-viewer-fav" type="button" aria-pressed="false" title="Favoriye ekle" aria-label="Favoriye ekle">☆</button>
+                <button id="g4ViewerCopy" class="g4-viewer-copy" type="button" title="Bağlantıyı kopyala" aria-label="Bağlantıyı kopyala">⧉</button>
+                <a id="directLinkBottom" class="button" href="#" target="_blank" rel="noopener" aria-disabled="true">
+                  <i data-lucide="arrow-up-right" class="icon"></i>
+                  Aç
+                </a>
+              </div>
+              <div class="frame-wrap">
+                <iframe id="libraryFrame" title="AYDA kaynak önizleme" loading="lazy"></iframe>
+                <div id="emptyState" class="empty-state">
+                  <div class="empty-box">
+                    <strong>Kaynak seçilmedi</strong>
+                    <p>Soldaki listeden bir kaynak seçin. Önizleme açılmazsa “Yeni sekme” veya “Aç” düğmesini kullanın.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>window.aydaCheckPassword=function(){document.documentElement.classList.remove('g4-show-login');};window.aydaClearAccess=function(){};</script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" onerror="window.__lucideFailed = true"></script>
+  <script>
+    const LEVELS = [
+      { id: "A1", label: "A1" },
+      { id: "A2", label: "A2" },
+      { id: "B1", label: "B1" },
+      { id: "B2", label: "B2" },
+      { id: "SINAV", label: "Sınav" },
+      { id: "TUMU", label: "Tümü" }
+    ];
+
+    const TAGS = [
+      { id: "ders", label: "Ders" },
+      { id: "video", label: "Video" },
+      { id: "sinav", label: "Sınav" },
+      { id: "ek", label: "Ek" },
+      { id: "konu", label: "Konu" },
+      { id: "online", label: "Online" },
+      { id: "okuma", label: "Okuma" },
+      { id: "dinleme", label: "Dinleme" },
+      { id: "quizlet", label: "Quizlet" },
+      { id: "muzik", label: "Müzik" }
+    ];
+
+    const CONTENT = {
+      A1: [
+        { label: "A1 Ders Materyalleri", url: "https://drive.google.com/embeddedfolderview?id=1EhcIIju4RZyB5HfcccAF6q8nHIou2uwT#grid", tags: ["ders"] },
+        { label: "A1 Menschen Ders Videoları", url: "https://drive.google.com/embeddedfolderview?id=1mv_Crm7n8s1javra-rW4a7fGz6PkFjQZ#grid", tags: ["video"] },
+        { label: "A1 Ek Materyal", url: "https://drive.google.com/embeddedfolderview?id=1vxr47d-wdfN6bBQfUJwKXvmv4luPiasq#grid", tags: ["ek"] },
+        { label: "A1 Sınav Hazırlık", url: "https://drive.google.com/embeddedfolderview?id=1YolSViv4puykU6wfwTrQ2eswN9MhbCq8#grid", tags: ["sinav", "ek"] },
+        { label: "Ders Kayıtlarını Nasıl İzlerim?", url: "https://www.youtube.com/embed/cw9jcwIXv6g", tags: ["genel", "video"] },
+        { label: "Arbeitsbuch Dinlemeleri Nasıl İndiririm?", url: "https://www.youtube.com/embed/SgLBimupSIU", tags: ["dinleme", "video"] },
+        { label: "A1 Cümle Kalıpları", url: "https://drive.google.com/embeddedfolderview?id=1VAz1AtWp4RDmmRddSZwqQr5XtfszjkOS#grid", tags: ["ek", "konu"] },
+        { label: "YouTube Almanca Müzikler Playlist", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZGaC8tkVghThkGQ_L-QkYY0", tags: ["muzik"] },
+        { label: "Nicos Weg A1", url: "https://learngerman.dw.com/tr/nicos-weg/c-54846011", tags: ["nicos", "online"] },
+        { label: "Quizlet · A1 Menschen Kelime Alıştırmaları", url: "https://quizlet.com/onurqlp/folders/menschen-a1?x=1xqt&i=3m8fpg", tags: ["quizlet"] },
+        { label: "Menschen Online Alıştırmalar · Genel", url: "https://www.hueber.de/menschen/lernen/uebungen", tags: ["online"] },
+        { label: "Menschen Online Alıştırmalar · Arbeitsbuch", url: "https://www.hueber.de/menschen/lernen/uebungen?bestandteil=arbeitsbuch", tags: ["online"] },
+        { label: "A1 Kısa Konu Anlatımları · Ünite 1-3", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZFg8jGfuZqcMvQEPS6Dubaj", tags: ["konu", "video"] },
+        { label: "A1 Kısa Konu Anlatımları · Ünite 3-9", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZFaNGGwJVk4Y2F4moEsCY76", tags: ["konu", "video"] },
+        { label: "A1 Kısa Konu Anlatımları · Ünite 10-12", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZHrt1mHEz_heegM9KlCfeVw", tags: ["konu", "video"] },
+        { label: "A1 Kısa Konu Anlatımları · Ünite 13-18", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZGZv5oqWOqn-MUNvMa6d_JQ", tags: ["konu", "video"] },
+        { label: "A1 Kısa Konu Anlatımları · Ünite 18-24", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZHcKC5tsXwGulBB3SDj6bcp", tags: ["konu", "video"] }
+      ],
+      A2: [
+        { label: "A2 Ders Materyalleri / Yararlı Materyaller", url: "https://drive.google.com/embeddedfolderview?id=1eRkHhSQ0cVnbMVOtvR-nDcOZRUFJOEKH#grid", tags: ["ders", "ek"] },
+        { label: "A2 Menschen Ders Videoları", url: "https://drive.google.com/embeddedfolderview?id=10KGAPnOKlfd3trMtY4paFsJDCbGNok9k#grid", tags: ["video"] },
+        { label: "A2 Sınav Hazırlık", url: "https://drive.google.com/embeddedfolderview?id=1zA2N_LlWTlHmUeEE1uay1pORqTvQBbSm#grid", tags: ["sinav", "ek"] },
+        { label: "Arbeitsbuch Dinlemeleri Nasıl İndiririm?", url: "https://www.youtube.com/embed/GHf6eOr6MU0", tags: ["dinleme", "video"] },
+        { label: "A2 Konuşma Kalıpları", url: "https://drive.google.com/embeddedfolderview?id=1v1KnsUELnxaqwKEhN_8ruqGDOkHbrYFG#grid", tags: ["konu", "ek"] },
+        { label: "A2 Konu Anlatım Videoları", url: "https://drive.google.com/embeddedfolderview?id=1dkvJRQmwMAy4-xima2GhujCnFhRwq63B#grid", tags: ["konu", "video"] },
+        { label: "YouTube Almanca Müzikler Playlist", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZGaC8tkVghThkGQ_L-QkYY0", tags: ["muzik"] },
+        { label: "Quizlet · A2 Menschen Kelime Alıştırmaları", url: "https://quizlet.com/Saalihyilmazz/folders/menschen-a2?i=195vch&x=1xqY", tags: ["quizlet"] },
+        { label: "Menschen Online Alıştırmalar · Kursbuch", url: "https://www.hueber.de/menschen/lernen/uebungen?bestandteil=kursbuch", tags: ["online"] },
+        { label: "Menschen Online Alıştırmalar · Arbeitsbuch", url: "https://www.hueber.de/menschen/lernen/uebungen?bestandteil=arbeitsbuch", tags: ["online"] }
+      ],
+      B1: [
+        { label: "B1 Ders Dosyaları", url: "https://drive.google.com/embeddedfolderview?id=1-4HicuJ5pDdyZim4mT_2ougN2v-vEwPD#grid", tags: ["ders"] },
+        { label: "B1 Yararlı Videolar ve Materyaller", url: "https://drive.google.com/embeddedfolderview?id=1AnFbEW5pq2G6_7y2tA1-EReVj_LBibTm#grid", tags: ["ek", "video"] },
+        { label: "B1 Sınav Hazırlık", url: "https://drive.google.com/embeddedfolderview?id=1fJ10MSgOCluvbN7GQVTn7hU-WHbRZoDB#grid", tags: ["sinav", "ek"] },
+        { label: "B1 Bilgilendirme Dokümanı", url: "https://docs.google.com/document/d/1__fPtBM9tD_eNiaz88XTlO1VS-6P3ophA3x4FJyirXE/preview", tags: ["genel", "ders"] },
+        { label: "Almanca Dergi & Gazete", url: "https://drive.google.com/embeddedfolderview?id=1fvIHKArOr8QCOryBSK7-BdXNZmb04XNU#grid", tags: ["okuma", "dergi"] },
+        { label: "B1-B2 Okuma Metinleri", url: "https://drive.google.com/embeddedfolderview?id=1Db5TITLZrBDc01FptVUm0_VoLDdSVG3x#grid", tags: ["okuma"] },
+        { label: "Arbeitsbuch Dinlemeleri Nasıl İndiririm?", url: "https://www.youtube.com/embed/GHf6eOr6MU0", tags: ["dinleme", "video"] },
+        { label: "Menschen Online Alıştırmalar · Kursbuch", url: "https://www.hueber.de/menschen/lernen/uebungen?bestandteil=kursbuch", tags: ["online"] },
+        { label: "Menschen Online Alıştırmalar · Arbeitsbuch", url: "https://www.hueber.de/menschen/lernen/uebungen?bestandteil=arbeitsbuch", tags: ["online"] },
+        { label: "Kitap · B1/B2", url: "https://drive.google.com/embeddedfolderview?id=1nwBOKfm6XL5TQZKNpQTonkJ21Qe5oF-w#grid", tags: ["kitap", "ders"] },
+        { label: "YouTube Almanca Müzikler Playlist", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZGaC8tkVghThkGQ_L-QkYY0", tags: ["muzik"] }
+      ],
+      B2: [
+        { label: "Kitap · B1/B2", url: "https://drive.google.com/embeddedfolderview?id=1nwBOKfm6XL5TQZKNpQTonkJ21Qe5oF-w#grid", tags: ["kitap", "ders"] },
+        { label: "B2 Sınav Hazırlık", url: "https://drive.google.com/embeddedfolderview?id=1cQSd1Jjo8hvFhVHCJrwdzE8JMwMJnQZ9#grid", tags: ["sinav", "ek", "online"] },
+        { label: "B1-B2 Okuma Metinleri", url: "https://drive.google.com/embeddedfolderview?id=1Db5TITLZrBDc01FptVUm0_VoLDdSVG3x#grid", tags: ["okuma"] },
+        { label: "Almanca Dergi & Gazete", url: "https://drive.google.com/embeddedfolderview?id=1fvIHKArOr8QCOryBSK7-BdXNZmb04XNU#grid", tags: ["okuma", "dergi"] },
+        { label: "B1-B2 Yararlı Videolar ve Materyaller", url: "https://drive.google.com/embeddedfolderview?id=1AnFbEW5pq2G6_7y2tA1-EReVj_LBibTm#grid", tags: ["ek", "video"] },
+        { label: "B2 YouTube Playlist", url: "https://www.youtube.com/embed/videoseries?list=PLk1fjOl39-51lvdiuQYsLW-0aGIdNNknA", tags: ["video", "konu"] },
+        { label: "Arbeitsbuch Dinlemeleri Nasıl İndiririm?", url: "https://www.youtube.com/embed/GHf6eOr6MU0", tags: ["dinleme", "video"] },
+        { label: "YouTube Almanca Müzikler Playlist", url: "https://www.youtube.com/embed/videoseries?list=PLlPnminIi7ZGaC8tkVghThkGQ_L-QkYY0", tags: ["muzik"] },
+        { label: "Menschen Online Alıştırmalar · Kursbuch", url: "https://www.hueber.de/menschen/lernen/uebungen?bestandteil=kursbuch", tags: ["online"] },
+        { label: "Menschen Online Alıştırmalar · Arbeitsbuch", url: "https://www.hueber.de/menschen/lernen/uebungen?bestandteil=arbeitsbuch", tags: ["online"] }
+      ],
+      SINAV: [
+        { label: "A1 Sınav Hazırlık", url: "https://drive.google.com/embeddedfolderview?id=1YolSViv4puykU6wfwTrQ2eswN9MhbCq8#grid", tags: ["sinav", "A1", "ek"] },
+        { label: "A2 Sınav Hazırlık", url: "https://drive.google.com/embeddedfolderview?id=1zA2N_LlWTlHmUeEE1uay1pORqTvQBbSm#grid", tags: ["sinav", "A2", "ek"] },
+        { label: "B1 Sınav Hazırlık", url: "https://drive.google.com/embeddedfolderview?id=1fJ10MSgOCluvbN7GQVTn7hU-WHbRZoDB#grid", tags: ["sinav", "B1", "ek"] },
+        { label: "B2 Sınav Hazırlık", url: "https://drive.google.com/embeddedfolderview?id=1cQSd1Jjo8hvFhVHCJrwdzE8JMwMJnQZ9#grid", tags: ["sinav", "B2", "ek", "online"] }
+      ]
+    };
+
+    const state = {
+      level: "A1",
+      tags: new Set(),
+      query: "",
+      initialized: false,
+      onlyFavorites: false,
+      previousLevel: "A1",
+      currentResource: null
+    };
+
+    const favoriteStorageKey="ayda_library_favorites_g4_preview_v1";
+    let favoriteUrls=[];
+    try{const val=JSON.parse(localStorage.getItem(favoriteStorageKey)||"[]");if(Array.isArray(val))favoriteUrls=val.filter(x=>typeof x==="string");}catch(err){}
+    const favorites=new Set(favoriteUrls);
+    let messageTimeout;
+    function notifyLibrary(message){
+      const el=document.getElementById("libraryNotice");
+      if(!el)return;
+      el.textContent=message;
+      el.classList.add("visible");
+      clearTimeout(messageTimeout);
+      messageTimeout=setTimeout(()=>el.classList.remove("visible"),2400);
+    }
+    function saveFavorites(){try{localStorage.setItem(favoriteStorageKey,JSON.stringify([...favorites]));}catch(err){}}
+    function syncFavoriteUi(){
+      const active=Boolean(state.currentResource&&favorites.has(state.currentResource.url));
+      if(els.librarySaveFavorite){
+        els.librarySaveFavorite.disabled=!state.currentResource;
+        els.librarySaveFavorite.setAttribute("aria-pressed",String(active));
+        els.librarySaveFavorite.innerHTML='<i data-lucide="star" class="icon"></i> '+(active?"Favoriden Çıkar":"Favoriye Ekle");
+      }
+      if(els.libraryFavoritesFilter){
+        els.libraryFavoritesFilter.setAttribute("aria-pressed",String(state.onlyFavorites));
+        els.libraryFavoritesFilter.classList.toggle("is-active",state.onlyFavorites);
+      }
+      if(els.libraryFavoritesCount)els.libraryFavoritesCount.textContent=String(favorites.size);
+      createIcons();
+    }
+    const els = {};
+
+    function $(id) {
+      return document.getElementById(id);
+    }
+
+    function cacheElements() {
+      [
+        "accessStatus", "accessStatusText", "activeCodeLabel", "aydaLoginBox",
+        "aydaProtectedContent", "aydaLoginMessage", "aydaPasswordInput",
+        "loginForm", "loginBtn", "togglePasswordBtn", "levelGrid", "tagWrap",
+        "searchInput", "visibleCount", "totalCount", "viewerTitle",
+        "viewerMeta", "resourceList", "currentResourceTitle",
+        "currentResourceMeta", "libraryFrame", "emptyState", "copyLinkBtn",
+        "directLinkTop", "directLinkBottom", "clearFiltersBtn", "logoutBtn",
+        "waLink", "smsLink", "librarySaveFavorite", "libraryFavoritesFilter", "libraryFavoritesCount"
+      ].forEach(id => { els[id] = $(id); });
+    }
+
+    function createIcons() {
+      if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+      }
+    }
+
+    function setStatus(type, text) {
+      if (!els.accessStatus || !els.accessStatusText) return;
+      els.accessStatus.className = "status is-" + type;
+      els.accessStatusText.textContent = text;
+    }
+
+    function setMessage(type, text) {
+      if (!els.aydaLoginMessage) return;
+      els.aydaLoginMessage.className = "message is-" + type;
+      els.aydaLoginMessage.textContent = text;
+    }
+
+    function allResources() {
+      return Object.entries(CONTENT).flatMap(([level, items]) => items.map(item => ({ ...item, level })));
+    }
+
+    function getResources() {
+      let list = state.level === "TUMU"
+        ? allResources()
+        : (CONTENT[state.level] || []).map(item => ({ ...item, level: state.level }));
+
+      if (state.tags.size) {
+        list = list.filter(item => (item.tags || []).some(tag => state.tags.has(String(tag).toLowerCase())));
+      }
+
+      if (state.query) {
+        const q = state.query.toLocaleLowerCase("tr-TR");
+        list = list.filter(item => {
+          const haystack = [item.label, item.level, ...(item.tags || [])].join(" ").toLocaleLowerCase("tr-TR");
+          return haystack.includes(q);
+        });
+      }
+
+      if(state.onlyFavorites) list=list.filter(item=>favorites.has(item.url));
+      return list;
+    }
+
+    function levelLabel(level) {
+      return (LEVELS.find(item => item.id === level) || {}).label || level;
+    }
+
+    function iconForResource(item) {
+      const url = item.url || "";
+      const tags = (item.tags || []).map(tag => String(tag).toLowerCase());
+      if (tags.includes("video") || url.includes("youtube.com")) return "play";
+      if (tags.includes("sinav")) return "clipboard-check";
+      if (tags.includes("quizlet")) return "layers";
+      if (tags.includes("muzik")) return "music";
+      if (tags.includes("online")) return "globe-2";
+      if (url.includes("docs.google.com/document")) return "file-text";
+      if (url.includes("drive.google.com")) return "folder-open";
+      return "book-open";
+    }
+
+    function renderNav() {
+      els.levelGrid.innerHTML = LEVELS.map(item => `
+        <button class="level-button" type="button" data-level="${item.id}">
+          <i data-lucide="${item.id === "TUMU" ? "layout-grid" : item.id === "SINAV" ? "badge-check" : "bookmark"}" class="icon"></i>
+          ${item.label}
+        </button>
+      `).join("");
+
+      els.tagWrap.innerHTML = TAGS.map(item => `
+        <button class="chip" type="button" data-tag="${item.id}">${item.label}</button>
+      `).join("");
+
+      els.levelGrid.querySelectorAll("[data-level]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.onlyFavorites=false;
+          state.level = btn.dataset.level;
+          renderResources();
+        });
+      });
+
+      els.tagWrap.querySelectorAll("[data-tag]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tag = btn.dataset.tag;
+          if (state.tags.has(tag)) state.tags.delete(tag);
+          else state.tags.add(tag);
+          renderResources();
+        });
+      });
+    }
+
+    function syncActiveControls() {
+      els.levelGrid.querySelectorAll("[data-level]").forEach(btn => {
+        btn.classList.toggle("is-active", btn.dataset.level === state.level);
+      });
+      els.tagWrap.querySelectorAll("[data-tag]").forEach(btn => {
+        btn.classList.toggle("is-active", state.tags.has(btn.dataset.tag));
+      });
+      syncFavoriteUi();
+    }
+
+    function renderResources() {
+      const list = getResources();
+      const total = allResources().length;
+
+      syncActiveControls();
+      els.visibleCount.textContent = String(list.length);
+      els.totalCount.textContent = String(total);
+      els.viewerTitle.textContent = state.onlyFavorites ? "★ Favori Kaynaklarım" : levelLabel(state.level) + " Online Kütüphane";
+      els.viewerMeta.textContent = list.length ? `${list.length} kaynak listeleniyor.` : (state.onlyFavorites ? "Henüz favori kaynağınız yok. Bir kaynak açıp yıldızlayın." : "Bu filtrede kaynak yok.");
+      els.resourceList.innerHTML = "";
+
+      if (!list.length) {
+        clearViewer(false);
+        createIcons();
+        return;
+      }
+
+      list.forEach(item => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "resource-card";
+        btn.dataset.url = item.url;
+        btn.innerHTML = `
+          <span class="resource-icon"><i data-lucide="${iconForResource(item)}" class="icon"></i></span>
+          <span>
+            <span class="resource-name">${escapeHtml(state.level === "TUMU" ? `${item.level} · ${item.label}` : item.label)}</span>
+            <span class="resource-meta">${(item.tags || []).slice(0, 4).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</span>
+          </span>
+        `;
+        btn.addEventListener("click", () => openResource(item, btn));
+        els.resourceList.appendChild(btn);
+      });
+
+      createIcons();
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function openResource(item, button) {
+      state.currentResource = item;
+      els.resourceList.querySelectorAll(".resource-card").forEach(card => card.classList.remove("is-active"));
+      if (button) button.classList.add("is-active");
+
+      els.currentResourceTitle.textContent = item.label;
+      els.currentResourceMeta.textContent = `${item.level} · ${(item.tags || []).join(", ") || "kaynak"}`;
+      els.libraryFrame.classList.add("is-loading");
+      if(!window.__AYDA_G4_DEMO__) els.libraryFrame.src = item.url;
+      if(window.__AYDA_G4_DEMO__){
+        els.emptyState.classList.remove("is-hidden");
+        els.emptyState.innerHTML = '<div class="empty-box"><span class="g4-preview-notice">✦ TASARIM ÖNİZLEMESİ</span><strong>'+escapeHtml(item.label)+'</strong><p>Bu kaynak canlı sürümde sayfanın içinde açılacak. Tasarımı kontrol edebilmen için gerçek dosya erişimi bu önizlemede kapalı.</p><p>Buradan geri dönerek diğer seviyeleri, aramayı ve favorileri test edebilirsin.</p></div>';
+      }else els.emptyState.classList.add("is-hidden");
+      setDirectLinks(item.url);
+      syncFavoriteUi();
+      if(window.matchMedia("(max-width: 850px)").matches){
+        const viewer=document.querySelector(".viewer");
+        if(viewer) viewer.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+      }
+    }
+
+    function clearViewer(resetCurrent) {
+      if (resetCurrent) state.currentResource = null;
+      els.currentResourceTitle.textContent = "Kaynak seçilmedi";
+      els.currentResourceMeta.textContent = "Önizleme alanı hazır.";
+      els.libraryFrame.removeAttribute("src");
+      els.libraryFrame.classList.remove("is-loading");
+      els.emptyState.classList.remove("is-hidden");
+      setDirectLinks("");
+      syncFavoriteUi();
+    }
+
+    function setDirectLinks(url) {
+      const enabled = Boolean(url) && !window.__AYDA_G4_DEMO__;
+      [els.directLinkTop, els.directLinkBottom].forEach(link => {
+        link.href = enabled ? url : "#";
+        link.setAttribute("aria-disabled", String(!enabled));
+        link.classList.toggle("is-disabled", !enabled);
+      });
+      els.copyLinkBtn.disabled = !enabled;
+    }
+
+    function initializeLibrary() {
+      if (state.initialized) return;
+      state.initialized = true;
+      renderNav();
+      renderResources();
+      clearViewer(true);
+      createIcons();
+    }
+
+    function logout() {
+      if (typeof window.aydaClearAccess === "function") {
+        try {
+          window.aydaClearAccess();
+        } catch (error) {
+          console.warn(error);
+        }
+      }
+
+      localStorage.removeItem("ayda_access");
+      localStorage.removeItem("ayda_code");
+      sessionStorage.removeItem("ayda_access");
+      sessionStorage.removeItem("ayda_code");
+      window.location.reload();
+    }
+
+    function togglePassword() {
+      const isPassword = els.aydaPasswordInput.type === "password";
+      els.aydaPasswordInput.type = isPassword ? "text" : "password";
+      els.togglePasswordBtn.innerHTML = `<i data-lucide="${isPassword ? "eye-off" : "eye"}" class="icon"></i>`;
+      createIcons();
+    }
+
+    async function copyCurrentLink() {
+      if (!state.currentResource) return;
+      const url=state.currentResource.url;
+      let copied=false;
+      if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(url);copied=true;}catch(error){}}
+      if(!copied){
+        const input=document.createElement("textarea");
+        input.value=url;input.setAttribute("readonly","");input.style.cssText="position:fixed;left:-9999px";
+        document.body.appendChild(input);input.select();
+        try{copied=document.execCommand("copy");}catch(error){}
+        input.remove();
+      }
+      if(copied)notifyLibrary("Kaynak bağlantısı kopyalandı");
+      else window.prompt("Kaynak bağlantısı (kopyalayın)",url);
+    }
+
+    function clearFilters() {
+      state.level = "A1";
+      state.onlyFavorites=false;
+      state.tags.clear();
+      state.query = "";
+      els.searchInput.value = "";
+      renderResources();
+      clearViewer(true);
+    }
+
+    function setupContactLinks() {
+      const text = encodeURIComponent("Aradığım AYDA kaynağı için destek alabilir miyim?");
+      const number = "905409122503";
+      els.waLink.href = `https://wa.me/${number}?text=${text}`;
+      els.smsLink.href = `sms:+${number}?&body=${text}`;
+    }
+
+    function syncCentralAccessStatus() {
+      if (window.__aydaAccessScriptFailed || typeof window.aydaCheckPassword !== "function") {
+        setStatus("bad", "Şifre sistemi yüklenemedi");
+        return;
+      }
+
+      const isOpen = window.getComputedStyle(els.aydaProtectedContent).display !== "none";
+      setStatus("ok", isOpen ? "Kütüphane açık" : "Şifre sistemi hazır");
+      if (isOpen && els.activeCodeLabel) {
+        els.activeCodeLabel.textContent = "Merkezi erişim aktif";
+      }
+    }
+
+    function bindEvents() {
+      els.loginForm.addEventListener("submit", event => {
+        event.preventDefault();
+        if (typeof window.aydaCheckPassword === "function") {
+          window.aydaCheckPassword();
+        }
+      });
+
+      els.togglePasswordBtn.addEventListener("click", togglePassword);
+      els.logoutBtn.addEventListener("click", logout);
+      els.clearFiltersBtn.addEventListener("click", clearFilters);
+      els.copyLinkBtn.addEventListener("click", copyCurrentLink);
+      els.librarySaveFavorite.addEventListener("click",()=>{
+        if(!state.currentResource)return;
+        const url=state.currentResource.url;
+        if(favorites.has(url))favorites.delete(url);else favorites.add(url);
+        saveFavorites();
+        notifyLibrary(favorites.has(url)?"Favorilere kaydedildi":"Favorilerden çıkarıldı");
+        renderResources();
+        syncFavoriteUi();
+      });
+      els.libraryFavoritesFilter.addEventListener("click",()=>{
+        state.onlyFavorites=!state.onlyFavorites;
+        if(state.onlyFavorites){
+          state.previousLevel=state.level;
+          state.level="TUMU";
+          state.tags.clear();
+          state.query="";els.searchInput.value="";
+        }else{
+          state.level=state.previousLevel||"A1";
+        }
+        renderResources();
+        syncFavoriteUi();
+      });
+
+      [els.directLinkTop, els.directLinkBottom].forEach(link => {
+        link.addEventListener("click", event => {
+          if (!state.currentResource) event.preventDefault();
+        });
+      });
+
+      els.searchInput.addEventListener("input", event => {
+        state.query = event.target.value.trim();
+        renderResources();
+      });
+
+      els.libraryFrame.addEventListener("load", () => {
+        els.libraryFrame.classList.remove("is-loading");
+      });
+
+      const accessObserver = new MutationObserver(syncCentralAccessStatus);
+      accessObserver.observe(els.aydaProtectedContent, {
+        attributes: true,
+        attributeFilter: ["style", "class"]
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      cacheElements();
+      setupContactLinks();
+      bindEvents();
+      initializeLibrary();
+      createIcons();
+
+      if (window.__aydaAccessScriptFailed || typeof window.aydaCheckPassword !== "function") {
+        setStatus("bad", "Şifre sistemi yüklenemedi");
+        setMessage("error", "Şifre sistemi yüklenemedi.");
+      } else {
+        syncCentralAccessStatus();
+      }
+    });
+  </script>
+<script id="ayda-g4-preview-controls">
+(function(){
+  'use strict';
+  /* This public preview deliberately does NOT unlock the real classroom files. */
+  window.__AYDA_G4_DEMO__=true;
+  document.documentElement.classList.add('g4-preview-mode');
+  window.aydaCheckPassword=function(){
+    document.documentElement.classList.remove('g4-show-login');
+    const btn=document.getElementById('g4ModeToggle');
+    if(btn)btn.textContent='Giriş ekranını gör';
+  };
+  window.aydaClearAccess=function(){};
+  function start(){
+    const btn=document.getElementById('g4ModeToggle');
+    const close=document.getElementById('g4ViewerClose');
+    const fbtn=document.getElementById('g4ViewerFav');
+    const cbtn=document.getElementById('g4ViewerCopy');
+    const toggle=document.getElementById('g4FilterToggle');
+    const typePanel=document.querySelector('.g4-types');
+    if(btn)btn.addEventListener('click',function(){
+      const login=document.documentElement.classList.toggle('g4-show-login');
+      btn.textContent=login?'Kütüphaneyi incele':'Giriş ekranını gör';
+      document.body.classList.remove('g4-viewer-open');
+      window.scrollTo({top:0,behavior:'auto'});
+    });
+    if(toggle&&typePanel)toggle.addEventListener('click',function(){
+      const open=typePanel.classList.toggle('g4-expanded');
+      toggle.setAttribute('aria-expanded',String(open));
+      toggle.querySelector('span').textContent=open?'Kaynak türlerini gizle':'Kaynak türlerini göster';
+    });
+    document.addEventListener('click',function(event){
+      const card=event.target.closest('.resource-card');
+      if(card && matchMedia('(max-width:900px)').matches){
+        document.body.classList.add('g4-viewer-open');
+        if(fbtn)fbtn.setAttribute('aria-pressed',document.getElementById('librarySaveFavorite')?.getAttribute('aria-pressed')||'false');
+      }
+    });
+    if(close)close.addEventListener('click',function(){document.body.classList.remove('g4-viewer-open');});
+    if(fbtn)fbtn.addEventListener('click',function(){
+      const real=document.getElementById('librarySaveFavorite');
+      if(real&&!real.disabled){real.click();fbtn.setAttribute('aria-pressed',real.getAttribute('aria-pressed')||'false');}
+    });
+    if(cbtn)cbtn.addEventListener('click',function(){
+      document.getElementById('copyLinkBtn')?.click();
+    });
+    document.addEventListener('keydown',function(event){
+      if(event.key==='Escape' && document.body.classList.contains('g4-viewer-open')){
+        document.body.classList.remove('g4-viewer-open');
+        close?.focus();
+      }
+    });
+    const status=document.getElementById('accessStatusText');
+    if(status)status.textContent='Tasarım önizlemesi';
+    const protectedLabel=document.getElementById('activeCodeLabel');
+    if(protectedLabel)protectedLabel.textContent='İnceleme modu · Dosya açma kapalı';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
+  else start();
+})();
+</script>
+</body>
+</html>

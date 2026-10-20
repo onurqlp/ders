@@ -1,0 +1,25 @@
+{
+  "repository": "onurqlp/TEKRARLAR",
+  "source_ref": "main",
+  "source_commit": "3f2cd13a408396a370bb7313ba5cec4b57e3edb8",
+  "destination": "sites/TEKRARLAR",
+  "file_count": 3,
+  "total_bytes": 72048,
+  "files": [
+    {
+      "path": "A1ekim25.html",
+      "sha256": "0a38011e9172d8249795e775e64a461d3cdf551c6db28dcc8a05025bad874fec",
+      "bytes": 18744
+    },
+    {
+      "path": "A2ekim25.html",
+      "sha256": "94e26619218c86f6f4d11c8ad0b183333dedfcde0e699b2549b78bedd0b6af5b",
+      "bytes": 9720
+    },
+    {
+      "path": "index.html",
+      "sha256": "fb78a0c53e575f9d509280eb05807715cfe50e2aa80d6f8964740d62638b3707",
+      "bytes": 43584
+    }
+  ]
+}
