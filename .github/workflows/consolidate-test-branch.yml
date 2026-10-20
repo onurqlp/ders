@@ -1,0 +1,67 @@
+name: AYDA Consolidation Test Only (NO LIVE)
+on:
+  push:
+    branches:
+      - consolidation/test-stage-01-20261020
+    paths:
+      - '.github/workflows/consolidate-test-branch.yml'
+      - 'tools/consolidation/sources.json'
+      - 'tools/consolidation/import_sources.py'
+      - 'tools/consolidation/verify_sources.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ayda-consolidation-test-only
+  cancel-in-progress: false
+
+jobs:
+  import-and-verify:
+    name: Copy sources and verify exact educational content (no deploy)
+    if: github.ref == 'refs/heads/consolidation/test-stage-01-20261020'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout ONLY the isolated staging branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Refuse main branch or wrong repository
+        run: |
+          test "$GITHUB_REPOSITORY" = "onurqlp/ders"
+          test "$GITHUB_REF" = "refs/heads/consolidation/test-stage-01-20261020"
+
+      - name: Copy all 22 educational source repositories without editing their originals
+        run: python3 tools/consolidation/import_sources.py
+
+      - name: Verify every imported file against original source SHA-256 and file counts
+        run: python3 tools/consolidation/verify_sources.py
+
+      - name: A1 original curriculum and 576 exercises integrity checks
+        run: cd sites/A1ayda && node scripts/check-a1-integrity.mjs
+
+      - name: A2 original 24 units, 576 exercises and 72 videos integrity checks
+        run: cd sites/a2ayda && node scripts/check-a2-integrity.mjs
+
+      - name: B1 original curriculum, exercises, reading and production tasks integrity checks
+        run: cd sites/b1ayda && node scripts/check-b1-integrity.mjs
+
+      - name: Commit verified source copies ONLY to the staging branch
+        run: |
+          test "$GITHUB_REF" = "refs/heads/consolidation/test-stage-01-20261020"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sites tools/consolidation/source-manifests tools/consolidation/verification-report.json
+          if ! git diff --cached --quiet; then
+            git commit -m "test-only: import and verify AYDA educational sources in single repository"
+            git push origin HEAD:refs/heads/consolidation/test-stage-01-20261020
+          fi
+
+      - name: Explicitly confirm no production deployment
+        run: |
+          echo "PASS: no Pages deploy action; no WordPress action; no main push."
+          echo "All 22 imports are held on the isolated consolidation branch."
