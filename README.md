@@ -1,27 +1,28 @@
 # AYDA Öğrenci Portalı
 
-Kurumsal öğrenci başlangıç noktası: `ders.aydadil.com`
+**Canlı giriş:** https://ders.aydadil.com/  
+**Kaynak repo:** https://github.com/onurqlp/ders
 
-## İçerik
-- Mobil ve masaüstü uyumlu ana sayfa
-- A1, A2, B1, B2 ve C1 seviye seçimi
-- AYDA sınav hazırlık, kütüphane, ders kitapları, sınav rehberleri ve kelime çalışması bağlantıları
-- WhatsApp üzerinden kursa mesaj
+Öğrencilerin A1, A2, B1, B2 ve C1 seviyelerinden öğrenme kaynaklarına, AYDA kütüphanesine, sınav hazırlığına ve ders kitaplarına ulaşması için hazırlanmış giriş sayfası.
 
-## Mevcut durum
-- Portal statik olarak yayınlanır; seviye seçimi yalnızca aynı sekmede oturum süresince hatırlanır.
-- Bu seçim kimlik doğrulaması veya yetkilendirme değildir.
-- **Merkezi AYDA şifre sistemi henüz entegre değildir.** Parolaları tarayıcı JS dosyalarına veya herkese açık repoya eklemeyin.
-- Öğrenci ilerleme bilgileri için ayrı sunucu tarafı veri eşitlemesi gerekecektir.
-- Mevcut eğitim uygulamaları şimdilik bağımsız adreslerine açılır; içerikleri henüz fiziksel olarak taşınmamıştır.
+## Güncel çalışma biçimi (20 Ekim 2026)
 
-## Dağıtım
-GitHub Pages için `.github/workflows/pages.yml` yayını hazırlanmıştır. **Settings → Pages → Build and deployment → Source: GitHub Actions** seçilmelidir. Sonrasında `main` dalına her push yeni yayını başlatır. Yayın adresi: `https://onurqlp.github.io/ders/` (Pages etkinleşince).
-Cloudflare DNS daha sonra `ders.aydadil.com` adresine bağlanacaktır. DNS ve Pages özel alan adı ayarları tamamlanmadan bu adres hazır sayılmaz.
+- Ana ekranda seviyeler şifre olmadan görülebilir; ilgili öğrenme kaynaklarına geçmek için AYDA merkezi sınıf kodu kullanılır.
+- A1, A2, B1 öğrenme platformları ayrı WordPress/GitHub kaynaklarında çalışır. B2 ve C1 için portalda bağımsız bir ders modülü olmadığı için sınav hazırlığına yönlendirilir.
+- AYDA kodlarının denetimi şu anda `onurqlp/ayda-pass` içindeki **istemci tarafı JavaScript ve JSON** üzerinden yapılır. Bu sistem sunucu tarafından doğrulanan güvenli bir SSO değildir.
+- `ders.aydadil.com`, `www.aydadil.com` ve `onurqlp.github.io` farklı kökenlerdir. Tarayıcı `localStorage` oturumları bunlar arasında otomatik paylaşılmaz; bir sitede girişin yapılması diğer sitede yeniden doğrulama istenmeyeceğini **garanti etmez**.
+- Portalda daha önceden kaydedilmiş AYDA kodu bulunuyorsa seviyeye geçişte `aydaAutoLogin()` ile süresi ve etkinliği yeniden kontrol edilir. Kod açıkça şifre listesi içinde doğrulanmadan oturum açılmış kabul edilmez.
+- Öğrenci ilerlemeleri ders uygulamalarında çoğunlukla tarayıcıda tutulur. Bunlar çoklu cihaz senkronizasyonu veya sunucu yedeği değildir.
+- Resmî öğrenci iletişim WhatsApp numarası: **+90 540 912 25 03**.
 
-## Geçiş sırası
-1. Merkezi şifre doğrulama servisini ve oturum yönetimini incele.
-2. Yetkili sunucu uç noktası üzerinden giriş bağla.
-3. Öğrenci modüllerini birer birer taşı, içeriklerini ve ilerlemeyi test et.
-4. Öğretmen sisteminden öğrenciye özel ders/ödev görüntüleme için erişim katmanı kur.
-5. Eski URL'lere yönlendirme ekle, canlı bağlantıları doğrula.
+## Yayın
+
+`.github/workflows/pages.yml` üzerinden GitHub Pages yayımlanır; GitHub Actions iş akışının **başarılı sonuçlanması** yalnızca Pages dağıtımının doğrulandığı anlamına gelir. `www.aydadil.com` altında bulunan sayfaların ayrıca `onurqlp/ayda-wordpress-sync` WordPress yayın akışları bulunur.
+
+## Bakım ilkeleri
+
+1. Ders içerikleri, soru/cevap verileri, öğrencinin ilerleme anahtarları ve mevcut AYDA parolaları onaysız biçimde dönüştürülmez.
+2. A1/A2/B1, sınav, kütüphane ve ders kitapları kaynaklarına ait bağlantılar ayrı ayrı doğrulanır.
+3. Yayın öncesi giriş, çıkış, sayfa yönlendirmeleri, mobil/masaüstü ve otomatik testler kontrol edilir.
+4. Gerçek sunucu tabanlı tek oturum ve çoklu cihaz yedeklemesi için ayrı bir kimlik doğrulama/veri katmanı gerekir. Statik JavaScript ile çözülmüş gibi gösterilmez.
+5. GitHub Pages canlı sürümü ile WordPress canlı kopyası aynı şey değildir; her birinin dağıtım sonuçları ayrıca doğrulanır.
