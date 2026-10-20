@@ -1,0 +1,53 @@
+name: G0.3 Remote Preview Link QA (NO LIVE)
+on:
+  push:
+    branches: [ayda-preview]
+    paths:
+      - '.github/workflows/g03-remote-link-qa.yml'
+      - 'test/**'
+      - 'sites/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  remote-preview:
+    if: github.ref == 'refs/heads/ayda-preview'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Verify isolated preview host and actual web response
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOST="https://raw.githack.com/onurqlp/ders/ayda-preview"
+          for i in 1 2 3 4 5 6; do
+            if curl -fLsS --connect-timeout 10 --max-time 45 -o /tmp/g03-test.html "$HOST/test/index.html"; then
+              if grep -q 'AYDA Dil Akademisi' /tmp/g03-test.html && grep -q 'G0.3' /tmp/g03-test.html; then
+                echo "PASS REMOTE: preview dashboard returned real HTML"
+                break
+              fi
+            fi
+            if [ "$i" -eq 6 ]; then
+              echo "FAIL: actual preview HTML not served at $HOST/test/index.html"
+              head -c 300 /tmp/g03-test.html || true
+              exit 1
+            fi
+            sleep 5
+          done
+          for relative in sites/A1ayda/index.html sites/a2ayda/index.html sites/b1ayda/index.html sites/bibliothek/index.html sites/telchazirlik/index.html sites/a2ayda/app.js; do
+            echo "Checking $relative"
+            curl -fLsS --retry 3 --connect-timeout 10 --max-time 55 "$HOST/$relative" -o /tmp/g03-asset
+            test -s /tmp/g03-asset
+          done
+          echo "PASS REMOTE: dashboard and 6 critical course/source files reachable."
+          echo "No Pages deploy, no WordPress publish, no main branch changes."
+      - name: Probe alternative static CDN without changing any code
+        continue-on-error: true
+        shell: bash
+        run: |
+          URL="https://cdn.statically.io/gh/onurqlp/ders@ayda-preview/test/index.html"
+          curl -fLsS --connect-timeout 9 --max-time 22 --dump-header /tmp/headers.txt "$URL" -o /tmp/preview-alt.html
+          grep -i '^content-type:' /tmp/headers.txt | tail -1 || true
+          grep -q 'AYDA Dil Akademisi' /tmp/preview-alt.html && echo "Alternative static host serves HTML" || echo "Alternative static host does not serve expected preview"
