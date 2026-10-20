@@ -1,0 +1,355 @@
+{
+  "imported_repositories": 22,
+  "cross_repo_links": [
+    {
+      "source_repo": "A1ayda",
+      "destination_repo": "ayda-pass",
+      "count": 6,
+      "already_imported": false,
+      "examples": [
+        "sites/A1ayda/index.html",
+        "sites/A1ayda/backups/a1-index-before-unified-20261016.html"
+      ]
+    },
+    {
+      "source_repo": "A1hazirlik",
+      "destination_repo": "ayda-pass",
+      "count": 3,
+      "already_imported": false,
+      "examples": [
+        "sites/A1hazirlik/index.html",
+        "sites/A1hazirlik/telca1.html"
+      ]
+    },
+    {
+      "source_repo": "A1hazirlik",
+      "destination_repo": "osd_a1_ayda",
+      "count": 2,
+      "already_imported": true,
+      "examples": [
+        "sites/A1hazirlik/index.html",
+        "sites/A1hazirlik/index.html"
+      ]
+    },
+    {
+      "source_repo": "A2telc",
+      "destination_repo": "a2telcmektup",
+      "count": 2,
+      "already_imported": true,
+      "examples": [
+        "sites/A2telc/index.html",
+        "sites/A2telc/index.html"
+      ]
+    },
+    {
+      "source_repo": "SEVIYEBELIRLEME",
+      "destination_repo": "SEVIYEBELIRLEME",
+      "count": 8,
+      "already_imported": true,
+      "examples": [
+        "sites/SEVIYEBELIRLEME/index.html",
+        "sites/SEVIYEBELIRLEME/index.html"
+      ]
+    },
+    {
+      "source_repo": "SEVIYEBELIRLEME",
+      "destination_repo": "linkler",
+      "count": 1,
+      "already_imported": false,
+      "examples": [
+        "sites/SEVIYEBELIRLEME/index.html"
+      ]
+    },
+    {
+      "source_repo": "TEKRARLAR",
+      "destination_repo": "bibliothek",
+      "count": 1,
+      "already_imported": true,
+      "examples": [
+        "sites/TEKRARLAR/index.html"
+      ]
+    },
+    {
+      "source_repo": "TEKRARLAR",
+      "destination_repo": "derskitaplari",
+      "count": 1,
+      "already_imported": true,
+      "examples": [
+        "sites/TEKRARLAR/index.html"
+      ]
+    },
+    {
+      "source_repo": "a2ayda",
+      "destination_repo": "a2ayda",
+      "count": 1,
+      "already_imported": true,
+      "examples": [
+        "sites/a2ayda/preview/smoke-test.mjs"
+      ]
+    },
+    {
+      "source_repo": "a2ayda",
+      "destination_repo": "ayda-pass",
+      "count": 6,
+      "already_imported": false,
+      "examples": [
+        "sites/a2ayda/index.html",
+        "sites/a2ayda/onizleme.html"
+      ]
+    },
+    {
+      "source_repo": "a2kelime",
+      "destination_repo": "ayda-pass",
+      "count": 1,
+      "already_imported": false,
+      "examples": [
+        "sites/a2kelime/index.html"
+      ]
+    },
+    {
+      "source_repo": "b1ayda",
+      "destination_repo": "ayda-pass",
+      "count": 6,
+      "already_imported": false,
+      "examples": [
+        "sites/b1ayda/index.html",
+        "sites/b1ayda/scripts/smoke-b1-express.cjs"
+      ]
+    },
+    {
+      "source_repo": "bibliothek",
+      "destination_repo": "ayda-pass",
+      "count": 2,
+      "already_imported": false,
+      "examples": [
+        "sites/bibliothek/index.html",
+        "sites/bibliothek/g4-production/index.html"
+      ]
+    },
+    {
+      "source_repo": "goethe-mi-osd-mi",
+      "destination_repo": "goethe-mi-osd-mi",
+      "count": 18,
+      "already_imported": true,
+      "examples": [
+        "sites/goethe-mi-osd-mi/index.html",
+        "sites/goethe-mi-osd-mi/index.html"
+      ]
+    },
+    {
+      "source_repo": "osd_a1_ayda",
+      "destination_repo": "ayda-pass",
+      "count": 6,
+      "already_imported": false,
+      "examples": [
+        "sites/osd_a1_ayda/lesen.html",
+        "sites/osd_a1_ayda/schreiben.html"
+      ]
+    },
+    {
+      "source_repo": "osd_a1_ayda",
+      "destination_repo": "osd_a1_ayda",
+      "count": 11,
+      "already_imported": true,
+      "examples": [
+        "sites/osd_a1_ayda/lesen.html",
+        "sites/osd_a1_ayda/lesen.html"
+      ]
+    },
+    {
+      "source_repo": "osd_a1_ayda",
+      "destination_repo": "osda1denemeler",
+      "count": 19,
+      "already_imported": true,
+      "examples": [
+        "sites/osd_a1_ayda/lesen.html",
+        "sites/osd_a1_ayda/lesen.html"
+      ]
+    },
+    {
+      "source_repo": "osd_a1_ayda",
+      "destination_repo": "osda1sprehcen",
+      "count": 21,
+      "already_imported": true,
+      "examples": [
+        "sites/osd_a1_ayda/lesen.html",
+        "sites/osd_a1_ayda/lesen.html"
+      ]
+    },
+    {
+      "source_repo": "osda1denemeler",
+      "destination_repo": "ayda-pass",
+      "count": 1,
+      "already_imported": false,
+      "examples": [
+        "sites/osda1denemeler/index.html"
+      ]
+    },
+    {
+      "source_repo": "osda1denemeler",
+      "destination_repo": "osd_a1_ayda",
+      "count": 14,
+      "already_imported": true,
+      "examples": [
+        "sites/osda1denemeler/index.html",
+        "sites/osda1denemeler/index.html"
+      ]
+    },
+    {
+      "source_repo": "osda1denemeler",
+      "destination_repo": "osda1denemeler",
+      "count": 3,
+      "already_imported": true,
+      "examples": [
+        "sites/osda1denemeler/index.html",
+        "sites/osda1denemeler/index.html"
+      ]
+    },
+    {
+      "source_repo": "osda1denemeler",
+      "destination_repo": "osda1sprehcen",
+      "count": 3,
+      "already_imported": true,
+      "examples": [
+        "sites/osda1denemeler/index.html",
+        "sites/osda1denemeler/index.html"
+      ]
+    },
+    {
+      "source_repo": "osda1sprehcen",
+      "destination_repo": "ayda-pass",
+      "count": 1,
+      "already_imported": false,
+      "examples": [
+        "sites/osda1sprehcen/index.html"
+      ]
+    },
+    {
+      "source_repo": "osda1sprehcen",
+      "destination_repo": "osd_a1_ayda",
+      "count": 14,
+      "already_imported": true,
+      "examples": [
+        "sites/osda1sprehcen/index.html",
+        "sites/osda1sprehcen/index.html"
+      ]
+    },
+    {
+      "source_repo": "osda1sprehcen",
+      "destination_repo": "osda1denemeler",
+      "count": 3,
+      "already_imported": true,
+      "examples": [
+        "sites/osda1sprehcen/index.html",
+        "sites/osda1sprehcen/index.html"
+      ]
+    },
+    {
+      "source_repo": "osda1sprehcen",
+      "destination_repo": "osda1sprehcen",
+      "count": 3,
+      "already_imported": true,
+      "examples": [
+        "sites/osda1sprehcen/index.html",
+        "sites/osda1sprehcen/index.html"
+      ]
+    },
+    {
+      "source_repo": "sinavhazirlik",
+      "destination_repo": "A1hazirlik",
+      "count": 3,
+      "already_imported": true,
+      "examples": [
+        "sites/sinavhazirlik/index.html",
+        "sites/sinavhazirlik/g5-preview/index.html"
+      ]
+    },
+    {
+      "source_repo": "sinavhazirlik",
+      "destination_repo": "ayda-pass",
+      "count": 2,
+      "already_imported": false,
+      "examples": [
+        "sites/sinavhazirlik/index.html",
+        "sites/sinavhazirlik/g5-production/index.html"
+      ]
+    },
+    {
+      "source_repo": "sinavhazirlik",
+      "destination_repo": "osd_a1_ayda",
+      "count": 3,
+      "already_imported": true,
+      "examples": [
+        "sites/sinavhazirlik/index.html",
+        "sites/sinavhazirlik/g5-preview/index.html"
+      ]
+    },
+    {
+      "source_repo": "sinavhazirlik",
+      "destination_repo": "telca2kelimelerr",
+      "count": 3,
+      "already_imported": true,
+      "examples": [
+        "sites/sinavhazirlik/index.html",
+        "sites/sinavhazirlik/g5-preview/index.html"
+      ]
+    },
+    {
+      "source_repo": "sinavhazirlik",
+      "destination_repo": "telchazirlik",
+      "count": 6,
+      "already_imported": true,
+      "examples": [
+        "sites/sinavhazirlik/index.html",
+        "sites/sinavhazirlik/index.html"
+      ]
+    },
+    {
+      "source_repo": "telca2kelimelerr",
+      "destination_repo": "a2kelime",
+      "count": 1,
+      "already_imported": true,
+      "examples": [
+        "sites/telca2kelimelerr/index.html"
+      ]
+    },
+    {
+      "source_repo": "telca2kelimelerr",
+      "destination_repo": "ayda-pass",
+      "count": 9,
+      "already_imported": false,
+      "examples": [
+        "sites/telca2kelimelerr/a2lesenteil3.html",
+        "sites/telca2kelimelerr/a2sprechenteil3.html"
+      ]
+    },
+    {
+      "source_repo": "telchazirlik",
+      "destination_repo": "ayda-pass",
+      "count": 295,
+      "already_imported": false,
+      "examples": [
+        "sites/telchazirlik/index.html",
+        "sites/telchazirlik/index2.html"
+      ]
+    }
+  ],
+  "unmapped_github_pages_destinations": [
+    "ayda-pass",
+    "linkler"
+  ],
+  "wordpress_paths": {
+    "sinavhazirlik": 664,
+    "wp-content": 660,
+    "bibliothek": 42,
+    "gizlilik-politikasi": 11,
+    "a1ayda": 8,
+    "dersler": 6,
+    "a2ayda": 4,
+    "derskitaplari": 3,
+    "b1ayda": 2,
+    "telc-a2": 2,
+    "deneme": 2
+  },
+  "note": "Read-only inventory: legacy URLs are intentionally unchanged until test-site routing is approved."
+}
