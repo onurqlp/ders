@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#142d57">
+  <title>AYDA | Eğitim Platformları Test Merkezi — G0.3</title>
+  <meta name="description" content="AYDA eğitim platformlarının üretimden bağımsız G0.3 test ekranı.">
+  <style>
+    :root{color-scheme:light;--ink:#172c4b;--navy:#142d57;--blue:#234478;--muted:#59708f;--line:#e1e8f2;--gold:#f3c958;--mint:#b7e9da;--bg:#f4f7fc;--shadow:0 20px 60px rgba(12,30,62,.1)}
+    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+    a{color:inherit}button,input{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #db9734;outline-offset:3px}
+    .container{width:min(1160px,calc(100% - 36px));margin-inline:auto}.banner{background:#e6f5ef;color:#17684d;border-bottom:1px solid #bfe0d5;font-size:12px;font-weight:760;letter-spacing:.03em}
+    .banner .container{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:9px 0}.banner strong{display:inline-flex;align-items:center;gap:8px}.dot{width:8px;height:8px;background:#26885e;border-radius:100%}
+    header{background:#fff;border-bottom:1px solid var(--line)}.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+    .brand{display:flex;align-items:center;gap:13px;text-decoration:none}.brandmark{width:47px;height:47px;border-radius:14px;background:var(--navy);color:white;display:grid;place-items:center;font-size:26px;font-weight:920;letter-spacing:-3px;box-shadow:inset -4px -4px 0 #315991}.brand h1{font-size:19px;margin:0;font-weight:920;letter-spacing:-.8px}.brand p{font-size:12px;color:var(--muted);margin:1px 0 0}
+    .header-right{display:flex;align-items:center;gap:9px}.headlink{padding:10px 15px;border:1px solid #d5dfea;text-decoration:none;border-radius:11px;font-size:13px;font-weight:800}.headlink:hover{background:#edf3fa}
+    .hero{margin-top:28px;border-radius:27px;background:linear-gradient(115deg,#18345f,#254b7d 63%,#43799a);color:white;padding:34px 36px;position:relative;overflow:hidden;display:grid;grid-template-columns:1.6fr .6fr;gap:28px}
+    .hero:after{content:"";position:absolute;right:-140px;top:-200px;width:480px;height:480px;border:65px solid rgba(255,255,255,.06);border-radius:50%;pointer-events:none}
+    .eyebrow{letter-spacing:.16em;font-weight:840;font-size:11px;text-transform:uppercase;color:#ffe293}.hero h2{font-size:clamp(29px,4vw,44px);letter-spacing:-1.5px;line-height:1.11;margin:13px 0 13px}.hero p{font-size:15px;color:#e4eef9;max-width:630px;margin:0 0 20px}
+    .hero-cta{display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:var(--gold);color:#183152;padding:12px 19px;border-radius:11px;font-weight:880;font-size:14px}.hero-cta:hover{background:#ffdd78}
+    .metrics{align-self:center;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:12px}.metric{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:16px;border-radius:17px;backdrop-filter:blur(8px)}.metric strong{font-size:26px;line-height:1.15;display:block;letter-spacing:-1px}.metric small{font-size:11px;color:#e8f2fa}
+    .notice{display:flex;gap:14px;align-items:flex-start;background:#fffdf4;border:1px solid #ecdaab;border-radius:17px;padding:15px 18px;margin:19px 0 0}.notice svg{width:20px;flex:none;color:#956a19;margin-top:2px}.notice strong{display:block;margin-bottom:3px;font-size:13px}.notice p{font-size:13px;color:#705d39;margin:0}
+    .section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:30px 0 13px}.section-heading h2{font-size:23px;letter-spacing:-.65px;margin:0}.section-heading p{margin:3px 0 0;color:var(--muted);font-size:13px}
+    .course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.course{background:#fff;min-width:0;text-decoration:none;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 6px 20px rgba(12,30,62,.04);transition:transform .2s,box-shadow .2s,border .2s;display:flex;flex-direction:column;gap:8px}
+    .course:hover,.tile:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#93abcc}.course .level{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:16px;font-size:19px;font-weight:920;background:#e6f3ff;color:#1d4e8a}
+    .course.a2 .level{background:#e6f9ef;color:#0f7f57}.course.b1 .level{background:#fff2d8;color:#90611b}.course b{font-size:19px;letter-spacing:-.4px}.course small{font-size:13px;color:var(--muted)}.course .go{margin-top:auto;padding-top:9px;color:var(--blue);font-size:13px;font-weight:870}
+    .controls{background:#fff;border:1px solid var(--line);padding:13px;border-radius:17px;display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:20px 0 16px}
+    .search{display:flex;align-items:center;gap:8px;border:1px solid #d6dfec;background:#f9fbfe;padding:0 11px;border-radius:11px;flex:1 1 220px;min-height:44px}.search input{border:0;background:transparent;outline:none;min-width:0;width:100%;color:var(--ink)}.search:focus-within{outline:2px solid #315991}
+    .tabs{display:flex;gap:5px;overflow:auto;max-width:100%;scrollbar-width:thin}.filter{border:0;border-radius:10px;padding:9px 11px;color:#465e80;background:transparent;white-space:nowrap;font-size:12px;font-weight:760}.filter[aria-pressed=true]{background:#e8effc;color:#173e76}.counter{color:var(--muted);font-size:12px;font-weight:760;margin:0}
+    .directory{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;padding-bottom:12px}.tile{min-height:115px;display:flex;flex-direction:column;gap:8px;min-width:0;padding:17px;text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:17px;transition:transform .2s,box-shadow .2s,border .2s}
+    .tile-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.pill{font-size:11px;font-weight:800;padding:4px 9px;border-radius:100px;background:#f0f4fb;color:#4b6486}.tile .arrow{color:#5375a2}.tile h3{font-size:15px;line-height:1.3;letter-spacing:-.1px;margin:0}.tile p{font-size:12px;color:var(--muted);margin:0}.tile[hidden]{display:none}
+    .empty{display:none;text-align:center;border:1px dashed #cad5e3;border-radius:16px;padding:29px;color:var(--muted);background:#fff}.empty.show{display:block}
+    .qa{margin:24px 0 35px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}.qa h2{font-size:18px;margin:0 0 10px}.qa p{font-size:13px;color:#526780;margin:0 0 15px}.qa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.qa-item{padding:12px;background:#f5f8fc;border-radius:12px;font-size:12px}.qa-item b{display:block;font-size:15px;color:#1c725d}
+    footer{border-top:1px solid var(--line);padding:24px 0;color:#657a96;font-size:12px}footer .container{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    @media(max-width:850px){.directory{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.metrics{max-width:470px}.hero{padding:28px}}
+    @media(max-width:600px){.container{width:min(100% - 28px,1160px)}.banner .container{gap:2px}.banner span:last-child{font-size:11px}.header-inner{min-height:66px}.headlink{font-size:12px;padding:9px}.brandmark{width:41px;height:41px;font-size:23px}.brand h1{font-size:17px}.brand p{font-size:11px}.hero{margin-top:18px;padding:24px 19px;border-radius:20px;gap:19px}.hero h2{font-size:30px}.metrics{grid-template-columns:repeat(2,1fr);gap:8px}.metric{padding:12px}.metric strong{font-size:23px}.course-grid,.directory{grid-template-columns:1fr}.course{padding:16px}.course .level{width:46px;height:46px}.section-heading h2{font-size:21px}.qa-grid{grid-template-columns:1fr}.notice{padding:14px}.controls{padding:10px}.tabs{width:100%}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tile,.course{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="banner"><div class="container"><strong><span class="dot" aria-hidden="true"></span> YALNIZCA TEST · G0.3</strong><span>Canlı AYDA sitesi değiştirilmedi</span></div></div>
+  <header><div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="AYDA test merkezi ana sayfa"><span class="brandmark" aria-hidden="true">A</span><span><h1>AYDA</h1><p>Dijital Öğrenme · Test Merkezi</p></span></a>
+    <div class="header-right"><a class="headlink" href="#tum-platformlar">Tüm platformlar ↓</a></div>
+  </div></header>
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div><div class="eyebrow">AYDA Dil Akademisi · Test Sürümü</div><h2 id="hero-title">Tüm Almanca platformları.<br>Tek test merkezi.</h2>
+        <p>A1'den sınav hazırlığına, ders kitaplarından dijital kütüphaneye bütün mevcut içeriklerin kopyalarını tek depoda inceliyoruz. İçerikler azaltılmadı, canlı yayın değiştirilmedi.</p>
+        <a class="hero-cta" href="#dersler">Dersleri incele <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="metrics" aria-label="Aktarım özeti">
+        <div class="metric"><strong>22</strong><small>Aktarılan eğitim deposu</small></div>
+        <div class="metric"><strong>756</strong><small>Korunan kaynak dosyası</small></div>
+        <div class="metric"><strong>0</strong><small>Dosya farkı / eksik</small></div>
+        <div class="metric"><strong>G0.3</strong><small>Önizleme aşaması</small></div>
+      </div>
+    </section>
+    <section class="notice" aria-label="Önemli test bilgisi">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 21h20L12 2Z"/><path d="M12 9v5M12 18h.01"/></svg>
+      <div><strong>Bu sayfa yalnızca teknik önizleme içindir.</strong>
+        <p>Kartlar tek depodaki test kopyalarını açar. Bazı eski sayfa içi bağlantılar hâlâ WordPress veya eski GitHub adresine gidebilir; yönlendirmelerin tam taşınması ayrı test aşamasıdır. Üçüncü taraf önizleme adresinde gerçek erişim şifrenizi girmeyin.</p></div>
+    </section>
+
+    <section id="dersler" aria-labelledby="courses-title">
+      <div class="section-heading"><div><h2 id="courses-title">Ders platformları</h2><p>Seviyeni seç ve orijinal ders kopyasını incele.</p></div></div>
+      <div class="course-grid">
+        <a class="course a1" href="../sites/A1ayda/index.html"><span class="level">A1</span><b>A1 Almanca</b><small>24 ünite · 576 alıştırma · konu anlatımları ve videolar</small><span class="go">Test kopyasını aç →</span></a>
+        <a class="course a2" href="../sites/a2ayda/index.html"><span class="level">A2</span><b>A2 Almanca</b><small>24 ünite · 576 alıştırma · 72 video</small><span class="go">Test kopyasını aç →</span></a>
+        <a class="course b1" href="../sites/b1ayda/index.html"><span class="level">B1</span><b>B1 Almanca</b><small>24 ünite · 576 alıştırma · okuma, yazma ve konuşma</small><span class="go">Test kopyasını aç →</span></a>
+      </div>
+    </section>
+
+    <section id="tum-platformlar" aria-labelledby="directory-title">
+      <div class="section-heading"><div><h2 id="directory-title">Bütün platformlar</h2><p>Sınav hazırlık, kütüphane, materyaller ve diğer eğitim araçları</p></div></div>
+      <div class="controls">
+        <label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Platform veya seviye ara..." aria-label="Platform ara" autocomplete="off"></label>
+        <div class="tabs" role="group" aria-label="Platform filtresi">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">Tümü</button>
+          <button class="filter" type="button" data-filter="courses" aria-pressed="false">Dersler</button>
+          <button class="filter" type="button" data-filter="exams" aria-pressed="false">Sınavlar</button>
+          <button class="filter" type="button" data-filter="materials" aria-pressed="false">Kaynaklar</button>
+          <button class="filter" type="button" data-filter="tools" aria-pressed="false">Diğer</button>
+        </div>
+      </div>
+      <p id="counter" class="counter" role="status" aria-live="polite">22 platform listeleniyor</p>
+      <div class="directory" id="directory" style="margin-top:12px">
+        <a class="tile" data-category="courses" href="../sites/A1ayda/index.html"><div class="tile-top"><span class="pill">Dersler</span><span class="arrow">↗</span></div><h3>A1 Ders Platformu</h3><p>A1 · Üniteler ve alıştırmalar</p></a>
+        <a class="tile" data-category="courses" href="../sites/a2ayda/index.html"><div class="tile-top"><span class="pill">Dersler</span><span class="arrow">↗</span></div><h3>A2 Ders Platformu</h3><p>A2 · Üniteler, videolar ve sorular</p></a>
+        <a class="tile" data-category="courses" href="../sites/b1ayda/index.html"><div class="tile-top"><span class="pill">Dersler</span><span class="arrow">↗</span></div><h3>B1 Ders Platformu</h3><p>B1 · Üniteler ve dil becerileri</p></a>
+        <a class="tile" data-category="exams" href="../sites/sinavhazirlik/index.html"><div class="tile-top"><span class="pill">Sınav</span><span class="arrow">↗</span></div><h3>Sınav Hazırlık Merkezi</h3><p>Seviye ve sınav türünü seç</p></a>
+        <a class="tile" data-category="materials" href="../sites/bibliothek/index.html"><div class="tile-top"><span class="pill">Kaynak</span><span class="arrow">↗</span></div><h3>Dijital Kütüphane</h3><p>52 kaynak · videolar ve materyaller</p></a>
+        <a class="tile" data-category="materials" href="../sites/derskitaplari/index.html"><div class="tile-top"><span class="pill">Kaynak</span><span class="arrow">↗</span></div><h3>Ders Kitapları</h3><p>A1–B2 · PDF ve diğer materyaller</p></a>
+        <a class="tile" data-category="exams" href="../sites/A1hazirlik/index.html"><div class="tile-top"><span class="pill">A1 · Sınav</span><span class="arrow">↗</span></div><h3>A1 Hazırlık Merkezi</h3><p>TELC / ÖSD sınav başlangıcı</p></a>
+        <a class="tile" data-category="exams" href="../sites/telca2kelimelerr/index.html"><div class="tile-top"><span class="pill">A2 · Sınav</span><span class="arrow">↗</span></div><h3>TELC A2 Çalışmaları</h3><p>Kelime, Lesen, Schreiben, Sprechen</p></a>
+        <a class="tile" data-category="exams" href="../sites/telchazirlik/index.html"><div class="tile-top"><span class="pill">TELC</span><span class="arrow">↗</span></div><h3>TELC Sınav Arşivi</h3><p>Quiz, ses, PDF ve sınav çalışmaları</p></a>
+        <a class="tile" data-category="exams" href="../sites/osda1rehber/index.html"><div class="tile-top"><span class="pill">ÖSD</span><span class="arrow">↗</span></div><h3>ÖSD A1 / A2 Rehberleri</h3><p>Sınav yöntemi ve örnek görevler</p></a>
+        <a class="tile" data-category="exams" href="../sites/osd_a1_ayda/index.html"><div class="tile-top"><span class="pill">ÖSD · A1</span><span class="arrow">↗</span></div><h3>ÖSD A1 Hazırlık</h3><p>Okuma, yazma ve diğer görevler</p></a>
+        <a class="tile" data-category="exams" href="../sites/osda1denemeler/index.html"><div class="tile-top"><span class="pill">ÖSD · A1</span><span class="arrow">↗</span></div><h3>ÖSD A1 Denemeler</h3><p>Örnek sınav uygulamaları</p></a>
+        <a class="tile" data-category="exams" href="../sites/osda1sprehcen/index.html"><div class="tile-top"><span class="pill">ÖSD · A1</span><span class="arrow">↗</span></div><h3>ÖSD A1 Sprechen</h3><p>Konuşma pratiği</p></a>
+        <a class="tile" data-category="materials" href="../sites/a2kelime/index.html"><div class="tile-top"><span class="pill">Kelime</span><span class="arrow">↗</span></div><h3>A2 Kelime Çalışması</h3><p>Kelime öğrenme ve tekrar</p></a>
+        <a class="tile" data-category="exams" href="../sites/A2telc/index.html"><div class="tile-top"><span class="pill">TELC · A2</span><span class="arrow">↗</span></div><h3>TELC A2</h3><p>Sınav alıştırmaları</p></a>
+        <a class="tile" data-category="exams" href="../sites/a2telcmektup/index.html"><div class="tile-top"><span class="pill">TELC · A2</span><span class="arrow">↗</span></div><h3>TELC A2 Mektup</h3><p>Schreiben odaklı çalışmalar</p></a>
+        <a class="tile" data-category="exams" href="../sites/b1pruf/index.html"><div class="tile-top"><span class="pill">B1 · Sınav</span><span class="arrow">↗</span></div><h3>B1 Prüfung</h3><p>B1 sınav hazırlık kaynakları</p></a>
+        <a class="tile" data-category="exams" href="../sites/c1prufer/index.html"><div class="tile-top"><span class="pill">C1 · Sınav</span><span class="arrow">↗</span></div><h3>C1 Prüfung</h3><p>C1 sınav çalışma alanı</p></a>
+        <a class="tile" data-category="tools" href="../sites/goethe-mi-osd-mi/index.html"><div class="tile-top"><span class="pill">Rehber</span><span class="arrow">↗</span></div><h3>Goethe mi ÖSD mi?</h3><p>Sınav karşılaştırma rehberi</p></a>
+        <a class="tile" data-category="tools" href="../sites/GENEL_SEVIYE_BELIRLEME/index.html"><div class="tile-top"><span class="pill">Seviye</span><span class="arrow">↗</span></div><h3>Genel Seviye Belirleme</h3><p>Seviye tanıma çalışması</p></a>
+        <a class="tile" data-category="tools" href="../sites/SEVIYEBELIRLEME/index.html"><div class="tile-top"><span class="pill">Seviye</span><span class="arrow">↗</span></div><h3>Seviye Belirleme</h3><p>A1–C1 testleri</p></a>
+        <a class="tile" data-category="materials" href="../sites/TEKRARLAR/index.html"><div class="tile-top"><span class="pill">Tekrar</span><span class="arrow">↗</span></div><h3>Ders Tekrarları</h3><p>Önceki ders tekrarları</p></a>
+      </div>
+      <div id="empty" class="empty">Bu aramada eşleşen platform yok. Arama kelimesini veya filtreyi değiştir.</div>
+    </section>
+
+    <section class="qa"><h2>Test altyapısı ve kontrol noktaları</h2><p>Bu aşama içeriği aktarıp sayfaları test ortamında erişilebilir hâle getirir. Sonraki adımlarda menülerin ve içerik düzeninin her biri ayrı ayrı test edilip onaylanacak.</p>
+      <div class="qa-grid"><div class="qa-item"><b>✓ İçerikler korundu</b>22 kaynak deposu, 756 dosya</div><div class="qa-item"><b>✓ Kaynak karşılaştırması</b>SHA-256 farkı: 0</div><div class="qa-item"><b>✓ Canlı sistem ayrı</b>main ve WordPress değiştirilmedi</div></div>
+    </section>
+  </main>
+  <footer><div class="container"><span>© AYDA Dil Akademisi · Öğrenci Platformları Test Merkezi</span><span>G0.3 · Sadece önizleme · Canlı siteye uygulanmadı</span></div></footer>
+  <script>
+    (() => {
+      "use strict";
+      const cards = Array.from(document.querySelectorAll(".tile"));
+      const search = document.querySelector("#search");
+      const filters = Array.from(document.querySelectorAll(".filter"));
+      const counter = document.querySelector("#counter");
+      const empty = document.querySelector("#empty");
+      let filter = "all";
+      function refresh(){
+        const q = search.value.trim().toLocaleLowerCase("tr");
+        let count = 0;
+        cards.forEach(card => {
+          const show = (filter === "all" || card.dataset.category === filter) && card.textContent.toLocaleLowerCase("tr").includes(q);
+          card.hidden = !show;
+          if(show) count += 1;
+        });
+        filters.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.filter === filter)));
+        counter.textContent = count + " / " + cards.length + " platform listeleniyor";
+        empty.classList.toggle("show",count === 0);
+      }
+      filters.forEach(button => button.addEventListener("click", () => {filter=button.dataset.filter;refresh()}));
+      search.addEventListener("input",refresh);
+      refresh();
+    })();
+  </script>
+</body>
+</html>
