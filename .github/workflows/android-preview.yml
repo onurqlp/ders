@@ -55,7 +55,10 @@ jobs:
           path: /tmp/ayda-apk
       - name: Start Android emulator
         run: |
-          echo no | avdmanager create avd -n ayda-test -k "system-images;android-${{ matrix.api-level }};google_apis;x86_64" -d pixel_2 --force
+          export ANDROID_AVD_HOME="$RUNNER_TEMP/ayda-avd"
+          mkdir -p "$ANDROID_AVD_HOME"
+          echo no | avdmanager create avd -n ayda-test -k "system-images;android-${{ matrix.api-level }};google_apis;x86_64" -d pixel_2 --path "$ANDROID_AVD_HOME/ayda-test.avd" --force
+          test -f "$ANDROID_AVD_HOME/ayda-test.ini"
           "$ANDROID_HOME/emulator/emulator" -avd ayda-test -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect -verbose > /tmp/ayda-emulator.log 2>&1 &
           emulator_pid=$!
           if ! timeout 180s adb wait-for-device; then
