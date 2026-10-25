@@ -56,15 +56,28 @@ jobs:
       - name: Start Android emulator
         run: |
           echo no | avdmanager create avd -n ayda-test -k "system-images;android-${{ matrix.api-level }};google_apis;x86_64" -d pixel_2 --force
-          emulator -avd ayda-test -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect &
-          adb wait-for-device
+          "$ANDROID_HOME/emulator/emulator" -avd ayda-test -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect -verbose > /tmp/ayda-emulator.log 2>&1 &
+          emulator_pid=$!
+          if ! timeout 180s adb wait-for-device; then
+            cat /tmp/ayda-emulator.log
+            adb devices -l
+            kill "$emulator_pid" || true
+            exit 1
+          fi
+          booted=false
           for attempt in {1..60}; do
-            if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = "1" ]; then
+            boot_status="$(timeout 10s adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
+            if [ "$boot_status" = "1" ]; then
+              booted=true
               break
             fi
             sleep 5
           done
-          test "$(adb shell getprop sys.boot_completed | tr -d '\r')" = "1"
+          if [ "$booted" != "true" ]; then
+            cat /tmp/ayda-emulator.log
+            adb devices -l
+            exit 1
+          fi
       - name: Install and launch preview APK
         run: |
           adb install -r /tmp/ayda-apk/app-preview-debug.apk
