@@ -5,12 +5,14 @@ import android.app.AlertDialog
 import android.app.DownloadManager
 import android.content.Intent
 import android.net.Uri
+import android.net.http.SslError
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.view.View
-import android.view.WindowInsets
 import android.webkit.CookieManager
 import android.webkit.SafeBrowsingResponse
+import android.webkit.SslErrorHandler
+import android.webkit.URLUtil
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
@@ -26,15 +28,17 @@ class MainActivity : Activity() {
     private lateinit var web: WebView
     private var popup: WebView? = null
     private var fileCallback: android.webkit.ValueCallback<Array<Uri>>? = null
-    private var fullscreen: View? = null
+    private var fullscreen: android.view.View? = null
     private var originalSystemUi = 0
     private val chooserRequest = 42
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.decorView.setOnApplyWindowInsetsListener { v, insets ->
-            val bars = insets.getInsets(WindowInsets.Type.systemBars())
-            v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+        window.decorView.setOnApplyWindowInsetsListener { view, insets ->
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                val bars = insets.getInsets(android.view.WindowInsets.Type.systemBars())
+                view.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+            }
             insets
         }
         root = FrameLayout(this)
@@ -56,12 +60,17 @@ class MainActivity : Activity() {
         CookieManager.getInstance().setAcceptCookie(true)
         CookieManager.getInstance().setAcceptThirdPartyCookies(this, false)
         webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-                return route(view, request.url.toString())
-            }
+            override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean =
+                route(view, request.url.toString())
+
             override fun onReceivedError(view: WebView, request: WebResourceRequest, error: WebResourceError) {
                 if (request.isForMainFrame) showOffline()
             }
+
+            override fun onReceivedSslError(view: WebView, handler: SslErrorHandler, error: SslError) {
+                handler.cancel()
+            }
+
             override fun onSafeBrowsingHit(view: WebView, request: WebResourceRequest, threatType: Int, callback: SafeBrowsingResponse) {
                 callback.backToSafety(true)
             }
@@ -71,13 +80,14 @@ class MainActivity : Activity() {
                 fileCallback?.onReceiveValue(null)
                 fileCallback = callback
                 return try {
-                    startActivityForResult(params.createIntent().apply { action = Intent.ACTION_OPEN_DOCUMENT }, chooserRequest)
+                    startActivityForResult(params.createIntent(), chooserRequest)
                     true
                 } catch (_: Exception) {
                     fileCallback = null
                     false
                 }
             }
+
             override fun onCreateWindow(view: WebView, isDialog: Boolean, isUserGesture: Boolean, resultMsg: android.os.Message): Boolean {
                 if (!isUserGesture || popup != null) return false
                 val child = makeWebView()
@@ -87,14 +97,17 @@ class MainActivity : Activity() {
                 resultMsg.sendToTarget()
                 return true
             }
+
             override fun onCloseWindow(window: WebView) { closePopup() }
-            override fun onShowCustomView(view: View, callback: CustomViewCallback) {
+
+            override fun onShowCustomView(view: android.view.View, callback: CustomViewCallback) {
                 if (fullscreen != null) { callback.onCustomViewHidden(); return }
                 fullscreen = view
                 originalSystemUi = window.decorView.systemUiVisibility
                 root.addView(view, FrameLayout.LayoutParams(-1, -1))
                 window.decorView.systemUiVisibility = 5894 or 1024 or 512
             }
+
             override fun onHideCustomView() {
                 fullscreen?.let { root.removeView(it) }
                 fullscreen = null
@@ -103,11 +116,15 @@ class MainActivity : Activity() {
         }
         setDownloadListener { url, _, disposition, mime, _ ->
             if (url.startsWith("https://", true)) runCatching {
+                val name = URLUtil.guessFileName(url, disposition, mime)
+                    .replace(Regex("[\\\\/\\p{Cntrl}]"), "_")
+                    .take(120)
+                    .ifBlank { "ayda-download" }
                 val request = DownloadManager.Request(Uri.parse(url))
                     .setMimeType(mime)
-                    .setTitle(disposition.substringAfter("filename=", "download"))
+                    .setTitle(name)
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, disposition.substringAfter("filename=", "ayda-download"))
+                    .setDestinationInExternalFilesDir(this@MainActivity, Environment.DIRECTORY_DOWNLOADS, name)
                 (getSystemService(DOWNLOAD_SERVICE) as DownloadManager).enqueue(request)
                 Toast.makeText(this@MainActivity, "İndirme başladı", Toast.LENGTH_SHORT).show()
             }.onFailure { Toast.makeText(this@MainActivity, "İndirme başlatılamadı", Toast.LENGTH_SHORT).show() }
@@ -123,6 +140,7 @@ class MainActivity : Activity() {
         }
         if (raw.startsWith("https://", true)) {
             runCatching { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(raw))) }
+                .onFailure { Toast.makeText(this, "Bağlantı açılamadı", Toast.LENGTH_SHORT).show() }
             return true
         }
         Toast.makeText(this, "Güvenli olmayan bağlantı engellendi", Toast.LENGTH_SHORT).show()
@@ -132,10 +150,9 @@ class MainActivity : Activity() {
     private fun showOffline() {
         if (!::root.isInitialized) return
         val page = TextView(this).apply {
-            text = "Bağlantı kurulamadı\n\nYeniden dene"
+            text = "Bağlantı kurulamadı\n\nTekrar dene"
             textSize = 20f
             gravity = android.view.Gravity.CENTER
-            setOnClickListener { web.reload() }
         }
         root.removeView(web)
         root.addView(page, FrameLayout.LayoutParams(-1, -1))
@@ -151,6 +168,7 @@ class MainActivity : Activity() {
         popup = null
     }
 
+    @Deprecated("Deprecated in Android API")
     override fun onBackPressed() {
         val top = popup ?: web
         if (top.canGoBack()) top.goBack()
@@ -162,8 +180,7 @@ class MainActivity : Activity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == chooserRequest) {
-            val result = if (resultCode == RESULT_OK) data?.data?.let { arrayOf(it) } else null
-            fileCallback?.onReceiveValue(result)
+            fileCallback?.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, data))
             fileCallback = null
         }
     }

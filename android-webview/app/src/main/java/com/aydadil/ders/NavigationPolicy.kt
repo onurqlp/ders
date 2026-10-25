@@ -9,8 +9,9 @@ internal object NavigationPolicy {
     fun isAllowed(raw: String, preview: Boolean): Boolean {
         val uri = runCatching { URI(raw) }.getOrNull() ?: return false
         if (!uri.scheme.equals("https", true) || uri.rawUserInfo != null || (uri.port != -1 && uri.port != 443)) return false
+        if (preview && raw == PREVIEW) return true
+
         val host = uri.host?.lowercase() ?: return false
-        if (preview) return raw == PREVIEW
         return when (host) {
             "ders.aydadil.com" -> uri.path.isNullOrEmpty() || uri.path == "/"
             "www.aydadil.com" -> coursePaths.any { uri.path.orEmpty().startsWith(it) }
