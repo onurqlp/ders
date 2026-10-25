@@ -7,7 +7,9 @@ A small Android shell for the AYDA Ders portal. It loads the existing website an
 - Preview: `./gradlew :app:assemblePreviewDebug` loads the pinned Phase 2 GitHub HTML preview. The package ID ends in `.preview` and the app is labeled **AYDA Ders Test**.
 - Production configuration: `./gradlew :app:assembleProductionDebug` loads `https://ders.aydadil.com/`. This is a debug build configuration only; it does not publish or sign a store release.
 
-Install the preview APK from the GitHub Actions artifact `ayda-ders-preview-debug`. The workflow runs unit tests and launches the APK in Android emulators on API 33, 34, 35, and 36.
+The GitHub Actions workflow runs unit tests and builds the preview APK. It runs the Android API 33–36 emulator smoke matrix only when the runner has KVM hardware acceleration. The current hosted Ubuntu runner does not provide `/dev/kvm`, so emulator launch is reported as unavailable rather than as a passing test.
+
+Install the preview APK from the GitHub Actions artifact `ayda-ders-preview-debug`.
 
 ## Navigation and permissions
 

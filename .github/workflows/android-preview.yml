@@ -32,8 +32,24 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+  emulator-capability:
+    runs-on: ubuntu-latest
+    outputs:
+      available: ${{ steps.kvm.outputs.available }}
+    steps:
+      - id: kvm
+        name: Check emulator hardware acceleration
+        run: |
+          if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Android emulator smoke matrix unavailable: this runner has no usable /dev/kvm."
+          fi
+
   emulator-smoke:
-    needs: build-preview
+    needs: [build-preview, emulator-capability]
+    if: needs.emulator-capability.outputs.available == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     strategy:
@@ -91,3 +107,11 @@ jobs:
             adb logcat -d -t 4000
             exit 1
           fi
+
+  emulator-unavailable:
+    needs: emulator-capability
+    if: needs.emulator-capability.outputs.available != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report emulator limitation
+        run: echo "Emulator launch test skipped because the hosted runner lacks /dev/kvm; use an Android device or a KVM-enabled runner for this check."
