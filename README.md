@@ -8,7 +8,7 @@
 ## Güncel çalışma biçimi (20 Ekim 2026)
 
 - Ana ekranda seviyeler şifre olmadan görülebilir; ilgili öğrenme kaynaklarına geçmek için AYDA merkezi sınıf kodu kullanılır.
-- A1, A2, B1 öğrenme platformları ayrı WordPress/GitHub kaynaklarında çalışır. B2 ve C1 için portalda bağımsız bir ders modülü olmadığı için sınav hazırlığına yönlendirilir.
+- A1, A2, B1 öğrenme platformları ayrı WordPress/GitHub kaynaklarında çalışır. B2 ve C1 için kurs materyali sayfaları (www.aydadil.com/b2ayda/ ve /c1ayda/) bağlıdır.
 - AYDA kodlarının denetimi şu anda `onurqlp/ayda-pass` içindeki **istemci tarafı JavaScript ve JSON** üzerinden yapılır. Bu sistem sunucu tarafından doğrulanan güvenli bir SSO değildir.
 - `ders.aydadil.com`, `www.aydadil.com` ve `onurqlp.github.io` farklı kökenlerdir. Tarayıcı `localStorage` oturumları bunlar arasında otomatik paylaşılmaz; bir sitede girişin yapılması diğer sitede yeniden doğrulama istenmeyeceğini **garanti etmez**.
 - Portalda daha önceden kaydedilmiş AYDA kodu bulunuyorsa seviyeye geçişte `aydaAutoLogin()` ile süresi ve etkinliği yeniden kontrol edilir. Kod açıkça şifre listesi içinde doğrulanmadan oturum açılmış kabul edilmez.
